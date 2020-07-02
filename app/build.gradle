@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.mongleandroid"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    // 리사이클러뷰를 다루기 위한 라이브러리
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    // material 디자인 라이브러리
+    implementation "com.google.android.material:material:1.2.0-alpha05"
+    // 이미지 url 로딩 라이브러리
+    implementation "com.github.bumptech.glide:glide:4.10.0"
+    // 동그란 이미지 커스텀 뷰 라이브러리
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    // Retrofit 라이브러리
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    // Retrofit 라이브러리 응답으로 가짜 객체를 만들기 위해
+    implementation 'com.squareup.retrofit2:retrofit-mock:2.6.2'
+    // 객체 시리얼라이즈를 위한 Gson 라이브러리
+    implementation 'com.google.code.gson:gson:2.8.6'
+    // Retrofit 에서 Gson 을 사용하기 위한 라이브러리
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+}
