@@ -17,3 +17,5 @@
 `implementation 'com.google.code.gson:gson:2.8.6'`
 * Retrofit 에서 Gson 을 사용하기 위한 라이브러리  
 `implementation 'com.squareup.retrofit2:converter-gson:2.6.2'`
+
+### :cloud: 프로젝트 구조
