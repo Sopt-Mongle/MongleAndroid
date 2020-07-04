@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:padding="10dp"
+    android:background="@drawable/curator_shape">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_profile_item"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_margin="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/item_username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="13dp"
+        android:text="사용자 이름"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/img_profile_item"
+        />
+
+    <ImageView
+        android:id="@+id/item_img_online"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/item_username"
+        app:layout_constraintBottom_toTopOf="@id/item_username"
+        />
+
+    <TextView
+        android:id="@+id/item_contents"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="djaldjfaldfkjalkdjfla;kjfdjfal;fjkdalskfjalsksfssfsfsfsfsfsdfs"
+        android:maxLines="2"
+        android:layout_marginTop="5dp"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintTop_toBottomOf="@id/item_username"
+        app:layout_constraintLeft_toLeftOf="@id/item_username"
+        app:layout_constraintRight_toLeftOf="@id/btn_subscribe_item"
+        app:layout_constraintBottom_toTopOf="@id/item_linear"
+        />
+
+    <ImageButton
+        android:id="@+id/btn_subscribe_item"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/item_contents"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="10dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/item_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f0f000"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/item_contents"
+        app:layout_constraintLeft_toLeftOf="@id/img_profile_item"
+        android:paddingHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/hashtag_curator"
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:background="@color/black"
+            android:src="@drawable/ic_launcher_background"/>
+
+        <ImageView
+            android:id="@+id/hashtag2_curator"
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:background="@color/black"
+            android:src="@drawable/ic_launcher_background" />
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
