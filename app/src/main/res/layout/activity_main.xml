@@ -22,6 +22,7 @@
         android:id="@+id/main_activity_CL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/curator_box_navigation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         >
@@ -29,13 +30,12 @@
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/main_activity_BAB"
+            style="@style/Widget.MaterialComponents.BottomAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            app:backgroundTint="#C8CACC"
-            app:fabAlignmentMode="center"
-            style="@style/Widget.MaterialComponents.BottomAppBar"
-            />
+            app:backgroundTint="@color/white"
+            app:fabAlignmentMode="center" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -43,47 +43,50 @@
         android:id="@+id/main_activity_FAB_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:backgroundTint="#4a7729"
-        app:borderWidth="0dp"
-        app:fabSize="auto"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#73c088"
         android:src="@drawable/ic_add"
+        app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:maxImageSize="35dp"
+        app:tint="@color/white" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/main_activity_FAB_st"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/main_activity_FAB_main"
+        android:background="@drawable/fab_sub"
+        android:backgroundTint="@color/white"
         android:gravity="center"
+        android:text="문장 만들기"
+        android:textSize="14sp"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_above="@+id/main_activity_FAB_main"
-        android:text="문장 만들기"
-        android:textSize="12dp"
-        android:background="@drawable/fab_sub"
-        android:backgroundTint="@color/white"
-        app:borderWidth="0dp"
-        app:fabSize="mini"  />
+        app:layout_constraintTop_toTopOf="@+id/main_activity_FAB_main" />
 
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/main_activity_FAB_tm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/main_activity_FAB_main"
+        android:background="@drawable/fab_sub"
+        android:backgroundTint="@color/white"
         android:gravity="center"
+        android:text="테마 만들기"
+        android:textSize="14sp"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_above="@+id/main_activity_FAB_main"
-        android:text="테마 만들기"
-        android:textSize="12dp"
-        android:background="@drawable/fab_sub"
-        android:backgroundTint="@color/white"
-        app:borderWidth="0dp"
-        app:fabSize="mini"  />
+        app:layout_constraintTop_toTopOf="@+id/main_activity_FAB_main" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
