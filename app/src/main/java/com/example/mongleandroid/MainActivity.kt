@@ -1,7 +1,5 @@
 package com.example.mongleandroid
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.os.Bundle
@@ -10,6 +8,9 @@ import android.view.View.VISIBLE
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -27,12 +28,34 @@ class MainActivity : AppCompatActivity() {
         fab_open = AnimationUtils.loadAnimation(this, R.anim.fab_open);
         fab_close = AnimationUtils.loadAnimation(this, R.anim.fab_close);
 
-        main_activity_BAB.bringToFront()
+        main_activity_bnv.bringToFront()
         main_activity_FAB_main.bringToFront()
+
 
         main_activity_FAB_main.setOnClickListener {
             toggleFab()
         }
+
+
+//        val fm: FragmentManager = supportFragmentManager
+//        val fragmentTransaction: FragmentTransaction = fm.beginTransaction()
+//        fragmentTransaction.add(R.id.main_activity_fg, MainFragment())
+//
+//
+//
+//
+//        main_activity_bnv.setOnNavigationItemSelectedListener {
+//            when(it.itemId){
+//                R.id.menu_main -> 0
+//                R.id.menu_search -> 1
+//                R.id.menu_curator -> 2
+//                R.id.menu_mypage -> 3
+//            }
+//            true
+//        }
+//
+
+
 
     }
 
@@ -58,4 +81,8 @@ class MainActivity : AppCompatActivity() {
 
         isFabOpen = !isFabOpen
     }
+
+
+
+
 }

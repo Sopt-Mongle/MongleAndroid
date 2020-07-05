@@ -12,7 +12,7 @@
         android:layout_height="30dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="8dp"
-        android:src="@color/colorAccent"
+        android:src="@color/brownGrey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView" />
 
