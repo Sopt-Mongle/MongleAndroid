@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchFragment">
+
+    <ImageView
+        android:id="@+id/search_fragment_btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/search_btn_back"
+        app:layout_constraintEnd_toStartOf="@+id/search_fragment_et_search"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/search_fragment_et_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/search_img_searchbar"
+        android:ems="10"
+        android:hint="책 제목을 검색해주세요"
+        android:inputType="textPersonName"
+        android:paddingLeft="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/search_fragment_btn_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/search_fragment_btn_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/search_btn_search"
+        app:layout_constraintBottom_toBottomOf="@+id/search_fragment_et_search"
+        app:layout_constraintEnd_toEndOf="@+id/search_fragment_et_search"
+        app:layout_constraintTop_toTopOf="@+id/search_fragment_et_search" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="8sp"
+        android:layout_marginTop="18dp"
+        android:text="최근 키워드"
+        app:layout_constraintStart_toStartOf="@+id/search_fragment_btn_back"
+        app:layout_constraintTop_toBottomOf="@+id/search_fragment_et_search" />
+
+    <ImageView
+        android:id="@+id/search_fragment_btn_recent_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/search_btn_deleteall"
+        app:layout_constraintEnd_toEndOf="@+id/search_fragment_et_search"
+        app:layout_constraintTop_toBottomOf="@+id/search_fragment_et_search" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_recent_keyword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="@+id/search_fragment_btn_recent_delete"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        tools:listitem="@layout/item_recent_keyword" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="8sp"
+        android:text="추천 키워드"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/rv_recent_keyword" />
+
+    <TextView
+        android:id="@+id/tv_recommend_keyword1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:background="@drawable/search_recommend_keyword"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="8sp"
+        android:text="TextView"
+        android:textColor="#69af7c"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/tv_recommend_keyword2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/search_recommend_keyword"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="8sp"
+        android:text="TextView"
+        android:textColor="#69af7c"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_recommend_keyword1"
+        app:layout_constraintTop_toTopOf="@+id/tv_recommend_keyword1" />
+
+    <TextView
+        android:id="@+id/tv_recommend_keyword3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/search_recommend_keyword"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="8sp"
+        android:text="TextView"
+        android:textColor="#69af7c"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_recommend_keyword2"
+        app:layout_constraintTop_toTopOf="@+id/tv_recommend_keyword1" />
+
+    <TextView
+        android:id="@+id/tv_recommend_keyword4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/search_recommend_keyword"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="8sp"
+        android:text="TextView"
+        android:textColor="#69af7c"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/tv_recommend_keyword1" />
+
+    <TextView
+        android:id="@+id/tv_recommend_keyword5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/search_recommend_keyword"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="8sp"
+        android:text="TextView"
+        android:textColor="#69af7c"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_recommend_keyword4"
+        app:layout_constraintTop_toTopOf="@+id/tv_recommend_keyword4" />
+
+    <TextView
+        android:id="@+id/tv_recommend_keyword6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/search_recommend_keyword"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="8sp"
+        android:text="TextView"
+        android:textColor="#69af7c"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_recommend_keyword5"
+        app:layout_constraintTop_toTopOf="@+id/tv_recommend_keyword4" />
+
+    <TextView
+        android:id="@+id/tv_no_keyword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="최근 키워드가 없습니다."
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
