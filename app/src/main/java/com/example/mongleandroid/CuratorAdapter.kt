@@ -17,7 +17,6 @@ class CuratorAdapter(private val context : Context) : RecyclerView.Adapter<Curat
     }
 
     override fun getItemCount(): Int {
-
         return datas.size
 
     }
