@@ -1,4 +1,4 @@
-package com.example.mongleandroid
+package com.example.mongleandroid.fragment
 
 import android.animation.ObjectAnimator
 import android.graphics.Color
@@ -8,9 +8,7 @@ import android.view.View.VISIBLE
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.get
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+import com.example.mongleandroid.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -20,13 +18,26 @@ class MainActivity : AppCompatActivity() {
     lateinit var fab_open: Animation
     lateinit var fab_close: Animation
 
+
+    //fragment 처리 객체
+    lateinit var mainFragment: MainFragment
+    lateinit var searchFragment: SearchFragment
+    lateinit var curatorFragment: CuratorFragment
+    lateinit var mypageFragment: MypageFragment
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         main_activity_FAB_st.visibility = GONE
         main_activity_FAB_tm.visibility = GONE
-        fab_open = AnimationUtils.loadAnimation(this, R.anim.fab_open);
-        fab_close = AnimationUtils.loadAnimation(this, R.anim.fab_close);
+        fab_open = AnimationUtils.loadAnimation(this,
+            R.anim.fab_open
+        );
+        fab_close = AnimationUtils.loadAnimation(this,
+            R.anim.fab_close
+        );
 
         main_activity_bnv.bringToFront()
         main_activity_FAB_main.bringToFront()
@@ -37,24 +48,24 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-//        val fm: FragmentManager = supportFragmentManager
-//        val fragmentTransaction: FragmentTransaction = fm.beginTransaction()
-//        fragmentTransaction.add(R.id.main_activity_fg, MainFragment())
-//
-//
-//
-//
-//        main_activity_bnv.setOnNavigationItemSelectedListener {
-//            when(it.itemId){
-//                R.id.menu_main -> 0
-//                R.id.menu_search -> 1
-//                R.id.menu_curator -> 2
-//                R.id.menu_mypage -> 3
-//            }
-//            true
-//        }
-//
 
+        //fragment 객체 초기화
+        mainFragment = MainFragment()
+        searchFragment = SearchFragment()
+        curatorFragment = CuratorFragment()
+        mypageFragment = MypageFragment()
+
+
+        main_activity_bnv.setOnNavigationItemSelectedListener{
+            when(it.itemId){
+                R.id.menu_main -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, mainFragment).commit()
+                R.id.menu_search -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, searchFragment).commit()
+                R.id.menu_curator -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, curatorFragment).commit()
+                R.id.menu_mypage -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, mypageFragment).commit()
+            }
+            true
+        }
+        
 
 
     }

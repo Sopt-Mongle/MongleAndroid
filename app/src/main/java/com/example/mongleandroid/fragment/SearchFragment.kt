@@ -1,4 +1,4 @@
-package com.example.mongleandroid
+package com.example.mongleandroid.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,16 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.view.WindowManager
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_post_theme.view.*
+import com.example.mongleandroid.R
+import com.example.mongleandroid.SearchRecentAdapter
+import com.example.mongleandroid.SearchRecentData
 import kotlinx.android.synthetic.main.fragment_search.*
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SearchFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 
 class SearchFragment : Fragment() {
 
@@ -32,7 +27,8 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        searchRecentAdapter = SearchRecentAdapter(view.context)
+        searchRecentAdapter =
+            SearchRecentAdapter(view.context)
         rv_recent_keyword.adapter = searchRecentAdapter
         LoadRecentKeyword()
         setRecommendKeyword()
