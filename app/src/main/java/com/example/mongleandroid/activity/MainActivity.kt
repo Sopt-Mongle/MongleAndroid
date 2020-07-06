@@ -14,6 +14,7 @@ import com.example.mongleandroid.fragment.MainFragment
 import com.example.mongleandroid.fragment.MypageFragment
 import com.example.mongleandroid.fragment.SearchFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_search.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -59,11 +60,16 @@ class MainActivity : AppCompatActivity() {
         curatorFragment = CuratorFragment()
         mypageFragment = MypageFragment()
 
+        supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, mainFragment).commit()
 
         main_activity_bnv.setOnNavigationItemSelectedListener{
             when(it.itemId){
                 R.id.menu_main -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, mainFragment).commit()
-                R.id.menu_search -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, searchFragment).commit()
+                R.id.menu_search ->
+                {
+                    supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, searchFragment).commit()
+                    //search_fragment_et_search.requestFocus()
+                }
                 R.id.menu_curator -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, curatorFragment).commit()
                 R.id.menu_mypage -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, mypageFragment).commit()
             }

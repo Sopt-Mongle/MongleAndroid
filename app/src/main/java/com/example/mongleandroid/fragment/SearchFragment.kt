@@ -22,13 +22,15 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_search, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         search_fragment_et_search.requestFocus()
+
+
 
         searchRecentAdapter = SearchRecentAdapter(view.context)
         rv_recent_keyword.adapter = searchRecentAdapter
