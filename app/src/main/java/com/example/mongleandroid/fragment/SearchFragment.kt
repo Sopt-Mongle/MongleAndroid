@@ -27,18 +27,19 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        searchRecentAdapter =
-            SearchRecentAdapter(view.context)
+
+        search_fragment_et_search.requestFocus()
+
+        searchRecentAdapter = SearchRecentAdapter(view.context)
         rv_recent_keyword.adapter = searchRecentAdapter
-        LoadRecentKeyword()
-        setRecommendKeyword()
+        LoadRecentKeyword() // 최근 키워드
+        setRecommendKeyword() // 추천 키워드
         search_fragment_btn_recent_delete.setOnClickListener {
             searchRecentAdapter.datas.clear()
             searchRecentAdapter.notifyDataSetChanged()
             tv_no_keyword.visibility = VISIBLE
+        } // 최근 키워드 전체 삭제
 
-
-        }
     }
 
     private fun setRecommendKeyword(){
@@ -67,7 +68,16 @@ class SearchFragment : Fragment() {
                     tv_recent_keyword = "넣어두자"
                 )
             )
-
+            add(
+                SearchRecentData(
+                    tv_recent_keyword = "다섯개만"
+                )
+            )
+            add(
+                SearchRecentData(
+                    tv_recent_keyword = "넣는다"
+                )
+            )
             searchRecentAdapter.datas = searchRecentDatas
             searchRecentAdapter.notifyDataSetChanged()
         }
