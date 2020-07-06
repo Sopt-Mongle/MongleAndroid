@@ -1,4 +1,4 @@
-package com.example.mongleandroid.fragment
+package com.example.mongleandroid.activity
 
 import android.animation.ObjectAnimator
 import android.graphics.Color
@@ -9,6 +9,10 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mongleandroid.R
+import com.example.mongleandroid.fragment.CuratorFragment
+import com.example.mongleandroid.fragment.MainFragment
+import com.example.mongleandroid.fragment.MypageFragment
+import com.example.mongleandroid.fragment.SearchFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -65,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-        
+
 
 
     }
