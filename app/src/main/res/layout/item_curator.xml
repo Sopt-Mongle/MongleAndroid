@@ -95,7 +95,7 @@
         android:layout_width="62dp"
         android:layout_height="29dp"
         android:layout_marginRight="16dp"
-        android:background="73c088"
+        android:background="#73c088"
         android:text="구독"
         android:textSize="10dp"
         android:gravity="center"
