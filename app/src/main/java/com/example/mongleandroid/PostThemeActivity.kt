@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import com.example.mongleandroid.R
 import kotlinx.android.synthetic.main.activity_post_theme.*
 
 class PostThemeActivity : AppCompatActivity() {

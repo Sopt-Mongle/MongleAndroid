@@ -14,7 +14,7 @@
         </activity>
         <activity android:name=".PostThemeActivity" />
         <activity android:name=".WritingSentenceActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".fragment.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
