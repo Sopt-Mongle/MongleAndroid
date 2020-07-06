@@ -1,4 +1,4 @@
-package com.example.mongleandroid
+package com.example.mongleandroid.network.data
 
 data class CuratorData(
     val img_profile_item: Int,

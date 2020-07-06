@@ -1,10 +1,12 @@
-package com.example.mongleandroid
+package com.example.mongleandroid.adapter.viewholder
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.mongleandroid.R
+import com.example.mongleandroid.network.data.CuratorData
 
 class CuratorViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
     val img_profile_item = itemView.findViewById<ImageView>(R.id.img_profile_item)

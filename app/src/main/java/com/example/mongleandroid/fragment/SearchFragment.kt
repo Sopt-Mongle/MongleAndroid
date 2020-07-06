@@ -7,8 +7,8 @@ import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import com.example.mongleandroid.R
-import com.example.mongleandroid.SearchRecentAdapter
-import com.example.mongleandroid.SearchRecentData
+import com.example.mongleandroid.adapter.SearchRecentAdapter
+import com.example.mongleandroid.network.data.SearchRecentData
 import kotlinx.android.synthetic.main.fragment_search.*
 
 

@@ -1,9 +1,12 @@
-package com.example.mongleandroid
+package com.example.mongleandroid.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mongleandroid.R
+import com.example.mongleandroid.adapter.CuratorAdapter
+import com.example.mongleandroid.network.data.CuratorData
 
 class CuratorActivity : AppCompatActivity() {
 
@@ -13,7 +16,7 @@ class CuratorActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.curator_activity)
+        setContentView(R.layout.activity_curator)
 
         initCuratorRecyclerView()
     }

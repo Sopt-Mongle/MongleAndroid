@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan">
-        <activity android:name=".CuratorActivity">
+        <activity android:name=".activity.CuratorActivity">
         </activity>
-        <activity android:name=".PostThemeActivity" />
-        <activity android:name=".WritingSentenceActivity" />
-        <activity android:name=".fragment.MainActivity">
+        <activity android:name=".activity.PostThemeActivity" />
+        <activity android:name=".activity.WritingSentenceActivity" />
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
