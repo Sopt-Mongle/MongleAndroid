@@ -36,7 +36,7 @@ class SearchFragment : Fragment() {
         rv_recent_keyword.adapter = searchRecentAdapter
         LoadRecentKeyword() // 최근 키워드
         setRecommendKeyword() // 추천 키워드
-        search_fragment_btn_recent_delete.setOnClickListener {
+        search_fragment_tv_delete.setOnClickListener {
             searchRecentAdapter.datas.clear()
             searchRecentAdapter.notifyDataSetChanged()
             tv_no_keyword.visibility = VISIBLE
@@ -50,7 +50,7 @@ class SearchFragment : Fragment() {
         tv_recommend_keyword3.text = "넣어보자"
         tv_recommend_keyword4.text = "몽글몽글"
         tv_recommend_keyword5.text = "가나다라"
-        tv_recommend_keyword6.text = "마바사"
+        tv_recommend_keyword6.text = "마바사아아아아아아ㅏ아아아아아악"
     }
 
     private fun LoadRecentKeyword() {
