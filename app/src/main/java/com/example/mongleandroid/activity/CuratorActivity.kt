@@ -19,6 +19,7 @@ class CuratorActivity : AppCompatActivity() {
         setContentView(R.layout.activity_curator)
 
         initCuratorRecyclerView()
+
     }
 
 
@@ -29,59 +30,63 @@ class CuratorActivity : AppCompatActivity() {
         rvCuratorClass.adapter = rvCuratorAdapter
         rvCuratorClass.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
+
         rvCuratorAdapter.datas = listOf(
             CuratorData(
-                img_profile_item = R.drawable.ic_launcher_foreground,
-                item_username = "소민이",
-                item_contents = "안녕 나는 뿌까라고 해 만나서 반가워 나는 웃는 게 예쁜 사람이야",
-                item_img_online = R.drawable.ic_launcher_foreground,
-                btn_subscribe_item = R.drawable.ic_launcher_foreground,
-                hashtag_curator = R.drawable.ic_launcher_foreground,
-                hashtag2_curator = R.drawable.ic_launcher_foreground
+                img_profile_item = R.drawable.curator_img_ys,
+                item_username = "예슬이",
+                item_keyword1 = "몽글피엠",
+                item_keyword2 = "귀염둥이",
+                item_img_online = R.drawable.curator_state_update_circle
+            ),
+            CuratorData(
+                img_profile_item = R.drawable.curator_img_ys,
+                item_username = "래리",
+                item_keyword1 = "회고꾼",
+                item_keyword2 = "오늘의 몽글",
+                item_img_online = null
+            ),
+            CuratorData(
+                img_profile_item = R.drawable.curator_img_ys,
+                item_username = "봄",
+                item_keyword1 = "대학내일",
+                item_keyword2 = "몽그리",
+                item_img_online = null
 
             ),
             CuratorData(
-                img_profile_item = R.drawable.ic_launcher_foreground,
-                item_username = "소민이",
-                item_contents = "안녕 나는 뿌까라고 해 만나서 반가워 나는 웃는 게 예쁜 사람이야",
-                item_img_online = R.drawable.ic_launcher_foreground,
-                btn_subscribe_item = R.drawable.ic_launcher_foreground,
-                hashtag_curator = R.drawable.ic_launcher_foreground,
-                hashtag2_curator = R.drawable.ic_launcher_foreground
+                img_profile_item = R.drawable.curator_img_ys,
+                item_username = "홍대",
+                item_keyword1 = "디자정인",
+                item_keyword2 = "몽글맘",
+                item_img_online = R.drawable.curator_state_update_circle
 
             ),
             CuratorData(
-                img_profile_item = R.drawable.ic_launcher_foreground,
-                item_username = "소민이",
-                item_contents = "안녕 나는 뿌까라고 해 만나서 반가워 나는 웃는 게 예쁜 사람이야",
-                item_img_online = R.drawable.ic_launcher_foreground,
-                btn_subscribe_item = R.drawable.ic_launcher_foreground,
-                hashtag_curator = R.drawable.ic_launcher_foreground,
-                hashtag2_curator = R.drawable.ic_launcher_foreground
+                img_profile_item = R.drawable.curator_img_ys,
+                item_username = "몽그리",
+                item_keyword1 = "댕그리",
+                item_keyword2 = "그리그리",
+                item_img_online = null
 
             ),
             CuratorData(
-                img_profile_item = R.drawable.ic_launcher_foreground,
-                item_username = "소민이",
-                item_contents = "안녕 나는 뿌까라고 해 만나서 반가워 나는 웃는 게 예쁜 사람이야",
-                item_img_online = R.drawable.ic_launcher_foreground,
-                btn_subscribe_item = R.drawable.ic_launcher_foreground,
-                hashtag_curator = R.drawable.ic_launcher_foreground,
-                hashtag2_curator = R.drawable.ic_launcher_foreground
+                img_profile_item = R.drawable.curator_img_ys,
+                item_username = "몽그리",
+                item_keyword1 = "댕그리",
+                item_keyword2 = "그리그리",
+                item_img_online = null
 
             ),
             CuratorData(
-                img_profile_item = R.drawable.ic_launcher_foreground,
-                item_username = "소민이",
-                item_contents = "안녕 나는 뿌까라고 해 만나서 반가워 나는 웃는 게 예쁜 사람이야",
-                item_img_online = R.drawable.ic_launcher_foreground,
-                btn_subscribe_item = R.drawable.ic_launcher_foreground,
-                hashtag_curator = R.drawable.ic_launcher_foreground,
-                hashtag2_curator = R.drawable.ic_launcher_foreground
+                img_profile_item = R.drawable.curator_img_ys,
+                item_username = "몽그리",
+                item_keyword1 = "댕그리",
+                item_keyword2 = "그리그리",
+                item_img_online = null
 
             )
         ).toMutableList()
         rvCuratorAdapter.notifyDataSetChanged()
     }
 }
-
