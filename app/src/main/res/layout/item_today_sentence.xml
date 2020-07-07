@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/img_today_sentence_back"
+        android:layout_width="328dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="32dp"
+        android:src="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_today_sentence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="#ffffff"
+        android:text="결국 봄이 언제나 찾아왔지만 봄을 생각하면 마음이 섬찟해진다. "
+        app:layout_constraintEnd_toEndOf="@+id/img_today_sentence_back"
+        app:layout_constraintStart_toStartOf="@+id/img_today_sentence_back"
+        app:layout_constraintTop_toTopOf="@+id/img_today_sentence_back" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
