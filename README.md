@@ -242,7 +242,7 @@ private fun EditText.showKeyboard() {
 
 ## :bulb: 검색 뷰 최근 검색어 - RecyclerView
 - 가로 양 쪽으로 패딩값을 준 뒤 clipToPadding="false" 라는 속성값을 이용하여 패딩공간을 스크롤 영역으로 활용
-- 검색어를 입력하는 경우 가장 최근 검색어를 맨 앞에 배치하기 위헤 stackFromEnd="true"와 reverseLayout="true" 옵션을 사용하여 리사이클러뷰를 역순으로 출력한다.
+- 검색어를 입력하는 경우 가장 최근 검색어를 맨 앞에 배치하기 위해 stackFromEnd="true"와 reverseLayout="true" 옵션을 사용하여 리사이클러뷰를 역순으로 출력
 ```
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/rv_recent_keyword"
