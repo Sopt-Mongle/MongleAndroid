@@ -17,5 +17,7 @@
 `implementation 'com.google.code.gson:gson:2.8.6'`
 * Retrofit 에서 Gson 을 사용하기 위한 라이브러리  
 `implementation 'com.squareup.retrofit2:converter-gson:2.6.2'`
-
+* 추천 키워드 flowlayout  
+`implementation 'com.nex3z:flow-layout:1.2.4'`
+  
 ### :cloud: 프로젝트 구조
