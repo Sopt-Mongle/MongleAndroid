@@ -184,6 +184,20 @@ fab_close = AnimationUtils.loadAnimation(this, R.anim.fab_close)
 - 워크 플로우에 따라서 fragment와 activity 생명주기 설계하여 적용하기 - mainActivity와 4개의 fragment들, 2개의 activity flow
 - 특정 fragment에 진입 했을 때, 시스템이 관여하는 동작을 어떻게 구현할지 설계하여, searchfragment 진입 시에 키보드가 자동으로 올라오게 하기 - mainActivity, searchfragment, xml, manifest
 
+## 검색 뷰(SearchFragment) 레이아웃 - ConstraintLayout 사용
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.SearchFragment">
+...
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
 ## 검색 뷰 - Edittext에 초점 맞추기, 키보드 자동으로 올라오게 구현
 키보드를 제어할 때는 InputMethodManager를 이용한다.  
 - showSoftInput(View view, int flags): 키보드 보임
@@ -221,20 +235,6 @@ private fun EditText.showKeyboard() {
         setSelection(text.length)
     }
 }
-```
-
-## 검색 뷰 레이아웃 - ConstraintLayout 사용
-```
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ConstraintLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.SearchFragment">
-...
-</androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
 ## 검색 뷰 추천 검색어 - FlowLayout
