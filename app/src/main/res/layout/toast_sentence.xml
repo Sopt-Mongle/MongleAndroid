@@ -5,19 +5,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_recent_keyword"
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:background="@drawable/search_recent_keyword"
-        android:letterSpacing="-0.02"
-        android:lineSpacingExtra="8sp"
-        android:text="몽글몽"
-        android:textColor="#73c088"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/main_toast_sentence" />
 </androidx.constraintlayout.widget.ConstraintLayout>
