@@ -19,6 +19,13 @@ class MainFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
+        vp_main.adapter = MainPagerAdapter(childFragmentManager)
+        vp_main.offscreenPageLimit = 2
+        tl_main.setupWithViewPager(vp_main)
+
+    }
 
 }
