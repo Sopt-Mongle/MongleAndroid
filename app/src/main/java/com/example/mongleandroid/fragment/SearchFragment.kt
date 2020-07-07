@@ -1,11 +1,15 @@
 package com.example.mongleandroid.fragment
 
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT
+import android.widget.EditText
+import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.SearchRecentAdapter
 import com.example.mongleandroid.network.data.SearchRecentData
@@ -22,26 +26,35 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         return inflater.inflate(R.layout.fragment_search, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // 검색창에 초점 맞추고, 키보드 올리는 부분
         search_fragment_et_search.requestFocus()
+        search_fragment_et_search.showKeyboard()
 
+        search_fragment_btn_search.setOnClickListener {
+            LoadRecentKeyword()
+        }
 
-
-        searchRecentAdapter = SearchRecentAdapter(view.context)
-        rv_recent_keyword.adapter = searchRecentAdapter
-        LoadRecentKeyword() // 최근 키워드
-        setRecommendKeyword() // 추천 키워드
+        setRecommendKeyword()
         search_fragment_tv_delete.setOnClickListener {
             searchRecentAdapter.datas.clear()
             searchRecentAdapter.notifyDataSetChanged()
             tv_no_keyword.visibility = VISIBLE
         } // 최근 키워드 전체 삭제
+    }
 
+    private fun EditText.showKeyboard() {
+        if (requestFocus()) {
+            // edittext에 초점이 맞춰지면 키보드 올라옴
+            (getActivity()?.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager)
+                .showSoftInput(this, SHOW_IMPLICIT)
+            setSelection(text.length)
+        }
     }
 
     private fun setRecommendKeyword(){
@@ -54,10 +67,13 @@ class SearchFragment : Fragment() {
     }
 
     private fun LoadRecentKeyword() {
+        searchRecentAdapter = SearchRecentAdapter(view!!.context)
+        rv_recent_keyword.adapter = searchRecentAdapter
+
         searchRecentDatas.apply {
             add(
                 SearchRecentData(
-                    tv_recent_keyword = "일단"
+                    tv_recent_keyword = "일단은"
                 )
             )
             add(
