@@ -11,12 +11,15 @@
 - 객체 시리얼라이즈를 위한 Gson 라이브러리 `implementation 'com.google.code.gson:gson:2.8.6'`
 - Retrofit 에서 Gson 을 사용하기 위한 라이브러리 `implementation 'com.squareup.retrofit2:converter-gson:2.6.2'`
 - 추천 키워드 flowlayout `implementation 'com.nex3z:flow-layout:1.2.4'`
+<br>
 
 # ☁️프로젝트 구조
+**update soon**
+<br>
 
 # ☁️주요 기능 소개
 
-## BottomNavigationView 커스텀
+## :bulb: BottomNavigationView 커스텀
 
 ```
 <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -32,7 +35,7 @@
 
 ```
 
-## FloatingActionButton 커스텀
+## :bulb: FloatingActionButton 커스텀
 
 ### 기본 플로팅 버튼 (메인 플로팅 버튼)
 
@@ -96,7 +99,7 @@
 
 ```
 
-## FloatingActionButton에 Animation 적용
+## :bulb: FloatingActionButton에 Animation 적용
 **fab_open.xml**
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -144,7 +147,7 @@
 fab_open = AnimationUtils.loadAnimation(this, R.anim.fab_open)
 fab_close = AnimationUtils.loadAnimation(this, R.anim.fab_close)
 ```
-## BottomNavigationView와 fragment 연동
+## :bulb: BottomNavigationView와 fragment 연동
 
 ```
 //fragment 처리 객체
@@ -175,7 +178,7 @@ fab_close = AnimationUtils.loadAnimation(this, R.anim.fab_close)
 
 ```
 
-## floatingactionbutton과 Activity 연동
+## :bulb: FloatingActionButton과 Activity 연동
 
 **update soon**
 
@@ -184,7 +187,7 @@ fab_close = AnimationUtils.loadAnimation(this, R.anim.fab_close)
 - 워크 플로우에 따라서 fragment와 activity 생명주기 설계하여 적용하기 - mainActivity와 4개의 fragment들, 2개의 activity flow
 - 특정 fragment에 진입 했을 때, 시스템이 관여하는 동작을 어떻게 구현할지 설계하여, searchfragment 진입 시에 키보드가 자동으로 올라오게 하기 - mainActivity, searchfragment, xml, manifest
 
-## 검색 뷰(SearchFragment) 레이아웃 - ConstraintLayout 사용
+## :bulb: 검색 뷰(SearchFragment) 레이아웃 - ConstraintLayout 사용
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -198,7 +201,7 @@ fab_close = AnimationUtils.loadAnimation(this, R.anim.fab_close)
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-## 검색 뷰 - Edittext에 초점 맞추기, 키보드 자동으로 올라오게 구현
+## :bulb: 검색 뷰 - Edittext에 초점 맞추기, 키보드 자동으로 올라오게 구현
 키보드를 제어할 때는 InputMethodManager를 이용한다.  
 - showSoftInput(View view, int flags): 키보드 보임
 - hideSoftInputFromWindow(IBinder windowToken, int flags): 키보드 숨김
@@ -237,7 +240,30 @@ private fun EditText.showKeyboard() {
 }
 ```
 
-## 검색 뷰 추천 검색어 - FlowLayout
+## :bulb: 검색 뷰 최근 검색어 - RecyclerView
+- 가로 양 쪽으로 패딩값을 준 뒤 clipToPadding="false" 라는 속성값을 이용하여 패딩공간을 스크롤 영역으로 활용
+- 검색어를 입력하는 경우 가장 최근 검색어를 맨 앞에 배치하기 위헤 stackFromEnd="true"와 reverseLayout="true" 옵션을 사용하여 리사이클러뷰를 역순으로 출력한다.
+```
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rv_recent_keyword"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:clipToPadding="false"
+    android:orientation="horizontal"
+    android:paddingLeft="15dp"
+    android:paddingEnd="7dp"
+    app:stackFromEnd="true"
+    app:reverseLayout="true"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView6"
+    tools:listitem="@layout/item_recent_keyword" />
+```
+
+## :bulb: 검색 뷰 추천 검색어 - FlowLayout
 공간이 충분하지 않을 때 다음 행으로 자동 줄바꿈 될 수 있도록 하는 FlowLayout 사용  
 - flChildSpacing : 자식 뷰 사이의 가로 간격
 - flChildSpacingForLastRow : 마지막 행의 자식 뷰 사이의 가로 간격
