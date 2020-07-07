@@ -73,18 +73,18 @@
             app:layout_constraintEnd_toEndOf="@+id/search_fragment_et_search"
             app:layout_constraintTop_toBottomOf="@+id/search_fragment_btn_search" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_recent_keyword"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
-            tools:listitem="@layout/item_recent_keyword" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_recent_keyword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        tools:listitem="@layout/item_recent_keyword" />
 
         <TextView
             android:id="@+id/textView7"
@@ -199,14 +199,5 @@
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/search_box_gradient"
-        app:layout_constraintBottom_toBottomOf="@+id/rv_recent_keyword"
-        app:layout_constraintEnd_toEndOf="@+id/rv_recent_keyword"
-        app:layout_constraintTop_toTopOf="@+id/rv_recent_keyword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
