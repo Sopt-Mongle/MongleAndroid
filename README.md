@@ -295,7 +295,7 @@ fun EditText.showKeyboard() {
     </com.nex3z.flowlayout.FlowLayout>
 ```
 
-# 💡MainFragment
+## 💡 MainFragment
 
 ## ScrollView
 
@@ -363,7 +363,7 @@ class MainPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_
     override fun getCount()= 3
 }
 ```
-# ☁️ **큐레이터 뷰**
+## :bulb: **큐레이터 뷰**
 
 해당 뷰는 사용자가 구독 중인 큐레이터의 목록을 나타내는 뷰이다.
 
