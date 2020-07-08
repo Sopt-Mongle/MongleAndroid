@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_result_theme"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/theme_guide_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="21dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/theme_guide_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="29dp" />
+
+        <TextView
+            android:id="@+id/result_theme_tv_sentence"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="6sp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/theme_guide_right"
+            app:layout_constraintStart_toEndOf="@id/theme_guide_left"
+            app:layout_constraintTop_toTopOf="@+id/cl_result_theme"
+            tools:text="삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게
+기대고만 싶을 때 보면 좋은 문장" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="27dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cl_result_theme"
+            app:layout_constraintStart_toStartOf="@+id/theme_guide_left"
+            app:layout_constraintTop_toBottomOf="@+id/result_theme_tv_sentence"
+            app:srcCompat="@drawable/bookmark" />
+
+        <TextView
+            android:id="@+id/result_theme_bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="1sp"
+            android:text="107"
+            android:textColor="#bcbcbc"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            app:layout_constraintBottom_toBottomOf="@+id/result_theme_bookmark"
+            app:layout_constraintStart_toEndOf="@+id/result_theme_bookmark"
+            app:layout_constraintTop_toTopOf="@+id/result_theme_bookmark"
+            app:srcCompat="@drawable/resultheme_div_detailcontent_1" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="1sp"
+            android:text="문장 "
+            android:textColor="#bcbcbc"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/result_theme_bookmark"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="@+id/result_theme_bookmark" />
+
+        <TextView
+            android:id="@+id/result_theme_sentence_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="1sp"
+            android:text="15"
+            android:textColor="#bcbcbc"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView12"
+            app:layout_constraintStart_toEndOf="@+id/textView12"
+            app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="1sp"
+            android:text="개"
+            android:textColor="#bcbcbc"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/result_theme_sentence_count"
+            app:layout_constraintStart_toEndOf="@+id/result_theme_sentence_count"
+            app:layout_constraintTop_toTopOf="@+id/result_theme_sentence_count" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#59bcbcbc"
+            app:layout_constraintBottom_toBottomOf="@id/cl_result_theme"
+            app:layout_constraintEnd_toEndOf="@id/cl_result_theme"
+            app:layout_constraintStart_toStartOf="@id/cl_result_theme" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
