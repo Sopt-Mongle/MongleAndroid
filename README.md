@@ -228,13 +228,14 @@ search_fragment_et_search.requestFocus() // Edittext에 초점 맞추는 부분
 search_fragment_et_search.showKeyboard() // keyboard 올라오는 부분
 ```
 
-**showKeyboard() 함수**
+**showKeyboard() 확장 함수**  
+ShowKeyboard.kt
 ```
-private fun EditText.showKeyboard() {
+fun EditText.showKeyboard() {
     if (requestFocus()) {
-        // edittext에 초점이 맞춰지면, 키보드 올라옴
-        (getActivity()?.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager)
-            .showSoftInput(this, SHOW_IMPLICIT)
+        // edittext에 초점이 맞춰지면 키보드 올라옴
+        (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+            .showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
         setSelection(text.length)
     }
 }
