@@ -1,5 +1,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    android:shape="rectangle">
+
     <!--    백그라운드 색깔 지정-->
     <solid android:color="#f0f0b0"/>
     <!--    모서리 둥글게 만들기-->
