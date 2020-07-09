@@ -1,11 +1,12 @@
 package com.example.mongleandroid.fragment
 
+import android.R.attr.defaultValue
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.example.mongleandroid.R
@@ -27,6 +28,10 @@ class SearchResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val bundle = SearchFragment().arguments
+        val searchword = bundle?.getString("search", "search")
+        result_fragment_et_search.setText(searchword)
 
         // tablayout 배치
         val ResultTabLayout = view!!.findViewById(R.id.search_result_tab) as TabLayout

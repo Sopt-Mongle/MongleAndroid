@@ -1,7 +1,8 @@
 package com.example.mongleandroid.fragment
 
-import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -13,8 +14,6 @@ import com.example.mongleandroid.adapter.SearchRecentAdapter
 import com.example.mongleandroid.network.data.SearchRecentData
 import com.example.mongleandroid.showKeyboard
 import kotlinx.android.synthetic.main.fragment_search.*
-import kotlinx.android.synthetic.main.fragment_search.search_fragment_btn_search
-import kotlinx.android.synthetic.main.fragment_search.search_fragment_et_search
 
 
 class SearchFragment : Fragment() {
@@ -38,12 +37,20 @@ class SearchFragment : Fragment() {
         search_fragment_et_search.showKeyboard() // 확장함수 showKeyboard.kt
 
         search_fragment_btn_search.setOnClickListener {
+
             LoadRecentKeyword()
             tv_no_keyword.visibility = GONE
+
+            val fragment = SearchResultFragment()
+            val bundle = Bundle()
+            bundle.putString("search", search_fragment_et_search.text.toString())
+            fragment.arguments = bundle
+
             val transaction = getFragmentManager()?.beginTransaction()
             transaction?.replace(R.id.search_fragment_cl, SearchResultFragment())
             transaction?.commit()
             search_fragment_cl_keyword.visibility = GONE
+
         } // 최근 키워드
 
         setRecommendKeyword() // 추천 키워드

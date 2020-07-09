@@ -17,7 +17,7 @@
             android:id="@+id/result_curator_img_profile"
             android:layout_width="67dp"
             android:layout_height="66dp"
-            android:layout_marginStart="27dp"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="28dp"
             app:layout_constraintBottom_toBottomOf="@id/cl_result_curator"
