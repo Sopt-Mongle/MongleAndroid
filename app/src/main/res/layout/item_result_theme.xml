@@ -14,14 +14,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/theme_guide_left"
+            android:id="@+id/result_theme_guide_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_begin="21dp" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/theme_guide_right"
+            android:id="@+id/result_theme_guide_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -36,10 +36,10 @@
             android:lineSpacingExtra="6sp"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/theme_guide_right"
-            app:layout_constraintStart_toEndOf="@id/theme_guide_left"
+            app:layout_constraintEnd_toEndOf="@+id/result_theme_guide_right"
+            app:layout_constraintStart_toEndOf="@id/result_theme_guide_left"
             app:layout_constraintTop_toTopOf="@+id/cl_result_theme"
-            tools:text="삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게
+            android:text="삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게
 기대고만 싶을 때 보면 좋은 문장" />
 
         <ImageView
@@ -50,12 +50,12 @@
             android:layout_marginTop="7dp"
             android:layout_marginBottom="27dp"
             app:layout_constraintBottom_toBottomOf="@+id/cl_result_theme"
-            app:layout_constraintStart_toStartOf="@+id/theme_guide_left"
+            app:layout_constraintStart_toStartOf="@+id/result_theme_guide_left"
             app:layout_constraintTop_toBottomOf="@+id/result_theme_tv_sentence"
             app:srcCompat="@drawable/bookmark" />
 
         <TextView
-            android:id="@+id/result_theme_bookmark"
+            android:id="@+id/result_theme_tv_bookmark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -73,9 +73,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
-            app:layout_constraintBottom_toBottomOf="@+id/result_theme_bookmark"
-            app:layout_constraintStart_toEndOf="@+id/result_theme_bookmark"
-            app:layout_constraintTop_toTopOf="@+id/result_theme_bookmark"
+            app:layout_constraintBottom_toBottomOf="@+id/result_theme_tv_bookmark"
+            app:layout_constraintStart_toEndOf="@+id/result_theme_tv_bookmark"
+            app:layout_constraintTop_toTopOf="@+id/result_theme_tv_bookmark"
             app:srcCompat="@drawable/resultheme_div_detailcontent_1" />
 
         <TextView
@@ -88,12 +88,12 @@
             android:text="문장 "
             android:textColor="#bcbcbc"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/result_theme_bookmark"
+            app:layout_constraintBottom_toBottomOf="@+id/result_theme_tv_bookmark"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toTopOf="@+id/result_theme_bookmark" />
+            app:layout_constraintTop_toTopOf="@+id/result_theme_tv_bookmark" />
 
         <TextView
-            android:id="@+id/result_theme_sentence_count"
+            android:id="@+id/result_theme_tv_sentence_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:letterSpacing="-0.02"
@@ -114,9 +114,9 @@
             android:text="개"
             android:textColor="#bcbcbc"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/result_theme_sentence_count"
-            app:layout_constraintStart_toEndOf="@+id/result_theme_sentence_count"
-            app:layout_constraintTop_toTopOf="@+id/result_theme_sentence_count" />
+            app:layout_constraintBottom_toBottomOf="@+id/result_theme_tv_sentence_count"
+            app:layout_constraintStart_toEndOf="@+id/result_theme_tv_sentence_count"
+            app:layout_constraintTop_toTopOf="@+id/result_theme_tv_sentence_count" />
 
         <View
             android:id="@+id/view"

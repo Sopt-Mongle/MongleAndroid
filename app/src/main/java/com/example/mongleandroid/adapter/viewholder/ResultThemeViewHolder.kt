@@ -8,14 +8,14 @@ import com.example.mongleandroid.network.data.ResultThemeData
 
 class ResultThemeViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
 
-    val tv_result_theme_sentence = itemView.findViewById<TextView>(R.id.result_theme_tv_sentence)
-    val tv_result_theme_bookmark = itemView.findViewById<TextView>(R.id.result_theme_bookmark)
-    val tv_result_theme_sentence_count = itemView.findViewById<TextView>(R.id.result_theme_sentence_count)
+    val result_theme_tv_sentence = itemView.findViewById<TextView>(R.id.result_theme_tv_sentence)
+    val result_theme_tv_bookmark = itemView.findViewById<TextView>(R.id.result_theme_tv_bookmark)
+    val result_theme_tv_sentence_count = itemView.findViewById<TextView>(R.id.result_theme_tv_sentence_count)
 
     fun bind(resultThemeData: ResultThemeData){
-        tv_result_theme_sentence.text = resultThemeData.tv_result_theme_sentence
-        tv_result_theme_bookmark.text = resultThemeData.tv_result_theme_bookmark
-        tv_result_theme_sentence_count.text = resultThemeData.tv_result_theme_sentence_count
+        result_theme_tv_sentence.text = resultThemeData.result_theme_tv_sentence
+        result_theme_tv_bookmark.text = resultThemeData.result_theme_tv_bookmark
+        result_theme_tv_sentence_count.text = resultThemeData.result_theme_tv_sentence_count
     }
 }
 

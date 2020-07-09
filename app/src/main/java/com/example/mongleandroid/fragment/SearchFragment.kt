@@ -30,13 +30,12 @@ class SearchFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_search, container, false)
     }
 
-    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         // 검색창에 초점 맞추고, 키보드 올리는 부분
-        search_fragment_et_search.requestFocus()
-        search_fragment_et_search.showKeyboard()
+        search_fragment_et_search.requestFocus() // xml 파일에서 <requestFocus /> 적어줘야함
+        search_fragment_et_search.showKeyboard() // 확장함수 showKeyboard.kt
 
         search_fragment_btn_search.setOnClickListener {
             LoadRecentKeyword()

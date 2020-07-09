@@ -34,23 +34,23 @@ class ResultThemeFragment : Fragment() {
         themedatas.apply {
             add(
                 ResultThemeData(
-                    tv_result_theme_sentence = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게 기대고만 싶을 때 보면 좋은 문장 ",
-                    tv_result_theme_bookmark = "107",
-                    tv_result_theme_sentence_count = "15"
+                    result_theme_tv_sentence = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게 기대고만 싶을 때 보면 좋은 문장 ",
+                    result_theme_tv_bookmark = "107",
+                    result_theme_tv_sentence_count = "15"
                 )
             )
             add(
                 ResultThemeData(
-                    tv_result_theme_sentence = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게 기대고만 싶을 때 보면 좋은 문장 ",
-                    tv_result_theme_bookmark = "107",
-                    tv_result_theme_sentence_count = "15"
+                    result_theme_tv_sentence = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게 기대고만 싶을 때 보면 좋은 문장 ",
+                    result_theme_tv_bookmark = "107",
+                    result_theme_tv_sentence_count = "15"
                 )
             )
             add(
                 ResultThemeData(
-                    tv_result_theme_sentence = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게 기대고만 싶을 때 보면 좋은 문장 ",
-                    tv_result_theme_bookmark = "107",
-                    tv_result_theme_sentence_count = "15"
+                    result_theme_tv_sentence = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게 기대고만 싶을 때 보면 좋은 문장 ",
+                    result_theme_tv_bookmark = "107",
+                    result_theme_tv_sentence_count = "15"
                 )
             )
             resultThemeAdapter.datas = themedatas

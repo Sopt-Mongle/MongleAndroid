@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_result_curator"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/result_curator_img_profile"
+            android:layout_width="67dp"
+            android:layout_height="66dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="28dp"
+            app:layout_constraintBottom_toBottomOf="@id/cl_result_curator"
+            app:layout_constraintStart_toStartOf="@id/cl_result_curator"
+            app:layout_constraintTop_toTopOf="@id/cl_result_curator"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/result_curator_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="4dp"
+            android:gravity="center_horizontal"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="-1sp"
+            android:textColor="#565656"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/result_curator_img_profile"
+            app:layout_constraintTop_toTopOf="@+id/result_curator_img_profile"
+            android:text="예스리" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="1sp"
+            android:textColor="#7a7a7a"
+            android:textSize="14sp"
+            android:text="구독자 "
+            app:layout_constraintStart_toStartOf="@+id/result_curator_tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/result_curator_tv_name"
+            app:layout_constraintBottom_toTopOf="@id/result_curator_tv_keyword" />
+
+        <TextView
+            android:id="@+id/result_curator_tv_subcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="1sp"
+            android:textColor="#7a7a7a"
+            android:textSize="14sp"
+            android:text="540"
+            app:layout_constraintBottom_toBottomOf="@+id/textView9"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
+            app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="1sp"
+            android:textColor="#7a7a7a"
+            android:textSize="14sp"
+            android:text="명"
+            app:layout_constraintBottom_toBottomOf="@+id/result_curator_tv_subcount"
+            app:layout_constraintStart_toEndOf="@+id/result_curator_tv_subcount"
+            app:layout_constraintTop_toTopOf="@+id/result_curator_tv_subcount" />
+
+        <TextView
+            android:id="@+id/result_curator_tv_keyword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="3sp"
+            android:textColor="#7a7a7a"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            android:text="대학내일" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#59bcbcbc"
+            app:layout_constraintBottom_toBottomOf="@id/cl_result_curator"
+            app:layout_constraintEnd_toEndOf="@id/cl_result_curator"
+            app:layout_constraintStart_toStartOf="@id/cl_result_curator" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

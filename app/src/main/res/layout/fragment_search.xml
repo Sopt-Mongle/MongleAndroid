@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="34dp"
         android:layout_marginEnd="10dp"
         android:src="@drawable/search_btn_back"
         app:layout_constraintEnd_toStartOf="@+id/search_fragment_et_search"
@@ -24,17 +24,18 @@
         android:id="@+id/search_fragment_et_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="15dp"
         android:background="@drawable/search_img_searchbar"
         android:ems="10"
         android:hint="키워드, 테마, 큐레이터 등을 검색하세요."
-        android:textSize="14sp"
         android:paddingLeft="15dp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/search_fragment_btn_back"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
+
         <requestFocus />
     </EditText>
 
@@ -103,10 +104,12 @@
         <com.nex3z.flowlayout.FlowLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="12dp"
             app:flChildSpacing="8dp"
             app:flChildSpacingForLastRow="align"
+            app:flRowSpacing="8dp"
             app:layout_constraintEnd_toEndOf="@+id/search_fragment_tv_delete"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/textView7">
 
@@ -130,9 +133,7 @@
                 android:lineSpacingExtra="8sp"
                 android:text="TextView"
                 android:textColor="#69af7c"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/tv_recommend_keyword1"
-                app:layout_constraintTop_toTopOf="@+id/tv_recommend_keyword1" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_recommend_keyword3"
@@ -143,9 +144,7 @@
                 android:lineSpacingExtra="8sp"
                 android:text="TextView"
                 android:textColor="#69af7c"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/tv_recommend_keyword2"
-                app:layout_constraintTop_toTopOf="@+id/tv_recommend_keyword1" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_recommend_keyword4"
@@ -156,37 +155,29 @@
                 android:lineSpacingExtra="8sp"
                 android:text="TextView"
                 android:textColor="#69af7c"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/textView7"
-                app:layout_constraintTop_toBottomOf="@+id/tv_recommend_keyword1" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_recommend_keyword5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:background="@drawable/search_recommend_keyword"
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="8sp"
                 android:text="TextView"
                 android:textColor="#69af7c"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/tv_recommend_keyword4"
-                app:layout_constraintTop_toTopOf="@+id/tv_recommend_keyword4" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_recommend_keyword6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:background="@drawable/search_recommend_keyword"
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="8sp"
                 android:text="TextView"
                 android:textColor="#69af7c"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/tv_recommend_keyword5"
-                app:layout_constraintTop_toTopOf="@+id/tv_recommend_keyword4" />
+                android:textSize="16sp" />
         </com.nex3z.flowlayout.FlowLayout>
 
         <TextView
