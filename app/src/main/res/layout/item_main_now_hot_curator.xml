@@ -6,7 +6,7 @@
     android:layout_width="96dp"
     android:layout_height="135dp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_now_hot_curator"
         android:layout_width="62dp"
         android:layout_height="62dp"
