@@ -99,5 +99,6 @@ class SearchFragment : Fragment() {
             searchRecentAdapter.datas = searchRecentDatas
             searchRecentAdapter.notifyDataSetChanged()
         }
+
     }
 }

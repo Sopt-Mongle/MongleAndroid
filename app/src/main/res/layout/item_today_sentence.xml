@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <view
+    <View
         android:id="@+id/view"
         android:layout_width="328dp"
         android:layout_height="137dp"
@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tv_today_sentence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
@@ -27,16 +27,16 @@
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view" />
 
-    <view
+    <View
         android:id="@+id/view2"
         android:layout_width="300dp"
         android:layout_height="1dp"
         android:layout_marginTop="19dp"
         android:background="#47bcbcbc"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="@+id/tv_today_sentence"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintStart_toStartOf="@+id/tv_today_sentence"
+        app:layout_constraintTop_toBottomOf="@+id/tv_today_sentence" />
 
     <TextView
         android:layout_width="wrap_content"
