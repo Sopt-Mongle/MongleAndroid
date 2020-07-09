@@ -14,6 +14,9 @@ import com.example.mongleandroid.fragment.MainFragment
 import com.example.mongleandroid.fragment.MypageFragment
 import com.example.mongleandroid.fragment.SearchFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_curator.*
+import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_mypage.*
 import kotlinx.android.synthetic.main.fragment_search.*
 
 
@@ -87,7 +90,9 @@ class MainActivity : AppCompatActivity() {
             ObjectAnimator.ofFloat(main_activity_FAB_tm, "translationY", 0f).apply { start() }
             ObjectAnimator.ofFloat(main_activity_FAB_st, "translationY", 0f).apply { start() }
             main_activity_FAB_main.setImageResource(R.drawable.ic_add)
-            main_activity_CL.setBackgroundColor(Color.parseColor("#00000000"));
+
+            main_activity_blur.visibility = GONE
+
 
         } else {
             main_activity_FAB_tm.startAnimation(fab_open)
@@ -97,13 +102,15 @@ class MainActivity : AppCompatActivity() {
             ObjectAnimator.ofFloat(main_activity_FAB_tm, "translationY", -250f).apply { start() }
             ObjectAnimator.ofFloat(main_activity_FAB_st, "translationY", -400f).apply { start() }
             main_activity_FAB_main.setImageResource(R.drawable.ic_close)
-            main_activity_CL.setBackgroundColor(Color.parseColor("#59000000"));
+
+            main_activity_blur.visibility = VISIBLE
+
+
         }
 
         isFabOpen = !isFabOpen
     }
-
-
+    
 
 
 }

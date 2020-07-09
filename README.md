@@ -294,3 +294,128 @@ fun EditText.showKeyboard() {
 ...
     </com.nex3z.flowlayout.FlowLayout>
 ```
+
+## 💡 MainFragment
+
+## ScrollView
+
+```
+<androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+</androidx.core.widget.NestedScrollView>
+```
+
+## ViewPager & TabLayout
+
+```
+<androidx.viewpager.widget.ViewPager
+                android:id="@+id/vp_main"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_main_mongle_logo">
+
+            </androidx.viewpager.widget.ViewPager>
+```
+
+- Activity에서 ViewPager를 사용할 때는 supportFragmentManager를 사용했었다. 하지만 Fragment에서는 supportFragmentManager를 사용할 수 없다.
+- Fragment에서는 supportFragmentManager가 아닌 childFragmentManager를 사용해야 한다.
+
+```
+vp_main.adapter = MainPagerAdapter(childFragmentManager)
+vp_main.offscreenPageLimit = 2
+tl_main.setupWithViewPager(vp_main)
+```
+
+```
+<com.google.android.material.tabs.TabLayout
+                android:id="@+id/tl_main"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vp_main"
+                app:tabBackground="@drawable/dot_selector"
+                app:tabIndicatorHeight="0dp">
+
+            </com.google.android.material.tabs.TabLayout>
+```
+
+## MainPagerAdapter
+
+```
+class MainPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT  ) {
+    override fun getItem(position: Int): Fragment {
+        return when(position){
+            0 -> MainViewPager1Fragment()
+            1 -> MainViewPager2Fragment()
+            else -> MainViewPager3Fragment()
+        }
+    }
+
+    override fun getCount()= 3
+}
+```
+## :bulb: **큐레이터 뷰**
+
+해당 뷰는 사용자가 구독 중인 큐레이터의 목록을 나타내는 뷰이다.
+
+#CuratorView 만들기
+
+ConstraintLayout으로 View를 만들었다.
+
+<constraintLayout
+
+<TextView
+
+<ImageButton
+
+<RecyclerView
+
+/>
+
+#recyclerView 만들기
+
+-item 만들기
+
+ConstraintLayout을 이용하여 RecyclerView에 들어갈 아이템을 만들었다.
+
+- <CircleImageView>를 이용하여 프로필 사진을 동그란 이미지로 넣을 수 있도록 하였다.
+- "예스리", "대학내일", "인생회고"는 TextView로 만들었고, 프로필 옆의 업데이트 표시 이미지와 "|"는 ImageView로 만들었다.
+- 구독 버튼은 selector를 이용하여 둥근 버튼으로 만들고, checked를 이용하여 구독, 구독 중의 버튼을 나타내었다.
+- item의 background도 shape를 이용하여 radius와 색상을 지정해줬다. (임의로 현재 색 구분을 위해 다른 색으로 해놨다.)
+
+-data 
+
+RecyclerView에 들어가는 Data의 파일을 생성하였다.
+
+```
+data class CuratorData(
+    val img_profile_item: Int,
+    val item_username: String,
+    val item_keyword1: String,
+    val item_keyword2: String,
+    val item_img_online: Int?
+)
+```
+
+-adapter
+
+임의로 더미데이터를 넣었다.
+
+```
+CuratorData(
+    img_profile_item = R.drawable.curator_img_ys,
+    item_username = "예슬이",
+    item_keyword1 = "몽글피엠",
+    item_keyword2 = "귀염둥이",
+    item_img_online = R.drawable.curator_state_update_circle
+)
+```
