@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan">
-        <activity android:name=".activity.CuratorActivity">
-
-        </activity>
-        <activity android:name=".activity.PostThemeActivity" />
-        <activity android:name=".activity.WritingSentenceActivity" />
-        <activity android:name=".activity.MainActivity"
-            android:windowSoftInputMode="adjustNothing">
+        <activity android:name=".activity.SettingActivity"></activity>
+        <activity android:name=".activity.SubscriptionsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
+        </activity>
+        <activity android:name=".activity.PostThemeActivity" />
+        <activity android:name=".activity.WritingSentenceActivity" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:windowSoftInputMode="adjustNothing">
 
         </activity>
     </application>

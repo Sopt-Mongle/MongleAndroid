@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FF0E0E"
+        android:background="#f0ffff"
         android:text="curator" />
 
 </FrameLayout>
