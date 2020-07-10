@@ -1,8 +1,7 @@
 package com.example.mongleandroid.fragment
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -10,6 +9,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
+import com.example.mongleandroid.activity.MainActivity.Companion.search_result
 import com.example.mongleandroid.adapter.SearchRecentAdapter
 import com.example.mongleandroid.network.data.SearchRecentData
 import com.example.mongleandroid.showKeyboard
@@ -36,22 +36,23 @@ class SearchFragment : Fragment() {
         search_fragment_et_search.requestFocus() // xml 파일에서 <requestFocus /> 적어줘야함
         search_fragment_et_search.showKeyboard() // 확장함수 showKeyboard.kt
 
+        // 엔터 누누
+       search_fragment_et_search.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                //Perform Code
+                replaceFragment()
+                return@OnKeyListener true
+            }
+            false
+        })
+
         search_fragment_btn_search.setOnClickListener {
 
-            LoadRecentKeyword()
+            LoadRecentKeyword() // 최근 키워드
             tv_no_keyword.visibility = GONE
 
-            val fragment = SearchResultFragment()
-            val bundle = Bundle()
-            bundle.putString("search", search_fragment_et_search.text.toString())
-            fragment.arguments = bundle
-
-            val transaction = getFragmentManager()?.beginTransaction()
-            transaction?.replace(R.id.search_fragment_cl, SearchResultFragment())
-            transaction?.commit()
-            search_fragment_cl_keyword.visibility = GONE
-
-        } // 최근 키워드
+            replaceFragment()
+        }
 
         setRecommendKeyword() // 추천 키워드
         search_fragment_tv_delete.setOnClickListener {
@@ -62,13 +63,25 @@ class SearchFragment : Fragment() {
         } // 최근 키워드 전체 삭제
     }
 
+    private fun replaceFragment() {
+        // 검색어 보내주기
+        val searchword = search_fragment_et_search.text.toString()
+        search_result = searchword.trim()
+
+        // fragment 변경
+        val transaction = getFragmentManager()?.beginTransaction()
+        transaction?.replace(R.id.search_fragment_cl, SearchResultFragment())
+        transaction?.commit()
+        search_fragment_cl_keyword.visibility = GONE
+    }
+
     private fun setRecommendKeyword(){
         tv_recommend_keyword1.text = "임의로"
         tv_recommend_keyword2.text = "추천검색어를"
         tv_recommend_keyword3.text = "넣어보자"
         tv_recommend_keyword4.text = "몽글몽글"
         tv_recommend_keyword5.text = "가나다라"
-        tv_recommend_keyword6.text = "마바사아아아아아아ㅏ아아아아아악"
+        tv_recommend_keyword6.text = "마바사아"
     }
 
     private fun LoadRecentKeyword() {

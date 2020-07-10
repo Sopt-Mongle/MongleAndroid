@@ -29,6 +29,8 @@
         android:background="@drawable/search_img_searchbar"
         android:ems="10"
         android:hint="키워드, 테마, 큐레이터 등을 검색하세요."
+        android:inputType="text"
+        android:maxLines="1"
         android:paddingLeft="15dp"
         android:textColor="@color/black"
         android:textSize="14sp"
@@ -59,10 +61,12 @@
             android:id="@+id/search_result_tab"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="6dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabIndicatorColor="@color/softGreen"
+            app:tabSelectedTextColor="@color/softGreen">
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fragment.ResultThemeFragment">
 
-
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
@@ -67,6 +66,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/result_theme_count"
             app:layout_constraintStart_toEndOf="@+id/result_theme_count"
             app:layout_constraintTop_toTopOf="@+id/result_theme_count" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
