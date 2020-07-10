@@ -6,7 +6,7 @@
         <shape>
             <size android:width="62dp" android:height="29dp" />
 
-            <solid android:color="#73c088" />
+            <solid android:color="@color/softGreen" />
             <corners android:bottomLeftRadius="15dp" android:bottomRightRadius="15dp" android:topLeftRadius="15dp" android:topRightRadius="15dp" />
         </shape>
     </item>
@@ -15,7 +15,7 @@
 
         <shape>
             <size android:width="62dp" android:height="29dp" />
-            <solid android:color="#35000000" />
+            <solid android:color="@color/brownGrey" />
 
             <corners android:bottomLeftRadius="15dp" android:bottomRightRadius="15dp" android:topLeftRadius="15dp" android:topRightRadius="15dp" />
         </shape>
