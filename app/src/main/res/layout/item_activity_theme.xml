@@ -29,6 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_theme_sentence" />
 
     <TextView
+        android:id="@+id/tv_theme_curator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -42,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_theme_sentence" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/tv_save_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
@@ -61,12 +62,12 @@
         android:layout_height="12dp"
         android:layout_marginEnd="5dp"
         android:src="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/textView13"
-        app:layout_constraintEnd_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="@+id/textView13" />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_save_num"
+        app:layout_constraintEnd_toStartOf="@+id/tv_save_num"
+        app:layout_constraintTop_toTopOf="@+id/tv_save_num" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/tv_like_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
@@ -84,9 +85,9 @@
         android:layout_height="13dp"
         android:layout_marginEnd="4dp"
         android:src="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintEnd_toStartOf="@+id/textView14"
-        app:layout_constraintTop_toTopOf="@+id/textView14" />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_like_num"
+        app:layout_constraintEnd_toStartOf="@+id/tv_like_num"
+        app:layout_constraintTop_toTopOf="@+id/tv_like_num" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
