@@ -17,11 +17,7 @@
         <activity android:name=".activity.CuratorActivity"></activity>
         <activity android:name=".activity.WritingSentenceThemeSearchActivity" />
         <activity android:name=".activity.WritingSentenceBookSearchActivity" />
-        <activity android:name=".activity.CuratorActivity" />
         <activity android:name=".activity.PostThemeActivity" />
-        <activity android:name=".activity.WritingSentenceActivity" />
-        <activity
-            android:name=".activity.MainActivity"
         <activity android:name=".activity.WritingSentenceActivity"
             android:windowSoftInputMode="adjustResize">
 
