@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_topbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility=""
+
         >
 
         <TextView
