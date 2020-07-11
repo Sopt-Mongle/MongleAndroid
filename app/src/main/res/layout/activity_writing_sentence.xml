@@ -5,166 +5,343 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".activity.WritingSentenceActivity">
-
-
-
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/activity_writing_sentence_cl_1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".activity.WritingSentenceActivity"
     >
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/activity_writing_sentence_ll_1"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_writing_sentence_topbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/activity_writing_sentence_btn_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="3dp"
+            android:backgroundTint="@color/white"
+            android:tint="@color/veryLightPink2"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="문장 쓰기"
+            android:textSize="19sp"
+            android:textColor="@color/black2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/activity_writing_sentence_btn_out"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_writing_sentence_btn_out"/>
+
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/veryLightPink4"
+            android:layout_marginTop="50dp"
+            app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_btn_out"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:layout_width="9dp"
+            android:layout_height="9dp"
+            android:background="@drawable/circle"
+            app:layout_constraintStart_toStartOf="@id/view"
+            app:layout_constraintTop_toTopOf="@id/view"
+            app:layout_constraintBottom_toBottomOf="@id/view"/>
+        <View
+            android:layout_width="9dp"
+            android:layout_height="9dp"
+            android:background="@drawable/circle"
+            app:layout_constraintStart_toStartOf="@id/view"
+            app:layout_constraintEnd_toEndOf="@id/view"
+            app:layout_constraintTop_toTopOf="@id/view"
+            app:layout_constraintBottom_toBottomOf="@id/view"/>
+        <View
+            android:layout_width="9dp"
+            android:layout_height="9dp"
+            android:background="@drawable/circle"
+            app:layout_constraintEnd_toEndOf="@id/view"
+            app:layout_constraintTop_toTopOf="@id/view"
+            app:layout_constraintBottom_toBottomOf="@id/view"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_writing_sentence_CL_sentence"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_topbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
         >
+
         <TextView
             android:id="@+id/activity_writing_sentence_tv_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="19sp"
             android:text="마음에 드는 "
-            android:textSize="20dp"
+            android:textColor="@color/greyish_brown"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             />
         <TextView
             android:id="@+id/activity_writing_sentence_tv_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/activity_writing_sentence_tv_1"
+            android:textSize="19sp"
+            android:textColor="@color/softGreen"
             android:text="한 문장"
-            android:textSize="20dp"
+            app:layout_constraintTop_toTopOf="@id/activity_writing_sentence_tv_1"
+            app:layout_constraintStart_toEndOf="@id/activity_writing_sentence_tv_1"
             />
         <TextView
             android:id="@+id/activity_writing_sentence_tv_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/activity_writing_sentence_tv_2"
+            android:textSize="19sp"
             android:text="을 적어주세요!"
-            android:textSize="20dp"
+            android:textColor="@color/greyish_brown"
+            app:layout_constraintTop_toTopOf="@id/activity_writing_sentence_tv_1"
+            app:layout_constraintStart_toEndOf="@+id/activity_writing_sentence_tv_2"
             />
-    </androidx.appcompat.widget.LinearLayoutCompat>
-    <EditText
-        android:id="@+id/activity_writing_sentence_et_sentence"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_ll_1"
-        android:hint="최대 140자까지 입력 가능하며, 책의 문장을 임의로 변형하지 않게 주의해주세요!"
-        android:background="@drawable/et_area"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/activity_writing_sentence_cl_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_cl_1"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/activity_writing_sentence_tv_4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="책 제목"
-            android:textSize="20dp"/>
 
         <EditText
-            android:id="@+id/activity_writing_sentence_et_title"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="책 제목을 검색해주세요"
+            android:id="@+id/activity_writing_sentence_et_sentence"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="13dp"
+            app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_tv_1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_tv_4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintCircleRadius="10dp"
             android:background="@drawable/et_area"
-            />
-        <Button
-            android:id="@+id/activity_writing_sentence_btn_search"
+            android:hint="최대 280자까지 입력 가능하며, 책의 문장을 임의로 변형하지 않게 주의해주세요!"
+            android:gravity="start"
+            android:padding="14dp">
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/activity_writing_sentence_tv_cnt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/activity_writing_sentence_et_title"
-            app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_tv_4"
-            />
+            android:text="asdfa"
+            android:textSize="13sp"
+            android:textColor="@color/softGreen"
+            android:layout_marginTop="7dp"
+            app:layout_constraintEnd_toStartOf="@id/activity_writing_sentence_tv_cnt2"
+            app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_et_sentence"/>
+
+        <TextView
+            android:id="@+id/activity_writing_sentence_tv_cnt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/40"
+            android:textColor="@color/veryLightPink2"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_writing_sentence_tv_cnt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/activity_writing_sentence_tv_cnt" />
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/activity_writing_sentence_cl_3"
+        android:id="@+id/activity_writing_sentence_CL_book"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_cl_2"
-        app:layout_constraintStart_toStartOf="parent">
-
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_topbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        >
         <TextView
             android:id="@+id/activity_writing_sentence_tv_5"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="19sp"
+            android:textColor="@color/softGreen"
+            android:text="한 문장"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="작가/옮긴이"
-            android:textSize="20dp"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_tv_5"
-            android:text="박세란"
-            android:textSize="20dp"
-            android:background="@drawable/et_area"
             />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/activity_writing_sentence_cl_4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_cl_3"
-        app:layout_constraintStart_toStartOf="parent">
-
         <TextView
             android:id="@+id/activity_writing_sentence_tv_6"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="19sp"
+            android:text="이 담긴 책을 추가해주세요!"
+            android:textColor="@color/greyish_brown"
+            app:layout_constraintTop_toTopOf="@id/activity_writing_sentence_tv_5"
+            app:layout_constraintStart_toEndOf="@id/activity_writing_sentence_tv_5"
+            />
+
+        <View
+            android:id="@+id/activity_writing_sentence_v_title"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@drawable/et_area"
+            android:layout_marginTop="14dp"
+            app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_tv_5"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/search_btn_search"
+            app:layout_constraintTop_toTopOf="@id/activity_writing_sentence_v_title"
+            app:layout_constraintBottom_toBottomOf="@id/activity_writing_sentence_v_title"
+            app:layout_constraintEnd_toEndOf="@id/activity_writing_sentence_v_title"/>
+
+        <TextView
+            android:id="@+id/activity_writing_sentence_tv_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="19sp"
+            android:text="작가/옮긴이"
+            android:textColor="@color/greyish_brown"
+            android:layout_marginTop="42dp"
+            app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_v_title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <View
+            android:id="@+id/activity_writing_sentence_v_author"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@drawable/et_area_invalid"
+            android:layout_marginTop="9dp"
+            app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_tv_7"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/activity_writing_sentence_tv_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="19sp"
             android:text="출판사"
-            android:textSize="20dp"
+            android:textColor="@color/greyish_brown"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_v_author"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <View
+            android:id="@+id/activity_writing_sentence_v_publisher"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@drawable/et_area_invalid"
+            android:layout_marginTop="9dp"
+            app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_tv_8"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_writing_sentence_CL_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_topbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:id="@+id/activity_writing_sentence_tv_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="19sp"
+            android:textColor="@color/softGreen"
+            android:text="한 문장"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             />
 
         <TextView
-            android:id="@+id/activity_writing_sentence_tv_publisher"
-            android:layout_width="match_parent"
+            android:id="@+id/activity_writing_sentence_tv_11"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_tv_6"
-            android:text="ttp"
-            android:textSize="20dp"
-            android:background="@drawable/et_area"
+            android:textSize="19sp"
+            android:text="이 담길 테마를 선택해주세요!"
+            android:textColor="@color/greyish_brown"
+            app:layout_constraintTop_toTopOf="@id/activity_writing_sentence_tv_10"
+            app:layout_constraintStart_toEndOf="@id/activity_writing_sentence_tv_10"
             />
+
+        <View
+            android:id="@+id/activity_writing_sentence_v_theme"
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:background="@drawable/et_area_invalid"
+            android:layout_marginTop="14dp"
+            app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_tv_10"
+            app:layout_constraintStart_toEndOf="@id/activity_writing_sentence_tv_10"/>
+
+        <TextView
+            android:id="@+id/activity_writing_sentence_btn_theme_search"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="테마 선택하기"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:background="@drawable/btn_white"
+            android:textColor="@color/softGreen"
+            android:textSize="16sp"
+            android:layout_marginTop="17dp"
+            app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_v_theme"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="RtlCompat" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/activity_writing_sentence_btn_post"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_cl_4"
-        android:text="등록하기"
-        android:textSize="25dp"
-        android:background="@drawable/btn_gray"
-        android:textColor="@color/white"
-        android:elevation="100dp"
-        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/activity_writing_sentence_bottombar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
 
 
+        <TextView
+            android:id="@+id/activity_writing_sentence_btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/btn_green"
+            style="@android:style/ButtonBar"
+            android:text="등록하기"
+            android:textSize="19sp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="RtlCompat" />
 
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
