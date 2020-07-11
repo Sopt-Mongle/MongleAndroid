@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="170dp"
+android:layout_height="170dp">
+
+<!--<ImageView-->
+<!--    android:id="@+id/gridImg"-->
+<!--    android:layout_width="0dp"-->
+<!--    android:layout_height="0dp"-->
+<!--    android:layout_marginEnd="8dp"-->
+<!--    android:layout_marginStart="8dp"-->
+<!--    android:layout_marginTop="8dp"-->
+<!--    app:layout_constraintDimensionRatio="1:1"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintTop_toTopOf="parent"-->
+<!--    app:srcCompat="@mipmap/ic_launcher" />-->
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/btn_gray"
+    android:paddingStart="19dp"
+    android:paddingTop="19dp"
+    android:paddingEnd="19dp"
+    android:paddingBottom="19dp"
+    android:text="번아웃을 극복하고 싶을 때 봐야하는 문장번아웃을 극복하고 싶을 때 봐야하"
+    android:textAlignment="gravity"
+    android:textColor="@color/white"
+    android:textSize="16sp"
+    app:layout_constraintDimensionRatio="1:1"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</GridLayout>
+
+
