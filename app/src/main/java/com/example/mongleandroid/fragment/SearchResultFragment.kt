@@ -1,6 +1,7 @@
 package com.example.mongleandroid.fragment
 
 import android.os.Bundle
+import android.text.SpannableString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -12,6 +13,7 @@ import com.example.mongleandroid.activity.MainActivity.Companion.search_result
 import com.example.mongleandroid.adapter.SearchResultTabAdapter
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_search_result.*
+import kotlinx.android.synthetic.main.item_result_theme.*
 
 
 class SearchResultFragment : Fragment() {

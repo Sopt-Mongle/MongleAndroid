@@ -28,7 +28,7 @@
             app:layout_constraintGuide_end="16dp" />
 
         <TextView
-            android:id="@+id/result_theme_tv_sentence"
+            android:id="@+id/result_theme_tv_theme"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
@@ -51,7 +51,7 @@
             android:layout_marginBottom="27dp"
             app:layout_constraintBottom_toBottomOf="@+id/cl_result_theme"
             app:layout_constraintStart_toStartOf="@+id/result_theme_guide_left"
-            app:layout_constraintTop_toBottomOf="@+id/result_theme_tv_sentence"
+            app:layout_constraintTop_toBottomOf="@+id/result_theme_tv_theme"
             app:srcCompat="@drawable/bookmark" />
 
         <TextView

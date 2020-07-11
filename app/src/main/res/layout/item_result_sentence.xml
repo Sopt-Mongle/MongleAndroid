@@ -28,7 +28,7 @@
             tools:text="번아웃을 극복하고 싶을 때 봐야하는 문장" />
 
         <TextView
-            android:id="@+id/result_sentence_tv_context"
+            android:id="@+id/result_sentence_tv_sentence"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"

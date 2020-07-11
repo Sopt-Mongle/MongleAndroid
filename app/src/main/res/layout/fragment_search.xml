@@ -11,32 +11,29 @@
         android:id="@+id/search_fragment_btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="34dp"
-        android:layout_marginEnd="10dp"
         android:src="@drawable/search_btn_back"
-        app:layout_constraintEnd_toStartOf="@+id/search_fragment_et_search"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/search_fragment_et_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="17dp"
         android:layout_marginEnd="15dp"
-        android:background="@drawable/search_img_searchbar"
+        android:background="@drawable/et_area"
         android:ems="10"
         android:hint="키워드, 테마, 큐레이터 등을 검색하세요."
         android:inputType="text"
         android:maxLines="1"
         android:paddingLeft="15dp"
         android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/search_fragment_btn_back"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/search_fragment_btn_back"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/search_fragment_btn_back">
 
         <requestFocus />
     </EditText>
