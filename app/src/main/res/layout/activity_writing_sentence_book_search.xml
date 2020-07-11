@@ -104,7 +104,7 @@
             />
 
         <TextView
-            android:id="@+id/activity_writing_sentence_bok_search_tv2"
+            android:id="@+id/activity_writing_sentence_book_search_tv2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -121,13 +121,54 @@
         android:id="@+id/activity_writing_sentence_book_search_after"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_book_search_topbar"
         >
 
+        <TextView
+            android:id="@+id/activity_writing_sentence_book_search_tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="'해리'"
+            android:textSize="14sp"
+            android:textColor="@color/softGreen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:id="@+id/activity_writing_sentence_book_search_tv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 검색결과"
+            android:textSize="14sp"
+            android:textColor="@color/greyish_brown2"
+            app:layout_constraintStart_toEndOf="@id/activity_writing_sentence_book_search_tv3"
+            app:layout_constraintTop_toTopOf="@id/activity_writing_sentence_book_search_tv3"
+            app:layout_constraintBottom_toBottomOf="@id/activity_writing_sentence_book_search_tv3"
+            />
+        <TextView
+            android:id="@+id/activity_writing_sentence_book_search_tv5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="총 10건"
+            android:textSize="14sp"
+            android:textColor="@color/veryLightPink2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activity_writing_sentence_book_search_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            tools:listitem="@layout/item_book_search"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_book_search_tv5"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
