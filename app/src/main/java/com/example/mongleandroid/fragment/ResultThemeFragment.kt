@@ -35,7 +35,7 @@ class ResultThemeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         resultThemeAdapter = ResultThemeAdapter(view.context)
         rv_result_theme.adapter = resultThemeAdapter
-        loadDatas() // 일단 임의로 넣어두기x
+        loadDatas() // 일단 임의로 넣어두기
     }
 
     private fun loadDatas() {
