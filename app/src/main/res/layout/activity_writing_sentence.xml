@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_topbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="visible"
+        android:visibility=""
         >
 
         <TextView
@@ -133,6 +133,29 @@
             android:padding="14dp">
             <requestFocus />
         </EditText>
+
+        <TextView
+            android:id="@+id/activity_writing_sentence_tv_cnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="asdfa"
+            android:textSize="13sp"
+            android:textColor="@color/softGreen"
+            android:layout_marginTop="7dp"
+            app:layout_constraintEnd_toStartOf="@id/activity_writing_sentence_tv_cnt2"
+            app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_et_sentence"/>
+
+        <TextView
+            android:id="@+id/activity_writing_sentence_tv_cnt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/40"
+            android:textColor="@color/veryLightPink2"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_writing_sentence_tv_cnt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/activity_writing_sentence_tv_cnt" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
