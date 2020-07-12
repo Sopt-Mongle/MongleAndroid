@@ -295,7 +295,7 @@ fun EditText.showKeyboard() {
     </com.nex3z.flowlayout.FlowLayout>
 ```
 
-# 💡MainFragment
+## 💡 MainFragment
 
 ## ScrollView
 
@@ -363,11 +363,9 @@ class MainPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_
     override fun getCount()= 3
 }
 ```
-# ☁️ **큐레이터 뷰**
+## :bulb: **큐레이터 뷰**
 
 해당 뷰는 사용자가 구독 중인 큐레이터의 목록을 나타내는 뷰이다.
-
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3d7c3d63-0835-441e-b763-731943f429e3/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3d7c3d63-0835-441e-b763-731943f429e3/Untitled.png)
 
 #CuratorView 만들기
 
@@ -393,8 +391,6 @@ ConstraintLayout을 이용하여 RecyclerView에 들어갈 아이템을 만들�
 - "예스리", "대학내일", "인생회고"는 TextView로 만들었고, 프로필 옆의 업데이트 표시 이미지와 "|"는 ImageView로 만들었다.
 - 구독 버튼은 selector를 이용하여 둥근 버튼으로 만들고, checked를 이용하여 구독, 구독 중의 버튼을 나타내었다.
 - item의 background도 shape를 이용하여 radius와 색상을 지정해줬다. (임의로 현재 색 구분을 위해 다른 색으로 해놨다.)
-
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dbcafe42-0e71-42ef-b904-13e136d3c9cd/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dbcafe42-0e71-42ef-b904-13e136d3c9cd/Untitled.png)
 
 -data 
 
