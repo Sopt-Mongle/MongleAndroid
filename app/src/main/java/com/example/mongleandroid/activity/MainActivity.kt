@@ -22,6 +22,10 @@ import kotlinx.android.synthetic.main.fragment_search.*
 
 class MainActivity : AppCompatActivity() {
 
+    companion object{
+        var search_result = ""
+    }
+
     private var isFabOpen = false
     lateinit var fab_open: Animation
     lateinit var fab_close: Animation
