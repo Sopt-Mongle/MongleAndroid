@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/img_profile_item"
         app:layout_constraintBottom_toTopOf="@id/item_keyword1"
-        app:layout_constraintEnd_toStartOf="@id/btn_subscribe_item"
+        app:layout_constraintEnd_toStartOf="@id/result_curator_btn_subscribe_item"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintVertical_bias="0.4"
@@ -95,7 +95,7 @@
         />
 
     <CheckBox
-        android:id="@+id/btn_subscribe_item"
+        android:id="@+id/result_curator_btn_subscribe_item"
         android:layout_width="62dp"
         android:layout_height="29dp"
         android:layout_marginRight="16dp"
