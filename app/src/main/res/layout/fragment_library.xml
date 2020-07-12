@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.LibraryFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/const1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/library_sticky_header"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside">
+
+
+        <TextView
+            android:id="@+id/tx_my_library"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="내 서재"
+            android:textSize="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_library_setting"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:background="#f0000000"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_library_profile"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:background="#ff0000"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tx_my_library" />
+
+        <TextView
+            android:id="@+id/tx_library_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="몽그리"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_library_profile" />
+
+
+        <TextView
+            android:id="@+id/tx_library_contents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="몽그리는몽글몽그르르르르르르르"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tx_library_username" />
+
+
+        <TextView
+            android:id="@+id/tx_library_keyword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="몽그르르르"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tx_library_contents" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/library_sticky_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@id/consex"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/const1">
+
+
+        <TextView
+            android:id="@+id/library_thema_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="47"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/line1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/library_thema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="테마"
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="@id/library_thema_num"
+            app:layout_constraintStart_toStartOf="@id/library_thema_num"
+            app:layout_constraintTop_toBottomOf="@id/library_thema_num" />
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="1dp"
+            android:layout_height="10dp"
+            android:background="#0000ff"
+            app:layout_constraintBottom_toBottomOf="@id/library_sticky_header"
+            app:layout_constraintEnd_toStartOf="@id/line2"
+            app:layout_constraintStart_toStartOf="@id/library_sticky_header"
+            app:layout_constraintTop_toTopOf="@id/library_sticky_header" />
+
+        <TextView
+            android:id="@+id/library_sentence_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="36"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/line2"
+            app:layout_constraintEnd_toStartOf="@id/line2"
+            app:layout_constraintStart_toEndOf="@id/line1"
+            app:layout_constraintTop_toTopOf="@id/line1" />
+
+        <TextView
+            android:id="@+id/library_sentence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="문장"
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="@id/library_sentence_num"
+            app:layout_constraintStart_toStartOf="@id/library_sentence_num"
+            app:layout_constraintTop_toBottomOf="@id/library_sentence_num" />
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="1dp"
+            android:layout_height="10dp"
+            android:background="#00ff00"
+            app:layout_constraintBottom_toBottomOf="@id/library_sticky_header"
+            app:layout_constraintEnd_toEndOf="@id/library_sticky_header"
+            app:layout_constraintStart_toEndOf="@id/line1"
+            app:layout_constraintTop_toTopOf="@id/library_sticky_header" />
+
+        <TextView
+            android:id="@+id/library_curator_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="23"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/line2"
+            app:layout_constraintEnd_toEndOf="@id/library_sticky_header"
+            app:layout_constraintStart_toEndOf="@id/line2"
+            app:layout_constraintTop_toTopOf="@id/line2" />
+
+        <TextView
+            android:id="@+id/library_curator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="큐레이터"
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="@id/library_curator_num"
+            app:layout_constraintStart_toStartOf="@id/library_curator_num"
+            app:layout_constraintTop_toBottomOf="@id/library_curator_num" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/consex"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/library_sticky_header">
+
+        <TextView
+            android:id="@+id/tx_non_thema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:text="테마 없는 문장"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/consex" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="#000000"
+            app:layout_constraintBottom_toBottomOf="@id/tx_non_thema"
+            app:layout_constraintStart_toEndOf="@id/tx_non_thema"
+            app:layout_constraintTop_toTopOf="@id/tx_non_thema" />
+
+        <Button
+            android:id="@+id/btn_saved_thema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저장한 테마"
+            app:layout_constraintBottom_toBottomOf="@id/tx_non_thema"
+            app:layout_constraintEnd_toStartOf="@id/btn_making_thema"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_making_thema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00f000"
+            android:gravity="center_vertical"
+            android:text="만든 테마"
+            app:layout_constraintBottom_toBottomOf="@id/tx_non_thema"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_library_thema"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tx_non_thema"
+            app:layout_constraintVertical_bias="1.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

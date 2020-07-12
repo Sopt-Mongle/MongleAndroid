@@ -10,11 +10,10 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mongleandroid.R
 import com.example.mongleandroid.fragment.CuratorFragment
+import com.example.mongleandroid.fragment.LibraryFragment
 import com.example.mongleandroid.fragment.MainFragment
-import com.example.mongleandroid.fragment.MypageFragment
 import com.example.mongleandroid.fragment.SearchFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_search.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var mainFragment: MainFragment
     lateinit var searchFragment: SearchFragment
     lateinit var curatorFragment: CuratorFragment
-    lateinit var mypageFragment: MypageFragment
+    lateinit var mypageFragment: LibraryFragment
 
 
 
@@ -58,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         mainFragment = MainFragment()
         searchFragment = SearchFragment()
         curatorFragment = CuratorFragment()
-        mypageFragment = MypageFragment()
+        mypageFragment = LibraryFragment()
 
         supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, mainFragment).commit()
 
