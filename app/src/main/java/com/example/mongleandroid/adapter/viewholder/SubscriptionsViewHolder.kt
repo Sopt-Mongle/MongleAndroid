@@ -15,7 +15,7 @@ class SubscriptionsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
     val item_keyword1 = itemView.findViewById<TextView>(R.id.item_keyword1)
     val item_keyword2 = itemView.findViewById<TextView>(R.id.item_keyword2)
     val item_img_online = itemView.findViewById<ImageView>(R.id.item_img_online)
-    val btn_subscribe_item = itemView.findViewById<CheckBox>(R.id.btn_subscribe_item)
+    val btn_subscribe_item = itemView.findViewById<CheckBox>(R.id.result_curator_btn_subscribe_item)
 
     fun bind(subscriptionsData: SubscriptionsData) {
         Glide.with(itemView).load(subscriptionsData.img_profile_item).into(img_profile_item)

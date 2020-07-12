@@ -8,7 +8,6 @@ import android.text.TextWatcher
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.example.mongleandroid.R
-import kotlinx.android.synthetic.main.activity_curator.*
 import kotlinx.android.synthetic.main.activity_theme_writing_sentence.*
 
 class ThemeWritingSentenceActivity : AppCompatActivity() {
