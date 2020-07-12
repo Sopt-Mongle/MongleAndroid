@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/activity_writing_sentence_theme_search_after"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -62,11 +63,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/activity_writing_sentence_theme_search_after"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_theme_search_topbar"
+        app:layout_constraintBottom_toTopOf="@id/activity_writing_sentence_theme_search_rv_after"
         >
 
         <TextView
@@ -76,8 +77,11 @@
             android:text="'해리'"
             android:textSize="14sp"
             android:textColor="@color/softGreen"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
         <TextView
             android:id="@+id/activity_writing_sentence_theme_search_tv4"
             android:layout_width="wrap_content"
@@ -96,38 +100,64 @@
             android:text="총 10건"
             android:textSize="14sp"
             android:textColor="@color/veryLightPink2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_theme_search_tv3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:rowCount="2"
-            android:columnCount="2">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/activity_writing_sentence_theme_search_rv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_theme_search_tv5"
-                tools:listitem="@layout/item_theme_search"
-                />
-
-        </GridLayout>
-
-
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_writing_sentence_theme_search_rv_after"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:spanCount="2"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_theme_search_after"
+        app:layout_constraintBottom_toTopOf="@id/activity_writing_sentence_theme_search_bottombar"
+        tools:listitem="@layout/item_theme_search"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="@drawable/writing_sentence_theme_2_blur"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_writing_sentence_theme_search_bottombar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_writing_sentence_theme_search_bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_theme_search_rv_after"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <TextView
+            android:id="@+id/activity_writing_sentence_btn_next"
+            style="@android:style/ButtonBar"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/btn_green"
+            android:gravity="center_vertical"
+            android:text="등록하기"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlCompat" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

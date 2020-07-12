@@ -1,4 +1,7 @@
 package com.example.mongleandroid.network.data.response
 
-class ResponseWritingSentenceData {
-}
+data class ResponseWritingSentenceData (
+    val staus : Int,
+    val success : Boolean,
+    val message : String
+)

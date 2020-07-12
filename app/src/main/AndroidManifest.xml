@@ -10,17 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan">
-        <activity android:name=".activity.WritingSentenceThemeSearchActivity" />
-        <activity android:name=".activity.WritingSentenceBookSearchActivity" />
-        <activity android:name=".activity.CuratorActivity" />
-        <activity android:name=".activity.PostThemeActivity" />
-        <activity android:name=".activity.WritingSentenceActivity"
-            android:windowSoftInputMode="adjustResize">
+        <activity android:name=".activity.WritingSentenceThemeSearchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.WritingSentenceBookSearchActivity" />
+        <activity android:name=".activity.CuratorActivity" />
+        <activity android:name=".activity.PostThemeActivity" />
+        <activity android:name=".activity.WritingSentenceActivity"
+            android:windowSoftInputMode="adjustResize">
+
         </activity>
         <activity
             android:name=".activity.MainActivity"
