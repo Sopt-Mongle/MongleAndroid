@@ -161,7 +161,7 @@ class MainFragment : Fragment() {
         data.apply {
             add(
                 TodaySentenceData(
-                    tv_today_sentence = "몽글몽글"
+                    tv_today_sentence = "결국 봄이 언제나 찾아왔지만, 하마터면 오지 않을 뻔했던 봄을 생각하면 마음이 섬찟"
                 )
             )
 
