@@ -16,13 +16,16 @@
             android:windowSoftInputMode="adjustResize">
 
         </activity>
+        <activity android:name=".activity.ThemeWritingSentenceBookActivity" />
         <activity android:name=".activity.WritingSentenceThemeSearchActivity" />
         <activity android:name=".activity.WritingSentenceBookSearchActivity" />
         <activity android:name=".activity.PostThemeActivity" />
         <activity android:name=".activity.WritingSentenceActivity"
             android:windowSoftInputMode="adjustResize">
-
         </activity>
+        <activity android:name=".activity.MainThemeActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.SubscriptionsActivity" />
         <activity
             android:name=".activity.MainActivity"
             android:windowSoftInputMode="adjustNothing">
