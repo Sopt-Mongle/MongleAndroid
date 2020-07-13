@@ -30,6 +30,9 @@ class SearchResultFragment : Fragment() {
         // 검색어 받아오는 부분
         result_fragment_et_search.setText(search_result)
 
+        // 검색어 보내주는 부분
+        val searchword = result_fragment_et_search.text.toString()
+        search_result = searchword.trim()
 
         // tablayout 배치
         val ResultTabLayout = view.findViewById(R.id.search_result_tab) as TabLayout
@@ -41,6 +44,8 @@ class SearchResultFragment : Fragment() {
         ResultTabLayout.getTabAt(1)!!.setText("문장")
         ResultTabLayout.getTabAt(2)!!.setText("큐레이터")
 
+
+
         result_fragment_btn_back.setOnClickListener {
             val transaction = getFragmentManager()?.beginTransaction()
             transaction?.replace(R.id.search_result_fragment_cl, SearchFragment())
@@ -49,9 +54,16 @@ class SearchResultFragment : Fragment() {
             // 일단은 ..
         }
 
-//        result_fragment_btn_search.setOnClickListener {
-//
-//        }
+        result_fragment_btn_search.setOnClickListener {
+//            adapter.notifyDataSetChanged()
+            ResultViewPager.setAdapter(adapter)
+            ResultTabLayout.setupWithViewPager(ResultViewPager)
+            ResultTabLayout.getTabAt(0)!!.setText("테마")
+            ResultTabLayout.getTabAt(1)!!.setText("문장")
+            ResultTabLayout.getTabAt(2)!!.setText("큐레이터")
+        }
+
+
 
 
     }

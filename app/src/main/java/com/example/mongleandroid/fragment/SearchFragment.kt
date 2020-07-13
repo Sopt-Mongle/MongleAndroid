@@ -36,7 +36,7 @@ class SearchFragment : Fragment() {
         search_fragment_et_search.requestFocus() // xml 파일에서 <requestFocus /> 적어줘야함
         search_fragment_et_search.showKeyboard() // 확장함수 showKeyboard.kt
 
-        // 엔터 누누
+        // 엔터 누르면 프레그먼트 이동
        search_fragment_et_search.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER) {
                 //Perform Code
@@ -46,6 +46,7 @@ class SearchFragment : Fragment() {
             false
         })
 
+        // 검색 버튼 누르면 프레그먼트 이동
         search_fragment_btn_search.setOnClickListener {
 
             LoadRecentKeyword() // 최근 키워드

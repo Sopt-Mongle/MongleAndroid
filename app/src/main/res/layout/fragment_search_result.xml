@@ -29,6 +29,7 @@
         android:inputType="text"
         android:maxLines="1"
         android:paddingLeft="15dp"
+        android:paddingRight="51dp"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/result_fragment_btn_back"
         app:layout_constraintEnd_toEndOf="parent"

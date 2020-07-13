@@ -42,10 +42,11 @@
                 android:id="@+id/img_main_search_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:src="@drawable/main_btn_search"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="2dp"
+                android:src="@drawable/btn_search"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/img_main_mongle_logo" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/vp_main"
