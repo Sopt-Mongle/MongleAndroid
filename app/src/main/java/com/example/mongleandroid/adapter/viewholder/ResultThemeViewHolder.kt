@@ -33,15 +33,21 @@ class ResultThemeViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
         Log.d("index","startWord : ${startWord}, endWord ${endWord}")
 
         val startIndex = resultThemeData.result_theme_tv_theme.indexOf(startWord)
-        val lastIndex = resultThemeData.result_theme_tv_theme.lastIndexOf(endWord)
+        val lastIndex = resultThemeData.result_theme_tv_theme.indexOf(endWord)
         Log.d("index","startIndex : ${startIndex}, lastIndex ${lastIndex}")
         val spannable = SpannableStringBuilder(resultThemeData.result_theme_tv_theme)
-        spannable.setSpan(
-            ForegroundColorSpan(R.color.softGreen),
-            startIndex,
-            lastIndex +1, // end
-            Spannable.SPAN_EXCLUSIVE_INCLUSIVE
-        )
+
+        if(inputString.length == lastIndex - startIndex + 1) {
+            spannable.setSpan(
+                ForegroundColorSpan(R.color.softGreen),
+                startIndex,
+                lastIndex + 1, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+        } else {
+            Log.e("error", "성공?")
+        }
+
         result_theme_tv_theme.text = spannable
 
 
