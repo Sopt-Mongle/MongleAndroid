@@ -22,7 +22,7 @@ class WritingSentenceThemeSearchActivity : AppCompatActivity() {
 
 
         //val myLayoutManager = GridLayoutManager(this, 2, RecyclerView.HORIZONTAL, false)
-       val myLayoutManager = GridLayoutManager(this, 2)
+        val myLayoutManager = GridLayoutManager(this, 2)
 
         activity_writing_sentence_theme_search_rv_after.layoutManager = myLayoutManager
 
