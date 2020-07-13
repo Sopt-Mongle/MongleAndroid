@@ -64,6 +64,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun replaceFragment() {
+
         // 검색어 보내주기
         val searchword = search_fragment_et_search.text.toString()
         search_result = searchword.trim()
@@ -97,5 +98,6 @@ class SearchFragment : Fragment() {
             searchRecentAdapter.datas = searchRecentDatas
             searchRecentAdapter.notifyDataSetChanged()
         }
+
     }
 }

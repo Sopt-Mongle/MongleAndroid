@@ -1,16 +1,356 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_curator_CL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.CuratorFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_curator_topbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FF0E0E"
-        android:text="curator" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="29dp"
+            android:gravity="center"
+            android:text="큐레이터"
+            android:textColor="@color/black2"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_curator_topbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="9sp"
+                android:text="추천 큐레이터"
+                android:textColor="@color/black2"
+                android:textSize="19sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragment_curator_rv_recommend"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:clipToPadding="true"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+            <TextView
+                android:id="@+id/fragment_curator_tv_gamsung"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/et_area_curator_block"
+                android:gravity="center_horizontal"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="6sp"
+
+                android:paddingTop="16dp"
+                android:paddingBottom="15dp"
+                android:text="감성자극"
+                android:textColor="@color/brownGrey2"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_curator_tv_donggi"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_curator_rv_recommend" />
+
+            <TextView
+                android:id="@+id/fragment_curator_tv_donggi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_area_curator_block"
+                android:gravity="center_horizontal"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="6sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="15dp"
+                android:text="동기부여"
+                android:textColor="@color/brownGrey2"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_curator_tv_jagi"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/fragment_curator_tv_gamsung"
+                app:layout_constraintTop_toTopOf="@+id/fragment_curator_tv_gamsung" />
+
+            <TextView
+                android:id="@+id/fragment_curator_tv_kipeun"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_area_curator_block"
+                android:gravity="center_horizontal"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="6sp"
+                android:paddingTop="16dp"
+
+                android:paddingBottom="15dp"
+                android:text="깊은생각"
+                android:textColor="@color/brownGrey2"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_curator_tv_doksu"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_curator_tv_gamsung" />
+
+            <TextView
+                android:id="@+id/fragment_curator_tv_jagi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_area_curator_block"
+                android:gravity="center_horizontal"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="6sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="15dp"
+                android:text="자기계발"
+                android:textColor="@color/brownGrey2"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/fragment_curator_tv_donggi"
+                app:layout_constraintTop_toTopOf="@+id/fragment_curator_tv_donggi" />
+
+            <TextView
+                android:id="@+id/fragment_curator_tv_doksu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_area_curator_block"
+                android:gravity="center_horizontal"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="6sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="15dp"
+                android:text="독서기록"
+                android:textColor="@color/brownGrey2"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_curator_tv_kipeun"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_curator_tv_ilsang"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/fragment_curator_tv_kipeun" />
+
+            <TextView
+                android:id="@+id/fragment_curator_tv_ilsang"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_area_curator_block"
+                android:gravity="center_horizontal"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="6sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="15dp"
+                android:text="일상문장"
+                android:textColor="@color/brownGrey2"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_curator_tv_doksu"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/fragment_curator_tv_doksu" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="9sp"
+                android:text="테마 속 큐레이터"
+                android:textColor="@color/black2"
+                android:textSize="19sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_curator_tv_doksu" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:background="@drawable/curator_img_backtheme_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView22">
+
+                <TextView
+                    android:id="@+id/fragment_curator_tv_themename"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="16dp"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="9sp"
+                    android:text="흔들리는 꽃들 속에서 네 샴푸향이 느껴진거야 스쳐 지나간건가 뒤돌아보는 문장 "
+                    android:textColor="#ffffff"
+                    android:textSize="19sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="27dp"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="-1sp"
+                    android:text="큐레이터 "
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/fragment_curator_tv_themename"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_curator_tv_themename" />
+
+                <TextView
+                    android:id="@+id/fragment_curator_tv_curator_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="-1sp"
+                    android:text="53"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@+id/textView30"
+                    app:layout_constraintTop_toTopOf="@+id/textView30" />
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="-1sp"
+                    android:text="명"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@+id/fragment_curator_tv_curator_count"
+                    app:layout_constraintTop_toTopOf="@+id/fragment_curator_tv_curator_count" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_curator1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_result_curator" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/curator_img_backtheme_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_curator1">
+
+                <TextView
+                    android:id="@+id/fragment_curator_tv_themename2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="16dp"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="9sp"
+                    android:text="흔들리는 꽃들 속에서 네 샴푸향이 느껴진거야 스쳐 지나간건가 뒤돌아보는 문장 "
+                    android:textColor="#ffffff"
+                    android:textSize="19sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="27dp"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="-1sp"
+                    android:text="큐레이터 "
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/fragment_curator_tv_themename2"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_curator_tv_themename2" />
+
+                <TextView
+                    android:id="@+id/fragment_curator_tv_curator_count2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="-1sp"
+                    android:text="53"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@+id/textView32"
+                    app:layout_constraintTop_toTopOf="@+id/textView32" />
+
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="-1sp"
+                    android:text="명"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@+id/fragment_curator_tv_curator_count2"
+                    app:layout_constraintTop_toTopOf="@+id/fragment_curator_tv_curator_count2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_curator2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_result_curator" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

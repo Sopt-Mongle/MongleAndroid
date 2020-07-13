@@ -1,7 +1,6 @@
 package com.example.mongleandroid.fragment
 
 import android.os.Bundle
-import android.text.SpannableString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -13,7 +12,6 @@ import com.example.mongleandroid.activity.MainActivity.Companion.search_result
 import com.example.mongleandroid.adapter.SearchResultTabAdapter
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_search_result.*
-import kotlinx.android.synthetic.main.item_result_theme.*
 
 
 class SearchResultFragment : Fragment() {
@@ -32,9 +30,10 @@ class SearchResultFragment : Fragment() {
         // 검색어 받아오는 부분
         result_fragment_et_search.setText(search_result)
 
+
         // tablayout 배치
-        val ResultTabLayout = view!!.findViewById(R.id.search_result_tab) as TabLayout
-        val ResultViewPager = view!!.findViewById(R.id.search_result_viewpager) as ViewPager
+        val ResultTabLayout = view.findViewById(R.id.search_result_tab) as TabLayout
+        val ResultViewPager = view.findViewById(R.id.search_result_viewpager) as ViewPager
         val adapter = SearchResultTabAdapter(childFragmentManager)
         ResultViewPager.setAdapter(adapter)
         ResultTabLayout.setupWithViewPager(ResultViewPager)
@@ -49,6 +48,11 @@ class SearchResultFragment : Fragment() {
             search_result_cl_tab.visibility = GONE
             // 일단은 ..
         }
+
+//        result_fragment_btn_search.setOnClickListener {
+//
+//        }
+
 
     }
 

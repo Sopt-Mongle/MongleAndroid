@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="34dp"
-        android:src="@drawable/search_btn_back"
+        android:src="@drawable/btn_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,7 +42,7 @@
         android:id="@+id/result_fragment_btn_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/search_btn_search"
+        android:src="@drawable/btn_search"
         app:layout_constraintBottom_toBottomOf="@+id/result_fragment_et_search"
         app:layout_constraintEnd_toEndOf="@+id/result_fragment_et_search"
         app:layout_constraintTop_toTopOf="@+id/result_fragment_et_search" />

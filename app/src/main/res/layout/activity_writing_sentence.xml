@@ -375,34 +375,34 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/activity_writing_sentence_CL_next1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:visibility="gone"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-        >
-
-
-    <TextView
-        android:id="@+id/activity_writing_sentence_btn_next1"
-        style="@android:style/ButtonBar"
+        android:id="@+id/activity_writing_sentence_CL_next1"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="@drawable/btn_green"
-        android:gravity="center_vertical"
-        android:text="다음"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="19sp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="RtlCompat" />
+        >
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/activity_writing_sentence_btn_next1"
+            style="@android:style/ButtonBar"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/btn_green"
+            android:gravity="center_vertical"
+            android:text="다음"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="RtlCompat" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/activity_writing_sentence_CL_finish"
