@@ -5,10 +5,10 @@ data class ResponseWritingSentenceThemeSearchData (
 //    val staus : Int,
 //    val success : Boolean,
 //    val message : String,
-//    val data : MutableList<data>
+//    val data : MutableList<ThemeData>
 )
 
-//data class data(
+//data class ThemeData(
 //    val themeIdx : Int,
 //    val theme : String,
 //    val themeImg : String,

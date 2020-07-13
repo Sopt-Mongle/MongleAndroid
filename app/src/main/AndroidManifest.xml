@@ -15,21 +15,28 @@
         <activity android:name=".activity.ThemeWritingSentenceActivity"
             android:windowSoftInputMode="adjustResize">
         </activity>
-        <activity android:name=".activity.WritingSentenceThemeSearchActivity" />
+        <activity android:name=".activity.WritingSentenceThemeSearchActivity" >
+
+        </activity>
+
         <activity android:name=".activity.WritingSentenceBookSearchActivity" />
         <activity android:name=".activity.CuratorActivity" />
         <activity android:name=".activity.PostThemeActivity" />
         <activity android:name=".activity.WritingSentenceActivity"
             android:windowSoftInputMode="adjustResize">
-        </activity>
-        <activity
-            android:name=".activity.MainActivity"
-            android:windowSoftInputMode="adjustNothing">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:windowSoftInputMode="adjustNothing">
+
         </activity>
     </application>
 
