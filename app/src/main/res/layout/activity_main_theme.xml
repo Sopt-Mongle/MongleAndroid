@@ -10,7 +10,8 @@
         android:id="@+id/imageView5"
         android:layout_width="match_parent"
         android:layout_height="210dp"
-        android:src="@color/black"
+        android:scaleType="centerCrop"
+        android:src="@drawable/theme_img_backimg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,7 +22,7 @@
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="26dp"
-        android:src="@color/white"
+        android:src="@drawable/theme_btn_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
@@ -29,9 +30,9 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="13dp"
         android:layout_marginTop="34dp"
-        android:text="너무 소중해애애"
+        android:text="브랜딩이 어려울 때, 영감을 주는 문장"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -138,7 +139,7 @@
             android:id="@+id/imageView8"
             android:layout_width="56.9dp"
             android:layout_height="60dp"
-            android:src="@color/black"
+            android:src="@drawable/theme_btn_bookmark"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -146,7 +147,7 @@
             android:id="@+id/imageView9"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:src="@color/brownGrey"
+            android:src="@color/softGreen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView8"
             app:layout_constraintTop_toTopOf="parent" />
