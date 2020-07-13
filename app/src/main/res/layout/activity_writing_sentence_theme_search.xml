@@ -112,6 +112,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
+        android:paddingBottom="24dp"
+        android:clipToPadding="false"
         app:spanCount="2"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,8 +125,8 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:background="@drawable/writing_sentence_theme_2_blur"
+        android:layout_height="160dp"
+        android:background="@drawable/gradient"
         app:layout_constraintBottom_toBottomOf="@+id/activity_writing_sentence_theme_search_bottombar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
