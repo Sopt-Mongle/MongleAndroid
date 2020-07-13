@@ -7,8 +7,9 @@ import android.view.View
 import android.view.animation.TranslateAnimation
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.example.mongleandroid.R
+import com.example.mongleandroid.*
 import kotlinx.android.synthetic.main.activity_writing_sentence.*
+
 
 class WritingSentenceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,8 +94,6 @@ class WritingSentenceActivity : AppCompatActivity() {
 
 
 
-
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -113,23 +112,6 @@ class WritingSentenceActivity : AppCompatActivity() {
         }
     }
 
-
-    private fun goNextView(current : View, next : View){
-        current.visibility = View.GONE
-        next.visibility = View.VISIBLE
-    }
-    private fun goPrevView(current: View, prev : View){
-        current.visibility = View.GONE
-        prev.visibility = View.VISIBLE
-    }
-    private fun goNextPage(current : ConstraintLayout, next : ConstraintLayout){
-        current.visibility = View.GONE
-        next.visibility = View.VISIBLE
-    }
-    private fun goPrevPage(current: ConstraintLayout, prev : ConstraintLayout){
-        current.visibility = View.GONE
-        prev.visibility = View.VISIBLE
-    }
 
     override fun onBackPressed() {
         //goPrevPage()
