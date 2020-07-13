@@ -109,12 +109,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5">
-        
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="@drawable/background_main_theme_scroll"
-            />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -124,6 +118,10 @@
                 android:id="@+id/rv_activity_theme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:overScrollMode="never"
+                tools:listitem="@layout/item_activity_theme"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_marginTop="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

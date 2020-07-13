@@ -13,6 +13,7 @@
         android:layout_marginTop="12dp"
         android:letterSpacing="-0.02"
         android:lineSpacingExtra="5sp"
+        android:maxLines="2"
         android:text="영 영앤 리치 남자를 만나자\n감 감사하자"
         android:textColor="@color/black"
         android:textSize="16sp"
