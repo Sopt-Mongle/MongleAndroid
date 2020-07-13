@@ -42,7 +42,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/activity_writing_sentence_book_search_btn_out"/>
 
         <EditText
-            android:id="@+id/activity_writing_sentence_book_search_v_title"
+            android:id="@+id/activity_writing_sentence_book_search_tv_search"
             android:layout_width="match_parent"
             android:layout_height="46dp"
             android:background="@drawable/et_area"
@@ -51,12 +51,13 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <ImageView
+            android:id="@+id/activity_writing_sentence_book_search_btn_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/btn_search"
-            app:layout_constraintTop_toTopOf="@id/activity_writing_sentence_book_search_v_title"
-            app:layout_constraintBottom_toBottomOf="@id/activity_writing_sentence_book_search_v_title"
-            app:layout_constraintEnd_toEndOf="@id/activity_writing_sentence_book_search_v_title"/>
+            app:layout_constraintTop_toTopOf="@id/activity_writing_sentence_book_search_tv_search"
+            app:layout_constraintBottom_toBottomOf="@id/activity_writing_sentence_book_search_tv_search"
+            app:layout_constraintEnd_toEndOf="@id/activity_writing_sentence_book_search_tv_search"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -67,7 +68,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_book_search_topbar"
-        android:visibility="gone"
+        android:visibility="visible"
         >
         <TextView
             android:id="@+id/activity_writing_sentence_book_search_tv_cnt"
@@ -124,7 +125,8 @@
         android:layout_marginTop="13dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_book_search_topbar">
+        app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_book_search_topbar"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/activity_writing_sentence_book_search_tv3"
@@ -169,6 +171,58 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_book_search_tv3"
             tools:listitem="@layout/item_book_search" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_writing_sentence_book_search_after2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_book_search_topbar">
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="4sp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginTop="17dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img1"
+            tools:text="검색 결과가 없습니다." />
+
+        <TextView
+
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="4sp"
+            android:textColor="@color/very_light_pink_two"
+            android:textSize="13sp"
+            android:layout_marginTop="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv1"
+            tools:text="다른 키워드로 검색해보세요!" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

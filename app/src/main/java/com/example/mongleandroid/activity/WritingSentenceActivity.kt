@@ -94,8 +94,6 @@ class WritingSentenceActivity : AppCompatActivity() {
 
 
 
-
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -113,8 +111,6 @@ class WritingSentenceActivity : AppCompatActivity() {
             }
         }
     }
-
-
 
 
     override fun onBackPressed() {
