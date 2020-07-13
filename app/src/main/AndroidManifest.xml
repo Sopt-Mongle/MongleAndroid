@@ -13,15 +13,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan">
+
         <activity android:name=".activity.MainThemeActivity"></activity>
         <activity android:name=".activity.CuratorActivity"></activity>
+
+        <activity android:name=".activity.ThemeWritingSentenceBookActivity"></activity>
+        <activity android:name=".activity.SettingActivity"></activity>
+        <activity android:name=".activity.SubscriptionsActivity" />
+        <activity android:name=".activity.ThemeWritingSentenceActivity"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+
         <activity android:name=".activity.WritingSentenceThemeSearchActivity" />
         <activity android:name=".activity.WritingSentenceBookSearchActivity" />
         <activity android:name=".activity.PostThemeActivity" />
-        <activity android:name=".activity.WritingSentenceActivity"
-            android:windowSoftInputMode="adjustResize">
-
-        </activity>
+        <activity
+            android:name=".activity.WritingSentenceActivity"
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
             android:name=".activity.MainActivity"
             android:windowSoftInputMode="adjustNothing">
