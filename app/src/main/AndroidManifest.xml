@@ -23,20 +23,18 @@
         <activity android:name=".activity.WritingSentenceActivity"
             android:windowSoftInputMode="adjustResize">
         </activity>
-        <activity android:name=".activity.MainThemeActivity" >
+        <activity android:name=".activity.MainThemeActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.SubscriptionsActivity" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".activity.SettingActivity" />
-        <activity android:name=".activity.SubscriptionsActivity" />
-        <activity
-            android:name=".activity.MainActivity"
-            android:windowSoftInputMode="adjustNothing"/>
-
-
+    </activity>
     </application>
 
 </manifest>
