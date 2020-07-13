@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.item_theme_search.*
 
 class WritingSentenceThemeSearchAdapter(private val context : Context) : RecyclerView.Adapter<WritingSentenceThemeSearchViewHolder>() {
     var datas = mutableListOf<ResponseWritingSentenceThemeSearchData>()
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int

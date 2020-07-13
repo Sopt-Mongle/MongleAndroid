@@ -13,6 +13,6 @@ class WritingSentenceThemeSearchViewHolder(itemView: View) : RecyclerView.ViewHo
 
     fun bind(writingSentenceThemeSearchData: ResponseWritingSentenceThemeSearchData){
         //item_search_theme_tv_themeTitle.text = writingSentenceThemeSearchData.data[1].toString()
-        item_search_theme_tv_themeTitle.text = writingSentenceThemeSearchData.toString()
+        item_search_theme_tv_themeTitle.text = writingSentenceThemeSearchData.theme
     }
 }
