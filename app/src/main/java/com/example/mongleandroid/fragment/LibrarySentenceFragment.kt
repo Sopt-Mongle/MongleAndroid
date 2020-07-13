@@ -6,29 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
+import com.example.mongleandroid.adapter.LibrarySentenceAdapter
+import com.example.mongleandroid.network.data.LibrarySentenceData
+import kotlinx.android.synthetic.main.fragment_library_sentence.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LibrarySentenceFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LibrarySentenceFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    lateinit var librarySentenceAdapter: LibrarySentenceAdapter
+    val librarySentenceData = mutableListOf<LibrarySentenceData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +24,56 @@ class LibrarySentenceFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_library_sentence, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LibrarySentenceFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LibrarySentenceFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        librarySentenceAdapter = LibrarySentenceAdapter(view.context)
+        rv_library_sentence.adapter = librarySentenceAdapter
+        loadDatas()
     }
+
+    private fun loadDatas() {
+        librarySentenceData.apply {
+            add(
+                LibrarySentenceData(
+                    tv_library_sentence_themename = "번아웃을 극복하고 싶을 때 봐야하는 문장",
+                    tv_library_sentence_sentence = "결국 봄이 언제나 찾아왔지만, 하마터면 오지 않을 뻔 했던 봄을 생각하면 마음이 섬찟해진다. ",
+                    tv_item_library_sentence_username = "예스리"
+                )
+            )
+            add(
+                LibrarySentenceData(
+                    tv_library_sentence_themename = "번아웃을 극복하고 싶을 때 봐야하는 문장",
+                    tv_library_sentence_sentence = "결국 봄이 언제나 찾아왔지만, 하마터면 오지 않을 뻔 했던 봄을 생각하면 마음이 섬찟해진다. ",
+                    tv_item_library_sentence_username = "예스리"
+                )
+            )
+            add(
+                LibrarySentenceData(
+                    tv_library_sentence_themename = "번아웃을 극복하고 싶을 때 봐야하는 문장",
+                    tv_library_sentence_sentence = "결국 봄이 언제나 찾아왔지만, 하마터면 오지 않을 뻔 했던 봄을 생각하면 마음이 섬찟해진다. ",
+                    tv_item_library_sentence_username = "예스리"
+                )
+            )
+            add(
+                LibrarySentenceData(
+                    tv_library_sentence_themename = "번아웃을 극복하고 싶을 때 봐야하는 문장",
+                    tv_library_sentence_sentence = "결국 봄이 언제나 찾아왔지만, 하마터면 오지 않을 뻔 했던 봄을 생각하면 마음이 섬찟해진다. ",
+                    tv_item_library_sentence_username = "예스리"
+                )
+            )
+            add(
+                LibrarySentenceData(
+                    tv_library_sentence_themename = "번아웃을 극복하고 싶을 때 봐야하는 문장",
+                    tv_library_sentence_sentence = "결국 봄이 언제나 찾아왔지만, 하마터면 오지 않을 뻔 했던 봄을 생각하면 마음이 섬찟해진다. ",
+                    tv_item_library_sentence_username = "예스리"
+                )
+            )
+
+
+        }
+        librarySentenceAdapter.data_sen = librarySentenceData
+        librarySentenceAdapter.notifyDataSetChanged()
+    }
+
+
 }

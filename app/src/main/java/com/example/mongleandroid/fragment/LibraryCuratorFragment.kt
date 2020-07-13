@@ -6,29 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
+import com.example.mongleandroid.adapter.LibraryCuratorAdapter
+import com.example.mongleandroid.network.data.LibraryCuratorData
+import kotlinx.android.synthetic.main.fragment_library_curator.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [LibraryCuratorFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LibraryCuratorFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    lateinit var libraryCuratorAdapter: LibraryCuratorAdapter
+    val libraryCuratorData = mutableListOf<LibraryCuratorData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +23,62 @@ class LibraryCuratorFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_library_curator, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LibraryCuratorFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LibraryCuratorFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        libraryCuratorAdapter = LibraryCuratorAdapter(view.context)
+        rv_library_curator.adapter = libraryCuratorAdapter
+        loadDatas()
     }
+
+    private fun loadDatas() {
+        libraryCuratorData.apply {
+            add(
+                LibraryCuratorData(
+                    library_curator_img_profile = null,
+                    tv_library_curator_name = "예스리",
+                    tv_library_curator_subcount = "15",
+                    tv_library_curator_keyword = "피엠예슬"
+                )
+            )
+            add(
+                LibraryCuratorData(
+                    library_curator_img_profile = null,
+                    tv_library_curator_name = "예스리",
+                    tv_library_curator_subcount = "15",
+                    tv_library_curator_keyword = "피엠예슬"
+                )
+            )
+            add(
+                LibraryCuratorData(
+                    library_curator_img_profile = null,
+                    tv_library_curator_name = "예스리",
+                    tv_library_curator_subcount = "15",
+                    tv_library_curator_keyword = "피엠예슬"
+                )
+            )
+            add(
+                LibraryCuratorData(
+                    library_curator_img_profile = null,
+                    tv_library_curator_name = "예스리",
+                    tv_library_curator_subcount = "15",
+                    tv_library_curator_keyword = "피엠예슬"
+                )
+            )
+            add(
+                LibraryCuratorData(
+                    library_curator_img_profile = null,
+                    tv_library_curator_name = "예스리",
+                    tv_library_curator_subcount = "15",
+                    tv_library_curator_keyword = "피엠예슬"
+                )
+            )
+
+
+        }
+        libraryCuratorAdapter.data_cu = libraryCuratorData
+        libraryCuratorAdapter.notifyDataSetChanged()
+    }
+
+
 }
