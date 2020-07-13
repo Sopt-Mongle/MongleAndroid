@@ -9,6 +9,7 @@ import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.ResultThemeAdapter
 import com.example.mongleandroid.network.data.ResultThemeData
 import kotlinx.android.synthetic.main.fragment_result_theme.*
+import kotlinx.android.synthetic.main.fragment_search_result.*
 
 
 class ResultThemeFragment : Fragment() {

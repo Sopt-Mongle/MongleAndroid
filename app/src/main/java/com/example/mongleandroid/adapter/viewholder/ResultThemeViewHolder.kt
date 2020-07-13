@@ -1,7 +1,6 @@
 package com.example.mongleandroid.adapter.viewholder
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
@@ -12,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.activity.MainActivity
 import com.example.mongleandroid.network.data.ResultThemeData
-import kotlinx.android.synthetic.main.item_result_theme.*
-import java.lang.StringBuilder
 
 class ResultThemeViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
 
