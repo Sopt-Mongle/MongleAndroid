@@ -42,7 +42,7 @@ class MainFragment : Fragment() {
 
         //뷰페이저 연결
         vp_main.adapter = MainPagerAdapter(childFragmentManager)
-        vp_main.offscreenPageLimit = 2
+        vp_main.offscreenPageLimit = 3
         tl_main.setupWithViewPager(vp_main)
 
         setHotThemeAdapter(data3) // 인기있는 테마 리사이클러뷰
@@ -161,7 +161,7 @@ class MainFragment : Fragment() {
         data.apply {
             add(
                 TodaySentenceData(
-                    tv_today_sentence = "몽글몽글"
+                    tv_today_sentence = "결국 봄이 언제나 찾아왔지만, 하마터면 오지 않을 뻔했던 봄을 생각하면 마음이 섬찟"
                 )
             )
 

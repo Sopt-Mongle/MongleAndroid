@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="17dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/veryLightPink5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/item_search_book_img"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:src="@color/softGreen"
+        android:layout_marginTop="17dp"
+        android:layout_marginStart="22dp"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/item_search_book_tv_htitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="해리포터"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/item_search_book_tv_title"
+        app:layout_constraintStart_toStartOf="@id/item_search_book_tv_title"
+        app:layout_constraintTop_toTopOf="@id/item_search_book_tv_title" />
+
+
+    <TextView
+        android:id="@+id/item_search_book_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="해리"
+        android:textColor="@color/softGreen"
+        android:textSize="16sp"
+        android:layout_marginTop="11dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/item_search_book_img"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/item_search_book_tv_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="김해리/박현주"
+        android:textSize="14sp"
+        android:textColor="@color/brownGrey3"
+        android:layout_marginTop="22dp"
+        app:layout_constraintStart_toStartOf="@id/item_search_book_tv_title"
+        app:layout_constraintTop_toBottomOf="@id/item_search_book_tv_title"/>
+
+    <TextView
+        android:id="@+id/item_search_book_tv_publisher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="TTP"
+        android:textColor="@color/brownGrey3"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/item_search_book_tv_author"
+        app:layout_constraintTop_toBottomOf="@id/item_search_book_tv_author" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
