@@ -30,6 +30,10 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
         activity_writing_sentence_book_search_rv_after.addItemDecoration(ItemDecoration())
         loadDatas()
 
+        activity_writing_sentence_book_search_btn_out.setOnClickListener {
+
+        }
+
 //        activity_writing_sentence_book_search_rv_after.addOnItemTouchListener(object : RecyclerView.OnItemTouchListener {
 //            override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {
 //
