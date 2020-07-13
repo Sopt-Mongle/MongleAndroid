@@ -92,6 +92,8 @@ class MainFragment : Fragment() {
                     tv_main_hot_theme_count = "39"
                 )
             )
+            mainHotThemeAdapter.datas = data3
+            mainHotThemeAdapter.notifyDataSetChanged()
         }
     }
 //지금 인기있는 큐레이터 어댑터 연결
@@ -141,6 +143,8 @@ class MainFragment : Fragment() {
                     tv_curator_keyword = "몽글몽글"
                 )
             )
+            mainNowHotCuratorAdapter.datas = data2
+            mainNowHotCuratorAdapter.notifyDataSetChanged()
         }
     }
 
@@ -186,7 +190,8 @@ class MainFragment : Fragment() {
                     tv_today_sentence = "룰루랄라라라라랄라랄"
                 )
             )
-
+            todaySentenceAdapter.datas = data
+            todaySentenceAdapter.notifyDataSetChanged()
 
         }
     }

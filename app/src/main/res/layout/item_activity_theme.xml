@@ -61,7 +61,7 @@
         android:layout_width="12dp"
         android:layout_height="12dp"
         android:layout_marginEnd="5dp"
-        android:src="@color/black"
+        android:src="@drawable/theme_icon_bookmark_1"
         app:layout_constraintBottom_toBottomOf="@+id/tv_save_num"
         app:layout_constraintEnd_toStartOf="@+id/tv_save_num"
         app:layout_constraintTop_toTopOf="@+id/tv_save_num" />
@@ -84,7 +84,7 @@
         android:layout_width="13dp"
         android:layout_height="13dp"
         android:layout_marginEnd="4dp"
-        android:src="@color/black"
+        android:src="@drawable/theme_icon_like_1"
         app:layout_constraintBottom_toBottomOf="@+id/tv_like_num"
         app:layout_constraintEnd_toStartOf="@+id/tv_like_num"
         app:layout_constraintTop_toTopOf="@+id/tv_like_num" />
