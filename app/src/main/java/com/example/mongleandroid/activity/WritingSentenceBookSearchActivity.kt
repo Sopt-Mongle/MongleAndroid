@@ -60,7 +60,7 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
 
                 BookData(
                     authors = "해리",
-                    publisher = "",
+                    publisher = "몽글1",
                     thumbnail = "dsf",
                     title = "해리포터",
                     isbn = "dsfa"
@@ -70,7 +70,7 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
 
                 BookData(
                     authors = "해리",
-                    publisher = "",
+                    publisher = "몽글2",
                     thumbnail = "dsf",
                     title = "해리포터",
                     isbn = "dsfa"
@@ -80,7 +80,7 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
 
                 BookData(
                     authors = "해리",
-                    publisher = "",
+                    publisher = "몽글3",
                     thumbnail = "dsf",
                     title = "해리포터",
                     isbn = "dsfa"
@@ -90,7 +90,7 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
 
                 BookData(
                     authors = "해리",
-                    publisher = "",
+                    publisher = "몽글4",
                     thumbnail = "dsf",
                     title = "해리포터",
                     isbn = "dsfa"
@@ -100,7 +100,7 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
 
                 BookData(
                     authors = "해리",
-                    publisher = "",
+                    publisher = "몽글5",
                     thumbnail = "dsf",
                     title = "해리포터",
                     isbn = "dsfa"
