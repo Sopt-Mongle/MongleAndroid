@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.SentenceDetailViewActivity">
+    tools:context=".activity.SentenceDetailViewInThemeActivity">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll"
@@ -229,59 +229,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/imageView19"
                 app:layout_constraintTop_toTopOf="@+id/imageView19" />
 
-            <TextView
-                android:id="@+id/tv_theme_other_sentence"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="48dp"
-                android:letterSpacing="-0.02"
-                android:lineSpacingExtra="9sp"
-                android:text="이 테마의 다른 문장"
-                android:textColor="@color/black_two"
-                android:textSize="19sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView19" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_sentence_detail_view_theme_other_sentence"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical"
-                android:overScrollMode="never"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_theme_other_sentence"
-                tools:itemCount="2"
-                tools:listitem="@layout/item_activity_theme" />
-
-            <View
-                android:id="@+id/view5"
-                android:layout_width="350dp"
-                android:layout_height="46dp"
-                android:layout_marginTop="21dp"
-                android:background="@drawable/background_sentence_detail_view_theme"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rv_sentence_detail_view_theme_other_sentence" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:letterSpacing="-0.02"
-                android:lineSpacingExtra="11sp"
-                android:text="테마 보러 가기"
-                android:textColor="#8b8b8b"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/view5"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintStart_toStartOf="@+id/view5"
-                app:layout_constraintTop_toTopOf="@+id/view5" />
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
@@ -348,6 +295,5 @@
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageView16"
         app:layout_constraintTop_toBottomOf="@+id/bottom_line" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
