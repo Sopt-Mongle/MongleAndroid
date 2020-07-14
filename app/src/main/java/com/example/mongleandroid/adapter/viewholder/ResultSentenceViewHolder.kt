@@ -1,6 +1,5 @@
 package com.example.mongleandroid.adapter.viewholder
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.text.Spannable
 import android.text.SpannableStringBuilder
