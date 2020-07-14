@@ -13,29 +13,35 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan">
-        <activity android:name=".activity.EditSentenceActivity"/>
-        <activity android:name=".activity.LoginActivity"></activity>
-        <activity android:name=".activity.WritingThemeActivity"
-            android:windowSoftInputMode="adjustResize">
-
+        <activity android:name=".JoinActivity">
         </activity>
-        <activity android:name=".activity.MainThemeActivity"/>
-        <activity android:name=".activity.PostThemeActivity"/>
-        <activity android:name=".activity.SettingActivity"/>
-        <activity android:name=".activity.SubscriptionsActivity"/>
+        <activity android:name=".activity.EditSentenceActivity" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name=".activity.WritingThemeActivity"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity android:name=".activity.MainThemeActivity" />
+        <activity android:name=".activity.PostThemeActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.SubscriptionsActivity" />
         <activity
             android:name=".activity.ThemeWritingSentenceActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
-        <activity android:name=".activity.ThemeWritingSentenceBookActivity"/>
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity android:name=".activity.ThemeWritingSentenceBookActivity" />
         <activity
             android:name=".activity.WritingSentenceThemeSearchActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".activity.WritingSentenceBookSearchActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".activity.WritingSentenceActivity"
+        <activity
+            android:name=".activity.WritingSentenceActivity"
             android:windowSoftInputMode="adjustResize">
-
         </activity>
         <activity
             android:name=".activity.MainActivity"
@@ -45,7 +51,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 
