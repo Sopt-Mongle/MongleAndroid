@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentTransaction
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.MainHotThemeAdapter
 import com.example.mongleandroid.adapter.MainNowHotCuratorAdapter
@@ -29,6 +30,7 @@ class MainFragment : Fragment() {
     private lateinit var mainHotThemeAdapter: MainHotThemeAdapter
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,7 +51,19 @@ class MainFragment : Fragment() {
         setHotCuratorAdapter(data2) // 지금 인기있는 큐레이터 리사이클러뷰
         setAdapter(data)//오늘의 문장 리사이클러뷰
 
+        img_main_search_btn.setOnClickListener {
+            replaceFragment(SearchFragment())
+        }
+
     }
+
+    private fun replaceFragment(fragment: Fragment) {
+        val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+        transaction.replace(R.id.main_activity_fg, fragment)
+        transaction.commit()
+
+    }
+
     private fun setHotThemeAdapter(mainHotThemeItem: MutableList<MainHotThemeData>) {
         mainHotThemeAdapter =
             MainHotThemeAdapter(
