@@ -72,6 +72,79 @@ class LibraryThemaFragment : Fragment() {
                     tv_sentence_count_library_item = "15"
                 )
             )
+            add(
+                LibraryThemaData(
+                    tv_library_thema = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게\n" +
+                            "기대고만 싶을 때 보면 좋은 문장",
+                    tv_thema_num_library = "107",
+                    tv_sentence_count_library_item = "15"
+                )
+            )
+            add(
+                LibraryThemaData(
+                    tv_library_thema = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게\n" +
+                            "기대고만 싶을 때 보면 좋은 문장",
+                    tv_thema_num_library = "107",
+                    tv_sentence_count_library_item = "15"
+                )
+            )
+            add(
+                LibraryThemaData(
+                    tv_library_thema = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게\n" +
+                            "기대고만 싶을 때 보면 좋은 문장",
+                    tv_thema_num_library = "107",
+                    tv_sentence_count_library_item = "15"
+                )
+            )
+            add(
+                LibraryThemaData(
+                    tv_library_thema = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게\n" +
+                            "기대고만 싶을 때 보면 좋은 문장",
+                    tv_thema_num_library = "107",
+                    tv_sentence_count_library_item = "15"
+                )
+            )
+            add(
+                LibraryThemaData(
+                    tv_library_thema = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게\n" +
+                            "기대고만 싶을 때 보면 좋은 문장",
+                    tv_thema_num_library = "107",
+                    tv_sentence_count_library_item = "15"
+                )
+            )
+            add(
+                LibraryThemaData(
+                    tv_library_thema = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게\n" +
+                            "기대고만 싶을 때 보면 좋은 문장",
+                    tv_thema_num_library = "107",
+                    tv_sentence_count_library_item = "15"
+                )
+            )
+            add(
+                LibraryThemaData(
+                    tv_library_thema = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게\n" +
+                            "기대고만 싶을 때 보면 좋은 문장",
+                    tv_thema_num_library = "107",
+                    tv_sentence_count_library_item = "15"
+                )
+            )
+            add(
+                LibraryThemaData(
+                    tv_library_thema = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게\n" +
+                            "기대고만 싶을 때 보면 좋은 문장",
+                    tv_thema_num_library = "107",
+                    tv_sentence_count_library_item = "15"
+                )
+            )
+            add(
+                LibraryThemaData(
+                    tv_library_thema = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게\n" +
+                            "기대고만 싶을 때 보면 좋은 문장",
+                    tv_thema_num_library = "107",
+                    tv_sentence_count_library_item = "15"
+                )
+            )
+
 
         }
         libraryThemaAdapter.data_the = libraryThemaDatas
