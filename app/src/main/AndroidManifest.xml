@@ -10,8 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan">
-        <activity android:name=".activity.SettingActivity"></activity>
-        <activity android:name=".activity.CuratorActivity"></activity>
+        <activity
+            android:name=".activity.MainActivity2"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.CuratorActivity" />
         <activity android:name=".activity.PostThemeActivity" />
         <activity android:name=".activity.WritingSentenceActivity" />
         <activity
