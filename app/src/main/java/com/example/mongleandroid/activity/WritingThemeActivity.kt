@@ -18,7 +18,7 @@ import kotlin.properties.Delegates
 class WritingThemeActivity : AppCompatActivity() {
 
     lateinit var writingThemeAdapter: WritingThemeAdapter
-    val datas: MutableList<Int> = mutableListOf<Int>()
+    var datas: MutableList<Int> = mutableListOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,42 +26,42 @@ class WritingThemeActivity : AppCompatActivity() {
 
         writingThemeAdapter = WritingThemeAdapter(this)
         activity_writing_theme_rv.adapter = writingThemeAdapter
-        //rv_home.addItemDecoration(ItemDecoration())
+        //activity_writing_theme_rv.addItemDecoration(ItemDecoration())
         loadDatas()
     }
     private fun loadDatas(){
         datas.apply {
             add(
-                1
+                R.drawable.maketheme_img_theme_1
             )
             add(
-                2
+                R.drawable.maketheme_img_theme_2
             )
 //            add(
-//                3
+//                R.drawable.maketheme_img_theme_3
 //            )
 //            add(
-//                4
+//                R.drawable.maketheme_img_theme_4
 //            )
 //            add(
-//                5
+//                R.drawable.maketheme_img_theme_5
 //            )
 //            add(
-//                6
+//                R.drawable.maketheme_img_theme_6
 //            )
 //            add(
-//                7
+//                R.drawable.maketheme_img_theme_7
 //            )
 //            add(
-//                8
+//                R.drawable.maketheme_img_theme_8
 //            )
 //            add(
-//                9
+//                R.drawable.maketheme_img_theme_9
 //            )
 //            add(
-//                10
+//                R.drawable.maketheme_img_theme_10
 //            )
-            
+
 
             writingThemeAdapter.datas = datas
             writingThemeAdapter.notifyDataSetChanged()
