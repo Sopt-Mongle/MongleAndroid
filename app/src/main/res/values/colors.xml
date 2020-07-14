@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="softGreen">#73c088</color>
-    <color name="veryLightPink">#bcbcbc</color>
-    <color name="veryLightPink2">#dadada</color>
-    <color name="veryLightPink3">#ececec</color>
-    <color name="veryLightPink4">#e6e6e6</color>
-    <color name="brownGrey">#7c7c7c</color>
+    <color name="veryLightPink">#dadada</color>
+    <color name="veryLightPink2">#cbcbcb</color>
+    <color name="veryLightPink3">#dbdbdb</color>
+    <color name="veryLightPink4">#dedede</color>
+    <color name="veryLightPink5">#e6e6e6</color>
+    <color name="brownGrey">#7a7a7a</color>
+    <color name="brownGrey2">#7c7c7c</color>
+    <color name="brownGrey3">#7e7e7e</color>
+    <color name="greyish_brown">#565656</color>
+    <color name="greyish_brown2">#535353</color>
     <color name="white">#ffffff</color>
+    <color name="white2">#f8f8f8</color>
+    <color name="black_two">#292929</color>
     <color name="black">#000000</color>
-
     <color name="black2">#292929</color>
     <color name="very_light_pink_two">#bcbcbc</color>
 
