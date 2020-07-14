@@ -1,6 +1,7 @@
 package com.example.mongleandroid.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
@@ -10,12 +11,15 @@ import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mongleandroid.R
 import kotlinx.android.synthetic.main.activity_join.*
-import kotlinx.android.synthetic.main.activity_theme_writing_sentence.*
 
 class JoinActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join)
+
+        activity_join_btn_close.setOnClickListener {
+            finish()
+        }
 
         activity_join_btn_next.setOnClickListener {
             if(activity_join_et_email.text.toString().length <=  0) {
@@ -36,6 +40,10 @@ class JoinActivity : AppCompatActivity() {
                 activity_join_et_nickname.background = getResources().getDrawable(R.drawable.et_area_red)
                 activity_join_img_nickname_warning.visibility = VISIBLE
                 activity_join_tv_nickname_warning.visibility = VISIBLE
+            } else {
+                val intent = Intent(this, JoinFinishActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
 
