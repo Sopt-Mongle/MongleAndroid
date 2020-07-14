@@ -29,7 +29,7 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/tv_edit"
-        app:layout_constraintTop_toTopOf="tv_edit" />
+        app:layout_constraintTop_toTopOf="@id/tv_edit" />
 
     <EditText
         android:id="@+id/et_edit"
