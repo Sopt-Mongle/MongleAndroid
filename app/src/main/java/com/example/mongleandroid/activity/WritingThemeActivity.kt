@@ -3,6 +3,7 @@ package com.example.mongleandroid.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.WritingThemeAdapter
 import com.example.mongleandroid.goNextPage
@@ -28,6 +29,7 @@ class WritingThemeActivity : AppCompatActivity() {
 
         //뒤로가기 버튼
         activity_writing_theme_btn_out.setOnClickListener {
+            Toast.makeText(this, "메인화면으로 돌아갑니다.", Toast.LENGTH_SHORT).show()
             finish()
             //goNextPage(activity_writing_theme_CL_noPopUp, activity_writing_theme_CL_popup)
 
@@ -53,6 +55,30 @@ class WritingThemeActivity : AppCompatActivity() {
     }
     private fun loadDatas(){
         datas.apply {
+            add(
+                R.drawable.maketheme_img_theme_1
+            )
+            add(
+                R.drawable.maketheme_img_theme_2
+            )
+            add(
+                R.drawable.maketheme_img_theme_1
+            )
+            add(
+                R.drawable.maketheme_img_theme_2
+            )
+            add(
+                R.drawable.maketheme_img_theme_1
+            )
+            add(
+                R.drawable.maketheme_img_theme_2
+            )
+            add(
+                R.drawable.maketheme_img_theme_1
+            )
+            add(
+                R.drawable.maketheme_img_theme_2
+            )
             add(
                 R.drawable.maketheme_img_theme_1
             )

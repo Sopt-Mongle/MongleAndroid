@@ -48,8 +48,9 @@ class WritingSentenceActivity : AppCompatActivity() {
         }
         //뒤로가기 버톤
         activity_writing_sentence_btn_out.setOnClickListener {
-            onDestroy()
             Toast.makeText(this, "메인화면으로 돌아갑니다.", Toast.LENGTH_SHORT).show()
+            finish()
+
         }
         //애니메이션
         //에러 메세지

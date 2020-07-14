@@ -67,42 +67,42 @@
         app:tint="@color/white"
         />
 
+
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/main_activity_FAB_st"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_above="@+id/main_activity_FAB_main"
         android:background="@drawable/fab_sub"
         android:backgroundTint="@color/white"
-        android:gravity="center"
-        android:text="문장 만들기"
-        android:textSize="14sp"
-        android:visibility="gone"
+        android:text=" 문장 쓰기"
+        android:textSize="16sp"
         app:borderWidth="0dp"
-        app:fabSize="mini"
+        android:gravity="center"
+        app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/main_activity_FAB_main" />
+        app:layout_constraintTop_toTopOf="@+id/main_activity_FAB_main"
+        android:visibility="visible"/>
 
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/main_activity_FAB_tm"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_above="@+id/main_activity_FAB_main"
         android:background="@drawable/fab_sub"
         android:backgroundTint="@color/white"
-        android:gravity="center"
-        android:text="테마 만들기"
-        android:textSize="14sp"
-        android:visibility="gone"
-        app:borderWidth="0dp"
-        app:fabSize="mini"
+        android:text=" 테마 만들기"
+        android:textSize="16sp"
+        app:fabSize="normal"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/main_activity_FAB_main" />
+        app:layout_constraintTop_toTopOf="@+id/main_activity_FAB_main"
+        android:visibility="visible"/>
     <View
         android:id="@+id/main_activity_blur"
         android:layout_width="match_parent"
