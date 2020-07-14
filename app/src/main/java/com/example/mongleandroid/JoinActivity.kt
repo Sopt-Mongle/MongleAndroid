@@ -1,8 +1,7 @@
-package com.example.mongleandroid.activity
+package com.example.mongleandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.mongleandroid.R
 
 class JoinActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

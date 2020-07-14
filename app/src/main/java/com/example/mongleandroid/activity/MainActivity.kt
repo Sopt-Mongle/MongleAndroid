@@ -1,6 +1,7 @@
 package com.example.mongleandroid.activity
 
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View.GONE
@@ -108,7 +109,17 @@ class MainActivity : AppCompatActivity() {
             main_activity_FAB_main.setImageResource(R.drawable.ic_close)
 
             main_activity_blur.visibility = VISIBLE
+            //main_activity_fg.setOnTouchListener { v, event ->  }
 
+            main_activity_FAB_st.setOnClickListener {
+                val intent = Intent(this@MainActivity,WritingSentenceActivity::class.java)
+                startActivity(intent)
+            }
+
+            main_activity_FAB_tm.setOnClickListener {
+                val intent = Intent(this@MainActivity,WritingThemeActivity::class.java)
+                startActivity(intent)
+            }
 
         }
 
