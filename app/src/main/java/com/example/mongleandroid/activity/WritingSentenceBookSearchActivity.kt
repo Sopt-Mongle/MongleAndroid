@@ -3,20 +3,20 @@ package com.example.mongleandroid.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.MotionEvent
 import android.view.View
 import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mongleandroid.R
+import com.example.mongleandroid.*
 import com.example.mongleandroid.adapter.ItemDecoration
 import com.example.mongleandroid.adapter.WritingSentenceBookSearchAdapter
-import com.example.mongleandroid.goNextPage
 import com.example.mongleandroid.network.data.response.BookData
 import com.example.mongleandroid.network.data.response.ResponseWritingSentenceBookSearchData
 import com.example.mongleandroid.network.data.response.ResponseWritingSentenceThemeSearchData
-import com.example.mongleandroid.showKeyboard
-import com.example.mongleandroid.unshowKeyboard
+import kotlinx.android.synthetic.main.activity_writing_sentence.*
 import kotlinx.android.synthetic.main.activity_writing_sentence_book_search.*
 import kotlinx.android.synthetic.main.activity_writing_sentence_theme_search.*
 import kotlinx.android.synthetic.main.item_book_search.*
@@ -30,10 +30,37 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_writing_sentence_book_search)
 
+        activity_writing_sentence_book_search_before.visibility = View.VISIBLE
+        activity_writing_sentence_book_search_after.visibility = View.GONE
+        activity_writing_sentence_book_search_rv_after.visibility = View.GONE
+        activity_writing_sentence_book_search_empty.visibility = View.GONE
+
         //포커스는 검색창에
         activity_writing_sentence_book_search_tv_search.requestFocus()
         //키보드 등장
         activity_writing_sentence_book_search_tv_search.showKeyboard()
+
+        //글자수 세기기 및 경고 박스 해제
+        activity_writing_sentence_book_search_tv_search.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+
+                //실시간 글자 수 세기
+                val string_length = activity_writing_sentence_book_search_tv_search.text.toString()
+                activity_writing_sentence_book_search_tv_cnt.setText(string_length.length.toString())
+            }
+
+        })
+
+
 
 
         //뒤로가기 버튼
@@ -52,8 +79,14 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
         activity_writing_sentence_book_search_btn_search.setOnClickListener {
             //키보드 제어
             activity_writing_sentence_book_search_tv_search.unshowKeyboard()
+            //검색 결과가 있으면
             goNextPage(activity_writing_sentence_book_search_before, activity_writing_sentence_book_search_after)
+            activity_writing_sentence_book_search_rv_after.visibility = View.VISIBLE
             loadDatas()
+
+            //검색 결과가 없으면
+            //goNextPage(activity_writing_sentence_book_search_before, activity_writing_sentence_book_search_empty)
+
 
 
             //if 서버 통신 성공
