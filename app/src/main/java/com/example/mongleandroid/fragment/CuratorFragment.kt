@@ -6,20 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.mongleandroid.R
+import com.example.mongleandroid.adapter.CuratorFragmentAdapter
 import com.example.mongleandroid.adapter.MainNowHotCuratorAdapter
-import com.example.mongleandroid.adapter.ResultCuratorAdapter
 import com.example.mongleandroid.network.data.MainNowHotCuratorData
 import com.example.mongleandroid.network.data.response.ResponseResultCuratorData
 import kotlinx.android.synthetic.main.fragment_curator.*
-import kotlinx.android.synthetic.main.fragment_main.*
 
 
 class CuratorFragment : Fragment() {
 
-    lateinit var curatorThemeAdapter: ResultCuratorAdapter
+    lateinit var curatorThemeAdapter: CuratorFragmentAdapter
     val curatorThemeDatas = mutableListOf<ResponseResultCuratorData>()
 
-    lateinit var curatorThemeAdapter2: ResultCuratorAdapter
+    lateinit var curatorThemeAdapter2: CuratorFragmentAdapter
     val curatorThemeDatas2 = mutableListOf<ResponseResultCuratorData>()
 
     lateinit var curatorRecommendAdapter : MainNowHotCuratorAdapter
@@ -38,11 +37,11 @@ class CuratorFragment : Fragment() {
 
         setRecommendCuratorAdapter(curatorRecommendDatas)
 
-        curatorThemeAdapter = ResultCuratorAdapter(view.context)
+        curatorThemeAdapter = CuratorFragmentAdapter(view.context)
         fragment_curator_rv_curator1.adapter = curatorThemeAdapter
         ThemeCuratorLoadDatas()
 
-        curatorThemeAdapter2 = ResultCuratorAdapter(view.context)
+        curatorThemeAdapter2 = CuratorFragmentAdapter(view.context)
         fragment_curator_rv_curator2.adapter = curatorThemeAdapter2
         ThemeCuratorLoadDatas2()
 
