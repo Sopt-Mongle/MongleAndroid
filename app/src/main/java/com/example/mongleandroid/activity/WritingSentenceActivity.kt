@@ -53,7 +53,9 @@ class WritingSentenceActivity : AppCompatActivity() {
         }
         //애니메이션
         //에러 메세지
-        //키보드
+
+
+
 
 
         //문장 만들기 2단계
@@ -76,7 +78,6 @@ class WritingSentenceActivity : AppCompatActivity() {
         }
         //애니메이션
         //에러 메세지
-        //키보드
 
 
         //문장 만들기 3단계
@@ -98,7 +99,6 @@ class WritingSentenceActivity : AppCompatActivity() {
         }
         //애니메이션
         //에러 메세지
-        //키보드
 
 
 
