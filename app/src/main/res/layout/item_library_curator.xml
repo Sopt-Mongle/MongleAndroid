@@ -102,7 +102,7 @@
             app:layout_constraintStart_toStartOf="@id/cl_library_curator" />
 
         <CheckBox
-            android:id="@+id/result_curator_btn_subscribe_item"
+            android:id="@+id/library_curator_btn_subscribe_item"
             android:layout_width="66dp"
             android:layout_height="30dp"
             android:layout_marginTop="48dp"
