@@ -10,7 +10,6 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mongleandroid.R
 import com.example.mongleandroid.fragment.CuratorFragment
-import com.example.mongleandroid.fragment.LibraryFragment
 import com.example.mongleandroid.fragment.MainFragment
 import com.example.mongleandroid.fragment.MypageFragment
 import com.example.mongleandroid.fragment.SearchFragment
@@ -23,6 +22,10 @@ import kotlinx.android.synthetic.main.fragment_search.*
 
 class MainActivity : AppCompatActivity() {
 
+    companion object{
+        var search_result = ""
+    }
+
     private var isFabOpen = false
     lateinit var fab_open: Animation
     lateinit var fab_close: Animation
@@ -32,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var mainFragment: MainFragment
     lateinit var searchFragment: SearchFragment
     lateinit var curatorFragment: CuratorFragment
-    lateinit var mypageFragment: LibraryFragment
+    lateinit var mypageFragment: MypageFragment
 
 
 
@@ -111,8 +114,7 @@ class MainActivity : AppCompatActivity() {
 
         isFabOpen = !isFabOpen
     }
-
-
+    
 
 
 }
