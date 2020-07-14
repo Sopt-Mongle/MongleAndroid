@@ -1,6 +1,7 @@
 package com.example.mongleandroid.adapter.viewholder
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
@@ -21,7 +22,6 @@ class ResultCuratorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
     val subscribe = itemView.findViewById<TextView>(R.id.result_curator_tv_subcount)
     val keyword = itemView.findViewById<TextView>(R.id.result_curator_tv_keyword)
 
-    @SuppressLint("ResourceAsColor")
     fun bind(responseResultCuratorData: ResponseResultCuratorData) {
         Glide.with(itemView).load(responseResultCuratorData.img).into(img)
         name.text = responseResultCuratorData.name
@@ -41,7 +41,7 @@ class ResultCuratorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
 
         if(inputString.length == lastIndex - startIndex + 1) {
             spannable.setSpan(
-                ForegroundColorSpan(R.color.softGreen),
+                ForegroundColorSpan(Color.rgb(115,192,136)),
                 startIndex,
                 lastIndex + 1, // end
                 Spannable.SPAN_EXCLUSIVE_INCLUSIVE

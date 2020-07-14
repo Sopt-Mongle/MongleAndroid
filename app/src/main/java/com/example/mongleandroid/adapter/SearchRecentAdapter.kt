@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.viewholder.SearchRecentViewHolder
-import com.example.mongleandroid.network.data.SearchRecentData
+import com.example.mongleandroid.network.data.response.ResponseSearchRecentData
 
 class SearchRecentAdapter(private val context : Context) : RecyclerView.Adapter<SearchRecentViewHolder>(){
-    var datas = mutableListOf<SearchRecentData>()
+    var datas = mutableListOf<ResponseSearchRecentData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchRecentViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_recent_keyword, parent, false)

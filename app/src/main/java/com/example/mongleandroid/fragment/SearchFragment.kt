@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
 import com.example.mongleandroid.activity.MainActivity.Companion.search_result
 import com.example.mongleandroid.adapter.SearchRecentAdapter
-import com.example.mongleandroid.network.data.SearchRecentData
+import com.example.mongleandroid.network.data.response.ResponseSearchRecentData
 import com.example.mongleandroid.showKeyboard
 import kotlinx.android.synthetic.main.fragment_search.*
 
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_search.*
 class SearchFragment : Fragment() {
 
     lateinit var searchRecentAdapter: SearchRecentAdapter
-    val searchRecentDatas = mutableListOf<SearchRecentData>()
+    val searchRecentDatas = mutableListOf<ResponseSearchRecentData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -92,7 +92,7 @@ class SearchFragment : Fragment() {
 
         searchRecentDatas.apply {
             add(
-                SearchRecentData(
+                ResponseSearchRecentData(
                     tv_recent_keyword = search_fragment_et_search.text.toString()
                 )
             )
