@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SentenceDetailViewActivity">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="28dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="28dp" />
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="match_parent"
+                android:layout_height="144dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/detailview_img_backimg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="19dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="9sp"
+                android:text="브랜딩이 어려울 때, 영감을 주는 문장"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+                app:layout_constraintStart_toStartOf="@+id/imageView13" />
+
+            <ImageView
+                android:id="@+id/imageView17"
+                android:layout_width="31dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="55dp"
+                android:src="@drawable/detailview_icon_quote"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageView13" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="329dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:maxLength="280"
+                android:text="처음 마주할 때의 인상, 사소한 것으로 인해 생기
+는 호감, 알아가면서 느끼는 다양한 감정과 머금
+고있는 풍경과 분위기까지. 처음 마주할 때의 인
+상, 사소한 것으로 인해 생기는 호감, 알아가면서
+느끼는 다양한 감정과 머금고있는 풍경과 분위기
+까지. 처음 마주할 때의 인상, 사소한 것으로 인해
+생기는 호감, 알아가면서 느끼는 다양한 감정과
+머금고있는 풍경과 분위기까지. 처음 마주할 때
+의 인상, 사소한 것으로 인해 생기는 호감, 알아가
+면서 느끼는 다양한 감정과 머금고있는 풍경과
+분위기까지. 가나다라 마바사"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="50dp"
+                android:background="#e7e7e7"
+                app:layout_constraintEnd_toEndOf="@+id/textView19"
+                app:layout_constraintStart_toStartOf="@+id/textView19"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <View
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="57dp"
+        android:background="#e7e7e7"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="21dp"
+        android:src="@drawable/detailview_icon_like"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="17dp"
+        android:lineSpacingExtra="8sp"
+        android:text="502"
+        android:textColor="@color/very_light_pink_two"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView15"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_line" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="1dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="14dp"
+        android:background="#e7e7e7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bottom_line" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="21dp"
+        android:src="@drawable/detailview_icon_bookmark"
+        app:layout_constraintStart_toEndOf="@+id/view4"
+        app:layout_constraintTop_toBottomOf="@+id/scroll" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="17dp"
+        android:lineSpacingExtra="8sp"
+        android:text="247"
+        android:textColor="@color/very_light_pink_two"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView16"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_line" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
