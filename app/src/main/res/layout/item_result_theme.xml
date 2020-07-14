@@ -76,7 +76,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/result_theme_tv_bookmark"
             app:layout_constraintStart_toEndOf="@+id/result_theme_tv_bookmark"
             app:layout_constraintTop_toTopOf="@+id/result_theme_tv_bookmark"
-            app:srcCompat="@drawable/resultheme_div_detailcontent_1" />
+            app:srcCompat="@drawable/div_line" />
 
         <TextView
             android:id="@+id/textView12"
