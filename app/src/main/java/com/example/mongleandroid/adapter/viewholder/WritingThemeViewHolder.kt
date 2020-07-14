@@ -1,5 +1,6 @@
 package com.example.mongleandroid.adapter.viewholder
 
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
@@ -18,8 +19,9 @@ class WritingThemeViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView
 
 
     fun bind(themeImgIdx: Int){
-        val img : String = "@drawable/maketheme_img_theme_" + themeImgIdx.toString() + ".png"
-
-        Glide.with(itemView).load(img).into(activity_writing_theme_img_theme)
+        //val img : String = "drawable-xxxhdpi/maketheme_img_theme_" + themeImgIdx.toString() + ".png"
+        //var img : Int = R.drawable.maketheme_img_theme_1
+        //Log.d("themeImgIdx", themeImgIdx.toString())
+        Glide.with(itemView).load(themeImgIdx).into(activity_writing_theme_img_theme)
     }
 }
