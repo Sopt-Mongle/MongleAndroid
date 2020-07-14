@@ -10,6 +10,7 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingBottom="36dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_line"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -255,6 +256,31 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_theme_other_sentence"
                 tools:itemCount="2"
                 tools:listitem="@layout/item_activity_theme" />
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="350dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="21dp"
+                android:background="@drawable/background_sentence_detail_view_theme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_sentence_detail_view_theme_other_sentence" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="테마 보러 가기"
+                android:textColor="#8b8b8b"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/view5"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/view5"
+                app:layout_constraintTop_toTopOf="@+id/view5" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

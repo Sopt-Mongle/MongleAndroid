@@ -28,6 +28,14 @@
         <activity android:name=".activity.PostThemeActivity" />
         <activity android:name=".activity.SettingActivity" />
         <activity android:name=".activity.SubscriptionsActivity" />
+        <activity android:name=".activity.SentenceDetailViewActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.ThemeWritingSentenceActivity"
             android:windowSoftInputMode="adjustResize">
@@ -46,11 +54,7 @@
         <activity
             android:name=".activity.MainActivity"
             android:windowSoftInputMode="adjustNothing">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
