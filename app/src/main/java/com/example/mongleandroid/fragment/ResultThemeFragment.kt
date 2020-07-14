@@ -7,15 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.ResultThemeAdapter
-import com.example.mongleandroid.network.data.ResultThemeData
+import com.example.mongleandroid.network.data.response.ResponseResultThemeData
 import kotlinx.android.synthetic.main.fragment_result_theme.*
-import kotlinx.android.synthetic.main.fragment_search_result.*
 
 
 class ResultThemeFragment : Fragment() {
 
     lateinit var resultThemeAdapter: ResultThemeAdapter
-    val themedatas = mutableListOf<ResultThemeData>()
+    val themedatas = mutableListOf<ResponseResultThemeData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,24 +34,24 @@ class ResultThemeFragment : Fragment() {
     private fun loadDatas() {
         themedatas.apply {
             add(
-                ResultThemeData(
-                    result_theme_tv_theme = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게 기대고만 싶을 때 보면 좋은 문장",
-                    result_theme_tv_bookmark = "107",
-                    result_theme_tv_sentence_count = "15"
+                ResponseResultThemeData(
+                    theme = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게 기대고만 싶을 때 보면 좋은 문장",
+                    saves = "107",
+                    sentenceNum = "15"
                 )
             )
             add(
-                ResultThemeData(
-                    result_theme_tv_theme = "삶에 지쳐 위태롭고 비틀거릴 때, 삶에 지쳐 누군가에게 기대고만 싶을 때 보면 좋은 문장",
-                    result_theme_tv_bookmark = "107",
-                    result_theme_tv_sentence_count = "15"
+                ResponseResultThemeData(
+                    theme = "삶에 지쳐 위태롭고 비틀거릴 때, 삶에 지쳐 누군가에게 기대고만 싶을 때 보면 좋은 문장",
+                    saves = "107",
+                    sentenceNum = "15"
                 )
             )
             add(
-                ResultThemeData(
-                    result_theme_tv_theme = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게 기대고만 싶을 때 보면 좋은 문장",
-                    result_theme_tv_bookmark = "107",
-                    result_theme_tv_sentence_count = "15"
+                ResponseResultThemeData(
+                    theme = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게 기대고만 싶을 때 보면 좋은 문장",
+                    saves = "107",
+                    sentenceNum = "15"
                 )
             )
             resultThemeAdapter.datas = themedatas
