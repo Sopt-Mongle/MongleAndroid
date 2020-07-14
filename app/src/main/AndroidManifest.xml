@@ -13,12 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan">
-        <activity android:name=".activity.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".activity.LoginActivity"/>
+        <activity android:name=".activity.WritingThemeActivity"
+            android:windowSoftInputMode="adjustResize">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activity.ThemeWritingSentenceActivity"
@@ -30,12 +28,18 @@
             android:name=".activity.WritingSentenceBookSearchActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".activity.PostThemeActivity" />
-        <activity
-            android:name=".activity.WritingSentenceActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
+        <activity android:name=".activity.WritingSentenceActivity"
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
         <activity
             android:name=".activity.MainActivity"
             android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
     </application>
