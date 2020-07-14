@@ -84,6 +84,7 @@ class SearchFragment : Fragment() {
         tv_recommend_keyword4.text = "몽글몽글"
         tv_recommend_keyword5.text = "가나다라"
         tv_recommend_keyword6.text = "마바사아"
+        tv_recommend_keyword7.text = "2줄을 넘어가면 안되는 최근 검색어"
     }
 
     private fun LoadRecentKeyword() {
