@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan">
-        <activity android:name=".JoinActivity">
+        <activity android:name=".activity.JoinActivity">
         </activity>
         <activity android:name=".activity.EditSentenceActivity" />
         <activity
