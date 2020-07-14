@@ -1,6 +1,5 @@
 package com.example.mongleandroid.adapter.viewholder
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.text.Spannable
 import android.text.SpannableStringBuilder
@@ -24,7 +23,6 @@ class ResultCuratorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
 
     fun bind(responseResultCuratorData: ResponseResultCuratorData) {
         Glide.with(itemView).load(responseResultCuratorData.img).into(img)
-        name.text = responseResultCuratorData.name
         subscribe.text = responseResultCuratorData.subscribe
         keyword.text = responseResultCuratorData.keyword
 
