@@ -89,7 +89,7 @@ class WritingSentenceActivity : AppCompatActivity() {
             goPrevPage(activity_writing_sentence_CL_book, activity_writing_sentence_CL_sentence)
         }
         //책 검색으로 이동 버튼
-        activity_writing_sentence_btn_book_search.setOnClickListener{
+        activity_writing_sentence_btn_book_search_nomal.setOnClickListener{
             val intent = Intent(this@WritingSentenceActivity,WritingSentenceBookSearchActivity::class.java)
             startActivityForResult(intent,1)
         }
@@ -110,7 +110,7 @@ class WritingSentenceActivity : AppCompatActivity() {
             goPrevPage(activity_writing_sentence_CL_theme,activity_writing_sentence_CL_book)
         }
         //테마 검색으로 이동 버튼
-        activity_writing_sentence_btn_theme_search.setOnClickListener {
+        activity_writing_sentence_btn_theme_search_normal.setOnClickListener {
             val intent = Intent(this@WritingSentenceActivity,WritingSentenceThemeSearchActivity::class.java)
             startActivityForResult(intent,2)
         }
@@ -126,7 +126,7 @@ class WritingSentenceActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1) {
             if (data != null) {
-                activity_writing_sentence_btn_book_search.setText(data.getStringExtra("title"))
+                activity_writing_sentence_btn_book_search_nomal.setText(data.getStringExtra("title"))
                 activity_writing_sentence_tv_author.setText(data.getStringExtra("author"))
                 activity_writing_sentence_tv_publisher.setText(data.getStringExtra("publisher"))
             }
