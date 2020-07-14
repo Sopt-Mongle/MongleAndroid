@@ -13,8 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan">
-        <activity android:name=".activity.JoinActivity">
-        </activity>
+        <activity android:name=".activity.SentenceDetailViewInThemeActivity"></activity>
+        <activity android:name=".JoinActivity"></activity>
         <activity android:name=".activity.EditSentenceActivity" />
         <activity
             android:name=".activity.LoginActivity"
@@ -28,6 +28,7 @@
         <activity android:name=".activity.PostThemeActivity" />
         <activity android:name=".activity.SettingActivity" />
         <activity android:name=".activity.SubscriptionsActivity" />
+        <activity android:name=".activity.SentenceDetailViewActivity" />
         <activity
             android:name=".activity.ThemeWritingSentenceActivity"
             android:windowSoftInputMode="adjustResize">

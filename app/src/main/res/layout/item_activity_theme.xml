@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="117dp">
+    android:layout_height="118dp">
 
     <TextView
         android:id="@+id/tv_theme_sentence"
@@ -89,6 +89,17 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_like_num"
         app:layout_constraintEnd_toStartOf="@+id/tv_like_num"
         app:layout_constraintTop_toTopOf="@+id/tv_like_num" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="28dp"
+        android:background="#e7e7e7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+         />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
