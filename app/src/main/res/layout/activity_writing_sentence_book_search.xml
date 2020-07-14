@@ -49,6 +49,8 @@
             android:layout_marginTop="41dp"
             android:paddingStart="15dp"
             android:paddingEnd="51dp"
+            android:maxLines="1"
+            android:maxLength="40"
             app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_book_search_btn_out"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -74,13 +76,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_book_search_topbar"
-        android:visibility="gone"
+        android:visibility="visible"
         >
         <TextView
             android:id="@+id/activity_writing_sentence_book_search_tv_cnt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="asdfa"
+            android:text="0"
             android:textSize="13sp"
             android:textColor="@color/softGreen"
             android:layout_marginTop="13dp"
@@ -134,7 +136,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_book_search_topbar"
         app:layout_constraintBottom_toTopOf="@+id/activity_writing_sentence_book_search_rv_after"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/activity_writing_sentence_book_search_tv3"
@@ -180,7 +182,7 @@
         android:orientation="vertical"
         android:paddingBottom="32dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
