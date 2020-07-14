@@ -16,8 +16,40 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".activity.SettingActivity" />
         <activity android:name=".activity.CuratorActivity" />
+        <activity android:name=".activity.SentenceDetailViewInThemeActivity"></activity>
+        <activity android:name=".activity.JoinActivity"></activity>
+        <activity android:name=".activity.EditSentenceActivity" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name=".activity.WritingThemeActivity"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity android:name=".activity.MainThemeActivity" />
         <activity android:name=".activity.PostThemeActivity" />
         <activity android:name=".activity.WritingSentenceActivity" />
+        <activity
+            android:name=".activity.MainActivity"
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.SubscriptionsActivity" />
+        <activity android:name=".activity.SentenceDetailViewActivity" />
+        <activity
+            android:name=".activity.ThemeWritingSentenceActivity"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity android:name=".activity.ThemeWritingSentenceBookActivity" />
+        <activity
+            android:name=".activity.WritingSentenceThemeSearchActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activity.WritingSentenceBookSearchActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activity.WritingSentenceActivity"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
         <activity
             android:name=".activity.MainActivity"
             android:windowSoftInputMode="adjustNothing">
@@ -26,6 +58,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
     </application>
 

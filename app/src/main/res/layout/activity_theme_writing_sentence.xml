@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".activity.ThemeWritingSentenceActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_theme_writing_sentence_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/activity_theme_writing_sentence_btn_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="3dp"
+            android:backgroundTint="@color/white"
+            android:tint="@color/veryLightPink2"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="테마에 문장 쓰기"
+            android:textSize="19sp"
+            android:textColor="@color/black2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/activity_theme_writing_sentence_btn_out"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_theme_writing_sentence_btn_out"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_theme_writing_sentence_CL_sentence"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_theme_writing_sentence_topbar">
+
+        <TextView
+            android:id="@+id/activity_theme_writing_sentence_tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="마음에 드는 "
+            android:textColor="@color/greyish_brown"
+            android:textSize="19sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/activity_theme_writing_sentence_tv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="한 문장"
+            android:textColor="@color/softGreen"
+            android:textSize="19sp"
+            app:layout_constraintStart_toEndOf="@id/activity_theme_writing_sentence_tv_1"
+            app:layout_constraintTop_toTopOf="@id/activity_theme_writing_sentence_tv_1" />
+
+        <TextView
+            android:id="@+id/activity_theme_writing_sentence_tv_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="을 적어주세요!"
+            android:textColor="@color/greyish_brown"
+            android:textSize="19sp"
+            app:layout_constraintStart_toEndOf="@+id/activity_theme_writing_sentence_tv_2"
+            app:layout_constraintTop_toTopOf="@id/activity_theme_writing_sentence_tv_1" />
+
+        <TextView
+            android:id="@+id/activity_theme_writing_sentence_tv_themename"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/et_themebox"
+            android:ellipsize="end"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="9sp"
+            android:maxLines="1"
+            android:paddingLeft="13dp"
+            android:paddingTop="10dp"
+            android:paddingRight="13dp"
+            android:paddingBottom="10dp"
+            android:text="밤에 보고 싶은 문장"
+            android:textColor="@color/veryLightPink2"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_theme_writing_sentence_tv_1" />
+
+        <EditText
+            android:id="@+id/activity_theme_writing_sentence_et_sentence"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="9dp"
+            android:background="@drawable/et_area"
+            android:gravity="start"
+            android:hint="최대 280자까지 입력 가능하며, 책의 문장을 임의로 변형하지 않게 주의해주세요!"
+            android:maxLength="280"
+            android:padding="14dp"
+            app:layout_constraintCircleRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_theme_writing_sentence_tv_themename">
+
+            <requestFocus />
+        </EditText>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/activity_theme_writing_sentence_btn_notheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_theme_writing_sentence_img_warning">
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="10sp"
+                android:text="테마 없는 문장 불러오기"
+                android:textColor="@color/veryLightPink2"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView15"
+                app:layout_constraintStart_toEndOf="@+id/textView15"
+                app:layout_constraintTop_toTopOf="@+id/textView15"
+                app:srcCompat="@drawable/theme_writing_sentence_btn_more" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/activity_theme_writing_sentence_tv_cnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="0"
+            android:textColor="@color/softGreen"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@id/activity_theme_writing_sentence_tv_cnt2"
+            app:layout_constraintTop_toBottomOf="@id/activity_theme_writing_sentence_et_sentence" />
+
+        <TextView
+            android:id="@+id/activity_theme_writing_sentence_tv_cnt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/280"
+            android:textColor="@color/veryLightPink2"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_theme_writing_sentence_tv_cnt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/activity_theme_writing_sentence_tv_cnt" />
+
+        <ImageView
+            android:id="@+id/activity_theme_writing_sentence_img_warning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_theme_writing_sentence_et_sentence"
+            app:srcCompat="@drawable/warning" />
+
+        <TextView
+            android:id="@+id/activity_theme_writing_sentence_tv_warning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="1sp"
+            android:text="테마 이름을 적어주세요!"
+            android:textColor="#cf3232"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_theme_writing_sentence_img_warning"
+            app:layout_constraintStart_toEndOf="@+id/activity_theme_writing_sentence_img_warning"
+            app:layout_constraintTop_toTopOf="@+id/activity_theme_writing_sentence_img_warning" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_theme_writing_sentence_bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <TextView
+            android:id="@+id/activity_theme_writing_sentence_btn_next"
+            style="@android:style/ButtonBar"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/btn_green"
+            android:gravity="center_vertical"
+            android:text="다음"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/activity_theme_writing_sentence_btn_upload"
+            style="@android:style/ButtonBar"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/btn_green"
+            android:gravity="center_vertical"
+            android:text="등록하기"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="RtlCompat" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

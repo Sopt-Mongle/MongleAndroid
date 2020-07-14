@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="118dp">
+
+    <TextView
+        android:id="@+id/tv_theme_sentence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="5sp"
+        android:maxLines="2"
+        android:text="영 영앤 리치 남자를 만나자\n감 감사하자"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="14dp"
+        android:src="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/tv_theme_sentence"
+        app:layout_constraintTop_toBottomOf="@+id/tv_theme_sentence" />
+
+    <TextView
+        android:id="@+id/tv_theme_curator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="0sp"
+        android:text="몽글이 몽글몽글"
+        android:textColor="#a7a7a7"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/tv_theme_sentence" />
+
+    <TextView
+        android:id="@+id/tv_save_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="17dp"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="1sp"
+        android:text="100"
+        android:textColor="#a7a7a7"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/theme_icon_bookmark_1"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_save_num"
+        app:layout_constraintEnd_toStartOf="@+id/tv_save_num"
+        app:layout_constraintTop_toTopOf="@+id/tv_save_num" />
+
+    <TextView
+        android:id="@+id/tv_like_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="68dp"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="1sp"
+        android:text="100"
+        android:textColor="#a7a7a7"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/theme_icon_like_1"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_like_num"
+        app:layout_constraintEnd_toStartOf="@+id/tv_like_num"
+        app:layout_constraintTop_toTopOf="@+id/tv_like_num" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="28dp"
+        android:background="#e7e7e7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+         />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
