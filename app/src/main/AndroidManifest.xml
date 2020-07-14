@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mongleandroid">
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,20 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan">
-        <activity android:name=".activity.EditSentenceActivity"></activity>
-        <activity
-            android:name=".activity.ThemeWritingSentenceActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
-        <activity android:name=".activity.ThemeWritingSentenceBookActivity" />
-        <activity android:name=".activity.WritingSentenceThemeSearchActivity" />
-        <activity android:name=".activity.WritingSentenceBookSearchActivity" />
+        <activity android:name=".activity.ThemeWritingSentenceActivity"
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
+        <activity android:name=".activity.WritingSentenceThemeSearchActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".activity.WritingSentenceBookSearchActivity"
+            android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".activity.PostThemeActivity" />
-        <activity
-            android:name=".activity.WritingSentenceActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
-        <activity android:name=".activity.MainThemeActivity" />
-        <activity android:name=".activity.SettingActivity" />
-        <activity android:name=".activity.SubscriptionsActivity" />
+        <activity android:name=".activity.WritingSentenceActivity"
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
         <activity
             android:name=".activity.MainActivity"
             android:windowSoftInputMode="adjustNothing">
@@ -35,6 +33,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 
