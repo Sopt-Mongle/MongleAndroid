@@ -11,7 +11,6 @@
         android:id="@+id/activity_writing_sentence_theme_search_topbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="12dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -65,13 +64,51 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_writing_sentence_theme_search_warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="9dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_theme_search_topbar">
+
+
+        <ImageView
+            android:id="@+id/activity_writing_sentence_theme_search_img_warning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/warning" />
+
+        <TextView
+            android:id="@+id/activity_writing_sentence_theme_search_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="1sp"
+            android:text="책 제목을 검색해주세요!"
+            android:textColor="@color/reddish"
+            android:textSize="14sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_writing_sentence_theme_search_img_warning"
+            app:layout_constraintStart_toEndOf="@+id/activity_writing_sentence_theme_search_img_warning"
+            app:layout_constraintTop_toTopOf="@+id/activity_writing_sentence_theme_search_img_warning" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/activity_writing_sentence_theme_search_after"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
+        android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_theme_search_topbar"
+        app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_theme_search_warning"
         app:layout_constraintBottom_toTopOf="@id/activity_writing_sentence_theme_search_rv_after"
         >
 
@@ -165,7 +202,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/activity_writing_sentence_theme_search_after2"
+        android:id="@+id/activity_writing_sentence_theme_search_empty"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:visibility="gone"

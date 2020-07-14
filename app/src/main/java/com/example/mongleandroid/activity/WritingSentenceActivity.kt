@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.view.animation.TranslateAnimation
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -12,9 +14,23 @@ import kotlinx.android.synthetic.main.activity_writing_sentence.*
 
 
 class WritingSentenceActivity : AppCompatActivity() {
+
+    lateinit var progressBar_go: Animation
+    lateinit var progressBar_back: Animation
+    lateinit var state_gray: Animation
+    lateinit var state_green: Animation
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_writing_sentence)
+
+        //애니메이션
+        progressBar_go = AnimationUtils.loadAnimation(this, R.anim.progressbar_go)
+        progressBar_back = AnimationUtils.loadAnimation(this, R.anim.progressbar_back)
+        state_gray = AnimationUtils.loadAnimation(this, R.anim.state_gray)
+        state_green = AnimationUtils.loadAnimation(this, R.anim.state_green)
+
 
         //뷰 일단 다 없애고 시작
         activity_writing_sentence_CL_topbar.visibility = View.GONE
@@ -73,7 +89,7 @@ class WritingSentenceActivity : AppCompatActivity() {
             goPrevPage(activity_writing_sentence_CL_book, activity_writing_sentence_CL_sentence)
         }
         //책 검색으로 이동 버튼
-        activity_writing_sentence_btn_book_search.setOnClickListener{
+        activity_writing_sentence_btn_book_search_nomal.setOnClickListener{
             val intent = Intent(this@WritingSentenceActivity,WritingSentenceBookSearchActivity::class.java)
             startActivityForResult(intent,1)
         }
@@ -94,7 +110,7 @@ class WritingSentenceActivity : AppCompatActivity() {
             goPrevPage(activity_writing_sentence_CL_theme,activity_writing_sentence_CL_book)
         }
         //테마 검색으로 이동 버튼
-        activity_writing_sentence_btn_theme_search.setOnClickListener {
+        activity_writing_sentence_btn_theme_search_normal.setOnClickListener {
             val intent = Intent(this@WritingSentenceActivity,WritingSentenceThemeSearchActivity::class.java)
             startActivityForResult(intent,2)
         }
@@ -110,7 +126,7 @@ class WritingSentenceActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1) {
             if (data != null) {
-                activity_writing_sentence_btn_book_search.setText(data.getStringExtra("title"))
+                activity_writing_sentence_btn_book_search_nomal.setText(data.getStringExtra("title"))
                 activity_writing_sentence_tv_author.setText(data.getStringExtra("author"))
                 activity_writing_sentence_tv_publisher.setText(data.getStringExtra("publisher"))
             }

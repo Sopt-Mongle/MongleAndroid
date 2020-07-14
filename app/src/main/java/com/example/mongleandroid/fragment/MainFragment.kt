@@ -58,6 +58,8 @@ class MainFragment : Fragment() {
             )
         themeLoadDatas()
         rv_main_hot_theme.adapter = mainHotThemeAdapter
+        rv_main_waiting_for_sentence_theme.adapter = mainHotThemeAdapter
+        rv_viewed_a_lot_time_theme.adapter = mainHotThemeAdapter
     }
 
     private fun themeLoadDatas() {
@@ -96,6 +98,7 @@ class MainFragment : Fragment() {
             mainHotThemeAdapter.notifyDataSetChanged()
         }
     }
+
 //지금 인기있는 큐레이터 어댑터 연결
     private fun setHotCuratorAdapter(mainNowHotCuratorItem: MutableList<MainNowHotCuratorData>) {
         mainNowHotCuratorAdapter =
