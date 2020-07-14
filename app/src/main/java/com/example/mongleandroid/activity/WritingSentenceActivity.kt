@@ -31,11 +31,20 @@ class WritingSentenceActivity : AppCompatActivity() {
         activity_writing_sentence_CL_next1.visibility = View.VISIBLE
         activity_writing_sentence_btn_out.visibility = View.VISIBLE
 
+        //키보드 제어
+        activity_writing_sentence_et_sentence.requestFocus()
+        activity_writing_sentence_et_sentence.showKeyboard()
+
+
         //다음가기 버튼
         activity_writing_sentence_btn_next1.setOnClickListener {
             activity_writing_sentence_CL_next1.visibility = View.GONE
             goNextView(activity_writing_sentence_btn_out, activity_writing_sentence_btn_back1)
             goNextPage(activity_writing_sentence_CL_sentence, activity_writing_sentence_CL_book)
+
+            //키보드 제어
+            activity_writing_sentence_et_sentence.unshowKeyboard()
+
         }
         //뒤로가기 버톤
         activity_writing_sentence_btn_out.setOnClickListener {
