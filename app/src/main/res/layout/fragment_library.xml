@@ -6,49 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".fragment.LibraryFragment">
 
-    <com.example.mongleandroid.NewScrollView
-        android:id="@+id/main_scroll_view"
+    <!--    <com.example.mongleandroid.NewScrollView-->
+    <!--        android:id="@+id/main_scroll_view"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0"-->
+    <!--        app:stickyFooter="@+id/buttonLayout"-->
+    <!--        app:stickyHeader="@+id/titleLayout"-->
+    <!--        tools:layout_editor_absoluteX="0dp"-->
+    <!--        tools:layout_editor_absoluteY="0dp">-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_library_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0"
-        app:stickyFooter="@+id/buttonLayout"
-        app:stickyHeader="@+id/titleLayout"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintVertical_bias="0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_library_1"
+            android:id="@+id/const1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/const1"
-                android:layout_width="match_parent"
+
+            <TextView
+                android:id="@+id/tx_my_library"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="30dp"
+                android:text="내 서재"
+                android:textSize="20dp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0"
-                app:layout_constraintVertical_chainStyle="spread_inside">
-
-
-                <TextView
-                    android:id="@+id/tx_my_library"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:text="내 서재"
-                    android:textSize="20dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -122,7 +122,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </com.example.mongleandroid.NewScrollView>
+    <!--    </com.example.mongleandroid.NewScrollView>-->
 
 
     <androidx.viewpager.widget.ViewPager
@@ -132,7 +132,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_scroll_view" />
+        app:layout_constraintTop_toBottomOf="@id/cl_library_1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
