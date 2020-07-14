@@ -62,18 +62,22 @@
                 android:id="@+id/fragment_curator_rv_recommend"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
                 android:clipToPadding="true"
+                android:orientation="horizontal"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                app:layout_constraintTop_toBottomOf="@+id/textView13"
+                tools:listitem="@layout/item_main_now_hot_curator" />
 
             <TextView
                 android:id="@+id/fragment_curator_tv_gamsung"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="41dp"
                 android:background="@drawable/et_area_curator_block"
                 android:gravity="center_horizontal"
                 android:letterSpacing="-0.02"
@@ -262,7 +266,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_curator1"
+                android:id="@+id/fragment_curator_rv_curator1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -280,7 +284,7 @@
                 android:background="@drawable/curator_img_backtheme_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rv_curator1">
+                app:layout_constraintTop_toBottomOf="@+id/fragment_curator_rv_curator1">
 
                 <TextView
                     android:id="@+id/fragment_curator_tv_themename2"
@@ -339,7 +343,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_curator2"
+                android:id="@+id/fragment_curator_rv_curator2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
