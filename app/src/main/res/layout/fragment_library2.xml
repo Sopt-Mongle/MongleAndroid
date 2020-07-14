@@ -11,7 +11,7 @@
     <com.example.mongleandroid.NewScrollView
         android:id="@+id/main_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,17 +19,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0"
         app:stickyFooter="@+id/buttonLayout"
-        app:stickyHeader="@+id/titleLayout">
+        app:stickyHeader="@+id/titleLayout"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_library_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="@id/main_scroll_view"
-            app:layout_constraintLeft_toLeftOf="@id/main_scroll_view"
-            app:layout_constraintRight_toRightOf="@id/main_scroll_view"
-            app:layout_constraintTop_toTopOf="@id/main_scroll_view">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/const1"
@@ -120,7 +123,7 @@
                 android:layout_height="67dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="11dp"
-                app:layout_constraintBottom_toTopOf="@id/vp_library"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/const1"
@@ -128,10 +131,10 @@
 
             </com.google.android.material.tabs.TabLayout>
 
-            <com.example.mongleandroid.CustomViewPager
+            <androidx.viewpager.widget.ViewPager
                 android:id="@+id/vp_library"
                 android:layout_width="match_parent"
-                android:layout_height="1000dp"
+                android:layout_height="500dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -140,5 +143,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.example.mongleandroid.NewScrollView>
+    <!--    </ScrollView>-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.example.mongleandroid.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.viewpager.widget.ViewPager
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.LibraryTabAdapter
 import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.fragment_library.*
 
 
 class LibraryFragment : Fragment() {
@@ -27,15 +29,15 @@ class LibraryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //sticky header
-//        main_scroll_view.run {
-//            header = titleLayout
-//            stickListener = { _ ->
-//                Log.d("LOGGER_TAG", "stickListener")
-//            }
-//            freeListener = { _ ->
-//                Log.d("LOGGER_TAG", "freeListener")
-//            }
-//        }
+        main_scroll_view.run {
+            header = titleLayout
+            stickListener = { _ ->
+                Log.d("LOGGER_TAG", "stickListener")
+            }
+            freeListener = { _ ->
+                Log.d("LOGGER_TAG", "freeListener")
+            }
+        }
 
         val libraryTabLayout = view.findViewById(R.id.titleLayout) as TabLayout
         val libraryViewPager = view.findViewById(R.id.vp_library) as ViewPager
