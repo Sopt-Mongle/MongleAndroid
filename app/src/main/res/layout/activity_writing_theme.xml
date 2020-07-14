@@ -302,6 +302,89 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_writing_theme_CL_finish"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/activity_writing_theme_img_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mgm_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="180dp"/>
+
+        <TextView
+            android:id="@+id/activity_writing_theme_tv_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="테마가 등록되었습니다!"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            app:layout_constraintEnd_toEndOf="@+id/activity_writing_theme_img_logo"
+            app:layout_constraintStart_toStartOf="@+id/activity_writing_theme_img_logo"
+            app:layout_constraintTop_toBottomOf="@id/activity_writing_theme_img_logo" />
+
+        <TextView
+            android:id="@+id/activity_writing_theme_tv_13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="최대 140자까지 입력 가능하며, \n책의 문장을 임의로 변형하지 않게 주의해주세요!"
+            android:textColor="@color/veryLightPink2"
+            android:textSize="16sp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintEnd_toEndOf="@+id/activity_writing_theme_tv_12"
+            app:layout_constraintStart_toStartOf="@+id/activity_writing_theme_tv_12"
+            app:layout_constraintTop_toBottomOf="@+id/activity_writing_theme_tv_12" />
+
+        <TextView
+            android:id="@+id/activity_writing_theme_btn_writing"
+            style="@android:style/ButtonBar"
+            android:layout_width="240dp"
+            android:layout_height="45dp"
+            android:background="@drawable/btn_green"
+            android:gravity="center_vertical"
+            android:text="이 테마에 문장 쓰러가기"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="@+id/activity_writing_theme_tv_13"
+            app:layout_constraintStart_toStartOf="@+id/activity_writing_theme_tv_13"
+            app:layout_constraintTop_toBottomOf="@+id/activity_writing_theme_tv_13"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/activity_writing_sentence_btn_main"
+            style="@android:style/ButtonBar"
+            android:layout_width="240dp"
+            android:layout_height="45dp"
+            android:background="@drawable/btn_white"
+            android:gravity="center_vertical"
+            android:text="메인으로 돌아가기"
+            android:textAlignment="center"
+            android:textColor="@color/softGreen"
+            android:textSize="16sp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintEnd_toEndOf="@+id/activity_writing_theme_btn_writing"
+            app:layout_constraintStart_toStartOf="@+id/activity_writing_theme_btn_writing"
+            app:layout_constraintTop_toBottomOf="@+id/activity_writing_theme_btn_writing"
+            tools:ignore="RtlCompat" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
