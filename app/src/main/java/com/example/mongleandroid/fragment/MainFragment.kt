@@ -1,6 +1,7 @@
 package com.example.mongleandroid.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -57,6 +58,8 @@ class MainFragment : Fragment() {
 
     }
 
+
+    //SearchFragment로 이동
     private fun replaceFragment(fragment: Fragment) {
         val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
         transaction.replace(R.id.main_activity_fg, fragment)
@@ -175,6 +178,13 @@ class MainFragment : Fragment() {
             )
         loadDatas()
         main_fragment_rv_today_sentence.adapter = todaySentenceAdapter
+
+        //클릭리스너 등록
+        todaySentenceAdapter.setItemClickListener(object : TodaySentenceAdapter.ItemClickListener{
+            override fun onClick(view: View, position: Int) {
+                Log.d("SSS","${position}번 리스트 선택")
+            }
+        })
 
     }
 
