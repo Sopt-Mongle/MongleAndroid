@@ -1,7 +1,5 @@
 package com.example.mongleandroid.adapter.viewholder
 
-import android.annotation.SuppressLint
-import android.content.res.Resources
 import android.graphics.Color
 import android.text.Spannable
 import android.text.SpannableStringBuilder
@@ -9,7 +7,6 @@ import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
 import android.widget.TextView
-import androidx.core.content.res.ResourcesCompat.getColor
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.activity.MainActivity
