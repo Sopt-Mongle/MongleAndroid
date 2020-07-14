@@ -138,7 +138,7 @@
                 android:layout_marginTop="26dp"
                 app:layout_constraintTop_toBottomOf="@+id/rv_main_now_hot_curator"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="인기있는 테마"
+                android:text="오늘 가장 많이 저장된 테마"
                 android:textSize="19sp"
                 android:textColor="@color/black_two"
                 android:letterSpacing="-0.02"
@@ -158,6 +158,67 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_main_hot_theme"
                 app:layout_constraintStart_toStartOf="parent"
                 />
+
+            <TextView
+                android:id="@+id/tv_waiting_for_sentence_theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="문장을 기다리고 있는 테마"
+                android:textSize="18sp"
+                android:textColor="@color/black_two"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="6sp"
+                android:layout_marginTop="41dp"
+                android:layout_marginLeft="16dp"
+                app:layout_constraintTop_toBottomOf="@id/rv_main_hot_theme"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_main_waiting_for_sentence_theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_main_hot_theme"
+                android:layout_marginTop="19dp"
+                android:layout_marginLeft="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_waiting_for_sentence_theme"
+                />
+
+            <TextView
+                android:id="@+id/tv_viewed_a_lot_time_theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="요즘 사람들이 많이 본 테마"
+                android:textSize="18sp"
+                android:textColor="@color/black_two"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="6sp"
+                android:layout_marginTop="19dp"
+                android:layout_marginLeft="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_main_waiting_for_sentence_theme"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_viewed_a_lot_time_theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_main_hot_theme"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="19dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_viewed_a_lot_time_theme"
+                />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
