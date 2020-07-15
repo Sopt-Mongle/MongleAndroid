@@ -8,7 +8,7 @@
     tools:context=".fragment.MainViewPager1Fragment">
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/img_main_editor_pick_theme1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
