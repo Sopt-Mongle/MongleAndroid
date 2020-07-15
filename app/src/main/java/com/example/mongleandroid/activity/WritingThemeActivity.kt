@@ -3,13 +3,16 @@ package com.example.mongleandroid.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
+import android.view.View
 import android.widget.Toast
-import com.example.mongleandroid.R
+import com.example.mongleandroid.*
 import com.example.mongleandroid.adapter.WritingThemeAdapter
-import com.example.mongleandroid.goNextPage
-import com.example.mongleandroid.goPrevPage
 import com.example.mongleandroid.util.DialogLogin
 import com.example.mongleandroid.util.DialogMakethemeCheck
+import kotlinx.android.synthetic.main.activity_writing_sentence.*
 import kotlinx.android.synthetic.main.activity_writing_theme.*
 import kotlinx.android.synthetic.main.dialog_maketheme_check.*
 import kotlinx.android.synthetic.main.item_writng_theme.*
@@ -24,33 +27,59 @@ class WritingThemeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_writing_theme)
 
+        activity_writing_theme_et_theme_title.requestFocus()
+        activity_writing_theme_et_theme_title.showKeyboard()
+
+
+        activity_writing_theme_et_theme_title.addTextChangedListener(object: TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                //activity_writing_theme_CL_nomal
+                //activity_writing_theme_CL_warning
+                //빨간 박스 해제
+                goPrevPage(activity_writing_theme_CL_warning, activity_writing_theme_CL_nomal)
+
+                //실시간 글자 수 세기
+                val string_length = activity_writing_theme_et_theme_title.text.toString()
+                activity_writing_theme_tv_cnt.setText(string_length.length.toString())
+
+            }
+        })
+
 
         //등록하기 버튼
         activity_theme_writing_sentence_btn_upload.setOnClickListener {
-            goNextPage(activity_writing_theme_CL_noPopUp, activity_writing_theme_CL_popup)
-            val dlg = DialogMakethemeCheck(this)
-            dlg.setOnOKClickedListener{ content ->
 
+            //경고 메세지
+            if(activity_writing_theme_et_theme_title.text.toString().length <=0){
+                goNextPage(activity_writing_theme_CL_nomal, activity_writing_theme_CL_warning)
+            }else{
+                val dlg = DialogMakethemeCheck(this)
+                dlg.setOnOKClickedListener{ content ->
+                }
+                dlg.start("")
+
+                //키보드 제어
+                activity_writing_theme_et_theme_title.unshowKeyboard()
             }
-            dlg.start("")
+
+
         }
 
         //뒤로가기 버튼
         activity_writing_theme_btn_out.setOnClickListener {
             Toast.makeText(this, "메인화면으로 돌아갑니다.", Toast.LENGTH_SHORT).show()
             finish()
-            //goNextPage(activity_writing_theme_CL_noPopUp, activity_writing_theme_CL_popup)
-
-        }
-        //팝업 끄기 버튼
-        activity_writing_theme_btn_out_blur.setOnClickListener {
-            goPrevPage(activity_writing_theme_CL_popup,activity_writing_theme_CL_noPopUp)
         }
 
-        //팝업에서 네 버튼
-        // goNextPage(activity_writing_theme_CL_popup, activity_writing_theme_CL_finish)
-        //팝업에서 아니요 버튼
-        // goNextPage(activity_writing_theme_CL_popup, activity_writing_theme_CL_noPopUp)
 
         //키보드 제어
         //애니메이션
@@ -58,7 +87,6 @@ class WritingThemeActivity : AppCompatActivity() {
 
         writingThemeAdapter = WritingThemeAdapter(this)
         activity_writing_theme_rv.adapter = writingThemeAdapter
-        //activity_writing_theme_rv.addItemDecoration(ItemDecoration())
         loadDatas()
     }
     private fun loadDatas(){
