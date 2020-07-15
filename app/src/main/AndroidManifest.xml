@@ -15,6 +15,7 @@
         android:windowSoftInputMode="adjustPan">
         <activity android:name=".activity.NoThemeActivity"></activity>
         <activity android:name=".activity.SplashActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,11 +23,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.SentenceDetailViewInThemeActivity" />
-        <activity android:name=".activity.JoinActivity" />
+        <activity
+            android:name=".activity.JoinActivity"
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
         <activity android:name=".activity.EditSentenceActivity" />
         <activity
             android:name=".activity.LoginActivity"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
         <activity
             android:name=".activity.WritingThemeActivity"
             android:windowSoftInputMode="adjustResize" />
@@ -49,8 +55,7 @@
             android:name=".activity.WritingSentenceActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.MainActivity"
-            android:windowSoftInputMode="adjustNothing"></activity>
+            android:name=".activity.MainActivity"></activity>
     </application>
 
 </manifest>
