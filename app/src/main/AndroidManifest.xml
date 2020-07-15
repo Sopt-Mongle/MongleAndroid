@@ -11,11 +11,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan">
         <activity android:name=".activity.NoThemeActivity"></activity>
         <activity android:name=".activity.SplashActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,8 +26,8 @@
         <activity
             android:name=".activity.JoinActivity"
             android:windowSoftInputMode="adjustResize">
-
         </activity>
+        <activity android:name=".activity.JoinFinishActivity" />
         <activity android:name=".activity.EditSentenceActivity" />
         <activity
             android:name=".activity.LoginActivity"
