@@ -4,6 +4,7 @@ import com.example.mongleandroid.network.data.request.*
 import com.example.mongleandroid.network.data.response.*
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 
@@ -42,6 +43,28 @@ interface RequestInterface {
     //테마 없는 문장 테마 지정하기
     @GET("/post/setTheme")
     fun RequestSetEmptySentence(@Body body: RequestSetEmptySentenceData) : Call<ResponseSetEmptySentenceData>
+
+    // 검색 - 최근 키워드
+    @GET("/search/recent")
+    fun RequestSearchRecentData(@Body body: RequestSetEmptySentenceData) : Call<ResponseSearchRecentData>
+
+    // 검색 - 최근 키워드 전체 삭제
+    //@DELETE("/search/recent")
+
+    // 검색 - 추천 키워드
+    //@GET("/search/recommend")
+
+    // 테마 검색
+    @GET("/search/theme")
+    fun RequestResultThemeData(@Body body: RequestResultThemeData) : Call<ResponseResultThemeData>
+
+    // 문장 검색
+    @GET("/search/sentence")
+    fun RequestResultSentenceData(@Body body: RequestResultSentenceData) : Call<ResponseResultSentenceData>
+
+    // 큐레이터 검색
+    @GET("/search/curator")
+    fun RequestResultCuratorData(@Body body: RequestResultCuratorData) : Call<ResponseResultCuratorData>
 
 
 
