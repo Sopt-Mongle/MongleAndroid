@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#ffffffff"
-    android:backgroundTint="#ffffffff">
+    android:background="@android:color/transparent">
 
     <ImageView
         android:id="@+id/imageView19"
@@ -60,7 +59,9 @@
             android:id="@+id/login_popup_yes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="21dp"
+            android:layout_marginBottom="25dp"
             android:background="@drawable/btn_popup_yes_green"
             android:gravity="center_horizontal"
             android:letterSpacing="-0.02"
@@ -72,6 +73,7 @@
             android:text="네"
             android:textColor="@color/white"
             android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
@@ -80,6 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/btn_popup_no_green"
             android:gravity="center_horizontal"
             android:letterSpacing="-0.02"
@@ -92,6 +95,7 @@
             android:textColor="@color/softGreen"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/login_popup_yes"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/login_popup_yes"
             app:layout_constraintTop_toTopOf="@+id/login_popup_yes"
             app:layout_constraintVertical_bias="0.0" />
