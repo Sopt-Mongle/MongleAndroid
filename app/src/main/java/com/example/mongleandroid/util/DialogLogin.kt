@@ -23,7 +23,7 @@ class DialogLogin(context : Context) {
         dlg.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dlg.setContentView(R.layout.dialog_login)     //다이얼로그에 사용할 xml 파일을 불러옴
 
-        login_popup_yes = dlg.findViewById(R.id.login_popup_ok)
+        login_popup_yes = dlg.findViewById(R.id.login_popup_yes)
         login_popup_yes.setOnClickListener {
             dlg.dismiss()
         }
