@@ -6,13 +6,20 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mongleandroid.R
+import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.customEnqueue
+import com.example.mongleandroid.network.data.request.RequestJoinData
 import kotlinx.android.synthetic.main.activity_join.*
 
 class JoinActivity : AppCompatActivity() {
+
+    val requestToServer = RequestToServer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join)
@@ -41,9 +48,40 @@ class JoinActivity : AppCompatActivity() {
                 activity_join_img_nickname_warning.visibility = VISIBLE
                 activity_join_tv_nickname_warning.visibility = VISIBLE
             } else {
-                val intent = Intent(this, JoinFinishActivity::class.java)
-                startActivity(intent)
-                finish()
+                // 통신 부분
+                activity_join_btn_next.setOnClickListener {
+                    requestToServer.service.RequestJoinData(
+                        RequestJoinData(
+                            email = activity_join_et_email.text.toString(),
+                            password = activity_join_et_pass.text.toString(),
+                            name = activity_join_et_nickname.text.toString()
+                        )
+                    ).customEnqueue(
+                        onError = {
+                            Log.d("error", "통신 실패")
+                            activity_join_img_nickname_warning.visibility = VISIBLE
+                            activity_join_tv_exist_nickname.visibility = VISIBLE
+                        },
+                        onSuccess = {
+                            if(it.status == 200) {
+                                activity_join_img_nickname_warning.visibility = GONE
+                                activity_join_tv_exist_nickname.visibility = GONE
+                                val intent = Intent(this@JoinActivity, JoinFinishActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            } else if (it.status == 400) {
+                                Log.d("400 error", "이미 사용중인 닉네임")
+                                activity_join_img_nickname_warning.visibility = VISIBLE
+                                activity_join_tv_exist_nickname.visibility = VISIBLE
+                            } else {
+                                Log.d("600 error", "서버 내부 오류")
+                            }
+                        }
+                    )
+
+
+                }
+
             }
 
 
@@ -150,6 +188,7 @@ class JoinActivity : AppCompatActivity() {
                 activity_join_et_nickname.background = getResources().getDrawable(R.drawable.et_area)
                 activity_join_img_nickname_warning.visibility = GONE
                 activity_join_tv_nickname_warning.visibility = GONE
+                activity_join_tv_exist_nickname.visibility = GONE
 
                 // 실시간 글자수
                 if(activity_join_et_nickname.text.toString().isEmpty()) {
