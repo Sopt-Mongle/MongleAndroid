@@ -46,12 +46,12 @@ interface RequestInterface {
 
     // 검색 - 최근 키워드
     @GET("/search/recent")
-    fun RequestSearchRecentData(@Body body: RequestSetEmptySentenceData) : Call<ResponseSearchRecentData>
+    fun RequestSearchRecentData(@Body body: RequestSearchRecentData) : Call<ResponseSearchRecentData>
 
     // 검색 - 최근 키워드 전체 삭제
     //@DELETE("/search/recent")
 
-    // 검색 - 추천 키워드
+    // 검색 - 추천 키워드 - 성공
     @GET("/search/recommend")
     fun getRecommendKeyword() : Call<ResponseRecommendKeywordData>
 

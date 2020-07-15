@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.activity.MainActivity
-import com.example.mongleandroid.network.data.response.ResponseResultThemeData
+import com.example.mongleandroid.network.data.response.ResultTheme
 
 
 class ResultThemeViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
@@ -19,9 +19,9 @@ class ResultThemeViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
     val saves = itemView.findViewById<TextView>(R.id.result_theme_tv_bookmark)
     val sentenceNum = itemView.findViewById<TextView>(R.id.result_theme_tv_sentence_count)
 
-    fun bind(responseResultThemeData: ResponseResultThemeData){
-        saves.text = responseResultThemeData.saves
-        sentenceNum.text = responseResultThemeData.sentenceNum
+    fun bind(responseResultThemeData: ResultTheme){
+        saves.text = responseResultThemeData.saves.toString()
+        sentenceNum.text = responseResultThemeData.sentenceNum.toString()
 
         val inputString = MainActivity.search_result
         val sb = StringBuilder(inputString)
