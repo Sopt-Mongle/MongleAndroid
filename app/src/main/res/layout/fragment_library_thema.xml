@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/thema_const1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/rv_library_thema"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tx_non_thema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="테마 없는 문장"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="#000000"
+            app:layout_constraintBottom_toBottomOf="@id/tx_non_thema"
+            app:layout_constraintStart_toEndOf="@id/tx_non_thema"
+            app:layout_constraintTop_toTopOf="@id/tx_non_thema" />
+
+        <RadioGroup
+            android:id="@+id/rg_library_thema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/tx_non_thema"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tx_non_thema">
+
+
+            <RadioButton
+                android:id="@+id/rdbtn_saved_thema"
+                android:layout_width="92dp"
+                android:layout_height="30dp"
+                android:background="@drawable/rb_library_thema_save"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="저장한 테마"
+                android:textColor="@color/radio_button_state"
+                app:layout_constraintBottom_toBottomOf="@id/rg_library_thema"
+                app:layout_constraintEnd_toStartOf="@id/rdbtn_making_thema"
+                app:layout_constraintTop_toTopOf="@id/rg_library_thema" />
+
+            <RadioButton
+                android:id="@+id/rdbtn_making_thema"
+                android:layout_width="73dp"
+                android:layout_height="30dp"
+                android:background="@drawable/rb_library_thema_make"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:text="만든 테마"
+                android:textColor="@color/radio_button_state"
+                app:layout_constraintBottom_toBottomOf="@id/rg_library_thema"
+                app:layout_constraintEnd_toEndOf="@id/rg_library_thema"
+                app:layout_constraintTop_toTopOf="@id/rg_library_thema" />
+
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_library_thema"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/thema_const1"
+        tools:listitem="@layout/item_library_thema" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
