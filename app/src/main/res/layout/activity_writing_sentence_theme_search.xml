@@ -45,6 +45,10 @@
             android:layout_height="46dp"
             android:layout_marginTop="40dp"
             android:background="@drawable/et_area"
+            android:paddingStart="15dp"
+            android:paddingEnd="51dp"
+            android:maxLines="1"
+            android:maxLength="40"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_theme_search_btn_out">
             <requestFocus />
