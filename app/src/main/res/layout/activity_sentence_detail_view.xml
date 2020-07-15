@@ -238,7 +238,7 @@
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="9sp"
                 android:text="이 테마의 다른 문장"
-                android:textColor="@color/black_two"
+                android:textColor="@color/black"
                 android:textSize="19sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView19" />
