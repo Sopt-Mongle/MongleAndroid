@@ -58,12 +58,12 @@ class MainFragment : Fragment() {
             replaceFragment(SearchFragment())
         }
 
-        vp_main.setOnClickListener {
-            activity?.let{
-                val intent = Intent(context, MainThemeActivity::class.java)
-                startActivity(intent)
-            }
-        }
+//        vp_main.setOnClickListener {
+//            activity?.let{
+//                val intent = Intent(context, MainThemeActivity::class.java)
+//                startActivity(intent)
+//            }
+//        }
 
     }
 
