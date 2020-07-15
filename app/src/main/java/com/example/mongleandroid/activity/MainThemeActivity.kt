@@ -1,5 +1,6 @@
 package com.example.mongleandroid.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mongleandroid.R
@@ -18,7 +19,16 @@ class MainThemeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_theme)
         setMainThemeAdapter(data)
+
+        img_main_theme_activity_back_btn.setOnClickListener {
+            finish()
+        }
+        img_writing_sentence_in_theme_btn.setOnClickListener {
+            val intent = Intent(this, ThemeWritingSentenceActivity::class.java)
+            startActivity(intent)
+        }
     }
+
     private fun setMainThemeAdapter(mainThemeItem: MutableList<MainThemeData>) {
         mainThemeAdapter =
             MainThemeAdapter(
