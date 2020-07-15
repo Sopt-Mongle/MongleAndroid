@@ -60,7 +60,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
         <TextView
-            android:id="@+id/login_popup_ok"
+            android:id="@+id/login_popup_yes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -102,10 +102,10 @@
             android:text="회원가입"
             android:textColor="@color/softGreen"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/login_popup_ok"
+            app:layout_constraintBottom_toBottomOf="@+id/login_popup_yes"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/login_popup_ok"
-            app:layout_constraintTop_toTopOf="@+id/login_popup_ok"
+            app:layout_constraintStart_toEndOf="@+id/login_popup_yes"
+            app:layout_constraintTop_toTopOf="@+id/login_popup_yes"
             app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

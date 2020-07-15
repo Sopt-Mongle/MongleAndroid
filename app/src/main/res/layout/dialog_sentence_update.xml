@@ -13,7 +13,7 @@
         android:layout_marginStart="38dp"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout7"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sentence_edit_finish_img_mongle" />
+        app:srcCompat="@drawable/sentence_edit_finish_mongle" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout7"
