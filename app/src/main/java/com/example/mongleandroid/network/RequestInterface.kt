@@ -52,7 +52,8 @@ interface RequestInterface {
     //@DELETE("/search/recent")
 
     // 검색 - 추천 키워드
-    //@GET("/search/recommend")
+    @GET("/search/recommend")
+    fun getRecommendKeyword() : Call<ResponseRecommendKeywordData>
 
     // 테마 검색
     @GET("/search/theme")
