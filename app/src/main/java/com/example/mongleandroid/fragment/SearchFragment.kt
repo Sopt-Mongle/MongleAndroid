@@ -1,6 +1,8 @@
 package com.example.mongleandroid.fragment
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -8,23 +10,36 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.mongleandroid.R
+import com.example.mongleandroid.activity.MainActivity
 import com.example.mongleandroid.activity.MainActivity.Companion.search_result
 import com.example.mongleandroid.adapter.SearchRecentAdapter
+import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.customEnqueue
+import com.example.mongleandroid.network.data.request.RequestLoginData
+import com.example.mongleandroid.network.data.response.ResponseRecommendKeywordData
 import com.example.mongleandroid.network.data.response.ResponseSearchRecentData
 import com.example.mongleandroid.showKeyboard
+import com.example.mongleandroid.util.DialogLogin
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_search.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class SearchFragment : Fragment() {
 
     lateinit var searchRecentAdapter: SearchRecentAdapter
     val searchRecentDatas = mutableListOf<ResponseSearchRecentData>()
+    val requestToServer = RequestToServer
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setRecommendKeyword() // 추천 키워드
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_search, container, false)
     }
@@ -55,7 +70,7 @@ class SearchFragment : Fragment() {
             replaceFragment()
         }
 
-        setRecommendKeyword() // 추천 키워드
+
         search_fragment_tv_delete.setOnClickListener {
             LoadRecentKeyword()
             searchRecentAdapter.datas.clear()
@@ -77,14 +92,40 @@ class SearchFragment : Fragment() {
         search_fragment_cl_keyword.visibility = GONE
     }
 
-    private fun setRecommendKeyword(){
-        tv_recommend_keyword1.text = "임의로"
-        tv_recommend_keyword2.text = "추천검색어를"
-        tv_recommend_keyword3.text = "넣어보자"
-        tv_recommend_keyword4.text = "몽글몽글"
-        tv_recommend_keyword5.text = "가나다라"
-        tv_recommend_keyword6.text = "마바사아"
-        tv_recommend_keyword7.text = "2줄을 넘어가면 안되는 최근 검색어"
+    private fun setRecommendKeyword() {
+
+        requestToServer.service.getRecommendKeyword().enqueue(
+            object : Callback<ResponseRecommendKeywordData> {
+                override fun onFailure(call: Call<ResponseRecommendKeywordData>, t: Throwable) {
+                    Log.d("통신실패", "${t}")
+                }
+
+                override fun onResponse(
+                    call: Call<ResponseRecommendKeywordData>,
+                    response: Response<ResponseRecommendKeywordData>
+                ) {
+                    if (response.isSuccessful) {
+                        Log.d("추천 키워드", "${response.body()}")
+
+//                        for(i in response.body()!!.data) {
+//                            val id = resources.getIdentifier("tv_recommend_keyword"+i, "id", "com..")
+//
+//                        }
+                        tv_recommend_keyword1.text = response.body()!!.data.get(0).toString()
+                        tv_recommend_keyword2.text = response.body()!!.data.get(1).toString()
+                        tv_recommend_keyword3.text = response.body()!!.data.get(2).toString()
+                        tv_recommend_keyword4.text = response.body()!!.data.get(3).toString()
+                        tv_recommend_keyword5.text = response.body()!!.data.get(4).toString()
+                        tv_recommend_keyword6.text = response.body()!!.data.get(5).toString()
+//                        tv_recommend_keyword7.text = response.body()!!.data.get(6).toString()
+//                        tv_recommend_keyword8.text = response.body()!!.data.get(7).toString()
+
+                    }
+
+                }
+            }
+        )
+
     }
 
     private fun LoadRecentKeyword() {
