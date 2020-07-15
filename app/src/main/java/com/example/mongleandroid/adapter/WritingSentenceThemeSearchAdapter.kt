@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.viewholder.WritingSentenceThemeSearchViewHolder
 import com.example.mongleandroid.network.data.response.ResponseWritingSentenceThemeSearchData
+import com.example.mongleandroid.network.data.response.ThemeData
 import kotlinx.android.synthetic.main.item_theme_search.*
 
 class WritingSentenceThemeSearchAdapter(private val context : Context) : RecyclerView.Adapter<WritingSentenceThemeSearchViewHolder>() {
-    var datas = mutableListOf<ResponseWritingSentenceThemeSearchData>()
+    var datas = mutableListOf<ThemeData>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
