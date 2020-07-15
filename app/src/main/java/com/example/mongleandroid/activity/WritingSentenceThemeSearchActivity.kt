@@ -10,6 +10,7 @@ import com.example.mongleandroid.adapter.ItemDecoration
 import com.example.mongleandroid.adapter.WritingSentenceThemeSearchAdapter
 import com.example.mongleandroid.goNextPage
 import com.example.mongleandroid.network.data.response.ResponseWritingSentenceThemeSearchData
+import com.example.mongleandroid.network.data.response.ThemeData
 import com.example.mongleandroid.showKeyboard
 import com.example.mongleandroid.unshowKeyboard
 import kotlinx.android.synthetic.main.activity_writing_sentence_book_search.*
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.item_theme_search.*
 class WritingSentenceThemeSearchActivity : AppCompatActivity() {
 
     lateinit var writingSentenceThemeSearchAdapter : WritingSentenceThemeSearchAdapter
-    val datas = mutableListOf<ResponseWritingSentenceThemeSearchData>()
+    val datas = mutableListOf<ThemeData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -115,152 +116,42 @@ class WritingSentenceThemeSearchActivity : AppCompatActivity() {
         datas.apply {
             add(
 
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때 영감을 주는 문장1"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "번아웃을 극복하고\n" +
-                            "싶을 때 봐야하는\n" +
-                            "문장2"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "번아웃을 극복하고\n" +
-                            "싶을 때 봐야하는\n" +
-                            "문장3"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장4"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장5"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장6"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장7"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "번아웃을 극복하고\n" +
-                            "싶을 때 봐야하는\n" +
-                            "문장3"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장4"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장5"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장6"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장7"
+                ThemeData(
+                    theme = "브랜딩이 어려울 때 영감을 주는 문장1",
+                    themeImg = 1
+
                 )
             )
             add(
 
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때 영감을 주는 문장1"
-                )
+                ThemeData(
+                    theme = "브랜딩이 어려울 때 영감을 주는 문장1",
+                    themeImg = 2
+
+                    )
             )
             add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "번아웃을 극복하고\n" +
-                            "싶을 때 봐야하는\n" +
-                            "문장2"
-                )
+
+                ThemeData(
+                    theme = "브랜딩이 어려울 때 영감을 주는 문장1",
+                    themeImg = 1
+
+                    )
             )
             add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "번아웃을 극복하고\n" +
-                            "싶을 때 봐야하는\n" +
-                            "문장3"
-                )
+
+                ThemeData(
+                    theme = "브랜딩이 어려울 때 영감을 주는 문장1",
+                    themeImg = 1
+
+                    )
             )
             add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장4"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장5"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장6"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장7"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "번아웃을 극복하고\n" +
-                            "싶을 때 봐야하는\n" +
-                            "문장3"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장4"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장5"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장6"
-                )
-            )
-            add(
-                ResponseWritingSentenceThemeSearchData(
-                    theme = "브랜딩이 어려울 때\n" +
-                            "영감을 주는 문장7"
+
+                ThemeData(
+                    theme = "브랜딩이 어려울 때 영감을 주는 문장1",
+                    themeImg = 2
+
                 )
             )
             writingSentenceThemeSearchAdapter.datas = datas

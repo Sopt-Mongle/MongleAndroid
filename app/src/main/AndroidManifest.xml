@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan">
+        <activity android:name=".activity.NoThemeActivity"></activity>
         <activity android:name=".activity.SplashActivity">
 
             <intent-filter>
@@ -22,14 +23,19 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.SentenceDetailViewInThemeActivity" />
-        <activity android:name=".activity.JoinActivity"></activity>
+        <activity
+            android:name=".activity.JoinActivity"
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
         <activity android:name=".activity.EditSentenceActivity" />
         <activity
             android:name=".activity.LoginActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
         <activity
             android:name=".activity.WritingThemeActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".activity.MainThemeActivity" />
         <activity android:name=".activity.PostThemeActivity" />
         <activity android:name=".activity.SettingActivity" />
@@ -37,7 +43,7 @@
         <activity android:name=".activity.SentenceDetailViewActivity" />
         <activity
             android:name=".activity.ThemeWritingSentenceActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".activity.ThemeWritingSentenceBookActivity" />
         <activity
             android:name=".activity.WritingSentenceThemeSearchActivity"
@@ -47,12 +53,9 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activity.WritingSentenceActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.MainActivity"
-            android:windowSoftInputMode="adjustNothing">
-
-        </activity>
+            android:name=".activity.MainActivity"></activity>
     </application>
 
 </manifest>

@@ -1,12 +1,12 @@
 package com.example.mongleandroid.network.data.response
 
 data class ResponseWritingSentenceThemeSearchData (
-    val theme : String
-//    val staus : Int,
-//    val success : Boolean,
-//    val message : String,
-//    val data : MutableList<ThemeData>
+    val staus : Int,
+    val success : Boolean,
+    val message : String,
+    val data : MutableList<ThemeData>
 )
+
 
 //data class ThemeData(
 //    val themeIdx : Int,
@@ -17,3 +17,8 @@ data class ResponseWritingSentenceThemeSearchData (
 //    val writerImg : String,
 //    val alreadyBookmarked : Boolean
 //)
+
+data class ThemeData(
+    val theme : String,
+    val themeImg : Int
+)
