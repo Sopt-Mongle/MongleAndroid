@@ -22,7 +22,7 @@ class DialogSentenceUpdate(context : Context) {
         dlg.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dlg.setContentView(R.layout.dialog_sentence_update)     //다이얼로그에 사용할 xml 파일을 불러옴
 
-        update_popup_ok = dlg.findViewById(R.id.login_popup_ok)
+        update_popup_ok = dlg.findViewById(R.id.update_popup_ok)
         update_popup_ok.setOnClickListener {
             val intent = Intent(it.context, SentenceDetailViewActivity::class.java)
             it.context.startActivity(intent)
