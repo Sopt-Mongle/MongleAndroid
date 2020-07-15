@@ -19,6 +19,10 @@ class NoThemeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_no_theme)
 
         setMainThemeAdapter(data)
+
+        img_no_theme_activity_back_btn.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setMainThemeAdapter(mainThemeItem: MutableList<MainThemeData>) {
@@ -29,6 +33,8 @@ class NoThemeActivity : AppCompatActivity() {
             )
         loadDatas()
         rv_activity_no_theme.adapter = mainThemeAdapter
+
+        
     }
     private fun loadDatas() {
         data.apply {
