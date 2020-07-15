@@ -31,8 +31,6 @@ class MainFragment : Fragment() {
     private lateinit var mainNowHotCuratorAdapter: MainNowHotCuratorAdapter
     private lateinit var mainHotThemeAdapter: MainHotThemeAdapter
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,6 +54,7 @@ class MainFragment : Fragment() {
         img_main_search_btn.setOnClickListener {
             replaceFragment(SearchFragment())
         }
+
 
     }
 
