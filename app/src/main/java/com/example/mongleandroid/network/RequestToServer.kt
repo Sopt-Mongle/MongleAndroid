@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 //싱글톤이란 이 앱에서 유일한 객체, 딱 하나만 객체 생성을 하여 사용 > 메모리 절약
 object RequestToServer {
     var retrofit = Retrofit.Builder()
-        .baseUrl("http://13.209.144.115:3002/")
+        .baseUrl("http://18.189.125.26:3000/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
