@@ -1,5 +1,6 @@
 package com.example.mongleandroid.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentTransaction
 import com.example.mongleandroid.R
+import com.example.mongleandroid.activity.SentenceDetailViewActivity
 import com.example.mongleandroid.activity.SentenceDetailViewInThemeActivity
 import com.example.mongleandroid.adapter.MainHotThemeAdapter
 import com.example.mongleandroid.adapter.MainNowHotCuratorAdapter
@@ -190,8 +192,11 @@ class MainFragment : Fragment() {
         //리사이클러뷰 아이템 클릭리스너 등록
         todaySentenceAdapter.setItemClickListener(object : TodaySentenceAdapter.ItemClickListener{
             override fun onClick(view: View, position: Int) {
-                //Log.d("SSS","${position}번 리스트 선택")
-                
+                Log.d("SSS","${position}번 리스트 선택")
+                activity?.let{
+                    val intent = Intent(context, SentenceDetailViewActivity::class.java)
+                    startActivity(intent)
+                }
             }
         })
 
