@@ -66,11 +66,11 @@ interface RequestInterface {
     @GET("/search/curator")
     fun RequestResultCuratorData(@Body body: RequestResultCuratorData) : Call<ResponseResultCuratorData>
 
-    // 로그인
+    // 로그인 - 성공
     @POST("/users/signin")
     fun RequestLoginData(@Body body: RequestLoginData) : Call<ResponseLoginData>
 
-    // 회원가입
+    // 회원가입 - 성공
     @POST("/users/signup")
     fun RequestJoinData(@Body body: RequestJoinData) : Call<ResponseJoinData>
 
