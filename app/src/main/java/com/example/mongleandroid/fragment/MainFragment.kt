@@ -1,11 +1,14 @@
 package com.example.mongleandroid.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentTransaction
 import com.example.mongleandroid.R
+import com.example.mongleandroid.activity.SentenceDetailViewInThemeActivity
 import com.example.mongleandroid.adapter.MainHotThemeAdapter
 import com.example.mongleandroid.adapter.MainNowHotCuratorAdapter
 import com.example.mongleandroid.adapter.MainPagerAdapter
@@ -29,6 +32,7 @@ class MainFragment : Fragment() {
     private lateinit var mainHotThemeAdapter: MainHotThemeAdapter
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,7 +53,21 @@ class MainFragment : Fragment() {
         setHotCuratorAdapter(data2) // 지금 인기있는 큐레이터 리사이클러뷰
         setAdapter(data)//오늘의 문장 리사이클러뷰
 
+        img_main_search_btn.setOnClickListener {
+            replaceFragment(SearchFragment())
+        }
+
     }
+
+
+    //SearchFragment로 이동
+    private fun replaceFragment(fragment: Fragment) {
+        val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+        transaction.replace(R.id.main_activity_fg, fragment)
+        transaction.commit()
+
+    }
+
     private fun setHotThemeAdapter(mainHotThemeItem: MutableList<MainHotThemeData>) {
         mainHotThemeAdapter =
             MainHotThemeAdapter(
@@ -108,6 +126,13 @@ class MainFragment : Fragment() {
             )
         curatorLoadDatas()
         rv_main_now_hot_curator.adapter = mainNowHotCuratorAdapter
+
+        //리사이클러뷰 아이템 클릭리스너 등록
+        mainNowHotCuratorAdapter.setItemClickListener(object : MainNowHotCuratorAdapter.ItemClickListener{
+            override fun onClick(view: View, position: Int) {
+                Log.d("SSS","${position}번 리스트 선택")
+            }
+        })
     }
     private fun curatorLoadDatas() {
         data2.apply {
@@ -162,6 +187,14 @@ class MainFragment : Fragment() {
         loadDatas()
         main_fragment_rv_today_sentence.adapter = todaySentenceAdapter
 
+        //리사이클러뷰 아이템 클릭리스너 등록
+        todaySentenceAdapter.setItemClickListener(object : TodaySentenceAdapter.ItemClickListener{
+            override fun onClick(view: View, position: Int) {
+                //Log.d("SSS","${position}번 리스트 선택")
+                
+            }
+        })
+
     }
 
     private fun loadDatas() {
@@ -183,7 +216,6 @@ class MainFragment : Fragment() {
                 )
             )
             add(
-
                 TodaySentenceData(
                     tv_today_sentence = "인연이라고 하죠오~거부할 수가 없죠"
                 )
