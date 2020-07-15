@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentTransaction
 import com.example.mongleandroid.R
+import com.example.mongleandroid.activity.SentenceDetailViewInThemeActivity
 import com.example.mongleandroid.adapter.MainHotThemeAdapter
 import com.example.mongleandroid.adapter.MainNowHotCuratorAdapter
 import com.example.mongleandroid.adapter.MainPagerAdapter
@@ -125,6 +126,13 @@ class MainFragment : Fragment() {
             )
         curatorLoadDatas()
         rv_main_now_hot_curator.adapter = mainNowHotCuratorAdapter
+
+        //리사이클러뷰 아이템 클릭리스너 등록
+        mainNowHotCuratorAdapter.setItemClickListener(object : MainNowHotCuratorAdapter.ItemClickListener{
+            override fun onClick(view: View, position: Int) {
+                Log.d("SSS","${position}번 리스트 선택")
+            }
+        })
     }
     private fun curatorLoadDatas() {
         data2.apply {
@@ -179,10 +187,11 @@ class MainFragment : Fragment() {
         loadDatas()
         main_fragment_rv_today_sentence.adapter = todaySentenceAdapter
 
-        //클릭리스너 등록
+        //리사이클러뷰 아이템 클릭리스너 등록
         todaySentenceAdapter.setItemClickListener(object : TodaySentenceAdapter.ItemClickListener{
             override fun onClick(view: View, position: Int) {
-                Log.d("SSS","${position}번 리스트 선택")
+                //Log.d("SSS","${position}번 리스트 선택")
+                
             }
         })
 
@@ -207,7 +216,6 @@ class MainFragment : Fragment() {
                 )
             )
             add(
-
                 TodaySentenceData(
                     tv_today_sentence = "인연이라고 하죠오~거부할 수가 없죠"
                 )
