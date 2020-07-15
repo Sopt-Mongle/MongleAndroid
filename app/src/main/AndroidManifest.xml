@@ -13,9 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan">
-        <activity android:name=".activity.JoinFinishActivity">
-        </activity>
+        <activity android:name=".activity.NoThemeActivity"></activity>
         <activity android:name=".activity.SplashActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -55,8 +55,7 @@
             android:name=".activity.WritingSentenceActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.MainActivity"
-            android:windowSoftInputMode="adjustNothing"></activity>
+            android:name=".activity.MainActivity"></activity>
     </application>
 
 </manifest>
