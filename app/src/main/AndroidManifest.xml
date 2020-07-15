@@ -14,7 +14,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustPan">
-        <activity android:name=".activity.LibraryActivity"></activity>
+        <activity android:name=".activity.CuratorInfoActivity">
+            
+        </activity>
+        <activity android:name=".activity.LibraryActivity" />
         <activity android:name=".activity.NoThemeActivity" />
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
@@ -26,12 +29,12 @@
         <activity android:name=".activity.SentenceDetailViewInThemeActivity" />
         <activity
             android:name=".activity.JoinActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".activity.JoinFinishActivity" />
         <activity android:name=".activity.EditSentenceActivity" />
         <activity
             android:name=".activity.LoginActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activity.WritingThemeActivity"
             android:windowSoftInputMode="adjustResize" />

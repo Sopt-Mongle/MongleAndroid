@@ -9,7 +9,7 @@
     tools:context=".fragment.LibraryFragment">
 
     <com.example.mongleandroid.NewScrollView
-        android:id="@+id/main_scroll_view"
+        android:id="@+id/main_scroll_view_cura_info"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -18,7 +18,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0"
-        app:stickyHeader="@+id/titleLayout">
+        app:stickyHeader="@+id/cl_titleLayout">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -111,33 +111,122 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tx_library_contents" />
 
+                <CheckBox
+                    android:id="@+id/cb_curator_subs_info"
+                    android:layout_width="66dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/btn_subscribe"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="@string/subscribe"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/tx_library_keyword"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/titleLayout"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_titleLayout"
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="11dp"
-                app:tabIndicatorColor="#00ffffff"
-                app:layout_constraintBottom_toTopOf="@id/vp_library"
+                android:background="#ffffff"
+                app:layout_constraintBottom_toTopOf="@id/vp_curator_info"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/const1"
-                app:layout_constraintVertical_bias="0">
+                app:layout_constraintTop_toBottomOf="@id/const1">
+
+                <TextView
+                    android:id="@+id/tv_thema_num_cu_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="14sp"
+                    android:text="47"
+                    android:textColor="@color/softGreen"
+                    android:textSize="29sp"
+                    app:layout_constraintBottom_toTopOf="@id/tv_thema_cu_info"
+                    app:layout_constraintLeft_toLeftOf="@id/cl_titleLayout"
+                    app:layout_constraintRight_toLeftOf="@id/tv_sentence_num_cu_info"
+                    app:layout_constraintTop_toTopOf="@id/cl_titleLayout"
+                    app:layout_constraintVertical_bias="1"/>
+
+                <TextView
+                    android:id="@+id/tv_thema_cu_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="6sp"
+                    android:text="테마"
+                    android:textColor="@color/softGreen"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/tv_thema_num_cu_info"
+                    app:layout_constraintRight_toRightOf="@id/tv_thema_num_cu_info"
+                    app:layout_constraintTop_toBottomOf="@id/tv_thema_num_cu_info" />
 
 
-            </com.google.android.material.tabs.TabLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="35dp"
+                    android:background="#e7e7e7"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <com.example.mongleandroid.CustomViewPager
-                android:id="@+id/vp_library"
+                <TextView
+                    android:id="@+id/tv_sentence_num_cu_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="14sp"
+                    android:text="29"
+                    android:textColor="@color/very_light_pink_two"
+                    android:textSize="29sp"
+                    app:layout_constraintBottom_toTopOf="@id/tv_sentence_cu_info"
+                    app:layout_constraintLeft_toRightOf="@id/tv_thema_num_cu_info"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cl_titleLayout"
+                    app:layout_constraintVertical_bias="1"/>
+
+                <TextView
+                    android:id="@+id/tv_sentence_cu_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="6sp"
+                    android:text="문장"
+                    android:textColor="@color/very_light_pink_two"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/tv_sentence_num_cu_info"
+                    app:layout_constraintRight_toRightOf="@id/tv_sentence_num_cu_info"
+                    app:layout_constraintTop_toBottomOf="@id/tv_sentence_num_cu_info" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.example.mongleandroid.NonSwipeableViewPager
+                android:id="@+id/vp_curator_info"
                 android:layout_width="match_parent"
                 android:layout_height="1000dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/titleLayout" />
+                app:layout_constraintTop_toBottomOf="@id/cl_titleLayout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
