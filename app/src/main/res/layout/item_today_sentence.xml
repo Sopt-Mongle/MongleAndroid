@@ -2,13 +2,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="299dp"
-    android:layout_height="125dp">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="302dp"
+        android:layout_height="128dp"
+        android:background="@drawable/shadow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/view"
         android:layout_width="299dp"
         android:layout_height="125dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
         android:background="@drawable/main_today_sentence_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,10 +32,12 @@
     <TextView
         android:id="@+id/tv_today_sentence"
         android:layout_width="265dp"
-        android:layout_height="47dp"
+        android:layout_height="52dp"
         android:letterSpacing="-0.02"
         android:lineSpacingExtra="7sp"
         android:maxLines="2"
+        android:fontFamily="@font/notosanscjkkr_demilight"
+        android:includeFontPadding="false"
         android:text="결국 봄이 언제나 찾아왔지만, 하마터면 오지 않을 뻔했던 봄을 생각하면 마음이 섬찟해진다."
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -71,6 +82,8 @@
         android:letterSpacing="-0.02"
         android:lineSpacingExtra="1sp"
         android:text="호주머니 속의 축제"
+        android:fontFamily="@font/notosanscjkkr_demilight"
+        android:includeFontPadding="false"
         android:textColor="@color/very_light_pink_two"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView11"
