@@ -60,7 +60,9 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
 
         })
 
-
+        activity_writing_sentence_book_search_btn_out.setOnClickListener {
+            finish()
+        }
 
 
         //뒤로가기 버튼

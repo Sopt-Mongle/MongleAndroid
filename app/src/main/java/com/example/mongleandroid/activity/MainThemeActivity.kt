@@ -1,7 +1,10 @@
 package com.example.mongleandroid.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.MainThemeAdapter
 import com.example.mongleandroid.network.data.MainThemeData
@@ -18,7 +21,16 @@ class MainThemeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_theme)
         setMainThemeAdapter(data)
+
+        img_main_theme_activity_back_btn.setOnClickListener {
+            finish()
+        }
+        img_writing_sentence_in_theme_btn.setOnClickListener {
+            val intent = Intent(this, ThemeWritingSentenceActivity::class.java)
+            startActivity(intent)
+        }
     }
+
     private fun setMainThemeAdapter(mainThemeItem: MutableList<MainThemeData>) {
         mainThemeAdapter =
             MainThemeAdapter(
@@ -27,6 +39,15 @@ class MainThemeActivity : AppCompatActivity() {
             )
         loadDatas()
         rv_activity_theme.adapter = mainThemeAdapter
+
+        //리사이클러뷰 아이템 클릭리스너 등록
+        mainThemeAdapter.setItemClickListener(object : MainThemeAdapter.ItemClickListener{
+            override fun onClick(view: View, position: Int) {
+                Log.d("SSS","${position}번 리스트 선택")
+                    val intent = Intent(this@MainThemeActivity, SentenceDetailViewActivity::class.java)
+                    startActivity(intent)
+            }
+        })
     }
     private fun loadDatas() {
         data.apply {

@@ -28,6 +28,17 @@ class ThemeWritingSentenceActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+        //다음 버튼
+        activity_theme_writing_sentence_btn_out.setOnClickListener {
+            val intent = Intent(this, ThemeWritingSentenceBookActivity::class.java)
+            startActivity(intent)
+        }
+
+        //테마 없는 문장 불러오기
+        activity_theme_writing_sentence_btn_notheme.setOnClickListener {
+            val intent = Intent(this, NoThemeActivity::class.java)
+            startActivity(intent)
+        }
 
         // 테마에 문장쓰기 - 글자수 실시간 계산
         // 글자수 제한은 xml 파일의 maxlength에서 설정

@@ -1,5 +1,6 @@
 package com.example.mongleandroid.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,11 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentTransaction
 import com.example.mongleandroid.R
+import com.example.mongleandroid.activity.MainThemeActivity
+import com.example.mongleandroid.activity.SentenceDetailViewActivity
 import com.example.mongleandroid.activity.SentenceDetailViewInThemeActivity
-import com.example.mongleandroid.adapter.MainHotThemeAdapter
-import com.example.mongleandroid.adapter.MainNowHotCuratorAdapter
-import com.example.mongleandroid.adapter.MainPagerAdapter
-import com.example.mongleandroid.adapter.TodaySentenceAdapter
+import com.example.mongleandroid.adapter.*
 import com.example.mongleandroid.network.data.MainHotThemeData
 import com.example.mongleandroid.network.data.MainNowHotCuratorData
 import com.example.mongleandroid.network.data.TodaySentenceData
@@ -78,6 +78,17 @@ class MainFragment : Fragment() {
         rv_main_hot_theme.adapter = mainHotThemeAdapter
         rv_main_waiting_for_sentence_theme.adapter = mainHotThemeAdapter
         rv_viewed_a_lot_time_theme.adapter = mainHotThemeAdapter
+
+
+        mainHotThemeAdapter.setItemClickListener(object : MainHotThemeAdapter.ItemClickListener{
+            override fun onClick(view: View, position: Int) {
+                Log.d("SSS","${position}번 리스트 선택")
+                activity?.let{
+                    val intent = Intent(context, MainThemeActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+        })
     }
 
     private fun themeLoadDatas() {
@@ -190,8 +201,11 @@ class MainFragment : Fragment() {
         //리사이클러뷰 아이템 클릭리스너 등록
         todaySentenceAdapter.setItemClickListener(object : TodaySentenceAdapter.ItemClickListener{
             override fun onClick(view: View, position: Int) {
-                //Log.d("SSS","${position}번 리스트 선택")
-                
+                Log.d("SSS","${position}번 리스트 선택")
+                activity?.let{
+                    val intent = Intent(context, SentenceDetailViewActivity::class.java)
+                    startActivity(intent)
+                }
             }
         })
 
