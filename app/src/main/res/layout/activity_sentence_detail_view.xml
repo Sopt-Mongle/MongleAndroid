@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SentenceDetailViewActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="28dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="28dp" />
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="match_parent"
+                android:layout_height="144dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/detailview_img_backimg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="19dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="9sp"
+                android:text="브랜딩이 어려울 때, 영감을 주는 문장"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+                app:layout_constraintStart_toStartOf="@+id/imageView13" />
+
+            <ImageView
+                android:id="@+id/imageView17"
+                android:layout_width="31dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="55dp"
+                android:src="@drawable/detailview_icon_quote"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageView13" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="329dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:maxLength="280"
+                android:text="처음 마주할 때의 인상, 사소한 것으로 인해 생기
+는 호감, 알아가면서 느끼는 다양한 감정과 머금
+고있는 풍경과 분위기까지. 처음 마주할 때의 인
+상, 사소한 것으로 인해 생기는 호감, 알아가면서
+느끼는 다양한 감정과 머금고있는 풍경과 분위기
+까지. 처음 마주할 때의 인상, 사소한 것으로 인해
+생기는 호감, 알아가면서 느끼는 다양한 감정과
+머금고있는 풍경과 분위기까지. 처음 마주할 때
+의 인상, 사소한 것으로 인해 생기는 호감, 알아가
+면서 느끼는 다양한 감정과 머금고있는 풍경과
+분위기까지. 가나다라 마바사"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+
+            <View
+                android:id="@+id/middle_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="50dp"
+                android:background="#e7e7e7"
+                app:layout_constraintTop_toBottomOf="@id/textView19" />
+
+            <ImageView
+                android:id="@+id/imageView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="13dp"
+                android:src="@drawable/detailview_img_profile"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/middle_line" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="-1sp"
+                android:text="몽글이"
+                android:textColor="#a7a7a7"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView18"
+                app:layout_constraintTop_toBottomOf="@+id/middle_line" />
+
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="match_parent"
+                android:layout_height="171dp"
+                android:layout_marginTop="55dp"
+                android:src="#f8f5ed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="26dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text="책 정보"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView19" />
+
+            <ImageView
+                android:id="@+id/imageView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/detailview_img_profile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+            <ImageView
+                android:id="@+id/imageView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:src="@drawable/detailview_img_profile"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/imageView20" />
+
+            <ImageView
+                android:id="@+id/imageView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/detailview_img_profile"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/imageView21" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="12dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="6sp"
+                android:text="알리오 올리오 맛있드나 맛있드나나"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView20"
+                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="7dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="6sp"
+                android:text="이예슬 이예슬 이예슬 이예슬이예슬"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView21"
+                app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="6sp"
+                android:text="몽글하우스 이예슬 이예슬이예슬이"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/textView24"
+                app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="28dp"
+                android:src="@drawable/detailview_img_book"
+                app:layout_constraintEnd_toEndOf="@+id/imageView19"
+                app:layout_constraintTop_toTopOf="@+id/imageView19" />
+
+            <TextView
+                android:id="@+id/tv_theme_other_sentence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="48dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="9sp"
+                android:text="이 테마의 다른 문장"
+                android:textColor="@color/black"
+                android:textSize="19sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView19" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_sentence_detail_view_theme_other_sentence"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_theme_other_sentence"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_activity_theme" />
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="350dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="21dp"
+                android:background="@drawable/background_sentence_detail_view_theme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_sentence_detail_view_theme_other_sentence" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="테마 보러 가기"
+                android:textColor="#8b8b8b"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/view5"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/view5"
+                app:layout_constraintTop_toTopOf="@+id/view5" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="57dp"
+        android:background="#e7e7e7"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="21dp"
+        android:src="@drawable/detailview_icon_like"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="17dp"
+        android:lineSpacingExtra="8sp"
+        android:text="502"
+        android:textColor="@color/very_light_pink_two"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView15"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_line" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="1dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="14dp"
+        android:background="#e7e7e7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bottom_line" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="21dp"
+        android:src="@drawable/detailview_icon_bookmark"
+        app:layout_constraintStart_toEndOf="@+id/view4"
+        app:layout_constraintTop_toBottomOf="@+id/scroll" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="17dp"
+        android:lineSpacingExtra="8sp"
+        android:text="247"
+        android:textColor="@color/very_light_pink_two"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView16"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_line" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

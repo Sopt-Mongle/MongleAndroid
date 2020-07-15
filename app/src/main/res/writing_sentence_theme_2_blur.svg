@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="186" viewBox="0 0 380 186">
+    <defs>
+        <linearGradient id="prefix__linear-gradient" x1=".5" x2=".5" y1=".11" y2=".357" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+            <stop offset="1" stop-color="#fff"/>
+        </linearGradient>
+    </defs>
+    <path id="prefix__writing_sentence_theme_2_blur" fill="url(#prefix__linear-gradient)" d="M0 0H380V186H0z"/>
+</svg>

@@ -7,23 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
-
     <FrameLayout
         android:id="@+id/main_activity_fg"
         android:name="com.example.mongleandroid.CuratorFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="184dp"
-        tools:layout_editor_absoluteY="186dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/main_activity_FL"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_activity_FL"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
     </FrameLayout>
 
 
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/veryLightPink2"
@@ -42,7 +40,7 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/main_activity_bnv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:itemIconTint="@color/bottom_selector"
             app:itemTextColor="@color/bottom_selector"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -69,53 +67,54 @@
         app:tint="@color/white"
         />
 
+
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/main_activity_FAB_st"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_above="@+id/main_activity_FAB_main"
         android:background="@drawable/fab_sub"
         android:backgroundTint="@color/white"
-        android:gravity="center"
-        android:text="문장 만들기"
-        android:textSize="14sp"
-        android:visibility="gone"
+        android:text=" 문장 쓰기"
+        android:textSize="16sp"
         app:borderWidth="0dp"
-        app:fabSize="mini"
+        android:gravity="center"
+        app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/main_activity_FAB_main" />
+        app:layout_constraintTop_toTopOf="@+id/main_activity_FAB_main"
+        android:visibility="visible"/>
 
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/main_activity_FAB_tm"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_above="@+id/main_activity_FAB_main"
         android:background="@drawable/fab_sub"
         android:backgroundTint="@color/white"
-        android:gravity="center"
-        android:text="테마 만들기"
-        android:textSize="14sp"
-        android:visibility="gone"
-        app:borderWidth="0dp"
-        app:fabSize="mini"
+        android:text=" 테마 만들기"
+        android:textSize="16sp"
+        app:fabSize="normal"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/main_activity_FAB_main" />
+        app:layout_constraintTop_toTopOf="@+id/main_activity_FAB_main"
+        android:visibility="visible"/>
+    <View
+        android:id="@+id/main_activity_blur"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#aa000000"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/main_activity_FL"
 
-
-
-
-    <!--    <com.example.ccookccook.DisableSwipeViewpager-->
-    <!--        android:id="@+id/main_viewpager"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="0dp"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/layout_bottom"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        tools:layout_editor_absoluteX="0dp" />-->
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

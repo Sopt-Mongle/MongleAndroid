@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/result_curator_cl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/result_curator_img_profile"
+            android:layout_width="67dp"
+            android:layout_height="66dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="26dp"
+            app:layout_constraintBottom_toBottomOf="@id/result_curator_cl"
+            app:layout_constraintStart_toStartOf="@id/result_curator_cl"
+            app:layout_constraintTop_toTopOf="@id/result_curator_cl"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/result_curator_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="-1sp"
+            android:text="예스리"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/result_curator_img_profile"
+            app:layout_constraintTop_toTopOf="@+id/result_curator_img_profile" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="1sp"
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:includeFontPadding="false"
+            android:textColor="@color/veryLightPink2"
+            android:textSize="14sp"
+            android:text="구독자 "
+            app:layout_constraintStart_toStartOf="@+id/result_curator_tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/result_curator_tv_name"
+            app:layout_constraintBottom_toTopOf="@id/result_curator_tv_keyword" />
+
+        <TextView
+            android:id="@+id/result_curator_tv_subcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="1sp"
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:includeFontPadding="false"
+            android:textColor="@color/veryLightPink2"
+            android:textSize="14sp"
+            android:text="540"
+            app:layout_constraintBottom_toBottomOf="@+id/textView9"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
+            app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="1sp"
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:includeFontPadding="false"
+            android:textColor="@color/veryLightPink2"
+            android:textSize="14sp"
+            android:text="명"
+            app:layout_constraintBottom_toBottomOf="@+id/result_curator_tv_subcount"
+            app:layout_constraintStart_toEndOf="@+id/result_curator_tv_subcount"
+            app:layout_constraintTop_toTopOf="@+id/result_curator_tv_subcount" />
+
+        <TextView
+            android:id="@+id/result_curator_tv_keyword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:includeFontPadding="false"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="3sp"
+            android:text="대학내일"
+            android:textColor="@color/veryLightPink2"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/result_curator_img_profile"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#59bcbcbc"
+            app:layout_constraintBottom_toBottomOf="@id/result_curator_cl"
+            app:layout_constraintEnd_toEndOf="@id/result_curator_cl"
+            app:layout_constraintStart_toStartOf="@id/result_curator_cl" />
+
+        <CheckBox
+            android:id="@+id/result_curator_btn_subscribe_item"
+            android:layout_width="66dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginRight="28dp"
+            android:layout_marginBottom="44dp"
+            android:background="@drawable/btn_subscribe"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/subscribe"
+            android:textColor="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

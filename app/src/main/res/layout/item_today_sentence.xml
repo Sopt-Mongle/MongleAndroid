@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="302dp"
+        android:layout_height="128dp"
+        android:background="@drawable/shadow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="299dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/main_today_sentence_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="0dp" />
+
+    <TextView
+        android:id="@+id/tv_today_sentence"
+        android:layout_width="265dp"
+        android:layout_height="52dp"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="7sp"
+        android:maxLines="2"
+        android:fontFamily="@font/notosanscjkkr_demilight"
+        android:includeFontPadding="false"
+        android:text="결국 봄이 언제나 찾아왔지만, 하마터면 오지 않을 뻔했던 봄을 생각하면 마음이 섬찟해진다."
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintStart_toEndOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="0dp" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="264dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="17dp"
+        android:background="#47bcbcbc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_today_sentence" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="9dp"
+        android:src="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="1sp"
+        android:text="호주머니 속의 축제"
+        android:fontFamily="@font/notosanscjkkr_demilight"
+        android:includeFontPadding="false"
+        android:textColor="@color/very_light_pink_two"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        app:layout_constraintTop_toTopOf="@+id/imageView11" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

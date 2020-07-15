@@ -1,25 +1,25 @@
 package com.example.mongleandroid.fragment
 
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
-import android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT
-import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
+import com.example.mongleandroid.activity.MainActivity.Companion.search_result
 import com.example.mongleandroid.adapter.SearchRecentAdapter
-import com.example.mongleandroid.network.data.SearchRecentData
+import com.example.mongleandroid.network.data.response.ResponseSearchRecentData
+import com.example.mongleandroid.showKeyboard
 import kotlinx.android.synthetic.main.fragment_search.*
 
 
 class SearchFragment : Fragment() {
 
     lateinit var searchRecentAdapter: SearchRecentAdapter
-    val searchRecentDatas = mutableListOf<SearchRecentData>()
+    val searchRecentDatas = mutableListOf<ResponseSearchRecentData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,28 +33,48 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // 검색창에 초점 맞추고, 키보드 올리는 부분
-        search_fragment_et_search.requestFocus()
-        search_fragment_et_search.showKeyboard()
+        search_fragment_et_search.requestFocus() // xml 파일에서 <requestFocus /> 적어줘야함
+        search_fragment_et_search.showKeyboard() // 확장함수 showKeyboard.kt
 
+        // 엔터 누르면 프레그먼트 이동
+       search_fragment_et_search.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                //Perform Code
+                replaceFragment()
+                return@OnKeyListener true
+            }
+            false
+        })
+
+        // 검색 버튼 누르면 프레그먼트 이동
         search_fragment_btn_search.setOnClickListener {
-            LoadRecentKeyword()
+
+            LoadRecentKeyword() // 최근 키워드
+            tv_no_keyword.visibility = GONE
+
+            replaceFragment()
         }
 
-        setRecommendKeyword()
+        setRecommendKeyword() // 추천 키워드
         search_fragment_tv_delete.setOnClickListener {
+            LoadRecentKeyword()
             searchRecentAdapter.datas.clear()
             searchRecentAdapter.notifyDataSetChanged()
             tv_no_keyword.visibility = VISIBLE
         } // 최근 키워드 전체 삭제
     }
 
-    private fun EditText.showKeyboard() {
-        if (requestFocus()) {
-            // edittext에 초점이 맞춰지면 키보드 올라옴
-            (getActivity()?.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager)
-                .showSoftInput(this, SHOW_IMPLICIT)
-            setSelection(text.length)
-        }
+    private fun replaceFragment() {
+
+        // 검색어 보내주기
+        val searchword = search_fragment_et_search.text.toString()
+        search_result = searchword.trim()
+
+        // fragment 변경
+        val transaction = getFragmentManager()?.beginTransaction()
+        transaction?.replace(R.id.search_fragment_cl, SearchResultFragment())
+        transaction?.commit()
+        search_fragment_cl_keyword.visibility = GONE
     }
 
     private fun setRecommendKeyword(){
@@ -63,7 +83,8 @@ class SearchFragment : Fragment() {
         tv_recommend_keyword3.text = "넣어보자"
         tv_recommend_keyword4.text = "몽글몽글"
         tv_recommend_keyword5.text = "가나다라"
-        tv_recommend_keyword6.text = "마바사아아아아아아ㅏ아아아아아악"
+        tv_recommend_keyword6.text = "마바사아"
+        tv_recommend_keyword7.text = "2줄을 넘어가면 안되는 최근 검색어"
     }
 
     private fun LoadRecentKeyword() {
@@ -72,32 +93,13 @@ class SearchFragment : Fragment() {
 
         searchRecentDatas.apply {
             add(
-                SearchRecentData(
-                    tv_recent_keyword = "일단은"
-                )
-            )
-            add(
-                SearchRecentData(
-                    tv_recent_keyword = "임의 데이터를"
-                )
-            )
-            add(
-                SearchRecentData(
-                    tv_recent_keyword = "넣어두자"
-                )
-            )
-            add(
-                SearchRecentData(
-                    tv_recent_keyword = "다섯개만"
-                )
-            )
-            add(
-                SearchRecentData(
-                    tv_recent_keyword = "넣는다"
+                ResponseSearchRecentData(
+                    tv_recent_keyword = search_fragment_et_search.text.toString()
                 )
             )
             searchRecentAdapter.datas = searchRecentDatas
             searchRecentAdapter.notifyDataSetChanged()
         }
+
     }
 }

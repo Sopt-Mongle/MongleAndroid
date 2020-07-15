@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ConstraintLayout"
+    android:id="@+id/search_fragment_cl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.SearchFragment">
@@ -12,29 +12,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="58dp"
-        android:layout_marginEnd="10dp"
-        android:src="@drawable/search_btn_back"
-        app:layout_constraintEnd_toStartOf="@+id/search_fragment_et_search"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="17dp"
+        android:paddingTop="17dp"
+        android:paddingRight="17dp"
+        android:paddingBottom="15dp"
+        android:src="@drawable/btn_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/search_fragment_et_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="15dp"
-        android:background="@drawable/search_img_searchbar"
+        android:background="@drawable/et_area"
         android:ems="10"
-        android:hint="책 제목을 검색해주세요"
-        android:inputType="textPersonName"
+        android:fontFamily="@font/notosanscjkkr_demilight"
+        android:includeFontPadding="false"
+        android:hint="키워드, 테마, 큐레이터 등을 검색하세요."
+        android:inputType="text"
+        android:maxLines="1"
         android:paddingLeft="15dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/search_fragment_btn_back"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/search_fragment_btn_back"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="@+id/search_fragment_btn_back">
+
         <requestFocus />
     </EditText>
 
@@ -42,49 +46,201 @@
         android:id="@+id/search_fragment_btn_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/search_btn_search"
+        android:src="@drawable/btn_search"
         app:layout_constraintBottom_toBottomOf="@+id/search_fragment_et_search"
         app:layout_constraintEnd_toEndOf="@+id/search_fragment_et_search"
         app:layout_constraintTop_toTopOf="@+id/search_fragment_et_search" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#000000"
-        android:letterSpacing="-0.02"
-        android:lineSpacingExtra="8sp"
-        android:layout_marginTop="18dp"
-        android:text="최근 키워드"
-        app:layout_constraintStart_toStartOf="@+id/search_fragment_btn_back"
-        app:layout_constraintTop_toBottomOf="@+id/search_fragment_et_search" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/search_fragment_cl_keyword"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_fragment_et_search">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recent_keyword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingEnd="7dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:reverseLayout="true"
+            app:stackFromEnd="true"
+            tools:listitem="@layout/item_recent_keyword" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="8sp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:text="최근 키워드"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_no_keyword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="19dp"
+            android:text="최근 검색어가 없습니다."
+            android:textColor="#bcbcbc"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <com.nex3z.flowlayout.FlowLayout
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="12dp"
+            app:flChildSpacing="8dp"
+            app:flChildSpacingForLastRow="align"
+            app:flRowSpacing="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/search_fragment_tv_delete"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:text="TextView"
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:text="TextView"
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:text="TextView"
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:text="TextView"
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:text="TextView"
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:text="TextView"
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:text="TextView"
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:text="TextView"
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+        </com.nex3z.flowlayout.FlowLayout>
 
         <TextView
             android:id="@+id/search_fragment_tv_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
             android:letterSpacing="-0.02"
             android:lineSpacingExtra="6sp"
+            android:paddingTop="14dp"
+            android:paddingBottom="5dp"
             android:text="전체삭제"
             android:textColor="#bcbcbc"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@+id/search_fragment_et_search"
-            app:layout_constraintTop_toBottomOf="@+id/search_fragment_btn_search" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_recent_keyword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:listitem="@layout/item_recent_keyword" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView7"
@@ -94,110 +250,13 @@
             android:letterSpacing="-0.02"
             android:lineSpacingExtra="8sp"
             android:text="추천 키워드"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
             android:textColor="#000000"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <com.nex3z.flowlayout.FlowLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        app:flChildSpacing="8dp"
-        app:flChildSpacingForLastRow="align"
-        app:layout_constraintEnd_toEndOf="@+id/search_fragment_et_search"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView7">
-
-        <TextView
-            android:id="@+id/tv_recommend_keyword1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/search_recommend_keyword"
-            android:letterSpacing="-0.02"
-            android:lineSpacingExtra="8sp"
-            android:text="TextView"
-            android:textColor="#69af7c"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/tv_recommend_keyword2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/search_recommend_keyword"
-            android:letterSpacing="-0.02"
-            android:lineSpacingExtra="8sp"
-            android:text="TextView"
-            android:textColor="#69af7c"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_recommend_keyword1"
-            app:layout_constraintTop_toTopOf="@+id/tv_recommend_keyword1" />
-
-        <TextView
-            android:id="@+id/tv_recommend_keyword3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/search_recommend_keyword"
-            android:letterSpacing="-0.02"
-            android:lineSpacingExtra="8sp"
-            android:text="TextView"
-            android:textColor="#69af7c"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_recommend_keyword2"
-            app:layout_constraintTop_toTopOf="@+id/tv_recommend_keyword1" />
-
-        <TextView
-            android:id="@+id/tv_recommend_keyword4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/search_recommend_keyword"
-            android:letterSpacing="-0.02"
-            android:lineSpacingExtra="8sp"
-            android:text="TextView"
-            android:textColor="#69af7c"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/textView7"
-            app:layout_constraintTop_toBottomOf="@+id/tv_recommend_keyword1" />
-
-        <TextView
-            android:id="@+id/tv_recommend_keyword5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/search_recommend_keyword"
-            android:letterSpacing="-0.02"
-            android:lineSpacingExtra="8sp"
-            android:text="TextView"
-            android:textColor="#69af7c"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_recommend_keyword4"
-            app:layout_constraintTop_toTopOf="@+id/tv_recommend_keyword4" />
-
-        <TextView
-            android:id="@+id/tv_recommend_keyword6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/search_recommend_keyword"
-            android:letterSpacing="-0.02"
-            android:lineSpacingExtra="8sp"
-            android:text="TextView"
-            android:textColor="#69af7c"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_recommend_keyword5"
-            app:layout_constraintTop_toTopOf="@+id/tv_recommend_keyword4" />
-    </com.nex3z.flowlayout.FlowLayout>
-
-    <TextView
-        android:id="@+id/tv_no_keyword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="최근 키워드가 없습니다."
-        android:textSize="16sp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
