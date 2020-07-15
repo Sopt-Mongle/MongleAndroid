@@ -13,7 +13,7 @@
         android:layout_marginStart="38dp"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout7"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/login_popup_btn_mongle" />
+        app:srcCompat="@drawable/sentence_edit_delete_mongle" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout7"
@@ -29,13 +29,15 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="75dp"
+            android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_horizontal"
+            android:includeFontPadding="false"
             android:letterSpacing="-0.02"
             android:lineSpacingExtra="-1sp"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:includeFontPadding="false"
-            android:text="몽글에 등록되지 않은 회원이에요!"
+            android:text="문장을 삭제하시겠어요?"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,35 +45,18 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView21"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center_horizontal"
-            android:letterSpacing="-0.02"
-            android:lineSpacingExtra="3sp"
-            android:fontFamily="@font/notosanscjkkr_demilight"
-            android:includeFontPadding="false"
-            android:text="이메일 주소와 비밀번호를\n다시 한 번 확인해주세요!"
-            android:textColor="#a7a7a7"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView18"
-            app:layout_constraintStart_toStartOf="@+id/textView18"
-            app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
-        <TextView
-            android:id="@+id/login_popup_ok"
+            android:id="@+id/delete_popup_ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="21dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="25dp"
             android:background="@drawable/btn_popup_yes_green"
+            android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_horizontal"
+            android:includeFontPadding="false"
             android:letterSpacing="-0.02"
             android:lineSpacingExtra="6sp"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:includeFontPadding="false"
             android:paddingLeft="58dp"
             android:paddingTop="9dp"
             android:paddingRight="57dp"
@@ -81,36 +66,34 @@
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView21" />
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
         <TextView
-            android:id="@+id/login_popup_join"
+            android:id="@+id/delete_popup_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="14dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/btn_popup_no_green"
+            android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_horizontal"
+            android:includeFontPadding="false"
             android:letterSpacing="-0.02"
             android:lineSpacingExtra="6sp"
-            android:paddingLeft="39dp"
+            android:paddingLeft="45dp"
             android:paddingTop="9dp"
-            android:paddingRight="38dp"
+            android:paddingRight="44dp"
             android:paddingBottom="8dp"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:includeFontPadding="false"
-            android:text="회원가입"
+            android:text="아니요"
             android:textColor="@color/softGreen"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/login_popup_ok"
+            app:layout_constraintBottom_toBottomOf="@+id/delete_popup_ok"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/login_popup_ok"
-            app:layout_constraintTop_toTopOf="@+id/login_popup_ok"
+            app:layout_constraintStart_toEndOf="@+id/delete_popup_ok"
+            app:layout_constraintTop_toTopOf="@+id/delete_popup_ok"
             app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
