@@ -17,6 +17,7 @@ import com.example.mongleandroid.network.data.MainHotThemeData
 import com.example.mongleandroid.network.data.MainNowHotCuratorData
 import com.example.mongleandroid.network.data.TodaySentenceData
 import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_main_view_pager1.*
 import kotlinx.android.synthetic.main.item_main_now_hot_curator.*
 import kotlinx.android.synthetic.main.item_main_now_hot_curator.view.*
 import kotlinx.android.synthetic.main.item_today_sentence.*
@@ -31,8 +32,6 @@ class MainFragment : Fragment() {
     private lateinit var mainNowHotCuratorAdapter: MainNowHotCuratorAdapter
     private lateinit var mainHotThemeAdapter: MainHotThemeAdapter
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,8 +45,10 @@ class MainFragment : Fragment() {
 
         //뷰페이저 연결
         vp_main.adapter = MainPagerAdapter(childFragmentManager)
-        vp_main.offscreenPageLimit = 3
+        vp_main.offscreenPageLimit = 2
         tl_main.setupWithViewPager(vp_main)
+
+
 
         setHotThemeAdapter(data3) // 인기있는 테마 리사이클러뷰
         setHotCuratorAdapter(data2) // 지금 인기있는 큐레이터 리사이클러뷰
@@ -55,6 +56,13 @@ class MainFragment : Fragment() {
 
         img_main_search_btn.setOnClickListener {
             replaceFragment(SearchFragment())
+        }
+
+        vp_main.setOnClickListener {
+            activity?.let{
+                val intent = Intent(context, MainThemeActivity::class.java)
+                startActivity(intent)
+            }
         }
 
     }
