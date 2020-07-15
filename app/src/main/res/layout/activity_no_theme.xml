@@ -32,7 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
         android:layout_marginTop="34dp"
-        android:text="브랜딩이 어려울 때, 영감을 주는 문장"
+        android:text="테마 없는 문장"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:includeFontPadding="false"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,7 +96,7 @@
             android:layout_height="wrap_content">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_activity_theme"
+                android:id="@+id/rv_activity_no_theme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
