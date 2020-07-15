@@ -28,6 +28,8 @@
         android:background="@drawable/et_area"
         android:ems="10"
         android:hint="키워드, 테마, 큐레이터 등을 검색하세요."
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:includeFontPadding="false"
         android:inputType="text"
         android:maxLines="1"
         android:paddingLeft="15dp"
@@ -73,16 +75,22 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
                 android:text="테마" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
                 android:text="문장" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
                 android:text="큐레이터" />
         </com.google.android.material.tabs.TabLayout>
 

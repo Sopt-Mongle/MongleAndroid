@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <EditText
-            android:id="@+id/activity_login_et_id"
+            android:id="@+id/activity_login_et_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="27dp"
@@ -26,6 +26,8 @@
             android:background="@drawable/et_area"
             android:ems="10"
             android:hint="아이디를 입력해주세요."
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:includeFontPadding="false"
             android:letterSpacing="-0.02"
             android:lineSpacingExtra="9sp"
             android:paddingLeft="16dp"
@@ -47,6 +49,8 @@
             android:layout_marginEnd="28dp"
             android:background="@drawable/et_area"
             android:ems="10"
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:includeFontPadding="false"
             android:hint="비밀번호를 입력해주세요."
             android:inputType="textPassword"
             android:letterSpacing="-0.02"
@@ -58,7 +62,7 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_login_et_id" />
+            app:layout_constraintTop_toBottomOf="@+id/activity_login_et_email" />
 
         <TextView
             android:id="@+id/activity_login_btn_login"
@@ -71,6 +75,8 @@
             android:lineSpacingExtra="12sp"
             android:paddingTop="11dp"
             android:paddingBottom="10dp"
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:includeFontPadding="false"
             android:text="로그인"
             android:textColor="@color/white"
             android:textSize="16sp"
@@ -91,6 +97,8 @@
             android:paddingTop="3dp"
             android:paddingRight="13dp"
             android:paddingBottom="5dp"
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:includeFontPadding="false"
             android:text="회원가입"
             android:textColor="@color/veryLightPink2"
             android:textSize="14sp"
@@ -113,6 +121,8 @@
             android:paddingTop="3dp"
             android:paddingRight="13dp"
             android:paddingBottom="5dp"
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:includeFontPadding="false"
             android:text="아이디 찾기"
             android:textColor="@color/veryLightPink2"
             android:textSize="14sp"
@@ -133,6 +143,8 @@
             android:paddingTop="3dp"
             android:paddingRight="12dp"
             android:paddingBottom="5dp"
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:includeFontPadding="false"
             android:text="비밀번호 찾기"
             android:textColor="@color/veryLightPink2"
             android:textSize="14sp"
@@ -194,6 +206,8 @@
         android:lineSpacingExtra="7sp"
         android:textColor="#3e3e3e"
         android:textSize="23sp"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:includeFontPadding="false"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
         app:layout_constraintTop_toBottomOf="@+id/imageView18"
         android:text="몽글" />
@@ -207,6 +221,8 @@
         android:lineSpacingExtra="7sp"
         android:textColor="#717171"
         android:textSize="23sp"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:includeFontPadding="false"
         app:layout_constraintStart_toEndOf="@+id/textView24"
         app:layout_constraintTop_toBottomOf="@+id/imageView18"
         android:text="에서" />
@@ -218,6 +234,8 @@
         android:letterSpacing="-0.02"
         android:textColor="#717171"
         android:textSize="23sp"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:includeFontPadding="false"
         app:layout_constraintStart_toStartOf="@+id/textView24"
         app:layout_constraintTop_toBottomOf="@+id/textView24"
         android:text="책 속의 문장을\n수집해보세요" />

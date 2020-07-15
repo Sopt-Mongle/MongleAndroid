@@ -8,7 +8,10 @@ import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.WritingThemeAdapter
 import com.example.mongleandroid.goNextPage
 import com.example.mongleandroid.goPrevPage
+import com.example.mongleandroid.util.DialogLogin
+import com.example.mongleandroid.util.DialogMakethemeCheck
 import kotlinx.android.synthetic.main.activity_writing_theme.*
+import kotlinx.android.synthetic.main.dialog_maketheme_check.*
 import kotlinx.android.synthetic.main.item_writng_theme.*
 import kotlin.properties.Delegates
 
@@ -25,6 +28,11 @@ class WritingThemeActivity : AppCompatActivity() {
         //등록하기 버튼
         activity_theme_writing_sentence_btn_upload.setOnClickListener {
             goNextPage(activity_writing_theme_CL_noPopUp, activity_writing_theme_CL_popup)
+            val dlg = DialogMakethemeCheck(this)
+            dlg.setOnOKClickedListener{ content ->
+
+            }
+            dlg.start("")
         }
 
         //뒤로가기 버튼
