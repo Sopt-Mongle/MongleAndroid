@@ -6,6 +6,7 @@ import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -21,11 +22,17 @@ class ResultCuratorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
     val name = itemView.findViewById<TextView>(R.id.result_curator_tv_name)
     val subscribe = itemView.findViewById<TextView>(R.id.result_curator_tv_subcount)
     val keyword = itemView.findViewById<TextView>(R.id.result_curator_tv_keyword)
+    val alreadySubscribed = itemView.findViewById<CheckBox>(R.id.result_curator_btn_subscribe_item)
 
     fun bind(resultCurator: ResultCurator) {
         Glide.with(itemView).load(resultCurator.img).into(img)
         subscribe.text = resultCurator.subscribe.toString()
         keyword.text = resultCurator.keyword
+        alreadySubscribed.setOnClickListener {
+            if(alreadySubscribed.isChecked) {
+                alreadySubscribed.setText("구독중")
+            } else alreadySubscribed.setText("구독")
+        }
 
         val inputString = MainActivity.search_result
         val sb = StringBuilder(inputString)
