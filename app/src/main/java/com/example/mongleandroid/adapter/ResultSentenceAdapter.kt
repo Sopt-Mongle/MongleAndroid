@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.viewholder.ResultSentenceViewHolder
-import com.example.mongleandroid.network.data.response.ResponseResultSentenceData
+import com.example.mongleandroid.network.data.response.ResultSentence
 
-class ResultSentenceAdapter(private val context : Context) : RecyclerView.Adapter<ResultSentenceViewHolder>() {
-    var datas = mutableListOf<ResponseResultSentenceData>()
+class ResultSentenceAdapter(private val context : Context, var datas: List<ResultSentence>) : RecyclerView.Adapter<ResultSentenceViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultSentenceViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_result_sentence, parent, false)
         return ResultSentenceViewHolder(view)

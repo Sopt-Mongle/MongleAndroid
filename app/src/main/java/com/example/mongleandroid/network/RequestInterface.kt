@@ -55,20 +55,24 @@ interface RequestInterface {
     @GET("/search/recommend")
     fun getRecommendKeyword() : Call<ResponseRecommendKeywordData>
 
-    // 테마 검색
+    // 테마 검색 - 성공
     @GET("/search/theme")
     fun requestResultThemeData(
-//        @Header("Content-Type") content_type: String,
-//        @Header("token") token: String,
-        @Body words : String
-    ) : retrofit2.Call<ResponseResultThemeData>
-    // 문장 검색
-    @GET("/search/sentence")
-    fun RequestResultSentenceData(@Body body: RequestResultSentenceData) : Call<ResponseResultSentenceData>
+        @Header("token") token: String?,
+        @Retrofit2HttpQuery("words") words: String
+    ) : Call<ResponseResultThemeData>
 
-    // 큐레이터 검색
+    // 문장 검색 - 성공
+    @GET("/search/sentence")
+    fun requestResultSentenceData(
+        @Retrofit2HttpQuery("words") words: String
+    ) : Call<ResponseResultSentenceData>
+
+    // 큐레이터 검색 - 성공
     @GET("/search/curator")
-    fun RequestResultCuratorData(@Body body: RequestResultCuratorData) : Call<ResponseResultCuratorData>
+    fun requestResultCuratorData(
+        @Retrofit2HttpQuery("words") words: String
+    ) : Call<ResponseResultCuratorData>
 
     // 로그인 - 성공
     @POST("/users/signin")
@@ -85,9 +89,15 @@ interface RequestInterface {
         @Header("token") token: String?
     ) : Call<ResponseTodaySentenceData>
 
-    // 추천 큐레이터
+    // 추천 큐레이터 - 성공
     @GET("/curator/recommend")
     fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
+
+    // 테마 속 큐레이터
+    @GET("/curator/themeInCurator")
+    fun requestCuratorInThemeData(
+        @Header("token") token: String?
+    ) : Call<ResponseCuratorInThemeData>
 
     // 메인 - 지금 인기있는 큐레이터 목록 조회 - 성공
     @GET("/main/curators")

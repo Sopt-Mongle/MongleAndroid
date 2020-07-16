@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.example.mongleandroid.R
 import com.example.mongleandroid.activity.MainActivity
 import com.example.mongleandroid.network.data.response.ResponseResultCuratorData
+import com.example.mongleandroid.network.data.response.ResultCurator
 
 class ResultCuratorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
@@ -21,10 +22,10 @@ class ResultCuratorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
     val subscribe = itemView.findViewById<TextView>(R.id.result_curator_tv_subcount)
     val keyword = itemView.findViewById<TextView>(R.id.result_curator_tv_keyword)
 
-    fun bind(responseResultCuratorData: ResponseResultCuratorData) {
-        Glide.with(itemView).load(responseResultCuratorData.img).into(img)
-        subscribe.text = responseResultCuratorData.subscribe
-        keyword.text = responseResultCuratorData.keyword
+    fun bind(resultCurator: ResultCurator) {
+        Glide.with(itemView).load(resultCurator.img).into(img)
+        subscribe.text = resultCurator.subscribe.toString()
+        keyword.text = resultCurator.keyword
 
         val inputString = MainActivity.search_result
         val sb = StringBuilder(inputString)
@@ -32,10 +33,10 @@ class ResultCuratorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
         val endWord = sb.get(sb.lastIndex)
         Log.d("index","startWord : ${startWord}, endWord ${endWord}")
 
-        val startIndex = responseResultCuratorData.name.indexOf(startWord)
-        val lastIndex = responseResultCuratorData.name.indexOf(endWord)
+        val startIndex = resultCurator.name.indexOf(startWord)
+        val lastIndex = resultCurator.name.indexOf(endWord)
         Log.d("index","startIndex : ${startIndex}, lastIndex ${lastIndex}")
-        val spannable = SpannableStringBuilder(responseResultCuratorData.name)
+        val spannable = SpannableStringBuilder(resultCurator.name)
 
         if(inputString.length == lastIndex - startIndex + 1) {
             spannable.setSpan(
