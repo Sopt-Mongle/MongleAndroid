@@ -7,15 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
-import com.example.mongleandroid.adapter.CuratorInThemeAdapter
 import com.example.mongleandroid.adapter.CuratorRecommendAdapter
 import com.example.mongleandroid.network.RequestToServer
-import com.example.mongleandroid.network.data.response.ResponseCuratorInThemeData
 import com.example.mongleandroid.network.data.response.ResponseRecommendCuratorData
 import kotlinx.android.synthetic.main.fragment_curator.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import com.example.mongleandroid.network.data.response.ResponseResultCuratorData
 
 
 class CuratorFragment : Fragment() {

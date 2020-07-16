@@ -34,7 +34,7 @@ interface RequestInterface {
 
     //선택할 테마 목록 조회
     @GET("/post/theme")
-    fun RequestWritingSentenceThemeSearch(@Body body: RequestWritingSentenceThemeSearchData) :Call<ResponseWritingSentenceThemeSearchData>
+    fun RequestWritingSentenceThemeSearch() :Call<ResponseWritingSentenceThemeSearchData>
 
     //테마 없는 문장 목록 조회
     @GET("/post/getEmptySentence")
@@ -51,45 +51,45 @@ interface RequestInterface {
     // 검색 - 최근 키워드 전체 삭제
     //@DELETE("/search/recent")
 
-    // 검색 - 추천 키워드
+    // 검색 - 추천 키워드 - 성공
     @GET("/search/recommend")
     fun getRecommendKeyword() : Call<ResponseRecommendKeywordData>
 
-    // 테마 검색
+    // 테마 검색 - 성공
     @GET("/search/theme")
     fun requestResultThemeData(
         @Header("token") token: String?,
         @Retrofit2HttpQuery("words") words: String
     ) : Call<ResponseResultThemeData>
 
-    // 문장 검색
+    // 문장 검색 - 성공
     @GET("/search/sentence")
     fun requestResultSentenceData(
         @Retrofit2HttpQuery("words") words: String
     ) : Call<ResponseResultSentenceData>
 
-    // 큐레이터 검색
+    // 큐레이터 검색 - 성공
     @GET("/search/curator")
     fun requestResultCuratorData(
         @Retrofit2HttpQuery("words") words: String
     ) : Call<ResponseResultCuratorData>
 
-    // 로그인
+    // 로그인 - 성공
     @POST("/users/signin")
     fun RequestLoginData(@Body body: RequestLoginData) : Call<ResponseLoginData>
 
-    // 회원가입
+    // 회원가입 - 성공
     @POST("/users/signup")
     fun RequestJoinData(@Body body: RequestJoinData) : Call<ResponseJoinData>
 
-    // 메인 - 오늘의 문장1
+    // 메인 - 오늘의 문장1 - 성공
     @GET("/main/sentences")
     fun RequestMainSentences(
         //@Header("Content-Type") content_type: String,
         @Header("token") token: String?
     ) : Call<ResponseTodaySentenceData>
 
-    // 추천 큐레이터
+    // 추천 큐레이터 - 성공
     @GET("/curator/recommend")
     fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
 
@@ -99,5 +99,13 @@ interface RequestInterface {
         @Header("token") token: String?
     ) : Call<ResponseCuratorInThemeData>
 
+    // 메인 - 지금 인기있는 큐레이터 목록 조회 - 성공
+    @GET("/main/curators")
+    fun GetMainQurators() : Call<ResponseMainNowHotData>
 
+    // 메인 - 오늘 하루 저장이 가장 많이 된 테마목록 조회
+//    @GET("/main/themes")
+//    fun GetMainThemes(
+//        @Header("token") token: String?
+//    ) : Call<>
 }

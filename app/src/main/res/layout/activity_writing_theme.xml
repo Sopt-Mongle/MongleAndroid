@@ -259,6 +259,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
+
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/activity_writing_theme_CL_img2"
                         android:paddingEnd="7dp"
