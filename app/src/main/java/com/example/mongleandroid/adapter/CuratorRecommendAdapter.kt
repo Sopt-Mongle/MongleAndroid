@@ -11,7 +11,7 @@ import com.example.mongleandroid.network.data.response.RecommendCurator
 class CuratorRecommendAdapter(private val context : Context, val datas : List<RecommendCurator>) : RecyclerView.Adapter<CuratorRecommendViewHolder>() {
 //    var datas = mutableListOf<ResponseRecommendCuratorData>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CuratorRecommendViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_result_curator, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_main_now_hot_curator, parent, false)
         return CuratorRecommendViewHolder(view)
     }
 

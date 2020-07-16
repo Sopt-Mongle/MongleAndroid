@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_search.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
 
 
 class CuratorFragment : Fragment() {
@@ -38,6 +39,31 @@ class CuratorFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requestToServer.service.getRecommendCurator()
+            .enqueue(
+                object : Callback<ResponseRecommendCuratorData> {
+                    override fun onFailure(call: Call<ResponseRecommendCuratorData>, t: Throwable) {
+                        Log.d("통신실패", "${t}")
+                    }
+
+                    override fun onResponse(
+                        call: Call<ResponseRecommendCuratorData>,
+                        response: Response<ResponseRecommendCuratorData>
+                    ) {
+                        if (response.isSuccessful) {
+                            Log.d("추천 큐레이터", "${response.body()}")
+                            curatorRecommendAdapter = CuratorRecommendAdapter(view!!.context, response.body()!!.data)
+                            fragment_curator_rv_recommend.adapter = curatorRecommendAdapter
+                            curatorRecommendAdapter.notifyDataSetChanged()
+//                        response.body().let { body->
+//
+//                        }
+
+                        }
+
+                    }
+                }
+            )
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_curator, container, false)
     }
@@ -47,30 +73,7 @@ class CuratorFragment : Fragment() {
 
         //setRecommendCuratorAdapter(curatorRecommendDatas)
 
-        requestToServer.service.getRecommendCurator().enqueue(
-            object : Callback<ResponseRecommendCuratorData> {
-                override fun onFailure(call: Call<ResponseRecommendCuratorData>, t: Throwable) {
-                    Log.d("통신실패", "${t}")
-                }
 
-                override fun onResponse(
-                    call: Call<ResponseRecommendCuratorData>,
-                    response: Response<ResponseRecommendCuratorData>
-                ) {
-                    if (response.isSuccessful) {
-                        Log.d("추천 큐레이터", "${response.body()}")
-                        curatorRecommendAdapter = CuratorRecommendAdapter(view.context, response.body()!!.data)
-                        fragment_curator_rv_recommend.adapter = curatorRecommendAdapter
-                        curatorRecommendAdapter.notifyDataSetChanged()
-//                        response.body().let { body->
-//
-//                        }
-
-                    }
-
-                }
-            }
-        )
 
         curatorThemeAdapter = CuratorFragmentAdapter(view.context)
         fragment_curator_rv_curator1.adapter = curatorThemeAdapter

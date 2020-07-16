@@ -7,7 +7,7 @@ data class ResponseRecommendCuratorData (
     val data : List<RecommendCurator>
 )
 
-class RecommendCurator(
+data class RecommendCurator(
     val curatorIdx : Int, // 해당 큐레이터 인덱스
     val name : String, // 해당 큐레이터 이름
     val img : String, // 해당 큐레이터 프로필사진
