@@ -94,8 +94,8 @@ interface RequestInterface {
     fun GetMainQurators() : Call<ResponseMainNowHotData>
 
     // 메인 - 오늘 하루 저장이 가장 많이 된 테마목록 조회
-//    @GET("/main/themes")
-//    fun GetMainThemes(
-//        @Header("token") token: String?
-//    ) : Call<>
+    @GET("/main/themes")
+    fun GetMainThemes(
+        @Header("token") token: String?
+    ) : Call<ResponseMainHotThemeData>
 }
