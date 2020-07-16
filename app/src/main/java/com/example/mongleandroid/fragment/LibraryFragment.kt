@@ -1,22 +1,35 @@
 package com.example.mongleandroid.fragment
 
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
+import com.bumptech.glide.Glide
 import com.example.mongleandroid.R
+import com.example.mongleandroid.adapter.LibraryPagerAdapter
 import com.example.mongleandroid.adapter.LibraryTabAdapter
+import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.data.response.ResponseMainLibraryData
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_library.*
+import kotlinx.android.synthetic.main.fragment_library.titleLayout
+import kotlinx.android.synthetic.main.fragment_library.view.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class LibraryFragment : Fragment() {
+
+    val requestToServer = RequestToServer
+
+    lateinit var libraryPagerAdapter: LibraryPagerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +39,39 @@ class LibraryFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_library, container, false)
 
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        requestMyProfile()
+    }
+
+    fun requestMyProfile(){
+        requestToServer.service.lookLibraryProfile("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjM2LCJuYW1lIjoi7ZWY7JiBMiIsImlhdCI6MTU5NDkxMTQzNiwiZXhwIjoxNTk1MDg0MjM2LCJpc3MiOiJtb25nbGUifQ.1QUSDWRk_C3bYxrR95qqD4AJNIKVz5P6EbAIhd58jsU")
+
+            .enqueue(
+                object : Callback<ResponseMainLibraryData> {
+                    override fun onFailure(call: Call<ResponseMainLibraryData>, t: Throwable) {
+                        Log.e("통신 실패", "${t}")
+                    }
+
+                    override fun onResponse(
+                        call: Call<ResponseMainLibraryData>,
+                        response: Response<ResponseMainLibraryData>
+                    ) {
+                        if (response.isSuccessful) {
+                            Log.e("내 서재 프로필 조회 성공", "${response.body()}")
+
+//                            Glide.with(img_library_profile).load(Drawable?) = response.body()!!.data[0].img
+                            tx_library_username.text = response.body()!!.data[0].name
+                            tx_library_contents.text = response.body()!!.data[0].keyword
+                            tx_library_keyword.text = response.body()!!.data[0].introduce
+
+
+                        }
+                    }
+                }
+            )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

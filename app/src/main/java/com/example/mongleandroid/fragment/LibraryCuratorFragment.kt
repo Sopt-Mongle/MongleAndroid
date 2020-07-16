@@ -35,7 +35,7 @@ class LibraryCuratorFragment : Fragment() {
         libraryCuratorData.apply {
             add(
                 LibraryCuratorData(
-                    library_curator_img_profile = "https://cdn.pixabay.com/photo/2020/07/13/15/22/squirrel-5401095__480.jpg",
+                    library_curator_img_profile = null,
                     tv_library_curator_name = "예스리",
                     tv_library_curator_subcount = "15",
                     tv_library_curator_keyword = "피엠예슬"

@@ -90,5 +90,13 @@ interface RequestInterface {
     @GET("/curator/recommend")
     fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
 
+    //내 서재 메인 프로필 조회
+    @GET("/my/profile")
+    fun lookLibraryProfile(
+//        @Header("Content-Type") content_type: String,
+        @Header("token") token: String?
+
+    ) : Call<ResponseMainLibraryData>
+
 
 }
