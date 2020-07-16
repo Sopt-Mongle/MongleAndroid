@@ -1,16 +1,25 @@
 package com.example.mongleandroid.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.CuratorFragmentAdapter
+import com.example.mongleandroid.adapter.CuratorRecommendAdapter
 import com.example.mongleandroid.adapter.MainNowHotCuratorAdapter
+import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.data.MainNowHotCuratorData
+import com.example.mongleandroid.network.data.response.ResponseRecommendCuratorData
+import com.example.mongleandroid.network.data.response.ResponseRecommendKeywordData
 import com.example.mongleandroid.network.data.response.ResponseResultCuratorData
 import kotlinx.android.synthetic.main.fragment_curator.*
+import kotlinx.android.synthetic.main.fragment_search.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class CuratorFragment : Fragment() {
@@ -21,8 +30,9 @@ class CuratorFragment : Fragment() {
     lateinit var curatorThemeAdapter2: CuratorFragmentAdapter
     val curatorThemeDatas2 = mutableListOf<ResponseResultCuratorData>()
 
-    lateinit var curatorRecommendAdapter : MainNowHotCuratorAdapter
-    val curatorRecommendDatas = mutableListOf<MainNowHotCuratorData>()
+    lateinit var curatorRecommendAdapter : CuratorRecommendAdapter
+
+    val requestToServer = RequestToServer
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +45,32 @@ class CuratorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setRecommendCuratorAdapter(curatorRecommendDatas)
+        //setRecommendCuratorAdapter(curatorRecommendDatas)
+
+        requestToServer.service.getRecommendCurator().enqueue(
+            object : Callback<ResponseRecommendCuratorData> {
+                override fun onFailure(call: Call<ResponseRecommendCuratorData>, t: Throwable) {
+                    Log.d("통신실패", "${t}")
+                }
+
+                override fun onResponse(
+                    call: Call<ResponseRecommendCuratorData>,
+                    response: Response<ResponseRecommendCuratorData>
+                ) {
+                    if (response.isSuccessful) {
+                        Log.d("추천 큐레이터", "${response.body()}")
+                        curatorRecommendAdapter = CuratorRecommendAdapter(view.context, response.body()!!.data)
+                        fragment_curator_rv_recommend.adapter = curatorRecommendAdapter
+                        curatorRecommendAdapter.notifyDataSetChanged()
+//                        response.body().let { body->
+//
+//                        }
+
+                    }
+
+                }
+            }
+        )
 
         curatorThemeAdapter = CuratorFragmentAdapter(view.context)
         fragment_curator_rv_curator1.adapter = curatorThemeAdapter
@@ -47,57 +82,6 @@ class CuratorFragment : Fragment() {
 
     }
 
-    private fun setRecommendCuratorAdapter(mainNowHotCuratorItem: MutableList<MainNowHotCuratorData>) {
-        curatorRecommendAdapter =
-            MainNowHotCuratorAdapter(
-                mainNowHotCuratorItem,
-                view!!.context
-            )
-        curatorRecommendLoadDatas()
-        fragment_curator_rv_recommend.adapter = curatorRecommendAdapter
-    }
-
-    private fun curatorRecommendLoadDatas() {
-        curatorRecommendDatas.apply {
-            add(
-                MainNowHotCuratorData(
-                    img_now_hot_curator = "https://cdn.pixabay.com/photo/2020/07/04/06/40/clouds-5368435__340.jpg",
-                    tv_curator_name = "예스리",
-                    tv_curator_keyword = "직장인의 비애"
-                )
-            )
-            add(
-                MainNowHotCuratorData(
-                    img_now_hot_curator = "https://cdn.pixabay.com/photo/2020/01/20/20/58/building-4781384__340.jpg",
-                    tv_curator_name = "래리",
-                    tv_curator_keyword = "스타트업"
-                )
-            )
-            add(
-                MainNowHotCuratorData(
-                    img_now_hot_curator = "https://cdn.pixabay.com/photo/2020/06/29/05/43/poppy-5351553__340.jpg",
-                    tv_curator_name = "봄",
-                    tv_curator_keyword = "대학내일"
-                )
-            )
-            add(
-                MainNowHotCuratorData(
-                    img_now_hot_curator = "https://cdn.pixabay.com/photo/2020/07/05/12/53/rainbow-5372892__340.jpg",
-                    tv_curator_name = "홍대병",
-                    tv_curator_keyword = "과제충"
-                )
-            )
-            add(
-                MainNowHotCuratorData(
-                    img_now_hot_curator = "https://cdn.pixabay.com/photo/2020/06/30/22/34/dog-5357794__340.jpg",
-                    tv_curator_name = "몽그리",
-                    tv_curator_keyword = "몽글몽글"
-                )
-            )
-            curatorRecommendAdapter.datas = curatorRecommendDatas
-            curatorRecommendAdapter.notifyDataSetChanged()
-        }
-    }
 
     private fun ThemeCuratorLoadDatas() {
         curatorThemeDatas.apply {

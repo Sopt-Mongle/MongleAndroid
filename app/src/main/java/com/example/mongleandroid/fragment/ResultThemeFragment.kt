@@ -4,20 +4,17 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
-import com.example.mongleandroid.activity.MainActivity
 import com.example.mongleandroid.activity.MainActivity.Companion.search_result
 import com.example.mongleandroid.adapter.ResultThemeAdapter
 import com.example.mongleandroid.network.RequestToServer
-import com.example.mongleandroid.network.data.request.RequestResultThemeData
 import com.example.mongleandroid.network.data.response.ResponseResultThemeData
 import kotlinx.android.synthetic.main.fragment_result_theme.*
 import retrofit2.Call
 import retrofit2.Callback
+import retrofit2.Response
 
 
 class ResultThemeFragment : Fragment() {
@@ -34,36 +31,27 @@ class ResultThemeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-        val requestToServer = RequestToServer
-
-        requestToServer.service.RequestResultThemeData(
-            RequestResultThemeData(
-                words = search_result
-            )
-        ).enqueue(
-            object : Callback<ResponseResultThemeData> {
-                override fun onFailure(call: Call<ResponseResultThemeData>, t: Throwable) {
-                    Log.d("통신실패", "${t}")
-                }
-
-                override fun onResponse(
-                    call: Call<ResponseResultThemeData>,
-                    response:retrofit2.Response<ResponseResultThemeData>
-                ) {
-                    if (response.isSuccessful) {
-                        resultThemeAdapter  = ResultThemeAdapter(view!!.context, response.body()!!.data)
-                        rv_result_theme.adapter = resultThemeAdapter
-
-                    }
-
-                }
-            }
-        )
-
+        requestData()
     }
 
+    private fun requestData() {
+        val call: Call<ResponseResultThemeData> =
+            RequestToServer.service.requestResultThemeData(words = search_result)
+        call.enqueue(object : Callback<ResponseResultThemeData> {
+            override fun onFailure(call: Call<ResponseResultThemeData>, t: Throwable) {
+                Log.e("requestUser 통신실패",t.toString())
+            }
+            override fun onResponse(call: Call<ResponseResultThemeData>, response: Response<ResponseResultThemeData>) {
+                if (response.isSuccessful){
+                    response.body().let { body->
+                        Log.e("history 통신응답바디", "status: ${body!!.status} data : ${body.message}")
+                        resultThemeAdapter.datas = body!!.data
+                        resultThemeAdapter.notifyDataSetChanged()
+                    }
+                }
+            }
+        })
+    }
 
 
 }
