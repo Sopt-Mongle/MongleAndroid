@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_library_sentence.*
 class LibrarySentenceFragment : Fragment() {
 
     lateinit var librarySentenceAdapter: LibrarySentenceAdapter
-    lateinit var librarySentenceClickAdapter : LibrarySentenceClickAdapter
+    lateinit var librarySentenceClickAdapter: LibrarySentenceClickAdapter
 
     val librarySentenceData = mutableListOf<LibrarySentenceData>()
 
@@ -31,35 +31,37 @@ class LibrarySentenceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        librarySentenceAdapter = LibrarySentenceAdapter(view.context)
+        rv_library_sentence.adapter = librarySentenceAdapter
+        librarySentenceClickAdapter = LibrarySentenceClickAdapter(view.context)
+        //아래 코드까지 쓰면 최종적으로 리사이클러뷰에 불러들어오는 어댑터가 클릭 시 어댑터이기 때문에 초기값을 하나만 주기 위해 아래처럼 했다.
+//        rv_library_sentence.adapter = librarySentenceClickAdapter
+        loadDatas()
+
+
+        //클릭 시에 어댑터의 값만 바꿔주는 걸로 item 바꿀 수 있음.
         rdbtn_saved_sentence.setOnClickListener {
             if (rdbtn_saved_sentence.isChecked) {
-                librarySentenceAdapter = LibrarySentenceAdapter(view.context)
                 rv_library_sentence.adapter = librarySentenceAdapter
-                loadDatas()
-            }
-            else {
-//                librarySentenceClickAdapter = LibrarySentenceClickAdapter(view.context)
-//                rv_library_sentence.adapter = librarySentenceClickAdapter
-//                loadDatas()
+            } else {
+
             }
         }
+
 
         rdbtn_making_sentence.setOnClickListener {
-            if (rdbtn_saved_sentence.isChecked) {
-                librarySentenceClickAdapter = LibrarySentenceClickAdapter(view.context)
+            if (rdbtn_making_sentence.isChecked) {
                 rv_library_sentence.adapter = librarySentenceClickAdapter
-                loadDatas()
+            } else {
+
             }
-            else {
-//                librarySentenceAdapter = LibrarySentenceAdapter(view.context)
-//                rv_library_sentence.adapter = librarySentenceAdapter
-//                loadDatas()
-            }
+
         }
-
-
-
     }
+
+
+
+
 
     private fun loadDatas() {
         librarySentenceData.apply {
@@ -101,35 +103,12 @@ class LibrarySentenceFragment : Fragment() {
 
         }
 
-        rdbtn_saved_sentence.setOnClickListener {
-            if (rdbtn_saved_sentence.isChecked) {
-                librarySentenceAdapter.data_sen = librarySentenceData
-                librarySentenceAdapter.notifyDataSetChanged()
-            }
-            else {
-//                librarySentenceClickAdapter = LibrarySentenceClickAdapter(view.context)
-//                rv_library_sentence.adapter = librarySentenceClickAdapter
-//                loadDatas()
-            }
-        }
 
-        rdbtn_making_sentence.setOnClickListener {
-            if (rdbtn_saved_sentence.isChecked) {
-                librarySentenceClickAdapter.data_sen_click = librarySentenceData
-                librarySentenceClickAdapter.notifyDataSetChanged()
-            }
-            else {
-//                librarySentenceAdapter = LibrarySentenceAdapter(view.context)
-//                rv_library_sentence.adapter = librarySentenceAdapter
-//                loadDatas()
-            }
-        }
 
-//        librarySentenceAdapter.data_sen = librarySentenceData
-//        librarySentenceAdapter.notifyDataSetChanged()
-//        librarySentenceClickAdapter.data_sen_click = librarySentenceData
-//        librarySentenceClickAdapter.notifyDataSetChanged()
+        librarySentenceAdapter.data_sen = librarySentenceData
+        librarySentenceAdapter.notifyDataSetChanged()
+        librarySentenceClickAdapter.data_sen_click = librarySentenceData
+        librarySentenceClickAdapter.notifyDataSetChanged()
     }
-
 
 }

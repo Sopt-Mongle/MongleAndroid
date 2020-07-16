@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginHorizontal="16dp"
-    android:paddingBottom="56dp"
+    android:paddingBottom="0dp"
     tools:context=".fragment.LibraryFragment">
 
     <com.example.mongleandroid.NewScrollView
@@ -18,13 +18,14 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0"
-        app:stickyHeader="@+id/titleLayout">
+        app:stickyHeader="@+id/titleLayout"
+        >
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_library_1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="@id/main_scroll_view"
             app:layout_constraintLeft_toLeftOf="@id/main_scroll_view"
             app:layout_constraintRight_toRightOf="@id/main_scroll_view"
@@ -133,8 +134,9 @@
             <com.example.mongleandroid.CustomViewPager
                 android:id="@+id/vp_library"
                 android:layout_width="match_parent"
-                android:layout_height="1000dp"
+                android:layout_height="700dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/titleLayout" />
