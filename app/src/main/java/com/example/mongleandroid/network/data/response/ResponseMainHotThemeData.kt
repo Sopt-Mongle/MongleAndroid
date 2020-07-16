@@ -1,10 +1,10 @@
-package com.example.mongleandroid.network.data
+package com.example.mongleandroid.network.data.response
 
 data class ResponseMainHotThemeData(
     val status: Int,
     val success : Boolean,
     val message : String,
-    val data: MainThemes
+    val data: List<MainThemes>
 )
 data class MainThemes(
     val themeIdx : Int,
