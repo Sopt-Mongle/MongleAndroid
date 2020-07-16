@@ -27,7 +27,6 @@ class ResultCuratorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         requestToServer.service.requestResultCuratorData(
-            //token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjE4LCJuYW1lIjoieiIsImlhdCI6MTU5NDg0Nzg2NiwiZXhwIjoxNTk1MDIwNjY2LCJpc3MiOiJtb25nbGUifQ.IQFvbHzqeE_6vc_Vo7aVJ9fhaOuYmTGpXv1cSE1j9hw",
             words = search_result
         ).enqueue(object : Callback<ResponseResultCuratorData> {
             override fun onFailure(call: Call<ResponseResultCuratorData>, t: Throwable) {
@@ -47,13 +46,5 @@ class ResultCuratorFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_result_curator, container, false)
     }
 
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//
-//    }
-////
-//    private fun requestCuratorData() {
-//
-//    }
 
 }

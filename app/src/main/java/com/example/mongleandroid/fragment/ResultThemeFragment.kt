@@ -10,6 +10,7 @@ import com.example.mongleandroid.R
 import com.example.mongleandroid.activity.MainActivity.Companion.search_result
 import com.example.mongleandroid.adapter.ResultThemeAdapter
 import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.data.response.ResponseResultThemeData
 import com.example.mongleandroid.network.data.response.ResultTheme
 import kotlinx.android.synthetic.main.fragment_result_theme.*
@@ -36,7 +37,7 @@ class ResultThemeFragment : Fragment() {
 
     private fun requestThemeData() {
         requestToServer.service.requestResultThemeData(
-            token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjE4LCJuYW1lIjoieiIsImlhdCI6MTU5NDg0Nzg2NiwiZXhwIjoxNTk1MDIwNjY2LCJpc3MiOiJtb25nbGUifQ.IQFvbHzqeE_6vc_Vo7aVJ9fhaOuYmTGpXv1cSE1j9hw",
+            token = SharedPreferenceController.getAccessToken(view!!.context),
             words = search_result
         ).enqueue(object : Callback<ResponseResultThemeData> {
             override fun onFailure(call: Call<ResponseResultThemeData>, t: Throwable) {
