@@ -40,10 +40,10 @@
 
         <ImageView
             android:id="@+id/img_bookmark"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
+            android:layout_width="11dp"
+            android:layout_height="11dp"
             android:layout_marginTop="7dp"
-            android:background="#ff0000"
+            android:src="@drawable/bookmark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_library_thema"
             app:layout_constraintTop_toBottomOf="@+id/tv_library_thema"
