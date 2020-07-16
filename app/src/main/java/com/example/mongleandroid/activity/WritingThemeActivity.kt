@@ -3,128 +3,143 @@ package com.example.mongleandroid.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
 import android.widget.Toast
-import com.example.mongleandroid.R
-import com.example.mongleandroid.adapter.WritingThemeAdapter
-import com.example.mongleandroid.goNextPage
-import com.example.mongleandroid.goPrevPage
-import com.example.mongleandroid.util.DialogLogin
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.mongleandroid.*
+import com.example.mongleandroid.network.data.request.RequestWritingThemeData
 import com.example.mongleandroid.util.DialogMakethemeCheck
 import kotlinx.android.synthetic.main.activity_writing_theme.*
-import kotlinx.android.synthetic.main.dialog_maketheme_check.*
-import kotlinx.android.synthetic.main.item_writng_theme.*
-import kotlin.properties.Delegates
 
 class WritingThemeActivity : AppCompatActivity() {
 
-    lateinit var writingThemeAdapter: WritingThemeAdapter
-    var datas: MutableList<Int> = mutableListOf<Int>()
+    var datas: MutableList<RequestWritingThemeData> = mutableListOf<RequestWritingThemeData>()
+    var themeImgIdx: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_writing_theme)
 
+        activity_writing_theme_et_theme_title.requestFocus()
+        activity_writing_theme_et_theme_title.showKeyboard()
+
+
+        activity_writing_theme_et_theme_title.addTextChangedListener(object: TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                //빨간 박스 해제
+                goPrevPage(activity_writing_theme_CL_warning, activity_writing_theme_CL_nomal)
+
+                //실시간 글자 수 세기
+                val string_length = activity_writing_theme_et_theme_title.text.toString()
+                activity_writing_theme_tv_cnt.setText(string_length.length.toString())
+
+            }
+        })
+
 
         //등록하기 버튼
         activity_theme_writing_sentence_btn_upload.setOnClickListener {
-            goNextPage(activity_writing_theme_CL_noPopUp, activity_writing_theme_CL_popup)
-            val dlg = DialogMakethemeCheck(this)
-            dlg.setOnOKClickedListener{ content ->
-
+            //경고 메세지
+            if(activity_writing_theme_et_theme_title.text.toString().length <=0){
+                goNextPage(activity_writing_theme_CL_nomal, activity_writing_theme_CL_warning)
             }
-            dlg.start("")
+
+            if(activity_writing_theme_et_theme_title.text.toString().length <=0 && themeImgIdx == 0){
+                goNextPage(activity_writing_theme_CL_nomal, activity_writing_theme_CL_warning)
+                activity_writing_theme_CL_warning2.visibility = View.VISIBLE
+            }
+            if(themeImgIdx == 0){
+                activity_writing_theme_CL_warning2.visibility = View.VISIBLE
+            }
+            if(activity_writing_theme_et_theme_title.text.toString().length>0 && themeImgIdx > 0){
+                val dlg = DialogMakethemeCheck(this)
+                dlg.setOnOKClickedListener{ content ->
+                }
+                dlg.start("")
+
+                //키보드 제어
+                activity_writing_theme_et_theme_title.unshowKeyboard()
+            }
+
         }
 
         //뒤로가기 버튼
         activity_writing_theme_btn_out.setOnClickListener {
             Toast.makeText(this, "메인화면으로 돌아갑니다.", Toast.LENGTH_SHORT).show()
             finish()
-            //goNextPage(activity_writing_theme_CL_noPopUp, activity_writing_theme_CL_popup)
-
-        }
-        //팝업 끄기 버튼
-        activity_writing_theme_btn_out_blur.setOnClickListener {
-            goPrevPage(activity_writing_theme_CL_popup,activity_writing_theme_CL_noPopUp)
         }
 
-        //팝업에서 네 버튼
-        // goNextPage(activity_writing_theme_CL_popup, activity_writing_theme_CL_finish)
-        //팝업에서 아니요 버튼
-        // goNextPage(activity_writing_theme_CL_popup, activity_writing_theme_CL_noPopUp)
+        var imgchked1 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img1)
+        var imgchked2 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img2)
+        var imgchked3 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img3)
+        var imgchked4 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img4)
+        var imgchked5 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img5)
+        var imgchked6 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img6)
+        var imgchked7 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img7)
+        var imgchked8 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img8)
+        var imgchked9 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img9)
+        var imgchked10 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img10)
+
+        chked(imgchked1,1)
+        chked(imgchked2,2)
+        chked(imgchked3,3)
+        chked(imgchked4,4)
+        chked(imgchked5,5)
+        chked(imgchked6,6)
+        chked(imgchked7,7)
+        chked(imgchked8,8)
+        chked(imgchked9,9)
+        chked(imgchked10,10)
+
 
         //키보드 제어
         //애니메이션
         //에러 메세지
 
-        writingThemeAdapter = WritingThemeAdapter(this)
-        activity_writing_theme_rv.adapter = writingThemeAdapter
-        //activity_writing_theme_rv.addItemDecoration(ItemDecoration())
-        loadDatas()
     }
-    private fun loadDatas(){
-        datas.apply {
-            add(
-                R.drawable.maketheme_img_theme_1
-            )
-            add(
-                R.drawable.maketheme_img_theme_2
-            )
-            add(
-                R.drawable.maketheme_img_theme_1
-            )
-            add(
-                R.drawable.maketheme_img_theme_2
-            )
-            add(
-                R.drawable.maketheme_img_theme_1
-            )
-            add(
-                R.drawable.maketheme_img_theme_2
-            )
-            add(
-                R.drawable.maketheme_img_theme_1
-            )
-            add(
-                R.drawable.maketheme_img_theme_2
-            )
-            add(
-                R.drawable.maketheme_img_theme_1
-            )
-            add(
-                R.drawable.maketheme_img_theme_2
-            )
-//            add(
-//                R.drawable.maketheme_img_theme_3
-//            )
-//            add(
-//                R.drawable.maketheme_img_theme_4
-//            )
-//            add(
-//                R.drawable.maketheme_img_theme_5
-//            )
-//            add(
-//                R.drawable.maketheme_img_theme_6
-//            )
-//            add(
-//                R.drawable.maketheme_img_theme_7
-//            )
-//            add(
-//                R.drawable.maketheme_img_theme_8
-//            )
-//            add(
-//                R.drawable.maketheme_img_theme_9
-//            )
-//            add(
-//                R.drawable.maketheme_img_theme_10
-//            )
 
 
-            writingThemeAdapter.datas = datas
-            writingThemeAdapter.notifyDataSetChanged()
+    private fun chked(img : ConstraintLayout, chkedNum: Int){
+        img.setOnClickListener {
+            themeImgIdx = chkedNum
 
+            activity_writing_theme_CL_warning2.visibility = View.GONE
+
+            activity_writing_theme_img_chk1.visibility = View.GONE
+            activity_writing_theme_img_chk2.visibility = View.GONE
+            activity_writing_theme_img_chk3.visibility = View.GONE
+            activity_writing_theme_img_chk4.visibility = View.GONE
+            activity_writing_theme_img_chk5.visibility = View.GONE
+            activity_writing_theme_img_chk6.visibility = View.GONE
+            activity_writing_theme_img_chk7.visibility = View.GONE
+            activity_writing_theme_img_chk8.visibility = View.GONE
+            activity_writing_theme_img_chk9.visibility = View.GONE
+            activity_writing_theme_img_chk10.visibility = View.GONE
+            when(img){
+                activity_writing_theme_CL_img1 -> activity_writing_theme_img_chk1.visibility = View.VISIBLE
+                activity_writing_theme_CL_img2 -> activity_writing_theme_img_chk2.visibility = View.VISIBLE
+                activity_writing_theme_CL_img3 -> activity_writing_theme_img_chk3.visibility = View.VISIBLE
+                activity_writing_theme_CL_img4 -> activity_writing_theme_img_chk4.visibility = View.VISIBLE
+                activity_writing_theme_CL_img5 -> activity_writing_theme_img_chk5.visibility = View.VISIBLE
+                activity_writing_theme_CL_img6 -> activity_writing_theme_img_chk6.visibility = View.VISIBLE
+                activity_writing_theme_CL_img7 -> activity_writing_theme_img_chk7.visibility = View.VISIBLE
+                activity_writing_theme_CL_img8 -> activity_writing_theme_img_chk8.visibility = View.VISIBLE
+                activity_writing_theme_CL_img9 -> activity_writing_theme_img_chk9.visibility = View.VISIBLE
+                activity_writing_theme_CL_img10 -> activity_writing_theme_img_chk10.visibility = View.VISIBLE
+
+            }
         }
-
-
 
     }
 
