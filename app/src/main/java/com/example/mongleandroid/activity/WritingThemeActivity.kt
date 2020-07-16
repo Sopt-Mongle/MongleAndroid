@@ -1,20 +1,24 @@
 package com.example.mongleandroid.activity
 
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.mongleandroid.*
+import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.data.request.RequestWritingThemeData
+import com.example.mongleandroid.network.data.response.ResponseWritingThemeData
 import com.example.mongleandroid.util.DialogMakethemeCheck
 import kotlinx.android.synthetic.main.activity_writing_theme.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class WritingThemeActivity : AppCompatActivity() {
-
     var datas: MutableList<RequestWritingThemeData> = mutableListOf<RequestWritingThemeData>()
     var themeImgIdx: Int = 0
 
@@ -28,14 +32,9 @@ class WritingThemeActivity : AppCompatActivity() {
 
         activity_writing_theme_et_theme_title.addTextChangedListener(object: TextWatcher{
             override fun afterTextChanged(s: Editable?) {
-
-
             }
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
             }
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 //빨간 박스 해제
                 goPrevPage(activity_writing_theme_CL_warning, activity_writing_theme_CL_nomal)
@@ -43,7 +42,6 @@ class WritingThemeActivity : AppCompatActivity() {
                 //실시간 글자 수 세기
                 val string_length = activity_writing_theme_et_theme_title.text.toString()
                 activity_writing_theme_tv_cnt.setText(string_length.length.toString())
-
             }
         })
 
@@ -102,10 +100,6 @@ class WritingThemeActivity : AppCompatActivity() {
         chked(imgchked10,10)
 
 
-        //키보드 제어
-        //애니메이션
-        //에러 메세지
-
     }
 
 
@@ -142,6 +136,28 @@ class WritingThemeActivity : AppCompatActivity() {
 
     }
 
+
+    private fun requestData(){
+        val call: Call<ResponseWritingThemeData> = RequestToServer.service.RequestWritingTheme(body = RequestWritingThemeData("s",1))
+        call.enqueue(object : Callback<ResponseWritingThemeData>{
+            override fun onFailure(call: Call<ResponseWritingThemeData>, t: Throwable) {
+                Log.e("requestMoney 통신실패",t.toString())
+            }
+            override fun onResponse(
+                call: Call<ResponseWritingThemeData>,
+                response: Response<ResponseWritingThemeData>
+            ) {
+                if (response.isSuccessful){
+                    response.body().let { body ->
+                        Log.e("historymoney 통신응답바디", "status: ${body!!.status} data : ${body!!.message}")
+                    }
+                }
+
+            }
+
+        })
+
+    }
 }
 
 

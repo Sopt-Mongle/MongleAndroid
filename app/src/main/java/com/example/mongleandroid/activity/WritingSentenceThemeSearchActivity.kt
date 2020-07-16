@@ -65,8 +65,8 @@ class WritingSentenceThemeSearchActivity : AppCompatActivity() {
             activity_writing_sentence_theme_search_v_title.unshowKeyboard()
             activity_writing_sentence_theme_search_bottombar.visibility = View.VISIBLE
             activity_writing_sentence_theme_search_rv_after.visibility = View.VISIBLE
+            datas.clear()
             loadDatas()
-
         }
 
 
@@ -113,6 +113,7 @@ class WritingSentenceThemeSearchActivity : AppCompatActivity() {
     }
 
     private fun loadDatas(){
+
         datas.apply {
             add(
 
