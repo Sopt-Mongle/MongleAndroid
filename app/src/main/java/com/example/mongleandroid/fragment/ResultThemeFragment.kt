@@ -21,33 +21,36 @@ class ResultThemeFragment : Fragment() {
 
     lateinit var resultThemeAdapter: ResultThemeAdapter
 
+    val requestToServer = RequestToServer
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requestData()
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_result_theme, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requestData()
+
     }
 
     private fun requestData() {
-        val call: Call<ResponseResultThemeData> =
-            RequestToServer.service.requestResultThemeData(words = search_result)
-        call.enqueue(object : Callback<ResponseResultThemeData> {
+        requestToServer.service.requestResultThemeData(
+            token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjE4LCJuYW1lIjoieiIsImlhdCI6MTU5NDg0Nzg2NiwiZXhwIjoxNTk1MDIwNjY2LCJpc3MiOiJtb25nbGUifQ.IQFvbHzqeE_6vc_Vo7aVJ9fhaOuYmTGpXv1cSE1j9hw",
+            words = search_result
+        ).enqueue(object : Callback<ResponseResultThemeData> {
             override fun onFailure(call: Call<ResponseResultThemeData>, t: Throwable) {
-                Log.e("requestUser 통신실패",t.toString())
+                Log.e("통신실패",t.toString())
             }
             override fun onResponse(call: Call<ResponseResultThemeData>, response: Response<ResponseResultThemeData>) {
                 if (response.isSuccessful){
-                    response.body().let { body->
-                        Log.e("history 통신응답바디", "status: ${body!!.status} data : ${body.message}")
-                        resultThemeAdapter.datas = body!!.data
-                        resultThemeAdapter.notifyDataSetChanged()
-                    }
+                    Log.d("테마 검색", "${response.body()}")
+                    resultThemeAdapter = ResultThemeAdapter(view!!.context, response.body()!!.data)
+                    rv_result_theme.adapter = resultThemeAdapter
+                    resultThemeAdapter.notifyDataSetChanged()
                 }
             }
         })

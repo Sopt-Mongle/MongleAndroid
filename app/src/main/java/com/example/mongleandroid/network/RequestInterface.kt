@@ -58,10 +58,9 @@ interface RequestInterface {
     // 테마 검색
     @GET("/search/theme")
     fun requestResultThemeData(
-//        @Header("Content-Type") content_type: String,
-//        @Header("token") token: String,
-        @Body words : String
-    ) : retrofit2.Call<ResponseResultThemeData>
+        @Header("token") token: String?,
+        @Retrofit2HttpQuery("words") words: String
+    ) : Call<ResponseResultThemeData>
 
     // 문장 검색
     @GET("/search/sentence")
@@ -79,7 +78,7 @@ interface RequestInterface {
     @POST("/users/signup")
     fun RequestJoinData(@Body body: RequestJoinData) : Call<ResponseJoinData>
 
-    // 추천 큐레이터
+    // 추천 큐레이터 - 성공
     @GET("/curator/recommend")
     fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
 

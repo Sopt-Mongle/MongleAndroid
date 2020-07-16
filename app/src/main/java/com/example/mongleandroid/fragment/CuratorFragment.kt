@@ -55,10 +55,6 @@ class CuratorFragment : Fragment() {
                             curatorRecommendAdapter = CuratorRecommendAdapter(view!!.context, response.body()!!.data)
                             fragment_curator_rv_recommend.adapter = curatorRecommendAdapter
                             curatorRecommendAdapter.notifyDataSetChanged()
-//                        response.body().let { body->
-//
-//                        }
-
                         }
 
                     }
