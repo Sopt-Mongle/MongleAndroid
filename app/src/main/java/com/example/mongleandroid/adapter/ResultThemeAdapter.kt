@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.viewholder.ResultThemeViewHolder
-import com.example.mongleandroid.network.data.response.ResponseResultThemeData
+import com.example.mongleandroid.network.data.response.ResultTheme
 
-class ResultThemeAdapter(private val context : Context) : RecyclerView.Adapter<ResultThemeViewHolder>() {
-    var datas = mutableListOf<ResponseResultThemeData>()
+class ResultThemeAdapter(private val context: Context, var datas: List<ResultTheme>) : RecyclerView.Adapter<ResultThemeViewHolder>() {
+    //var datas = mutableListOf<ResultTheme>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultThemeViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_result_theme, parent, false)
         return ResultThemeViewHolder(view)
