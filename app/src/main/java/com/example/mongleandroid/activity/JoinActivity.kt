@@ -12,6 +12,7 @@ import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mongleandroid.R
 import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.customEnqueue
 import com.example.mongleandroid.network.data.request.RequestJoinData
 import kotlinx.android.synthetic.main.activity_join.*
@@ -66,6 +67,7 @@ class JoinActivity : AppCompatActivity() {
                             if(it.status == 200) {
                                 activity_join_img_nickname_warning.visibility = GONE
                                 activity_join_tv_exist_nickname.visibility = GONE
+                               // SharedPreferenceController.setAccessToken()
                                 val intent = Intent(this@JoinActivity, JoinFinishActivity::class.java)
                                 startActivity(intent)
                                 finish()

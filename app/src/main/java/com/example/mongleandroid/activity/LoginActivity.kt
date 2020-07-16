@@ -7,6 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mongleandroid.R
 import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.customEnqueue
 import com.example.mongleandroid.network.data.request.RequestLoginData
 import com.example.mongleandroid.util.DialogLogin
@@ -47,7 +48,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         dlg.start("")
                     },
                     onSuccess = {
+
                         if(it.status == 200) {
+
+                            Log.e("토큰", " ${it}")
+                            SharedPreferenceController.setAccessToken(applicationContext, it.data.accessToken)
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                             finish()

@@ -6,7 +6,7 @@ object SharedPreferenceController {
 
     private val LOGIN = "LOGIN"
     // 토큰
-    fun setAccessToken(context: Context, authorization: String) {
+    fun setAccessToken(context: Context, authorization: String?) {
         val pref = context.getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
         val editor = pref.edit()
         editor.putString("access_token", authorization)
