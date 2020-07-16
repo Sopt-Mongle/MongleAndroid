@@ -1,29 +1,17 @@
 package com.example.mongleandroid.activity
 
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.mongleandroid.*
-import com.example.mongleandroid.adapter.MainPagerAdapter
-import com.example.mongleandroid.adapter.WritingThemeAdapter
-import com.example.mongleandroid.fragment.SearchFragment
 import com.example.mongleandroid.network.data.request.RequestWritingThemeData
-import com.example.mongleandroid.util.DialogLogin
 import com.example.mongleandroid.util.DialogMakethemeCheck
-import kotlinx.android.synthetic.main.activity_writing_sentence.*
 import kotlinx.android.synthetic.main.activity_writing_theme.*
-import kotlinx.android.synthetic.main.dialog_maketheme_check.*
-import kotlinx.android.synthetic.main.fragment_main.*
-import kotlinx.android.synthetic.main.item_writng_theme.*
-import kotlin.properties.Delegates
 
 class WritingThemeActivity : AppCompatActivity() {
 
