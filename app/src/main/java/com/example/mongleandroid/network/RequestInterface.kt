@@ -3,10 +3,7 @@ package com.example.mongleandroid.network
 import com.example.mongleandroid.network.data.request.*
 import com.example.mongleandroid.network.data.response.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.DELETE
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 
 // 행동 (post, get ...) 과 어떤 서버 (uri)에 대한 정의
@@ -75,6 +72,11 @@ interface RequestInterface {
     @POST("/users/signup")
     fun RequestJoinData(@Body body: RequestJoinData) : Call<ResponseJoinData>
 
-
+    // 메인 - 오늘의 문장
+    @GET("/main/sentences")
+    fun RequestMainSentences(
+        @Header("Content-Type") content_type: String,
+        @Header("token") token: String?
+    ) : Call<ArrayList<ResponseTodaySentenceData>>
 
 }
