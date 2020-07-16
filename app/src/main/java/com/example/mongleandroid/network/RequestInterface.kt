@@ -62,7 +62,6 @@ interface RequestInterface {
 //        @Header("token") token: String,
         @Body words : String
     ) : retrofit2.Call<ResponseResultThemeData>
-
     // 문장 검색
     @GET("/search/sentence")
     fun RequestResultSentenceData(@Body body: RequestResultSentenceData) : Call<ResponseResultSentenceData>
@@ -79,7 +78,7 @@ interface RequestInterface {
     @POST("/users/signup")
     fun RequestJoinData(@Body body: RequestJoinData) : Call<ResponseJoinData>
 
-    // 메인 - 오늘의 문장1
+    // 메인 - 오늘의 문장1 - 성공
     @GET("/main/sentences")
     fun RequestMainSentences(
         //@Header("Content-Type") content_type: String,
@@ -90,5 +89,8 @@ interface RequestInterface {
     @GET("/curator/recommend")
     fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
 
+    // 메인 - 지금 인기있는 큐레이터 목록 조회
+    @GET("/main/curators")
+    fun GetMainQurators() : Call<ResponseMainNowHotData>
 
 }

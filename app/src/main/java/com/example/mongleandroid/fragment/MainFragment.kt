@@ -10,12 +10,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentTransaction
 import com.example.mongleandroid.R
 import com.example.mongleandroid.activity.MainThemeActivity
-import com.example.mongleandroid.activity.SentenceDetailViewActivity
 import com.example.mongleandroid.adapter.*
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.data.MainHotThemeData
-import com.example.mongleandroid.network.data.MainNowHotCuratorData
+//import com.example.mongleandroid.network.data.response.MainNowHotCuratorData
+import com.example.mongleandroid.network.data.response.ResponseMainNowHotData
 import com.example.mongleandroid.network.data.response.ResponseTodaySentenceData
 import kotlinx.android.synthetic.main.fragment_main.*
 import retrofit2.Call
@@ -27,7 +27,7 @@ class MainFragment : Fragment() {
     val requestToServer = RequestToServer//싱글톤 그대로 가져옴
 
     private var data = mutableListOf<ResponseTodaySentenceData>()
-    private var data2 = mutableListOf<MainNowHotCuratorData>()
+    private var data2 = mutableListOf<ResponseMainNowHotData>()
     private var data3 = mutableListOf<MainHotThemeData>()
 
     private lateinit var todaySentenceAdapter: TodaySentenceAdapter
@@ -51,7 +51,7 @@ class MainFragment : Fragment() {
         tl_main.setupWithViewPager(vp_main)
 
         setHotThemeAdapter(data3) // 인기있는 테마 리사이클러뷰
-        setHotCuratorAdapter(data2) // 지금 인기있는 큐레이터 리사이클러뷰
+        //setHotCuratorAdapter(data2) // 지금 인기있는 큐레이터 리사이클러뷰
        // setAdapter(data)//오늘의 문장 리사이클러뷰
 
         img_main_search_btn.setOnClickListener {
@@ -65,7 +65,8 @@ class MainFragment : Fragment() {
 //            }
 //        }
 
-        requestData() // 서버에서 데이터 받아와서 메인 화면 데이터 보이게 하기
+        requestTodaySentenceData() // 오늘의 문장 통신
+        requestMainCurators()
 
     }
 
@@ -137,74 +138,33 @@ class MainFragment : Fragment() {
         }
     }
 
-//지금 인기있는 큐레이터 어댑터 연결
-    private fun setHotCuratorAdapter(mainNowHotCuratorItem: MutableList<MainNowHotCuratorData>) {
-        mainNowHotCuratorAdapter =
-            MainNowHotCuratorAdapter(
-                mainNowHotCuratorItem,
-                this.context!!
-            )
-        curatorLoadDatas()
-        rv_main_now_hot_curator.adapter = mainNowHotCuratorAdapter
+////지금 인기있는 큐레이터 어댑터 연결
+//    private fun setHotCuratorAdapter(mainNowHotCuratorItem: MutableList<ResponseMainNowHotData>) {
+//        mainNowHotCuratorAdapter =
+//            MainNowHotCuratorAdapter(
+//                mainNowHotCuratorItem,
+//                this.context!!
+//            )
+//
+//        rv_main_now_hot_curator.adapter = mainNowHotCuratorAdapter
+//
+//        //리사이클러뷰 아이템 클릭리스너 등록
+//        mainNowHotCuratorAdapter.setItemClickListener(object : MainNowHotCuratorAdapter.ItemClickListener{
+//            override fun onClick(view: View, position: Int) {
+//                Log.d("SSS","${position}번 리스트 선택")
+//            }
+//        })
+//    }
 
-        //리사이클러뷰 아이템 클릭리스너 등록
-        mainNowHotCuratorAdapter.setItemClickListener(object : MainNowHotCuratorAdapter.ItemClickListener{
-            override fun onClick(view: View, position: Int) {
-                Log.d("SSS","${position}번 리스트 선택")
-            }
-        })
-    }
-    private fun curatorLoadDatas() {
-        data2.apply {
-            add(
-                MainNowHotCuratorData(
-                    img_now_hot_curator = "https://cdn.pixabay.com/photo/2020/07/04/06/40/clouds-5368435__340.jpg",
-                    tv_curator_name = "예스리",
-                    tv_curator_keyword = "직장인의 비애"
-                )
-            )
-            add(
-                MainNowHotCuratorData(
-                    img_now_hot_curator = "https://cdn.pixabay.com/photo/2020/01/20/20/58/building-4781384__340.jpg",
-                    tv_curator_name = "래리",
-                    tv_curator_keyword = "스타트업"
-                )
-            )
-            add(
-                MainNowHotCuratorData(
-                    img_now_hot_curator = "https://cdn.pixabay.com/photo/2020/06/29/05/43/poppy-5351553__340.jpg",
-                    tv_curator_name = "봄",
-                    tv_curator_keyword = "대학내일"
-                )
-            )
-            add(
-                MainNowHotCuratorData(
-                    img_now_hot_curator = "https://cdn.pixabay.com/photo/2020/07/05/12/53/rainbow-5372892__340.jpg",
-                    tv_curator_name = "홍대병",
-                    tv_curator_keyword = "과제충"
-                )
-            )
-            add(
-                MainNowHotCuratorData(
-                    img_now_hot_curator = "https://cdn.pixabay.com/photo/2020/06/30/22/34/dog-5357794__340.jpg",
-                    tv_curator_name = "몽그리",
-                    tv_curator_keyword = "몽글몽글"
-                )
-            )
-            mainNowHotCuratorAdapter.datas = data2
-            mainNowHotCuratorAdapter.notifyDataSetChanged()
-        }
-    }
 
 
 //오늘의 문장 어댑터 연결
-//    private fun setAdapter(todaySentenceItem : MutableList<ResponseTodaySentenceData>) {
-//        todaySentenceAdapter =
+//    private fun setAdatodaySentenceAdapterpter(todaySentenceItem : MutableList<ResponseTodaySentenceData>) {
+//         =
 //            TodaySentenceAdapter(
 //                todaySentenceItem,
 //                this.context!!
 //            )
-//        //loadDatas()
 //        main_fragment_rv_today_sentence.adapter = todaySentenceAdapter
 //
 //        //리사이클러뷰 아이템 클릭리스너 등록
@@ -221,10 +181,11 @@ class MainFragment : Fragment() {
 //    }
 
     //오늘의 문장 통신
-    private fun requestData() {
+    private fun requestTodaySentenceData() {
 
         requestToServer.service.RequestMainSentences(
-            token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjE4LCJuYW1lIjoieiIsImlhdCI6MTU5NDg0Nzg2NiwiZXhwIjoxNTk1MDIwNjY2LCJpc3MiOiJtb25nbGUifQ.IQFvbHzqeE_6vc_Vo7aVJ9fhaOuYmTGpXv1cSE1j9hw"
+            token = SharedPreferenceController.getAccessToken(view!!.context)
+            //token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjE4LCJuYW1lIjoieiIsImlhdCI6MTU5NDg0Nzg2NiwiZXhwIjoxNTk1MDIwNjY2LCJpc3MiOiJtb25nbGUifQ.IQFvbHzqeE_6vc_Vo7aVJ9fhaOuYmTGpXv1cSE1j9hw"
         ).enqueue(
             object : Callback<ResponseTodaySentenceData> {
                 override fun onFailure(
@@ -250,38 +211,30 @@ class MainFragment : Fragment() {
 
     }
 
-//    private fun loadDatas() {
-//        data.apply {
-//            add(
-//                ResponseTodaySentenceData(
-//                    sentence = "결국 봄이 언제나 찾아왔지만, 하마터면 오지 않을 뻔했던 봄을 생각하면 마음이 섬찟"
-//                )
-//            )
-//
-//            add(
-//                ResponseTodaySentenceData(
-//                    sentence = "Mongle is the best!"
-//                )
-//            )
-//            add(
-//                ResponseTodaySentenceData(
-//                    sentence = "아프니까 청춘이다"
-//                )
-//            )
-//            add(
-//                ResponseTodaySentenceData(
-//                    sentence = "인연이라고 하죠오~거부할 수가 없죠"
-//                )
-//            )
-//            add(
-//                ResponseTodaySentenceData(
-//                    sentence = "룰루랄라라라라랄라랄"
-//                )
-//            )
-//            todaySentenceAdapter.datas = data
-//            todaySentenceAdapter.notifyDataSetChanged()
-//
-//        }
-//    }
+    //인기있는 큐레이터 통신
+    private fun requestMainCurators() {
+
+        requestToServer.service.GetMainQurators().enqueue(
+            object : Callback<ResponseMainNowHotData> {
+
+                override fun onResponse(
+                    call: Call<ResponseMainNowHotData>,
+                    response: Response<ResponseMainNowHotData>
+                ) {
+                    if (response.isSuccessful) {
+                        mainNowHotCuratorAdapter = MainNowHotCuratorAdapter(response.body()!!.data, view!!.context)
+                        rv_main_now_hot_curator.adapter = mainNowHotCuratorAdapter
+                        mainNowHotCuratorAdapter.notifyDataSetChanged()
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseMainNowHotData>, t: Throwable) {
+
+                }
+
+            }
+        )
+
+    }
 
 }

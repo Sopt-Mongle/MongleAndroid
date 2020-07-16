@@ -4,5 +4,11 @@ data class ResponseLoginData (
     val status : Int,
     val success : Boolean,
     val message : String,
-    val accessToken	: String //토큰
+    val data : Login
 )
+data class Login(
+    val accessToken : String
+)
+
+
+
