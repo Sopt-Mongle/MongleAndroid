@@ -46,18 +46,22 @@ interface RequestInterface {
 
     // 검색 - 최근 키워드
     @GET("/search/recent")
-    fun RequestSearchRecentData(@Body body: RequestSetEmptySentenceData) : Call<ResponseSearchRecentData>
+    fun RequestSearchRecentData(@Body body: RequestSearchRecentData) : Call<ResponseSearchRecentData>
 
     // 검색 - 최근 키워드 전체 삭제
     //@DELETE("/search/recent")
 
-    // 검색 - 추천 키워드
+    // 검색 - 추천 키워드 - 성공
     @GET("/search/recommend")
     fun getRecommendKeyword() : Call<ResponseRecommendKeywordData>
 
     // 테마 검색
     @GET("/search/theme")
-    fun RequestResultThemeData(@Body body: RequestResultThemeData) : Call<ResponseResultThemeData>
+    fun requestResultThemeData(
+//        @Header("Content-Type") content_type: String,
+//        @Header("token") token: String,
+        @Body words : String
+    ) : retrofit2.Call<ResponseResultThemeData>
 
     // 문장 검색
     @GET("/search/sentence")
@@ -81,5 +85,10 @@ interface RequestInterface {
         //@Header("Content-Type") content_type: String,
         @Header("token") token: String?
     ) : Call<ResponseTodaySentenceData>
+
+    // 추천 큐레이터
+    @GET("/curator/recommend")
+    fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
+
 
 }
