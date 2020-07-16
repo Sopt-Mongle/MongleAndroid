@@ -126,7 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
                 android:layout_marginTop="6dp"
-                android:layout_marginBottom="11dp"
+                android:layout_marginBottom="17dp"
                 app:tabMode="fixed"
                 app:tabGravity="fill"
                 app:tabIndicatorColor="#00ffffff"
