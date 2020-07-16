@@ -233,21 +233,20 @@ class WritingSentenceActivity : AppCompatActivity() {
         activity_writing_sentence_btn_theme_search_normal.setOnClickListener {
             val intent = Intent(this@WritingSentenceActivity,WritingSentenceThemeSearchActivity::class.java)
             startActivityForResult(intent,2)
-            activity_writing_sentence_tv_theme.text = "adsg"
         }
         //애니메이션
         //에러 메세지
 
 
+        //finish에서 문장 확인하러가기
         activity_writing_sentence_btn_writing.setOnClickListener {
             val intent = Intent(this@WritingSentenceActivity,SentenceDetailViewActivity::class.java)
-            //intent.putExtra("","")
             startActivity(intent)
 
         }
 
 
-
+        //finish에서 메인으로 돌아가기
         activity_writing_sentence_btn_main.setOnClickListener {
             finish()
         }

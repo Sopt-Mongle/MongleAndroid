@@ -138,6 +138,7 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
                             writingSentenceBookSearchAdapter.setItemClickListener(object : WritingSentenceBookSearchAdapter.ItemClickListener{
                                 override fun onClick(view: View, position: Int) {
                                     Log.d("SSS","${position}번 리스트 선택")
+
                                     val intent = Intent(this@WritingSentenceBookSearchActivity, WritingSentenceActivity::class.java)
                                     intent.putExtra("title",item_search_book_tv_htitle.text.toString())
                                     intent.putExtra("author", item_search_book_tv_author.text.toString())
