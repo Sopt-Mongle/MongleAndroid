@@ -89,8 +89,13 @@ interface RequestInterface {
     @GET("/curator/recommend")
     fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
 
-    // 메인 - 지금 인기있는 큐레이터 목록 조회
+    // 메인 - 지금 인기있는 큐레이터 목록 조회 - 성공
     @GET("/main/curators")
     fun GetMainQurators() : Call<ResponseMainNowHotData>
 
+    // 메인 - 오늘 하루 저장이 가장 많이 된 테마목록 조회
+//    @GET("/main/themes")
+//    fun GetMainThemes(
+//        @Header("token") token: String?
+//    ) : Call<>
 }

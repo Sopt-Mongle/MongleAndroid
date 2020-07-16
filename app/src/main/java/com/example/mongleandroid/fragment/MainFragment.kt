@@ -13,7 +13,7 @@ import com.example.mongleandroid.activity.MainThemeActivity
 import com.example.mongleandroid.adapter.*
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.SharedPreferenceController
-import com.example.mongleandroid.network.data.MainHotThemeData
+import com.example.mongleandroid.network.data.ResponseMainHotThemeData
 //import com.example.mongleandroid.network.data.response.MainNowHotCuratorData
 import com.example.mongleandroid.network.data.response.ResponseMainNowHotData
 import com.example.mongleandroid.network.data.response.ResponseTodaySentenceData
@@ -26,9 +26,7 @@ class MainFragment : Fragment() {
 
     val requestToServer = RequestToServer//싱글톤 그대로 가져옴
 
-    private var data = mutableListOf<ResponseTodaySentenceData>()
-    private var data2 = mutableListOf<ResponseMainNowHotData>()
-    private var data3 = mutableListOf<MainHotThemeData>()
+    private var data3 = mutableListOf<ResponseMainHotThemeData>()
 
     private lateinit var todaySentenceAdapter: TodaySentenceAdapter
     private lateinit var mainNowHotCuratorAdapter: MainNowHotCuratorAdapter
@@ -78,13 +76,13 @@ class MainFragment : Fragment() {
 
     }
 
-    private fun setHotThemeAdapter(mainHotThemeItem: MutableList<MainHotThemeData>) {
+    private fun setHotThemeAdapter(mainHotThemeItem: MutableList<ResponseMainHotThemeData>) {
         mainHotThemeAdapter =
             MainHotThemeAdapter(
                 mainHotThemeItem,
                 this.context!!
             )
-        themeLoadDatas()
+
         rv_main_hot_theme.adapter = mainHotThemeAdapter
         rv_main_waiting_for_sentence_theme.adapter = mainHotThemeAdapter
         rv_viewed_a_lot_time_theme.adapter = mainHotThemeAdapter
@@ -101,42 +99,42 @@ class MainFragment : Fragment() {
         })
     }
 
-    private fun themeLoadDatas() {
-        data3.apply {
-            add(
-                MainHotThemeData(
-                    tv_main_hot_theme = "브랜딩이 어려울 때",
-                    tv_main_hot_theme_count = "38"
-                )
-            )
-            add(
-                MainHotThemeData(
-                    tv_main_hot_theme = "배고플 때",
-                    tv_main_hot_theme_count = "57"
-                )
-            )
-            add(
-                MainHotThemeData(
-                    tv_main_hot_theme = "생각나는 사람이 있을 때",
-                    tv_main_hot_theme_count = "28"
-                )
-            )
-            add(
-                MainHotThemeData(
-                    tv_main_hot_theme = "졸릴 때",
-                    tv_main_hot_theme_count = "90"
-                )
-            )
-            add(
-                MainHotThemeData(
-                    tv_main_hot_theme = "아무생각 없을 때",
-                    tv_main_hot_theme_count = "39"
-                )
-            )
-            mainHotThemeAdapter.datas = data3
-            mainHotThemeAdapter.notifyDataSetChanged()
-        }
-    }
+  //  private fun themeLoadDatas() {
+//        data3.apply {
+//            add(
+//                ResponseMainHotThemeData(
+//                    tv_main_hot_theme = "브랜딩이 어려울 때",
+//                    tv_main_hot_theme_count = "38"
+//                )
+//            )
+//            add(
+//                ResponseMainHotThemeData(
+//                    tv_main_hot_theme = "배고플 때",
+//                    tv_main_hot_theme_count = "57"
+//                )
+//            )
+//            add(
+//                ResponseMainHotThemeData(
+//                    tv_main_hot_theme = "생각나는 사람이 있을 때",
+//                    tv_main_hot_theme_count = "28"
+//                )
+//            )
+//            add(
+//                ResponseMainHotThemeData(
+//                    tv_main_hot_theme = "졸릴 때",
+//                    tv_main_hot_theme_count = "90"
+//                )
+//            )
+//            add(
+//                ResponseMainHotThemeData(
+//                    tv_main_hot_theme = "아무생각 없을 때",
+//                    tv_main_hot_theme_count = "39"
+//                )
+//            )
+//            mainHotThemeAdapter.datas = data3
+//            mainHotThemeAdapter.notifyDataSetChanged()
+//        }
+//    }
 
 ////지금 인기있는 큐레이터 어댑터 연결
 //    private fun setHotCuratorAdapter(mainNowHotCuratorItem: MutableList<ResponseMainNowHotData>) {
