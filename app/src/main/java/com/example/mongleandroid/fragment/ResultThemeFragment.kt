@@ -1,20 +1,25 @@
 package com.example.mongleandroid.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
+import com.example.mongleandroid.activity.MainActivity.Companion.search_result
 import com.example.mongleandroid.adapter.ResultThemeAdapter
+import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.data.response.ResponseResultThemeData
 import kotlinx.android.synthetic.main.fragment_result_theme.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class ResultThemeFragment : Fragment() {
 
     lateinit var resultThemeAdapter: ResultThemeAdapter
-    val themedatas = mutableListOf<ResponseResultThemeData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,37 +31,27 @@ class ResultThemeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        resultThemeAdapter = ResultThemeAdapter(view.context)
-        rv_result_theme.adapter = resultThemeAdapter
-        loadDatas() // 일단 임의로 넣어두기
+        requestData()
     }
 
-    private fun loadDatas() {
-        themedatas.apply {
-            add(
-                ResponseResultThemeData(
-                    theme = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게 기대고만 싶을 때 보면 좋은 문장",
-                    saves = "107",
-                    sentenceNum = "15"
-                )
-            )
-            add(
-                ResponseResultThemeData(
-                    theme = "삶에 지쳐 위태롭고 비틀거릴 때, 삶에 지쳐 누군가에게 기대고만 싶을 때 보면 좋은 문장",
-                    saves = "107",
-                    sentenceNum = "15"
-                )
-            )
-            add(
-                ResponseResultThemeData(
-                    theme = "삶에 지쳐 위태롭고 비틀거릴 때, 누군가에게 기대고만 싶을 때 보면 좋은 문장",
-                    saves = "107",
-                    sentenceNum = "15"
-                )
-            )
-            resultThemeAdapter.datas = themedatas
-            resultThemeAdapter.notifyDataSetChanged()
-        }
+    private fun requestData() {
+        val call: Call<ResponseResultThemeData> =
+            RequestToServer.service.requestResultThemeData(words = search_result)
+        call.enqueue(object : Callback<ResponseResultThemeData> {
+            override fun onFailure(call: Call<ResponseResultThemeData>, t: Throwable) {
+                Log.e("requestUser 통신실패",t.toString())
+            }
+            override fun onResponse(call: Call<ResponseResultThemeData>, response: Response<ResponseResultThemeData>) {
+                if (response.isSuccessful){
+                    response.body().let { body->
+                        Log.e("history 통신응답바디", "status: ${body!!.status} data : ${body.message}")
+                        resultThemeAdapter.datas = body!!.data
+                        resultThemeAdapter.notifyDataSetChanged()
+                    }
+                }
+            }
+        })
     }
+
 
 }

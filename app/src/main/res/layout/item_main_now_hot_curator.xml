@@ -9,7 +9,9 @@
         android:id="@+id/img_now_hot_curator"
         android:layout_width="62dp"
         android:layout_height="62dp"
+        android:layout_marginStart="17dp"
         android:layout_marginTop="11dp"
+        android:layout_marginEnd="18dp"
         android:src="@color/brownGrey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,8 +29,8 @@
         android:text="예스리"
         android:textColor="@color/brownGrey2"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/img_now_hot_curator"
+        app:layout_constraintStart_toStartOf="@+id/img_now_hot_curator"
         app:layout_constraintTop_toBottomOf="@+id/img_now_hot_curator" />
 
     <TextView

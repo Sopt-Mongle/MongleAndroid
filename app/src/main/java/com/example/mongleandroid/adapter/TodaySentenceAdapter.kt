@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.viewholder.TodaySentenceViewHolder
-import com.example.mongleandroid.network.data.TodaySentenceData
+import com.example.mongleandroid.network.data.response.ResponseTodaySentenceData
+import com.example.mongleandroid.network.data.response.TodaySentence
 
-class TodaySentenceAdapter(var datas: List<TodaySentenceData>, val context: Context) : RecyclerView.Adapter<TodaySentenceViewHolder>() {
+class TodaySentenceAdapter(var datas: List<TodaySentence>, val context: Context) : RecyclerView.Adapter<TodaySentenceViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodaySentenceViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_today_sentence, parent, false)

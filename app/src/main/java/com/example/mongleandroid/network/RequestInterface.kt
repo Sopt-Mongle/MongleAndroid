@@ -3,10 +3,8 @@ package com.example.mongleandroid.network
 import com.example.mongleandroid.network.data.request.*
 import com.example.mongleandroid.network.data.response.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.DELETE
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
+import retrofit2.http.Query as Retrofit2HttpQuery
 
 
 // 행동 (post, get ...) 과 어떤 서버 (uri)에 대한 정의
@@ -30,7 +28,9 @@ interface RequestInterface {
 
     //제목으로 책 검색
     @GET("/post/bookSearch")
-    fun RequestWritingSentenceBookSearch(@Body body: RequestWritingSentenceBookSearchData) :Call<ResponseWritingSentenceBookSearchData>
+    fun RequestWritingSentenceBookSearch(
+        @Retrofit2HttpQuery("query") title: String
+        ) :Call<ResponseWritingSentenceBookSearchData>
 
     //선택할 테마 목록 조회
     @GET("/post/theme")
@@ -46,18 +46,22 @@ interface RequestInterface {
 
     // 검색 - 최근 키워드
     @GET("/search/recent")
-    fun RequestSearchRecentData(@Body body: RequestSetEmptySentenceData) : Call<ResponseSearchRecentData>
+    fun RequestSearchRecentData(@Body body: RequestSearchRecentData) : Call<ResponseSearchRecentData>
 
     // 검색 - 최근 키워드 전체 삭제
     //@DELETE("/search/recent")
 
-    // 검색 - 추천 키워드
+    // 검색 - 추천 키워드 - 성공
     @GET("/search/recommend")
     fun getRecommendKeyword() : Call<ResponseRecommendKeywordData>
 
     // 테마 검색
     @GET("/search/theme")
-    fun RequestResultThemeData(@Body body: RequestResultThemeData) : Call<ResponseResultThemeData>
+    fun requestResultThemeData(
+//        @Header("Content-Type") content_type: String,
+//        @Header("token") token: String,
+        @Body words : String
+    ) : retrofit2.Call<ResponseResultThemeData>
 
     // 문장 검색
     @GET("/search/sentence")
@@ -75,6 +79,16 @@ interface RequestInterface {
     @POST("/users/signup")
     fun RequestJoinData(@Body body: RequestJoinData) : Call<ResponseJoinData>
 
+    // 메인 - 오늘의 문장1
+    @GET("/main/sentences")
+    fun RequestMainSentences(
+        //@Header("Content-Type") content_type: String,
+        @Header("token") token: String?
+    ) : Call<ResponseTodaySentenceData>
+
+    // 추천 큐레이터
+    @GET("/curator/recommend")
+    fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
 
 
 }
