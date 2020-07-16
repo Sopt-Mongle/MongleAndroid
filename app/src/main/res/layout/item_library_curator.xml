@@ -13,12 +13,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#59bcbcbc"
+            app:layout_constraintTop_toTopOf="@id/cl_library_curator"
+            app:layout_constraintEnd_toEndOf="@id/cl_library_curator"
+            app:layout_constraintStart_toStartOf="@id/cl_library_curator" />
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/library_curator_img_profile"
             android:layout_width="67dp"
             android:layout_height="66dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="28dp"
             android:layout_marginBottom="26dp"
             app:layout_constraintBottom_toBottomOf="@id/cl_library_curator"
             app:layout_constraintStart_toStartOf="@id/cl_library_curator"
@@ -36,6 +45,8 @@
             android:lineSpacingExtra="-1sp"
             android:text="예스리"
             android:textColor="@color/black"
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:includeFontPadding="false"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/library_curator_img_profile"
             app:layout_constraintTop_toTopOf="@+id/library_curator_img_profile" />
@@ -47,6 +58,8 @@
             android:letterSpacing="-0.02"
             android:lineSpacingExtra="1sp"
             android:text="구독자 "
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:includeFontPadding="false"
             android:textColor="@color/veryLightPink2"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/tv_library_curator_keyword"
@@ -60,6 +73,8 @@
             android:letterSpacing="-0.02"
             android:lineSpacingExtra="1sp"
             android:text="540"
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:includeFontPadding="false"
             android:textColor="@color/veryLightPink2"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_library_subscriptions_num"
@@ -73,6 +88,8 @@
             android:letterSpacing="-0.02"
             android:lineSpacingExtra="1sp"
             android:text="명"
+            android:fontFamily="@font/notosanscjkkr_demilight"
+            android:includeFontPadding="false"
             android:textColor="@color/veryLightPink2"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_library_curator_subcount"
@@ -92,14 +109,7 @@
             app:layout_constraintStart_toStartOf="@+id/tv_library_subscriptions_num"
             app:layout_constraintTop_toBottomOf="@+id/tv_library_subscriptions_num" />
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#59bcbcbc"
-            app:layout_constraintBottom_toBottomOf="@id/cl_library_curator"
-            app:layout_constraintEnd_toEndOf="@id/cl_library_curator"
-            app:layout_constraintStart_toStartOf="@id/cl_library_curator" />
+
 
         <CheckBox
             android:id="@+id/library_curator_btn_subscribe_item"
@@ -112,6 +122,8 @@
             android:button="@null"
             android:gravity="center"
             android:text="@string/subscribe"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
             android:textColor="#ffffff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"

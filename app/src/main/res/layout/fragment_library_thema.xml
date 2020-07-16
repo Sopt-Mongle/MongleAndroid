@@ -21,7 +21,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="테마 없는 문장 >"
-            android:textSize="15sp"
+            android:textSize="14sp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,6 +47,8 @@
                 android:checked="true"
                 android:gravity="center"
                 android:text="저장한 테마"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
                 android:textColor="@color/radio_button_state"
                 app:layout_constraintBottom_toBottomOf="@id/rg_library_thema"
                 app:layout_constraintEnd_toStartOf="@id/rdbtn_making_thema"
@@ -59,6 +63,8 @@
                 android:checked="false"
                 android:gravity="center"
                 android:text="만든 테마"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
                 android:textColor="@color/radio_button_state"
                 app:layout_constraintBottom_toBottomOf="@id/rg_library_thema"
                 app:layout_constraintEnd_toEndOf="@id/rg_library_thema"
