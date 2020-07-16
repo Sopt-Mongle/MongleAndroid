@@ -1,5 +1,6 @@
 package com.example.mongleandroid.activity
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -140,16 +141,18 @@ class WritingThemeActivity : AppCompatActivity() {
     private fun requestData(){
         val call: Call<ResponseWritingThemeData> = RequestToServer.service.RequestWritingTheme(body = RequestWritingThemeData("s",1))
         call.enqueue(object : Callback<ResponseWritingThemeData>{
+            @SuppressLint("LongLogTag")
             override fun onFailure(call: Call<ResponseWritingThemeData>, t: Throwable) {
-                Log.e("requestMoney 통신실패",t.toString())
+                Log.e("ResponseWritingThemeData 통신실패",t.toString())
             }
+            @SuppressLint("LongLogTag")
             override fun onResponse(
                 call: Call<ResponseWritingThemeData>,
                 response: Response<ResponseWritingThemeData>
             ) {
                 if (response.isSuccessful){
                     response.body().let { body ->
-                        Log.e("historymoney 통신응답바디", "status: ${body!!.status} data : ${body!!.message}")
+                        Log.e("ResponseWritingThemeData 통신응답바디", "status: ${body!!.status} data : ${body!!.message}")
                     }
                 }
 

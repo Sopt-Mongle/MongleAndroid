@@ -72,9 +72,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="130dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_theme_search_topbar">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <ImageView
@@ -93,7 +93,7 @@
             android:layout_marginStart="8dp"
             android:letterSpacing="-0.02"
             android:lineSpacingExtra="1sp"
-            android:text="책 제목을 검색해주세요!"
+            android:text="테마를 선택해주세요!"
             android:textColor="@color/reddish"
             android:textSize="14sp"
             android:visibility="visible"
@@ -108,19 +108,18 @@
         android:id="@+id/activity_writing_sentence_theme_search_after"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_marginTop="15dp"
+        android:visibility="visible"
+        android:layout_marginTop="160dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_theme_search_warning"
-        app:layout_constraintBottom_toTopOf="@id/activity_writing_sentence_theme_search_rv_after"
+        app:layout_constraintTop_toTopOf="parent"
         >
 
         <TextView
             android:id="@+id/activity_writing_sentence_theme_search_tv3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="'해리'"
+            android:text=" "
             android:textSize="14sp"
             android:textColor="@color/softGreen"
             app:layout_constraintStart_toStartOf="parent"
@@ -154,19 +153,19 @@
         android:id="@+id/activity_writing_sentence_theme_search_rv_after"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        android:paddingTop="12dp"
-        android:paddingBottom="32dp"
         android:clipToPadding="false"
-        app:spanCount="2"
+        android:orientation="vertical"
+        android:paddingTop="190dp"
+        android:paddingBottom="32dp"
         android:visibility="visible"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_theme_search_after"
         app:layout_constraintBottom_toTopOf="@id/activity_writing_sentence_theme_search_bottombar"
-        tools:listitem="@layout/item_theme_search"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:spanCount="2"
+        tools:listitem="@layout/item_theme_search" />
 
     <View
         android:layout_width="match_parent"

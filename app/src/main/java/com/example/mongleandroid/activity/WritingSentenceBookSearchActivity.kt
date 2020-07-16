@@ -1,5 +1,6 @@
 package com.example.mongleandroid.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.*
 import com.example.mongleandroid.adapter.ItemDecoration
+import com.example.mongleandroid.adapter.MainNowHotCuratorAdapter
 import com.example.mongleandroid.adapter.WritingSentenceBookSearchAdapter
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.data.request.RequestWritingSentenceBookSearchData
@@ -64,13 +66,11 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
                 val string_length = activity_writing_sentence_book_search_tv_search.text.toString()
                 activity_writing_sentence_book_search_tv_cnt.setText(string_length.length.toString())
             }
-
         })
 
         activity_writing_sentence_book_search_btn_out.setOnClickListener {
             finish()
         }
-
 
         //뒤로가기 버튼
         activity_writing_sentence_book_search_btn_out.setOnClickListener {
@@ -82,8 +82,6 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
         writingSentenceBookSearchAdapter = WritingSentenceBookSearchAdapter(this)
         activity_writing_sentence_book_search_rv_after.adapter = writingSentenceBookSearchAdapter
         activity_writing_sentence_book_search_rv_after.addItemDecoration(ItemDecoration())
-        //loadDatas()
-        //requestData()
 
         //검색 버튼
         activity_writing_sentence_book_search_btn_search.setOnClickListener {
@@ -92,143 +90,68 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
             //검색 결과가 있으면
             goNextPage(activity_writing_sentence_book_search_before, activity_writing_sentence_book_search_after)
             activity_writing_sentence_book_search_rv_after.visibility = View.VISIBLE
-            //loadDatas()
-            requestData()
 
-
-
-            //검색 결과가 없으면
-            //goNextPage(activity_writing_sentence_book_search_before, activity_writing_sentence_book_search_empty)
-
-
-
-            //if 서버 통신 성공
-            //activity_writing_sentence_theme_search_after.visibility = View.VISIBLE
-            //        activity_writing_sentence_theme_search_rv_after.addOnItemTouchListener(object : RecyclerView.OnItemTouchListener {
-//            override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {
-
-
-            //아이템 터치 했을 때, 동작
-//            val intent = Intent(this@WritingSentenceThemeSearchActivity, WritingSentenceActivity::class.java)
-//            intent.putExtra("title", item_search_book_tv_title.text.toString())
-//            intent.putExtra("author", item_search_book_tv_author.text.toString())
-//            intent.putExtra("publisher", item_search_book_tv_publisher.text.toString())
-//            setResult(1, intent)
-//            finish()
-//
-//                val child = rv.findChildViewUnder(e.x, e.y)
-//                val position = rv.getChildAdapterPosition(child!!)
-//
-//                return false
-//
-//            }
-//
-//            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
-//
-//
-//            }
-//
-//            override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {
-//
-//            }
-//
-//        })
-//
-//            //if 서버 통신 성공 && 결과 없음
-//            goNextPage(activity_writing_sentence_theme_search_rv_after, activity_writing_sentence_theme_search_after2)
-//
-//            //if 서버 통신 실패
-//            goNextPage(activity_writing_sentence_theme_search_rv_after, activity_writing_sentence_theme_search_after2)
-
-
-
-
-
+            //서버 데이타를 넣어줌
+            requestData(activity_writing_sentence_book_search_tv_search.text.toString())
         }
-
-
-
 
     }
 
-//    private fun loadDatas(){
-//        datas.apply {
-//            add(
-//
-//                BookData(
-//                    authors = "해리",
-//                    publisher = "몽글1",
-//                    thumbnail = "dsf",
-//                    title = "해리포터",
-//                    isbn = "dsfa"
-//                )
-//            )
-//            add(
-//
-//                BookData(
-//                    authors = "해리포터",
-//                    publisher = "몽글2",
-//                    thumbnail = "dsf",
-//                    title = "해리포터",
-//                    isbn = "dsfa"
-//                )
-//            )
-//            add(
-//
-//                BookData(
-//                    authors = "리",
-//                    publisher = "몽글3",
-//                    thumbnail = "dsf",
-//                    title = "해리포터",
-//                    isbn = "dsfa"
-//                )
-//            )
-//            add(
-//
-//                BookData(
-//                    authors = "해리",
-//                    publisher = "몽글4",
-//                    thumbnail = "dsf",
-//                    title = "해리포터",
-//                    isbn = "dsfa"
-//                )
-//            )
-//            add(
-//
-//                BookData(
-//                    authors = "해리",
-//                    publisher = "몽글5",
-//                    thumbnail = "dsf",
-//                    title = "해리포터",
-//                    isbn = "dsfa"
-//                )
-//            )
-//            writingSentenceBookSearchAdapter.datas = datas
-//            writingSentenceBookSearchAdapter.notifyDataSetChanged()
-//        }
-//    }
 
 
-    private fun requestData() {
-        val call: Call<ResponseWritingSentenceBookSearchData> = RequestToServer.service.RequestWritingSentenceBookSearch(title = "해리")
+    private fun requestData(title: String) {
+        val call: Call<ResponseWritingSentenceBookSearchData> = RequestToServer.service.RequestWritingSentenceBookSearch(title = title)
         call.enqueue(object : Callback<ResponseWritingSentenceBookSearchData> {
+            @SuppressLint("LongLogTag")
             override fun onFailure(call: Call<ResponseWritingSentenceBookSearchData>, t: Throwable) {
-                Log.e("requestUser 통신실패",t.toString())
+                Log.e("ResponseWritingSentenceBookSearchData 통신실패",t.toString())
             }
+            @SuppressLint("LongLogTag")
             override fun onResponse(call: Call<ResponseWritingSentenceBookSearchData>, response: Response<ResponseWritingSentenceBookSearchData>) {
-                if (response.isSuccessful){
-                    response.body().let { body->
-                        Log.e("history 통신응답바디", "status: ${body!!.staus} data : ${body!!.message}")
-                        //writingSentenceBookSearchAdapter.datas = response.body()?.data!!
+                if (response.isSuccessful) {
+                    response.body().let { body ->
+                        Log.e(
+                            "ResponseWritingSentenceBookSearchData 통신응답바디",
+                            "status: ${body!!.staus} data : ${body!!.message}"
+                        )
                         writingSentenceBookSearchAdapter.datas = body.data
-                        //this@WritingSentenceBookSearchActivity.bookSearchData = response.body()?.data!!
-//                        bookSearchData = response.body()?.data!!
-//                        bookSearchData = body.
-//                        item_search_book_tv_author.text = bookSearchData.authors
-//                        item_search_book_tv_title.text = bookSearchData.title
                         writingSentenceBookSearchAdapter.notifyDataSetChanged()
 
+
+                        if(body.data.size == 0){
+                            //if 서버 통신 성공 && 결과 없음
+                            activity_writing_sentence_book_search_rv_after.visibility = View.GONE
+                            activity_writing_sentence_book_search_after.visibility = View.GONE
+                            activity_writing_sentence_book_search_empty.visibility = View.VISIBLE
+
+                        }else{
+                            //if 서버 통신 성공 && 결과 있음
+                            empty_tv1.visibility = View.GONE
+                            empty_tv2.visibility = View.GONE
+                            activity_writing_sentence_book_search_empty.visibility = View.GONE
+                            activity_writing_sentence_book_search_after.visibility = View.VISIBLE
+                            activity_writing_sentence_book_search_rv_after.visibility = View.VISIBLE
+                            activity_writing_sentence_book_search_tv3.text = title
+                            activity_writing_sentence_book_search_tv5.text = "총 " + body.data.size.toString() + "건"
+
+                            //리사이클러뷰 아이템 클릭리스너 등록
+                            writingSentenceBookSearchAdapter.setItemClickListener(object : WritingSentenceBookSearchAdapter.ItemClickListener{
+                                override fun onClick(view: View, position: Int) {
+                                    Log.d("SSS","${position}번 리스트 선택")
+
+                                    val intent = Intent(this@WritingSentenceBookSearchActivity, WritingSentenceActivity::class.java)
+                                    intent.putExtra("title",item_search_book_tv_htitle.text.toString())
+                                    intent.putExtra("author", item_search_book_tv_author.text.toString())
+                                    intent.putExtra("publisher", item_search_book_tv_publisher.text.toString())
+                                    setResult(1, intent)
+                                    finish()
+                                }
+                            })
+                        }
                     }
+                }else{
+                    //if 서버 통신 실패
+                    Log.d("서버 통신", "서버 통신 실패")
                 }
 
             }
