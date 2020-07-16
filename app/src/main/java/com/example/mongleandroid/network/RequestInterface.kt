@@ -34,7 +34,7 @@ interface RequestInterface {
 
     //선택할 테마 목록 조회
     @GET("/post/theme")
-    fun RequestWritingSentenceThemeSearch(@Body body: RequestWritingSentenceThemeSearchData) :Call<ResponseWritingSentenceThemeSearchData>
+    fun RequestWritingSentenceThemeSearch() :Call<ResponseWritingSentenceThemeSearchData>
 
     //테마 없는 문장 목록 조회
     @GET("/post/getEmptySentence")

@@ -41,7 +41,6 @@
         android:id="@+id/item_search_book_tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="해리"
         android:textColor="@color/softGreen"
         android:textSize="16sp"
         android:layout_marginTop="11dp"
