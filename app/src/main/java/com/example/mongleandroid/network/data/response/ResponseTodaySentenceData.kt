@@ -1,6 +1,14 @@
 package com.example.mongleandroid.network.data.response
 
+
 data class ResponseTodaySentenceData(
+    val status : Int,
+    val success : Boolean,
+    val message : String,
+    val data : List<TodaySentence>
+)
+
+data class TodaySentence(
     val sentenceIdx: Int, // 문장 idx
     val sentence: String, // 문장
     val title: String, // 문장의 책 제목

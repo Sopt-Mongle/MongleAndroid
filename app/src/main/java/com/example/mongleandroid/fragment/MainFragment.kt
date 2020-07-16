@@ -13,11 +13,14 @@ import com.example.mongleandroid.activity.MainThemeActivity
 import com.example.mongleandroid.activity.SentenceDetailViewActivity
 import com.example.mongleandroid.adapter.*
 import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.data.MainHotThemeData
 import com.example.mongleandroid.network.data.MainNowHotCuratorData
 import com.example.mongleandroid.network.data.response.ResponseTodaySentenceData
 import kotlinx.android.synthetic.main.fragment_main.*
 import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainFragment : Fragment() {
 
@@ -49,7 +52,7 @@ class MainFragment : Fragment() {
 
         setHotThemeAdapter(data3) // 인기있는 테마 리사이클러뷰
         setHotCuratorAdapter(data2) // 지금 인기있는 큐레이터 리사이클러뷰
-        setAdapter(data)//오늘의 문장 리사이클러뷰
+       // setAdapter(data)//오늘의 문장 리사이클러뷰
 
         img_main_search_btn.setOnClickListener {
             replaceFragment(SearchFragment())
@@ -195,41 +198,55 @@ class MainFragment : Fragment() {
 
 
 //오늘의 문장 어댑터 연결
-    private fun setAdapter(todaySentenceItem : MutableList<ResponseTodaySentenceData>) {
-        todaySentenceAdapter =
-            TodaySentenceAdapter(
-                todaySentenceItem,
-                this.context!!
-            )
-        //loadDatas()
-        main_fragment_rv_today_sentence.adapter = todaySentenceAdapter
-
-        //리사이클러뷰 아이템 클릭리스너 등록
-        todaySentenceAdapter.setItemClickListener(object : TodaySentenceAdapter.ItemClickListener{
-            override fun onClick(view: View, position: Int) {
-                Log.d("SSS","${position}번 리스트 선택")
-                activity?.let{
-                    val intent = Intent(context, SentenceDetailViewActivity::class.java)
-                    startActivity(intent)
-                }
-            }
-        })
-
-    }
+//    private fun setAdapter(todaySentenceItem : MutableList<ResponseTodaySentenceData>) {
+//        todaySentenceAdapter =
+//            TodaySentenceAdapter(
+//                todaySentenceItem,
+//                this.context!!
+//            )
+//        //loadDatas()
+//        main_fragment_rv_today_sentence.adapter = todaySentenceAdapter
+//
+//        //리사이클러뷰 아이템 클릭리스너 등록
+//        todaySentenceAdapter.setItemClickListener(object : TodaySentenceAdapter.ItemClickListener{
+//            override fun onClick(view: View, position: Int) {
+//                Log.d("SSS","${position}번 리스트 선택")
+//                activity?.let{
+//                    val intent = Intent(context, SentenceDetailViewActivity::class.java)
+//                    startActivity(intent)
+//                }
+//            }
+//        })
+//
+//    }
 
     //오늘의 문장 통신
     private fun requestData() {
-//        val getTodaySentenceData :Call<ResponseTodaySentenceData> = requestToServer.RequestMainSentences(
-//            "application/json",
-//
-//        )
 
-//        requestToServer.service.RequestMainSentences.enqueue(
-//
-//        )
+        requestToServer.service.RequestMainSentences(
+            token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjE4LCJuYW1lIjoieiIsImlhdCI6MTU5NDg0Nzg2NiwiZXhwIjoxNTk1MDIwNjY2LCJpc3MiOiJtb25nbGUifQ.IQFvbHzqeE_6vc_Vo7aVJ9fhaOuYmTGpXv1cSE1j9hw"
+        ).enqueue(
+            object : Callback<ResponseTodaySentenceData> {
+                override fun onFailure(
+                    call: Call<ResponseTodaySentenceData>,
+                    t: Throwable
+                ) {
+                    Log.d( "통신실패", t.toString())
+                }
 
+                override fun onResponse(
+                    call: Call<ResponseTodaySentenceData>,
+                    response: Response<ResponseTodaySentenceData>
+                ) {
+                        if (response.isSuccessful) {
+                            todaySentenceAdapter = TodaySentenceAdapter(response.body()!!.data, view!!.context)
+                            main_fragment_rv_today_sentence.adapter = todaySentenceAdapter
+                            todaySentenceAdapter.notifyDataSetChanged()
+                        }
+                }
 
-
+            }
+        )
 
     }
 
