@@ -11,20 +11,22 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.mongleandroid.R
 import com.example.mongleandroid.activity.MainThemeActivity
 import com.example.mongleandroid.activity.SentenceDetailViewActivity
-import com.example.mongleandroid.activity.SentenceDetailViewInThemeActivity
 import com.example.mongleandroid.adapter.*
+import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.data.MainHotThemeData
 import com.example.mongleandroid.network.data.MainNowHotCuratorData
-import com.example.mongleandroid.network.data.TodaySentenceData
+import com.example.mongleandroid.network.data.response.ResponseTodaySentenceData
 import kotlinx.android.synthetic.main.fragment_main.*
-import kotlinx.android.synthetic.main.fragment_main_view_pager1.*
-import kotlinx.android.synthetic.main.item_main_now_hot_curator.*
-import kotlinx.android.synthetic.main.item_main_now_hot_curator.view.*
-import kotlinx.android.synthetic.main.item_today_sentence.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainFragment : Fragment() {
 
-    private var data = mutableListOf<TodaySentenceData>()
+    val requestToServer = RequestToServer//싱글톤 그대로 가져옴
+
+    private var data = mutableListOf<ResponseTodaySentenceData>()
     private var data2 = mutableListOf<MainNowHotCuratorData>()
     private var data3 = mutableListOf<MainHotThemeData>()
 
@@ -48,25 +50,24 @@ class MainFragment : Fragment() {
         vp_main.offscreenPageLimit = 2
         tl_main.setupWithViewPager(vp_main)
 
-
-
         setHotThemeAdapter(data3) // 인기있는 테마 리사이클러뷰
         setHotCuratorAdapter(data2) // 지금 인기있는 큐레이터 리사이클러뷰
-        setAdapter(data)//오늘의 문장 리사이클러뷰
+       // setAdapter(data)//오늘의 문장 리사이클러뷰
 
         img_main_search_btn.setOnClickListener {
             replaceFragment(SearchFragment())
         }
 
-        vp_main.setOnClickListener {
-            activity?.let{
-                val intent = Intent(context, MainThemeActivity::class.java)
-                startActivity(intent)
-            }
-        }
+//        vp_main.setOnClickListener {
+//            activity?.let{
+//                val intent = Intent(context, MainThemeActivity::class.java)
+//                startActivity(intent)
+//            }
+//        }
+
+        requestData() // 서버에서 데이터 받아와서 메인 화면 데이터 보이게 하기
 
     }
-
 
     //SearchFragment로 이동
     private fun replaceFragment(fragment: Fragment) {
@@ -197,60 +198,90 @@ class MainFragment : Fragment() {
 
 
 //오늘의 문장 어댑터 연결
-    private fun setAdapter(todaySentenceItem : MutableList<TodaySentenceData>) {
-        todaySentenceAdapter =
-            TodaySentenceAdapter(
-                todaySentenceItem,
-                this.context!!
-            )
-        loadDatas()
-        main_fragment_rv_today_sentence.adapter = todaySentenceAdapter
+//    private fun setAdapter(todaySentenceItem : MutableList<ResponseTodaySentenceData>) {
+//        todaySentenceAdapter =
+//            TodaySentenceAdapter(
+//                todaySentenceItem,
+//                this.context!!
+//            )
+//        //loadDatas()
+//        main_fragment_rv_today_sentence.adapter = todaySentenceAdapter
+//
+//        //리사이클러뷰 아이템 클릭리스너 등록
+//        todaySentenceAdapter.setItemClickListener(object : TodaySentenceAdapter.ItemClickListener{
+//            override fun onClick(view: View, position: Int) {
+//                Log.d("SSS","${position}번 리스트 선택")
+//                activity?.let{
+//                    val intent = Intent(context, SentenceDetailViewActivity::class.java)
+//                    startActivity(intent)
+//                }
+//            }
+//        })
+//
+//    }
 
-        //리사이클러뷰 아이템 클릭리스너 등록
-        todaySentenceAdapter.setItemClickListener(object : TodaySentenceAdapter.ItemClickListener{
-            override fun onClick(view: View, position: Int) {
-                Log.d("SSS","${position}번 리스트 선택")
-                activity?.let{
-                    val intent = Intent(context, SentenceDetailViewActivity::class.java)
-                    startActivity(intent)
+    //오늘의 문장 통신
+    private fun requestData() {
+
+        requestToServer.service.RequestMainSentences(
+            token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjE4LCJuYW1lIjoieiIsImlhdCI6MTU5NDg0Nzg2NiwiZXhwIjoxNTk1MDIwNjY2LCJpc3MiOiJtb25nbGUifQ.IQFvbHzqeE_6vc_Vo7aVJ9fhaOuYmTGpXv1cSE1j9hw"
+        ).enqueue(
+            object : Callback<ResponseTodaySentenceData> {
+                override fun onFailure(
+                    call: Call<ResponseTodaySentenceData>,
+                    t: Throwable
+                ) {
+                    Log.d( "통신실패", t.toString())
                 }
+
+                override fun onResponse(
+                    call: Call<ResponseTodaySentenceData>,
+                    response: Response<ResponseTodaySentenceData>
+                ) {
+                        if (response.isSuccessful) {
+                            todaySentenceAdapter = TodaySentenceAdapter(response.body()!!.data, view!!.context)
+                            main_fragment_rv_today_sentence.adapter = todaySentenceAdapter
+                            todaySentenceAdapter.notifyDataSetChanged()
+                        }
+                }
+
             }
-        })
+        )
 
     }
 
-    private fun loadDatas() {
-        data.apply {
-            add(
-                TodaySentenceData(
-                    tv_today_sentence = "결국 봄이 언제나 찾아왔지만, 하마터면 오지 않을 뻔했던 봄을 생각하면 마음이 섬찟"
-                )
-            )
-
-            add(
-                TodaySentenceData(
-                    tv_today_sentence = "Mongle is the best!"
-                )
-            )
-            add(
-                TodaySentenceData(
-                    tv_today_sentence = "아프니까 청춘이다"
-                )
-            )
-            add(
-                TodaySentenceData(
-                    tv_today_sentence = "인연이라고 하죠오~거부할 수가 없죠"
-                )
-            )
-            add(
-                TodaySentenceData(
-                    tv_today_sentence = "룰루랄라라라라랄라랄"
-                )
-            )
-            todaySentenceAdapter.datas = data
-            todaySentenceAdapter.notifyDataSetChanged()
-
-        }
-    }
+//    private fun loadDatas() {
+//        data.apply {
+//            add(
+//                ResponseTodaySentenceData(
+//                    sentence = "결국 봄이 언제나 찾아왔지만, 하마터면 오지 않을 뻔했던 봄을 생각하면 마음이 섬찟"
+//                )
+//            )
+//
+//            add(
+//                ResponseTodaySentenceData(
+//                    sentence = "Mongle is the best!"
+//                )
+//            )
+//            add(
+//                ResponseTodaySentenceData(
+//                    sentence = "아프니까 청춘이다"
+//                )
+//            )
+//            add(
+//                ResponseTodaySentenceData(
+//                    sentence = "인연이라고 하죠오~거부할 수가 없죠"
+//                )
+//            )
+//            add(
+//                ResponseTodaySentenceData(
+//                    sentence = "룰루랄라라라라랄라랄"
+//                )
+//            )
+//            todaySentenceAdapter.datas = data
+//            todaySentenceAdapter.notifyDataSetChanged()
+//
+//        }
+//    }
 
 }
