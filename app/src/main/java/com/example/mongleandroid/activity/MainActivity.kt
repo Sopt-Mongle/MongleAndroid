@@ -10,10 +10,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mongleandroid.R
-import com.example.mongleandroid.fragment.CuratorFragment
-import com.example.mongleandroid.fragment.MainFragment
-import com.example.mongleandroid.fragment.MypageFragment
-import com.example.mongleandroid.fragment.SearchFragment
+import com.example.mongleandroid.fragment.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_curator.*
 import kotlinx.android.synthetic.main.fragment_main.*
@@ -36,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var mainFragment: MainFragment
     lateinit var searchFragment: SearchFragment
     lateinit var curatorFragment: CuratorFragment
-    lateinit var mypageFragment: MypageFragment
+    lateinit var libraryFragment: LibraryFragment
 
 
 
@@ -66,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         mainFragment = MainFragment()
         searchFragment = SearchFragment()
         curatorFragment = CuratorFragment()
-        mypageFragment = MypageFragment()
+        libraryFragment = LibraryFragment()
 
         supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, mainFragment).commit()
 
@@ -79,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                     //search_fragment_et_search.requestFocus()
                 }
                 R.id.menu_curator -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, curatorFragment).commit()
-                R.id.menu_mypage -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, mypageFragment).commit()
+                R.id.menu_mypage -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, libraryFragment).commit()
             }
             true
         }

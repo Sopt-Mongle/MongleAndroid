@@ -10,7 +10,6 @@ import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.customEnqueue
 import com.example.mongleandroid.network.data.request.RequestLoginData
 import com.example.mongleandroid.util.DialogLogin
-import kotlinx.android.synthetic.main.activity_join.*
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
