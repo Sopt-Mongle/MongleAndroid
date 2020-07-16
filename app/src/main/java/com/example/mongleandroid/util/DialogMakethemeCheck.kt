@@ -36,9 +36,6 @@ class DialogMakethemeCheck(context : Context) {
         maketheme_popup_yes.setOnClickListener{
             //돌아갈 액티비티
             val intent = Intent(it.context, WritingThemeFinishActivity::class.java)
-//            it.findViewById<ConstraintLayout>(R.id.activity_writing_theme_CL_noPopUp).visibility = View.GONE
-//            it.findViewById<ConstraintLayout>(R.id.activity_writing_theme_CL_finish).visibility = View.VISIBLE
-//            it.findViewById<EditText>(R.id.activity_writing_theme_et_theme_title).unshowKeyboard()
             it.context.startActivity(intent)
             dlg.dismiss()
         }
