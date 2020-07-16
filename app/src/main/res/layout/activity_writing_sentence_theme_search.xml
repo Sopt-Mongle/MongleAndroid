@@ -71,10 +71,10 @@
         android:id="@+id/activity_writing_sentence_theme_search_warning"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_marginTop="9dp"
+        android:visibility="visible"
+        android:layout_marginTop="130dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_theme_search_topbar">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <ImageView
@@ -108,12 +108,11 @@
         android:id="@+id/activity_writing_sentence_theme_search_after"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_marginTop="15dp"
+        android:visibility="visible"
+        android:layout_marginTop="160dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_theme_search_warning"
-        app:layout_constraintBottom_toTopOf="@id/activity_writing_sentence_theme_search_rv_after"
+        app:layout_constraintTop_toTopOf="parent"
         >
 
         <TextView
@@ -155,7 +154,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:paddingTop="12dp"
+        android:paddingTop="190dp"
         android:paddingBottom="32dp"
         android:clipToPadding="false"
         app:spanCount="2"
@@ -163,7 +162,7 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_writing_sentence_theme_search_after"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/activity_writing_sentence_theme_search_bottombar"
         tools:listitem="@layout/item_theme_search"
         />
