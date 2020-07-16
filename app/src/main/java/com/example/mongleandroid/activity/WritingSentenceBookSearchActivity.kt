@@ -121,19 +121,23 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
                         if(body.data.size == 0){
                             //if 서버 통신 성공 && 결과 없음
                             activity_writing_sentence_book_search_rv_after.visibility = View.GONE
+                            activity_writing_sentence_book_search_after.visibility = View.GONE
                             activity_writing_sentence_book_search_empty.visibility = View.VISIBLE
 
                         }else{
                             //if 서버 통신 성공 && 결과 있음
+                            empty_tv1.visibility = View.GONE
+                            empty_tv2.visibility = View.GONE
+                            activity_writing_sentence_book_search_empty.visibility = View.GONE
                             activity_writing_sentence_book_search_after.visibility = View.VISIBLE
                             activity_writing_sentence_book_search_rv_after.visibility = View.VISIBLE
-
+                            activity_writing_sentence_book_search_tv3.text = title
+                            activity_writing_sentence_book_search_tv5.text = "총 " + body.data.size.toString() + "건"
 
                             //리사이클러뷰 아이템 클릭리스너 등록
                             writingSentenceBookSearchAdapter.setItemClickListener(object : WritingSentenceBookSearchAdapter.ItemClickListener{
                                 override fun onClick(view: View, position: Int) {
                                     Log.d("SSS","${position}번 리스트 선택")
-                                    //검색 결과가 있을 때
                                     val intent = Intent(this@WritingSentenceBookSearchActivity, WritingSentenceActivity::class.java)
                                     intent.putExtra("title",item_search_book_tv_htitle.text.toString())
                                     intent.putExtra("author", item_search_book_tv_author.text.toString())
