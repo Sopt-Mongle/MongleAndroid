@@ -142,9 +142,9 @@
             android:id="@+id/activity_writing_sentence_book_search_tv3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="'해리'"
             android:textColor="@color/softGreen"
             android:textSize="14sp"
+            android:text=" "
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -210,7 +210,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv1"
+            android:id="@+id/empty_tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:letterSpacing="-0.02"
@@ -225,7 +225,7 @@
 
         <TextView
 
-            android:id="@+id/textView16"
+            android:id="@+id/empty_tv2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:letterSpacing="-0.02"
@@ -235,7 +235,7 @@
             android:layout_marginTop="6dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv1"
+            app:layout_constraintTop_toBottomOf="@+id/empty_tv1"
             tools:text="다른 키워드로 검색해보세요!" />
 
 

@@ -9,18 +9,13 @@ import android.view.ViewGroup
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.CuratorFragmentAdapter
 import com.example.mongleandroid.adapter.CuratorRecommendAdapter
-import com.example.mongleandroid.adapter.MainNowHotCuratorAdapter
 import com.example.mongleandroid.network.RequestToServer
-import com.example.mongleandroid.network.data.MainNowHotCuratorData
 import com.example.mongleandroid.network.data.response.ResponseRecommendCuratorData
-import com.example.mongleandroid.network.data.response.ResponseRecommendKeywordData
 import com.example.mongleandroid.network.data.response.ResponseResultCuratorData
 import kotlinx.android.synthetic.main.fragment_curator.*
-import kotlinx.android.synthetic.main.fragment_search.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
 
 
 class CuratorFragment : Fragment() {

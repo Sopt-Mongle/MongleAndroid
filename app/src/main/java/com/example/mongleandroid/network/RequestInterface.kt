@@ -34,7 +34,7 @@ interface RequestInterface {
 
     //선택할 테마 목록 조회
     @GET("/post/theme")
-    fun RequestWritingSentenceThemeSearch(@Body body: RequestWritingSentenceThemeSearchData) :Call<ResponseWritingSentenceThemeSearchData>
+    fun RequestWritingSentenceThemeSearch() :Call<ResponseWritingSentenceThemeSearchData>
 
     //테마 없는 문장 목록 조회
     @GET("/post/getEmptySentence")
@@ -89,14 +89,6 @@ interface RequestInterface {
     // 추천 큐레이터
     @GET("/curator/recommend")
     fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
-
-    //내 서재 메인 프로필 조회
-    @GET("/my/profile")
-    fun lookLibraryProfile(
-//        @Header("Content-Type") content_type: String,
-        @Header("token") token: String?
-
-    ) : Call<ResponseMainLibraryData>
 
 
 }

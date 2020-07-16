@@ -13,7 +13,6 @@ class WritingSentenceThemeSearchViewHolder(itemView: View) : RecyclerView.ViewHo
     val item_search_theme_tv_themeTitle = itemView.findViewById<TextView>(R.id.item_search_theme_tv_themeTitle)
 
     fun bind(writingSentenceThemeSearchData: ThemeData){
-        //item_search_theme_tv_themeTitle.text = writingSentenceThemeSearchData.data[1].toString()
         item_search_theme_tv_themeTitle.text = writingSentenceThemeSearchData.theme
     }
 }
