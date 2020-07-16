@@ -1,7 +1,9 @@
 package com.example.mongleandroid.network.data.response
 
 data class ResponseWritingThemeData (
-    val staus : Int,
-    val success : Boolean,
-    val message : String
-)
+    var staus : Int,
+    var success : Boolean,
+    var message : String
+) {
+    lateinit var status: String
+}

@@ -4,6 +4,7 @@ import com.example.mongleandroid.network.data.request.*
 import com.example.mongleandroid.network.data.response.*
 import retrofit2.Call
 import retrofit2.http.*
+import retrofit2.http.Query as Retrofit2HttpQuery
 
 
 // 행동 (post, get ...) 과 어떤 서버 (uri)에 대한 정의
@@ -27,7 +28,9 @@ interface RequestInterface {
 
     //제목으로 책 검색
     @GET("/post/bookSearch")
-    fun RequestWritingSentenceBookSearch(@Body body: RequestWritingSentenceBookSearchData) :Call<ResponseWritingSentenceBookSearchData>
+    fun RequestWritingSentenceBookSearch(
+        @Retrofit2HttpQuery("query") title: String
+        ) :Call<ResponseWritingSentenceBookSearchData>
 
     //선택할 테마 목록 조회
     @GET("/post/theme")
