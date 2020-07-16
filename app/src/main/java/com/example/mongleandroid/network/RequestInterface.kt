@@ -79,6 +79,13 @@ interface RequestInterface {
     @POST("/users/signup")
     fun RequestJoinData(@Body body: RequestJoinData) : Call<ResponseJoinData>
 
+    // 메인 - 오늘의 문장1
+    @GET("/main/sentences")
+    fun RequestMainSentences(
+        //@Header("Content-Type") content_type: String,
+        @Header("token") token: String?
+    ) : Call<ResponseTodaySentenceData>
+
     // 추천 큐레이터
     @GET("/curator/recommend")
     fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
