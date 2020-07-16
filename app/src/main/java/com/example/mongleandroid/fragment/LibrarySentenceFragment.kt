@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.LibrarySentenceAdapter
+import com.example.mongleandroid.adapter.LibrarySentenceClickAdapter
 import com.example.mongleandroid.network.data.LibrarySentenceData
 import kotlinx.android.synthetic.main.fragment_library_sentence.*
 
@@ -15,6 +16,8 @@ import kotlinx.android.synthetic.main.fragment_library_sentence.*
 class LibrarySentenceFragment : Fragment() {
 
     lateinit var librarySentenceAdapter: LibrarySentenceAdapter
+    lateinit var librarySentenceClickAdapter : LibrarySentenceClickAdapter
+
     val librarySentenceData = mutableListOf<LibrarySentenceData>()
 
     override fun onCreateView(
@@ -27,9 +30,35 @@ class LibrarySentenceFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        librarySentenceAdapter = LibrarySentenceAdapter(view.context)
-        rv_library_sentence.adapter = librarySentenceAdapter
-        loadDatas()
+
+        rdbtn_saved_sentence.setOnClickListener {
+            if (rdbtn_saved_sentence.isChecked) {
+                librarySentenceAdapter = LibrarySentenceAdapter(view.context)
+                rv_library_sentence.adapter = librarySentenceAdapter
+                loadDatas()
+            }
+            else {
+//                librarySentenceClickAdapter = LibrarySentenceClickAdapter(view.context)
+//                rv_library_sentence.adapter = librarySentenceClickAdapter
+//                loadDatas()
+            }
+        }
+
+        rdbtn_making_sentence.setOnClickListener {
+            if (rdbtn_saved_sentence.isChecked) {
+                librarySentenceClickAdapter = LibrarySentenceClickAdapter(view.context)
+                rv_library_sentence.adapter = librarySentenceClickAdapter
+                loadDatas()
+            }
+            else {
+//                librarySentenceAdapter = LibrarySentenceAdapter(view.context)
+//                rv_library_sentence.adapter = librarySentenceAdapter
+//                loadDatas()
+            }
+        }
+
+
+
     }
 
     private fun loadDatas() {
@@ -70,10 +99,36 @@ class LibrarySentenceFragment : Fragment() {
                 )
             )
 
-
         }
-        librarySentenceAdapter.data_sen = librarySentenceData
-        librarySentenceAdapter.notifyDataSetChanged()
+
+        rdbtn_saved_sentence.setOnClickListener {
+            if (rdbtn_saved_sentence.isChecked) {
+                librarySentenceAdapter.data_sen = librarySentenceData
+                librarySentenceAdapter.notifyDataSetChanged()
+            }
+            else {
+//                librarySentenceClickAdapter = LibrarySentenceClickAdapter(view.context)
+//                rv_library_sentence.adapter = librarySentenceClickAdapter
+//                loadDatas()
+            }
+        }
+
+        rdbtn_making_sentence.setOnClickListener {
+            if (rdbtn_saved_sentence.isChecked) {
+                librarySentenceClickAdapter.data_sen_click = librarySentenceData
+                librarySentenceClickAdapter.notifyDataSetChanged()
+            }
+            else {
+//                librarySentenceAdapter = LibrarySentenceAdapter(view.context)
+//                rv_library_sentence.adapter = librarySentenceAdapter
+//                loadDatas()
+            }
+        }
+
+//        librarySentenceAdapter.data_sen = librarySentenceData
+//        librarySentenceAdapter.notifyDataSetChanged()
+//        librarySentenceClickAdapter.data_sen_click = librarySentenceData
+//        librarySentenceClickAdapter.notifyDataSetChanged()
     }
 
 

@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.fragment_library_thema.*
 class LibraryThemaFragment : Fragment() {
 
     lateinit var libraryThemaAdapter: LibraryThemaAdapter
+
     val libraryThemaDatas = mutableListOf<LibraryThemaData>()
 
     override fun onCreateView(
