@@ -33,6 +33,7 @@ class WritingSentenceThemeSearchActivity : AppCompatActivity() {
     lateinit var writingSentenceThemeSearchAdapter : WritingSentenceThemeSearchAdapter
     val datas = mutableListOf<ThemeData>()
     var title : String = ""
+    var themeIdx : Int = -1
     var chkedidx : Int = -1
 
 
@@ -81,6 +82,7 @@ class WritingSentenceThemeSearchActivity : AppCompatActivity() {
         activity_writing_sentence_btn_next.setOnClickListener {
             var intent : Intent = Intent(this@WritingSentenceThemeSearchActivity, WritingSentenceActivity::class.java)
             intent.putExtra("theme", title)
+            intent.putExtra("themeIdx", themeIdx)
             Log.d("theme","${ title}번 리스트 선택")
             setResult(2, intent)
             finish()
@@ -154,15 +156,10 @@ class WritingSentenceThemeSearchActivity : AppCompatActivity() {
                                         activity_writing_sentence_theme_search_rv_after.getChildAt(chkedidx).findViewById<ImageView>(R.id.activity_search_theme_img_chk).visibility = View.GONE
                                     }
                                     title = writingSentenceThemeSearchAdapter.datas[position].theme
+                                    themeIdx = writingSentenceThemeSearchAdapter.datas[position].themeIdx
                                     view.findViewById<ImageView>(R.id.activity_search_theme_img_chk).visibility = View.VISIBLE
                                     Log.d("SSS","${position}번 리스트 선택")
                                     chkedidx = position
-//                                    var intent : Intent = Intent(this@WritingSentenceThemeSearchActivity, WritingSentenceActivity::class.java)
-//                                    intent.putExtra("theme", writingSentenceThemeSearchAdapter.datas[position].theme)
-//                                    Log.d("theme","${ writingSentenceThemeSearchAdapter.datas[position].theme}번 리스트 선택")
-//                                    setResult(2, intent)
-//                                    view.findViewById<ImageView>(R.id.activity_search_theme_img_chk).visibility = View.GONE
-//                                    finish()
                                 }
                             })
                         }

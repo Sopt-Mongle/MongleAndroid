@@ -11,17 +11,21 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.mongleandroid.*
 import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.data.request.RequestWritingThemeData
+import com.example.mongleandroid.network.data.response.ResponseWritingSentenceData
 import com.example.mongleandroid.network.data.response.ResponseWritingThemeData
 import com.example.mongleandroid.util.DialogMakethemeCheck
 import kotlinx.android.synthetic.main.activity_writing_theme.*
+import kotlinx.android.synthetic.main.fragment_curator.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class WritingThemeActivity : AppCompatActivity() {
     var datas: MutableList<RequestWritingThemeData> = mutableListOf<RequestWritingThemeData>()
-    var themeImgIdx: Int = 0
+    var themeImgIdx:Int = 0
+    var RequestWritingThemeData: RequestWritingThemeData = RequestWritingThemeData("dd", 1)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,11 +66,13 @@ class WritingThemeActivity : AppCompatActivity() {
                 activity_writing_theme_CL_warning2.visibility = View.VISIBLE
             }
             if(activity_writing_theme_et_theme_title.text.toString().length>0 && themeImgIdx > 0){
+                RequestWritingThemeData.theme = activity_writing_theme_et_theme_title.text.toString()
                 val dlg = DialogMakethemeCheck(this)
                 dlg.setOnOKClickedListener{ content ->
                 }
-                dlg.start("")
+                dlg.start(themeImgIdx)
                 //키보드 제어
+                requestData()
                 activity_writing_theme_et_theme_title.unshowKeyboard()
             }
 
@@ -106,10 +112,10 @@ class WritingThemeActivity : AppCompatActivity() {
 
     private fun chked(img : ConstraintLayout, chkedNum: Int){
         img.setOnClickListener {
+            RequestWritingThemeData.themeImgIdx = chkedNum
             themeImgIdx = chkedNum
 
             activity_writing_theme_CL_warning2.visibility = View.GONE
-
             activity_writing_theme_img_chk1.visibility = View.GONE
             activity_writing_theme_img_chk2.visibility = View.GONE
             activity_writing_theme_img_chk3.visibility = View.GONE
@@ -139,7 +145,7 @@ class WritingThemeActivity : AppCompatActivity() {
 
 
     private fun requestData(){
-        val call: Call<ResponseWritingThemeData> = RequestToServer.service.RequestWritingTheme(body = RequestWritingThemeData("s",1))
+        val call: Call<ResponseWritingThemeData> = RequestToServer.service.RequestWritingTheme(token = SharedPreferenceController.getAccessToken(context = this), body = RequestWritingThemeData)
         call.enqueue(object : Callback<ResponseWritingThemeData>{
             @SuppressLint("LongLogTag")
             override fun onFailure(call: Call<ResponseWritingThemeData>, t: Throwable) {
@@ -161,6 +167,7 @@ class WritingThemeActivity : AppCompatActivity() {
         })
 
     }
+
 }
 
 

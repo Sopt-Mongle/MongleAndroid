@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.View
 import android.view.Window
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -24,13 +25,42 @@ class DialogMakethemeCheck(context : Context) {
     private lateinit var maketheme_popup_yes : TextView
     private lateinit var maketheme_popup_no : TextView
     private lateinit var listener : MyDialogOKClickedListener
+    lateinit var themeImg : MutableList<Int>
 
 
-    fun start(content : String){
+    fun start(chkedNum : Int){
+
+        when(chkedNum){
+            1 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+            2 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+            3 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+
+        }
+
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+        themeImg.add(R.drawable.maketheme_img_theme_1)
+
+
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE)   //타이틀바 제거
         dlg.setCancelable(false)    //다이얼로그의 바깥 화면을 눌렀을 때 다이얼로그가 닫히지 않도록 함
         dlg.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dlg.setContentView(R.layout.dialog_maketheme_check)     //다이얼로그에 사용할 xml 파일을 불러옴
+
+
+        maketheme_popup_title.setBackgroundResource(R.drawable.maketheme_check_img_theme)
 
         maketheme_popup_yes = dlg.findViewById(R.id.maketheme_popup_yes)
         maketheme_popup_yes.setOnClickListener{
