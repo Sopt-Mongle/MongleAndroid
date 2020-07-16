@@ -67,7 +67,6 @@ class WritingThemeActivity : AppCompatActivity() {
                 dlg.setOnOKClickedListener{ content ->
                 }
                 dlg.start("")
-
                 //키보드 제어
                 activity_writing_theme_et_theme_title.unshowKeyboard()
             }
