@@ -209,19 +209,324 @@
                 app:layout_constraintStart_toEndOf="@+id/activity_writing_theme_tv4"
                 app:layout_constraintTop_toTopOf="@+id/activity_writing_theme_tv4" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/activity_writing_theme_rv"
-                android:layout_width="match_parent"
+
+
+            <HorizontalScrollView
+                android:id="@+id/activity_writing_theme_sc"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="21dp"
-                android:nestedScrollingEnabled="false"
-                android:orientation="horizontal"
-                android:overScrollMode="never"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_writing_theme_tv4"
-                tools:listitem="@layout/item_writng_theme" />
+               >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="21dp"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/activity_writing_theme_CL_img1"
+                        android:paddingEnd="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img1"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_img_theme_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img_chk1"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:alpha="0.5"
+                            android:visibility="gone"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_3_img_check"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/activity_writing_theme_CL_img2"
+                        android:paddingEnd="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img2"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_img_theme_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img_chk2"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:alpha="0.5"
+                            android:visibility="gone"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_3_img_check"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/activity_writing_theme_CL_img3"
+                        android:paddingEnd="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img3"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_img_theme_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img_chk3"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:alpha="0.5"
+                            android:visibility="gone"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_3_img_check"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/activity_writing_theme_CL_img4"
+                        android:paddingEnd="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img4"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_img_theme_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img_chk4"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:alpha="0.5"
+                            android:visibility="gone"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_3_img_check"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/activity_writing_theme_CL_img5"
+                        android:paddingEnd="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img5"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_img_theme_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img_chk5"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:alpha="0.5"
+                            android:visibility="gone"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_3_img_check"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/activity_writing_theme_CL_img6"
+                        android:paddingEnd="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img6"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_img_theme_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img_chk6"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:alpha="0.5"
+                            android:visibility="gone"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_3_img_check"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/activity_writing_theme_CL_img7"
+                        android:paddingEnd="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img7"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_img_theme_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img_chk7"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:alpha="0.5"
+                            android:visibility="gone"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_3_img_check"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/activity_writing_theme_CL_img8"
+                        android:paddingEnd="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img8"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_img_theme_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img_chk8"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:alpha="0.5"
+                            android:visibility="gone"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_3_img_check"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/activity_writing_theme_CL_img9"
+                        android:paddingEnd="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img9"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_img_theme_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img_chk9"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:alpha="0.5"
+                            android:visibility="gone"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_3_img_check"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/activity_writing_theme_CL_img10"
+                        android:paddingEnd="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img10"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_img_theme_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/activity_writing_theme_img_chk10"
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:alpha="0.5"
+                            android:visibility="gone"
+                            android:background="@drawable/hot_theme_rounded"
+                            android:src="@drawable/maketheme_3_img_check"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/activity_writing_theme_CL_warning2"
@@ -230,7 +535,7 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/activity_writing_theme_rv">
+                app:layout_constraintTop_toBottomOf="@+id/activity_writing_theme_sc">
 
 
                 <ImageView
@@ -374,6 +679,7 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 

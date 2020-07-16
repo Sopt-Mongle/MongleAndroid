@@ -15,4 +15,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/activity_writing_theme_img_theme_chk"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
+        android:alpha="0.5"
+        android:visibility="gone"
+        android:background="@drawable/hot_theme_rounded"
+        android:src="@drawable/maketheme_3_img_check"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
