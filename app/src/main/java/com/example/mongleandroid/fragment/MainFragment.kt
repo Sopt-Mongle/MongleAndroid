@@ -48,8 +48,6 @@ class MainFragment : Fragment() {
         vp_main.offscreenPageLimit = 2
         tl_main.setupWithViewPager(vp_main)
 
-
-
         setHotThemeAdapter(data3) // 인기있는 테마 리사이클러뷰
         setHotCuratorAdapter(data2) // 지금 인기있는 큐레이터 리사이클러뷰
         setAdapter(data)//오늘의 문장 리사이클러뷰
