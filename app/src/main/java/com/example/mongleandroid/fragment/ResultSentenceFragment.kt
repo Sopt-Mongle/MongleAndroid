@@ -33,7 +33,6 @@ class ResultSentenceFragment : Fragment() {
 
     private fun requestSentenceData() {
         requestToServer.service.requestResultSentenceData(
-//            token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjE4LCJuYW1lIjoieiIsImlhdCI6MTU5NDg0Nzg2NiwiZXhwIjoxNTk1MDIwNjY2LCJpc3MiOiJtb25nbGUifQ.IQFvbHzqeE_6vc_Vo7aVJ9fhaOuYmTGpXv1cSE1j9hw",
             words = search_result
         ).enqueue(object : Callback<ResponseResultSentenceData> {
             override fun onFailure(call: Call<ResponseResultSentenceData>, t: Throwable) {
