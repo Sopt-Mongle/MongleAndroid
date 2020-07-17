@@ -8,8 +8,9 @@ import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.viewholder.LibraryThemaClickViewHolder
 import com.example.mongleandroid.adapter.viewholder.LibraryThemaViewHolder
 import com.example.mongleandroid.network.data.response.LibraryThemeSave
+import com.example.mongleandroid.network.data.response.LibraryThemeWrite
 
-class LibraryThemaClickAdapter(private val context: Context, var data_the_save : List<LibraryThemeSave>) :
+class LibraryThemaClickAdapter(private val context: Context, var data_the_save : List<LibraryThemeWrite>) :
     RecyclerView.Adapter<LibraryThemaClickViewHolder>() {
 //    var data_the = mutableListOf<LibraryThemeWrite>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LibraryThemaClickViewHolder {

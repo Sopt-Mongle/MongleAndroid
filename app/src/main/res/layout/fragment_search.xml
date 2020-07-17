@@ -109,7 +109,7 @@
 
         <com.nex3z.flowlayout.FlowLayout
             android:layout_width="0dp"
-            android:layout_height="90dp"
+            android:layout_height="96dp"
             android:layout_marginTop="12dp"
             app:flChildSpacing="8dp"
             app:flChildSpacingForLastRow="align"

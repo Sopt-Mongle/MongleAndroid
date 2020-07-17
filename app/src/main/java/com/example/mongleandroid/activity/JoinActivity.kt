@@ -67,7 +67,7 @@ class JoinActivity : AppCompatActivity() {
                             if(it.status == 200) {
                                 activity_join_img_nickname_warning.visibility = GONE
                                 activity_join_tv_exist_nickname.visibility = GONE
-                               // SharedPreferenceController.setAccessToken()
+                                SharedPreferenceController.setAccessToken(applicationContext, it.data.accessToken)
                                 val intent = Intent(this@JoinActivity, JoinFinishActivity::class.java)
                                 startActivity(intent)
                                 finish()

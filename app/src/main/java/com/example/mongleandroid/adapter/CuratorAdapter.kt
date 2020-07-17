@@ -14,7 +14,7 @@ class CuratorAdapter(private val context : Context) : RecyclerView.Adapter<Curat
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CuratorViewHolder {
 
-        val view = LayoutInflater.from(context).inflate(R.layout.item_curator,parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_result_curator,parent,false)
         return CuratorViewHolder(
             view
         )

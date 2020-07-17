@@ -78,6 +78,7 @@ class LibraryFragment : Fragment() {
                             tx_library_keyword.text = response.body()!!.data[0].introduce
 
 
+
                         }
                     }
                 }
@@ -133,27 +134,20 @@ class LibraryFragment : Fragment() {
 
         libraryViewPager.setAdapter(adapter)
         libraryTabLayout.setupWithViewPager(libraryViewPager)
-        /*libraryTabLayout.getTabAt(0)!!.setText("테마")
-        libraryTabLayout.getTabAt(1)!!.setText("문장")
-        libraryTabLayout.getTabAt(2)!!.setText("큐레이터")
-*/
+
         libraryTabLayout.getTabAt(0)!!.customView = viewFirst
         libraryTabLayout.getTabAt(1)!!.customView = viewSecond
         libraryTabLayout.getTabAt(2)!!.customView = viewThird
 
-
+        /*libraryTabLayout.getTabAt(0)!!.setText("테마")
+        libraryTabLayout.getTabAt(1)!!.setText("문장")
+        libraryTabLayout.getTabAt(2)!!.setText("큐레이터")
+*/
 
 
     }
 
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        tx_non_thema.setOnClickListener {
-//            val intent = Intent(getActivity(), NoThemeActivity::class.java)
-//            startActivity(intent)
-////            finish()
-//        }
-//    }
+
 
 
 }
