@@ -1,5 +1,6 @@
 package com.example.mongleandroid.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,12 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
+import com.example.mongleandroid.activity.CuratorActivity
+import com.example.mongleandroid.activity.MainThemeActivity
 import com.example.mongleandroid.adapter.CuratorInThemeAdapter
 import com.example.mongleandroid.adapter.CuratorRecommendAdapter
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.data.response.CuratorInTheme
 import com.example.mongleandroid.network.data.response.ResponseCuratorInThemeData
+import com.example.mongleandroid.network.data.response.ResponseCuratorKeywordData
 import com.example.mongleandroid.network.data.response.ResponseRecommendCuratorData
 import kotlinx.android.synthetic.main.fragment_curator.*
 import retrofit2.Call
@@ -38,6 +42,18 @@ class CuratorFragment : Fragment() {
         curatorInThemeData()
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_curator, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        
+        fragment_curator_tv_gamsung.setOnClickListener {
+            activity?.let{
+                val intent = Intent(context, CuratorActivity::class.java)
+                intent.putExtra("params", 1)
+                startActivity(intent)
+            }
+        }
     }
 
     private fun curatorRecommendData() {
@@ -87,7 +103,7 @@ class CuratorFragment : Fragment() {
                             fragment_curator_tv_themename2.text = body!!.data!!.theme[1].theme
                             fragment_curator_tv_curator_count2.text = body!!.data!!.theme[1].curatorNum.toString()
 
-                            Log.d("테마속 큐레이터", "${response.body()}")
+                            Log.d("테마속 큐레이터", "${response.body()!!.data!!.theme[0].curators}")
                             curatorInThemeAdapter = CuratorInThemeAdapter(view!!.context, body!!.data!!.theme[0].curators)
                             fragment_curator_rv_curator1.adapter = curatorInThemeAdapter
                             curatorInThemeAdapter.notifyDataSetChanged()
