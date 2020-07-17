@@ -25,8 +25,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView19">
 
-        <TextView
+        <ImageView
             android:id="@+id/maketheme_popup_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/maketheme_check_img_theme"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:gravity="left"
+            android:maxLength="40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/maketheme_popup_tv_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/maketheme_check_img_theme"
