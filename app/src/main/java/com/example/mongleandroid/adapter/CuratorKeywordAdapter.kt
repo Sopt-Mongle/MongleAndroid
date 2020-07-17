@@ -5,17 +5,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
+import com.example.mongleandroid.adapter.viewholder.CuratorKeywordViewHolder
 import com.example.mongleandroid.adapter.viewholder.CuratorViewHolder
 import com.example.mongleandroid.network.data.CuratorData
+import com.example.mongleandroid.network.data.response.CuratorKeyword
+import com.example.mongleandroid.network.data.response.ResponseCuratorKeywordData
 
-class CuratorAdapter(private val context : Context) : RecyclerView.Adapter<CuratorViewHolder>() {
+class CuratorKeywordAdapter(private val context : Context, val datas: List<CuratorKeyword>) : RecyclerView.Adapter<CuratorKeywordViewHolder>() {
 
-    var datas = mutableListOf<CuratorData>()
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CuratorViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CuratorKeywordViewHolder {
 
         val view = LayoutInflater.from(context).inflate(R.layout.item_result_curator,parent,false)
-        return CuratorViewHolder(
+        return CuratorKeywordViewHolder(
             view
         )
 
@@ -26,7 +27,7 @@ class CuratorAdapter(private val context : Context) : RecyclerView.Adapter<Curat
 
     }
 
-    override fun onBindViewHolder(holder: CuratorViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CuratorKeywordViewHolder, position: Int) {
 
         holder.bind(datas[position])
 

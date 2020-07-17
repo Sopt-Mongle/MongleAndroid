@@ -61,6 +61,9 @@ class SearchResultFragment : Fragment() {
             adapter.notifyDataSetChanged()
             ResultViewPager.setAdapter(adapter)
             ResultTabLayout.setupWithViewPager(ResultViewPager)
+            ResultTabLayout.getTabAt(0)!!.setText("테마")
+            ResultTabLayout.getTabAt(1)!!.setText("문장")
+            ResultTabLayout.getTabAt(2)!!.setText("큐레이터")
         }
 
 

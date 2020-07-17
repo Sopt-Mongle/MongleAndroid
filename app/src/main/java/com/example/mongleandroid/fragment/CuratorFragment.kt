@@ -1,5 +1,6 @@
 package com.example.mongleandroid.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
+import com.example.mongleandroid.activity.CuratorActivity
+import com.example.mongleandroid.activity.MainThemeActivity
 import com.example.mongleandroid.adapter.CuratorInThemeAdapter
 import com.example.mongleandroid.adapter.CuratorRecommendAdapter
 import com.example.mongleandroid.network.RequestToServer
@@ -38,6 +41,17 @@ class CuratorFragment : Fragment() {
         curatorInThemeData()
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_curator, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        fragment_curator_tv_gamsung.setOnClickListener {
+            activity?.let{
+                val intent = Intent(context, CuratorActivity::class.java)
+                startActivity(intent)
+            }
+        }
     }
 
     private fun curatorRecommendData() {
