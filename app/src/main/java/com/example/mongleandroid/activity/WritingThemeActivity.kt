@@ -9,10 +9,13 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.bumptech.glide.Glide
 import com.example.mongleandroid.*
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.data.request.RequestWritingThemeData
+import com.example.mongleandroid.network.data.response.ImgData
+import com.example.mongleandroid.network.data.response.ResponseThemeImgData
 import com.example.mongleandroid.network.data.response.ResponseWritingSentenceData
 import com.example.mongleandroid.network.data.response.ResponseWritingThemeData
 import com.example.mongleandroid.util.DialogMakethemeCheck
@@ -24,7 +27,9 @@ import retrofit2.Response
 
 class WritingThemeActivity : AppCompatActivity() {
     var datas: MutableList<RequestWritingThemeData> = mutableListOf<RequestWritingThemeData>()
+    var Imgdatas: MutableList<ImgData> = mutableListOf<ImgData>()
     var themeImgIdx:Int = 0
+    lateinit var img:String
     var RequestWritingThemeData: RequestWritingThemeData = RequestWritingThemeData("dd", 1)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -165,8 +170,46 @@ class WritingThemeActivity : AppCompatActivity() {
             }
 
         })
-
     }
+
+    private fun requestThemeImgData(){
+        val call: Call<ResponseThemeImgData> = RequestToServer.service.GetPostThemeImg()
+        call.enqueue(object : Callback<ResponseThemeImgData>{
+            @SuppressLint("LongLogTag")
+            override fun onFailure(call: Call<ResponseThemeImgData>, t: Throwable) {
+                Log.e("ResponseWritingThemeData 통신실패",t.toString())
+            }
+            @SuppressLint("LongLogTag")
+            override fun onResponse(
+                call: Call<ResponseThemeImgData>,
+                response: Response<ResponseThemeImgData>
+            ) {
+                if (response.isSuccessful){
+                    response.body().let { body ->
+                        Imgdatas = body!!.data
+
+
+
+
+                        for(i in 0..15){
+                           // Glide.with(applicationContext).load(datas.get(0).theme).into(activity_writing_theme_img1)
+
+
+
+                        }
+//                        themeImgIdx = body!!.themeImgIdx
+//                        img = body!!.img
+//                        Glide.with(applicationContext).load(datas.get(0).).into(activity_writing_theme_img1)
+//                        //Log.e("ResponseWritingThemeData 통신응답바디", "status: ${body!!.status} data : ${body!!.message}")
+                    }
+                }
+
+            }
+
+        })
+    }
+
+
 
 }
 

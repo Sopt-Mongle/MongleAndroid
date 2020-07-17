@@ -40,6 +40,10 @@ interface RequestInterface {
     @GET("/post/theme")
     fun RequestWritingSentenceThemeSearch() :Call<ResponseWritingSentenceThemeSearchData>
 
+    //테마 이미지 조회
+    @GET("/post/themeImg")
+    fun GetPostThemeImg() : Call<ResponseThemeImgData>
+
     //테마 없는 문장 목록 조회
     @GET("/post/getEmptySentence")
     fun RequestGetEmptySentence(@Body body : RequestGetEmptySentenceData) : Call<ResponseGetEmptySentenceData>
