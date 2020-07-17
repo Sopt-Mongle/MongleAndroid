@@ -11,6 +11,7 @@ import com.example.mongleandroid.network.data.MainThemeData
 
 class MainThemeAdapter(var datas: List<MainThemeData>, val context: Context) :
     RecyclerView.Adapter<MainThemeViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainThemeViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_activity_theme, parent, false)
         return MainThemeViewHolder(view)
