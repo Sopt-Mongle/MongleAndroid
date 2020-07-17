@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.viewholder.LibraryThemaViewHolder
+import com.example.mongleandroid.network.data.response.LibraryThemeSave
 import com.example.mongleandroid.network.data.response.LibraryThemeWrite
 
-class LibraryThemaAdapter(private val context: Context, var data_the_write : List<LibraryThemeWrite>) :
+class LibraryThemaAdapter(private val context: Context, var data_the_write : List<LibraryThemeSave>) :
     RecyclerView.Adapter<LibraryThemaViewHolder>() {
 //    var data_the = mutableListOf<LibraryThemeWrite>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LibraryThemaViewHolder {
