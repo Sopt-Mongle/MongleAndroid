@@ -8,9 +8,11 @@ import android.graphics.drawable.ColorDrawable
 import android.view.View
 import android.view.Window
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.bumptech.glide.Glide
 import com.example.mongleandroid.R
 import com.example.mongleandroid.activity.JoinActivity
 import com.example.mongleandroid.activity.WritingThemeFinishActivity
@@ -24,9 +26,33 @@ class DialogMakethemeCheck(context : Context) {
     private lateinit var maketheme_popup_yes : TextView
     private lateinit var maketheme_popup_no : TextView
     private lateinit var listener : MyDialogOKClickedListener
+    lateinit var themeImg : String
 
 
-    fun start(content : String){
+    fun start(chkedNum : Int){
+
+        when(chkedNum){
+            1 -> maketheme_popup_title.setBackgroundResource(R.drawable.maketheme_check_img_theme)
+//            2 -> Glide.with(applicationContext).load(Imgdatas.get(0).img).into(activity_writing_theme_img1)
+//            3 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            4 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            5 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            6 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            7 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            8 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            9 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            10 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            11 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            12 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            13 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            14 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            15 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            16 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+        }
+
+
+
+
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE)   //타이틀바 제거
         dlg.setCancelable(false)    //다이얼로그의 바깥 화면을 눌렀을 때 다이얼로그가 닫히지 않도록 함
         dlg.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
