@@ -86,9 +86,36 @@ interface RequestInterface {
         @Header("token") token: String?
     ) : Call<ResponseTodaySentenceData>
 
+    // 메인 - 지금 인기있는 큐레이터 목록 조회 - 성공
+    @GET("/main/curators")
+    fun GetMainQurators() : Call<ResponseMainNowHotData>
+
     // 추천 큐레이터
     @GET("/curator/recommend")
     fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
 
+    //내서재 메인 프로필 조회
+   @GET("/my/profile")
+   fun lookLibraryProfile(
+        @Header("token") token: String?
+    ) : Call<ResponseMainLibraryData>
+
+    //내서재 테마 조회
+    @GET("/my/theme")
+    fun lookLibraryThema(
+        @Header("token") token: String?
+    ) : Call<ResponseLibraryThemeData>
+
+    //내서재 테마 조회
+    @GET("/my/sentence")
+    fun lookLibrarySentence(
+        @Header("token") token: String?
+    ) : Call<ResponseLibrarySentenceData>
+
+    //내서재 구독 조회
+    @GET("/my/subscribe")
+    fun lookLibraryCurator(
+        @Header("token") token: String?
+    ) : Call<ResponseLibraryCuratorData>
 
 }

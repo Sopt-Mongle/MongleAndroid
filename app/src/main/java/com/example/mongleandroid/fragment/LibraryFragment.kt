@@ -15,6 +15,8 @@ import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.LibraryPagerAdapter
 import com.example.mongleandroid.adapter.LibraryTabAdapter
 import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.SharedPreferenceController
+import com.example.mongleandroid.network.data.response.MainLibrary
 import com.example.mongleandroid.network.data.response.ResponseMainLibraryData
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_library.*
@@ -47,7 +49,10 @@ class LibraryFragment : Fragment() {
     }
 
     fun requestMyProfile(){
-        requestToServer.service.lookLibraryProfile("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjM2LCJuYW1lIjoi7ZWY7JiBMiIsImlhdCI6MTU5NDkxMTQzNiwiZXhwIjoxNTk1MDg0MjM2LCJpc3MiOiJtb25nbGUifQ.1QUSDWRk_C3bYxrR95qqD4AJNIKVz5P6EbAIhd58jsU")
+        requestToServer.service.lookLibraryProfile(
+            token = SharedPreferenceController.getAccessToken(view!!.context)
+//            token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjM2LCJuYW1lIjoi7ZWY7JiBMiIsImlhdCI6MTU5NDkxMTQzNiwiZXhwIjoxNTk1MDg0MjM2LCJpc3MiOiJtb25nbGUifQ.1QUSDWRk_C3bYxrR95qqD4AJNIKVz5P6EbAIhd58jsU"
+        )
 
             .enqueue(
                 object : Callback<ResponseMainLibraryData> {
@@ -62,7 +67,8 @@ class LibraryFragment : Fragment() {
                         if (response.isSuccessful) {
                             Log.e("내 서재 프로필 조회 성공", "${response.body()}")
 
-//                            Glide.with(img_library_profile).load(Drawable?) = response.body()!!.data[0].img
+//                            Glide.with(img_library_profile).load(MainLibrary.) = response.body()!!.data[0].img
+                            Glide.with(view!!.context).load(response.body()!!.data[0].img).into(img_library_profile)
                             tx_library_username.text = response.body()!!.data[0].name
                             tx_library_contents.text = response.body()!!.data[0].keyword
                             tx_library_keyword.text = response.body()!!.data[0].introduce

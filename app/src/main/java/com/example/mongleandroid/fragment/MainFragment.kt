@@ -63,8 +63,8 @@ class MainFragment : Fragment() {
 //            }
 //        }
 
-        requestTodaySentenceData() // 오늘의 문장 통신
-        requestMainCurators()
+//        requestTodaySentenceData() // 오늘의 문장 통신
+//        requestMainCurators()
 
     }
 

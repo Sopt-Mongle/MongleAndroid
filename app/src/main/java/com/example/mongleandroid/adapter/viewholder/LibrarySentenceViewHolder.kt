@@ -5,6 +5,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.network.data.LibrarySentenceData
+import com.example.mongleandroid.network.data.response.LibrarySentenceWrite
 
 class LibrarySentenceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val tv_library_sentence_themename =
@@ -14,10 +15,10 @@ class LibrarySentenceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVi
     val tv_item_library_sentence_username =
         itemView.findViewById<TextView>(R.id.tv_item_library_sentence_username)
 
-    fun bind(librarySentenceData: LibrarySentenceData) {
-        tv_library_sentence_themename.text = librarySentenceData.tv_library_sentence_themename
-        tv_library_sentence_sentence.text = librarySentenceData.tv_library_sentence_sentence
+    fun bind(librarySentenceWrite: LibrarySentenceWrite) {
+        tv_library_sentence_themename.text = librarySentenceWrite.theme
+        tv_library_sentence_sentence.text = librarySentenceWrite.sentence
         tv_item_library_sentence_username.text =
-            librarySentenceData.tv_item_library_sentence_username
+            librarySentenceWrite.writer
     }
 }
