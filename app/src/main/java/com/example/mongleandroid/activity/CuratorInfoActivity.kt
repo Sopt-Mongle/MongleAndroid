@@ -26,6 +26,8 @@ class CuratorInfoActivity : AppCompatActivity() {
         vp_curator_info.adapter = CuratorInfoPagerAdapter(supportFragmentManager)
         vp_curator_info.offscreenPageLimit = 1
 
+        loadDatas()
+
         //sticky header
         main_scroll_view_cura_info.run {
             header = cl_titleLayout

@@ -1,13 +1,16 @@
 package com.example.mongleandroid.fragment
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.mongleandroid.R
+import com.example.mongleandroid.activity.EditSentenceActivity
 import com.example.mongleandroid.adapter.LibrarySentenceAdapter
 import com.example.mongleandroid.adapter.LibrarySentenceClickAdapter
 import com.example.mongleandroid.network.RequestToServer
@@ -15,6 +18,8 @@ import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.data.LibrarySentenceData
 import com.example.mongleandroid.network.data.response.ResponseLibrarySentenceData
 import kotlinx.android.synthetic.main.fragment_library_sentence.*
+import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.item_library_sentence_click.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -71,7 +76,28 @@ class LibrarySentenceFragment : Fragment() {
             }
 
         }
+
+        //fragment 안에 있는 recyclerView안에 있는 item의 특정 ...버튼 누르면 EditSentenceActicity로 넘어가는
+//        library_sentence_more.setOnClickListener {
+//
+//            activity?.let {
+//                val intent = Intent(context, EditSentenceActivity::class.java)
+//                startActivity(intent) }
+//
+//        }
+
+
+        }
+
+
+    //SearchFragment로 이동
+    private fun replaceFragment(fragment: Fragment) {
+        val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+        transaction.replace(R.id.main_activity_fg, fragment)
+        transaction.commit()
+
     }
+
 
 
 

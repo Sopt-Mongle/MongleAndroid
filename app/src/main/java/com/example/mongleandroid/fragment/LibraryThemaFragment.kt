@@ -1,5 +1,6 @@
 package com.example.mongleandroid.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
+import com.example.mongleandroid.activity.NoThemeActivity
 import com.example.mongleandroid.adapter.LibraryThemaAdapter
 import com.example.mongleandroid.adapter.LibraryThemaClickAdapter
 import com.example.mongleandroid.network.RequestToServer
@@ -67,6 +69,15 @@ class LibraryThemaFragment : Fragment() {
             }
 
         }
+
+//        tx_non_thema.setOnClickListener {
+//            activity?.let {
+//                val intent = Intent(context, NoThemeActivity::class.java)
+//                startActivity(intent)
+//            }
+//        }
+
+
 
     }
 

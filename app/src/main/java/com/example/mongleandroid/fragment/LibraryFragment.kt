@@ -1,6 +1,7 @@
 package com.example.mongleandroid.fragment
 
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +13,8 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.example.mongleandroid.R
+import com.example.mongleandroid.activity.NoThemeActivity
+import com.example.mongleandroid.activity.SettingActivity
 import com.example.mongleandroid.adapter.LibraryPagerAdapter
 import com.example.mongleandroid.adapter.LibraryTabAdapter
 import com.example.mongleandroid.network.RequestToServer
@@ -22,6 +25,7 @@ import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_library.*
 import kotlinx.android.synthetic.main.fragment_library.titleLayout
 import kotlinx.android.synthetic.main.fragment_library.view.*
+import kotlinx.android.synthetic.main.fragment_library_thema.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,10 +47,10 @@ class LibraryFragment : Fragment() {
 
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        requestMyProfile()
-    }
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        requestMyProfile()
+//    }
 
     fun requestMyProfile(){
         requestToServer.service.lookLibraryProfile(
@@ -83,6 +87,8 @@ class LibraryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        requestMyProfile()
+
         //sticky header
         main_scroll_view.run {
             header = titleLayout
@@ -93,6 +99,14 @@ class LibraryFragment : Fragment() {
                 Log.d("LOGGER_TAG", "freeListener")
             }
         }
+
+        img_library_setting.setOnClickListener{
+            activity?.let {
+                val intent = Intent(context, SettingActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
 
         val libraryTabLayout = view.findViewById(R.id.titleLayout) as TabLayout
         val libraryViewPager = view.findViewById(R.id.vp_library) as ViewPager
@@ -131,6 +145,15 @@ class LibraryFragment : Fragment() {
 
 
     }
+
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        tx_non_thema.setOnClickListener {
+//            val intent = Intent(getActivity(), NoThemeActivity::class.java)
+//            startActivity(intent)
+////            finish()
+//        }
+//    }
 
 
 }
