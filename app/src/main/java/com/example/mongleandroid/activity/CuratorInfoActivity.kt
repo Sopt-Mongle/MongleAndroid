@@ -1,6 +1,7 @@
 package com.example.mongleandroid.activity
 
 import android.graphics.Color
+import android.graphics.Insets.add
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,11 +9,16 @@ import androidx.viewpager.widget.ViewPager
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.CuratorInfoPagerAdapter
 import com.example.mongleandroid.adapter.LibraryTabAdapter
+import com.example.mongleandroid.network.data.CuratorInfoThemaData
+import com.example.mongleandroid.network.data.MainThemeData
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_curator_info.*
 import kotlinx.android.synthetic.main.fragment_library.*
 
 class CuratorInfoActivity : AppCompatActivity() {
+
+    private var data = mutableListOf<CuratorInfoThemaData>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_curator_info)
@@ -119,4 +125,45 @@ class CuratorInfoActivity : AppCompatActivity() {
         }
 
     }
+
+    private fun loadDatas() {
+        data.apply {
+            add(
+                CuratorInfoThemaData(
+                    thema_cu_info = "번아웃을 극복하기 위해 봐야하는 문장",
+                    thema_num_library_cu_info = "107",
+                    sentence_count_library_item_cu_info = "15"
+                )
+            )
+            add(
+                CuratorInfoThemaData(
+                    thema_cu_info = "결국 봄이 언제나 찾아왔지만, 하마터면 오지 않을 뻔했던 봄을 생각하면 마음이 섬찟해지는 문장",
+                    thema_num_library_cu_info = "107",
+                    sentence_count_library_item_cu_info = "15"
+                )
+            )
+            add(
+                CuratorInfoThemaData(
+                    thema_cu_info = "개발이 잘 안될 때 심신안정을 위해 봐야하는 문장",
+                    thema_num_library_cu_info = "509",
+                    sentence_count_library_item_cu_info = "15"
+                )
+            )
+            add(
+                CuratorInfoThemaData(
+                    thema_cu_info = "번아웃을 극복하기 위해 봐야하는 문장",
+                    thema_num_library_cu_info = "107",
+                    sentence_count_library_item_cu_info = "15"
+                )
+            )
+            add(
+                CuratorInfoThemaData(
+                    thema_cu_info = "번아웃을 극복하기 위해 봐야하는 문장",
+                    thema_num_library_cu_info = "107",
+                    sentence_count_library_item_cu_info = "15"
+                )
+            )
+        }
+    }
+
 }

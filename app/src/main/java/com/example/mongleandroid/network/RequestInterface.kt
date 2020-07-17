@@ -111,9 +111,9 @@ interface RequestInterface {
     @GET("/main/curators")
     fun GetMainQurators() : Call<ResponseMainNowHotData>
 
-    // 추천 큐레이터
-    @GET("/curator/recommend")
-    fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
+//    // 추천 큐레이터
+//    @GET("/curator/recommend")
+//    fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
 
     //내서재 메인 프로필 조회
    @GET("/my/profile")
