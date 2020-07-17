@@ -169,7 +169,7 @@ class LibrarySentenceFragment : Fragment() {
                     tv_item_library_sentence_username = "예스리"
                 )
             )
-            
+
 
         }
 
