@@ -231,7 +231,7 @@ class MainFragment : Fragment() {
         ).enqueue(
             object : Callback<ResponseMainHotThemeData> {
                 override fun onFailure(call: Call<ResponseMainHotThemeData>, t: Throwable) {
-
+                    Log.d( "통신실패", t.toString())
                 }
 
                 override fun onResponse(
