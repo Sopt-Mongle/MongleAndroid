@@ -5,6 +5,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.network.data.MainThemeData
+import com.example.mongleandroid.network.data.response.DataSentence
 
 class MainThemeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
     val tv_theme_sentence = itemView.findViewById<TextView>(R.id.tv_theme_sentence)
@@ -12,11 +13,11 @@ class MainThemeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
     val tv_like_num = itemView.findViewById<TextView>(R.id.tv_like_num)
     val tv_save_num = itemView.findViewById<TextView>(R.id.tv_save_num)
 
-    fun bind(mainThemeData: MainThemeData){
-        tv_theme_sentence.text = mainThemeData.tv_theme_sentence
-        tv_theme_curator.text = mainThemeData.tv_theme_curator
-        tv_like_num.text = mainThemeData.tv_like_num
-        tv_save_num.text = mainThemeData.tv_like_num
+    fun bind(dataSentence: DataSentence){
+        tv_theme_sentence.text = dataSentence.sentence
+        tv_theme_curator.text = dataSentence.writer
+        tv_like_num.text = dataSentence.likes.toString()
+        tv_save_num.text = dataSentence.saves.toString()
 
     }
 
