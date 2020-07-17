@@ -13,6 +13,7 @@ import com.example.mongleandroid.adapter.ResultCuratorAdapter
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.data.response.ResponseResultCuratorData
 import kotlinx.android.synthetic.main.fragment_result_curator.*
+import kotlinx.android.synthetic.main.fragment_result_theme.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,9 +36,12 @@ class ResultCuratorFragment : Fragment() {
             override fun onResponse(call: Call<ResponseResultCuratorData>, response: Response<ResponseResultCuratorData>) {
                 if (response.isSuccessful){
                     Log.d("큐레이터 검색", "${response.body()}")
+                    result_curator_count.text = response.body()!!.data.size.toString()
                     resultCuratorAdapter = ResultCuratorAdapter(view!!.context, response.body()!!.data)
                     rv_result_curator.adapter = resultCuratorAdapter
                     resultCuratorAdapter.notifyDataSetChanged()
+                } else {
+                    fragment_result_curator_cl_noresult.visibility = View.VISIBLE
                 }
             }
         })
