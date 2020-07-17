@@ -78,6 +78,7 @@ class LibraryFragment : Fragment() {
                             tx_library_keyword.text = response.body()!!.data[0].introduce
 
 
+
                         }
                     }
                 }
@@ -146,14 +147,7 @@ class LibraryFragment : Fragment() {
 
     }
 
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        tx_non_thema.setOnClickListener {
-//            val intent = Intent(getActivity(), NoThemeActivity::class.java)
-//            startActivity(intent)
-////            finish()
-//        }
-//    }
+
 
 
 }
