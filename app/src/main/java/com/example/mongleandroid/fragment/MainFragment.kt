@@ -189,9 +189,9 @@ class MainFragment : Fragment() {
                     response: Response<ResponseMainHotThemeData>
                 ) {
                     if (response.isSuccessful) {
-//                        mainHotThemeAdapter = MainHotThemeAdapter(response.body()!!.data, view!!.context)
-//                        rv_main_hot_theme.adapter = mainHotThemeAdapter
-//                        mainHotThemeAdapter.notifyDataSetChanged()
+                        mainHotThemeAdapter = MainHotThemeAdapter(response.body()!!.data, view!!.context)
+                        rv_main_hot_theme.adapter = mainHotThemeAdapter
+                        mainHotThemeAdapter.notifyDataSetChanged()
                     }
                 }
             }
@@ -215,9 +215,9 @@ class MainFragment : Fragment() {
                     response: Response<ResponseMainHotThemeData>
                 ) {
                     if (response.isSuccessful) {
-//                        mainHotThemeAdapter = MainHotThemeAdapter(response.body()!!.data, view!!.context)
-//                        rv_main_waiting_for_sentence_theme.adapter = mainHotThemeAdapter
-//                        mainHotThemeAdapter.notifyDataSetChanged()
+                        mainHotThemeAdapter = MainHotThemeAdapter(response.body()!!.data, view!!.context)
+                        rv_main_waiting_for_sentence_theme.adapter = mainHotThemeAdapter
+                        mainHotThemeAdapter.notifyDataSetChanged()
                     }
                 }
 
@@ -240,9 +240,9 @@ class MainFragment : Fragment() {
                     response: Response<ResponseMainHotThemeData>
                 ) {
                     if (response.isSuccessful) {
-//                        mainHotThemeAdapter = MainHotThemeAdapter(response.body()!!.data, view!!.context)
-//                        rv_viewed_a_lot_time_theme.adapter = mainHotThemeAdapter
-//                        mainHotThemeAdapter.notifyDataSetChanged()
+                        mainHotThemeAdapter = MainHotThemeAdapter(response.body()!!.data, view!!.context)
+                        rv_viewed_a_lot_time_theme.adapter = mainHotThemeAdapter
+                        mainHotThemeAdapter.notifyDataSetChanged()
                     }
                 }
 
@@ -261,9 +261,9 @@ class MainFragment : Fragment() {
                     response: Response<ResponseMainNowHotData>
                 ) {
                     if (response.isSuccessful) {
-//                        mainNowHotCuratorAdapter = MainNowHotCuratorAdapter(response.body()!!.data, view!!.context)
-//                        rv_main_now_hot_curator.adapter = mainNowHotCuratorAdapter
-//                        mainNowHotCuratorAdapter.notifyDataSetChanged()
+                        mainNowHotCuratorAdapter = MainNowHotCuratorAdapter(response.body()!!.data, view!!.context)
+                        rv_main_now_hot_curator.adapter = mainNowHotCuratorAdapter
+                        mainNowHotCuratorAdapter.notifyDataSetChanged()
                     }
                 }
 
