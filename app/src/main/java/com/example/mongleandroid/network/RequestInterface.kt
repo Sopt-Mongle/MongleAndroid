@@ -20,11 +20,15 @@ interface RequestInterface {
 
     //테마 만들기
     @POST("/post/theme")
-    fun RequestWritingTheme(@Body body: RequestWritingThemeData) : Call<ResponseWritingThemeData>
+    fun RequestWritingTheme(
+        @Header ("token") token:String?,
+        @Body body: RequestWritingThemeData) : Call<ResponseWritingThemeData>
 
     //문장 올리기
     @POST("/post/sentence")
-    fun RequestWritingSentence(@Body body: RequestWritingSentenceData) : Call<ResponseWritingSentenceData>
+    fun RequestWritingSentence(
+        @Header ("token") token: String?,
+        @Body body: RequestWritingSentenceData) : Call<ResponseWritingSentenceData>
 
     //제목으로 책 검색
     @GET("/post/bookSearch")
@@ -35,6 +39,10 @@ interface RequestInterface {
     //선택할 테마 목록 조회
     @GET("/post/theme")
     fun RequestWritingSentenceThemeSearch() :Call<ResponseWritingSentenceThemeSearchData>
+
+    //테마 이미지 조회
+    @GET("/post/themeImg")
+    fun GetPostThemeImg() : Call<ResponseThemeImgData>
 
     //테마 없는 문장 목록 조회
     @GET("/post/getEmptySentence")
