@@ -20,7 +20,7 @@ class CuratorInThemeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVie
     fun bind(curatorList : CuratorList) {
         Glide.with(itemView).load(curatorList.img).into(img)
         name.text = curatorList.name
-        subscribe.text = curatorList.subscribe
+        subscribe.text = curatorList.subscribe.toString()
         keyword.text = curatorList.keyword
         alreadySubscribed.setOnClickListener {
             if(alreadySubscribed.isChecked) {

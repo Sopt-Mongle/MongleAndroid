@@ -52,12 +52,17 @@ interface RequestInterface {
     @GET("/post/setTheme")
     fun RequestSetEmptySentence(@Body body: RequestSetEmptySentenceData) : Call<ResponseSetEmptySentenceData>
 
-    // 검색 - 최근 키워드
+    // 검색 - 최근 키워드 - 성공
     @GET("/search/recent")
-    fun RequestSearchRecentData(@Body body: RequestSearchRecentData) : Call<ResponseSearchRecentData>
+    fun requestSearchRecentData(
+        @Header("token") token: String?
+    ) : Call<ResponseSearchRecentData>
 
     // 검색 - 최근 키워드 전체 삭제
-    //@DELETE("/search/recent")
+    @DELETE("/search/recent")
+    fun requestSearchRecentDeleteRecent(
+        @Header("token") token: String?
+    ) : Call<ResponseSearchRecentDeleteData>
 
     // 검색 - 추천 키워드 - 성공
     @GET("/search/recommend")
@@ -101,7 +106,7 @@ interface RequestInterface {
     @GET("/curator/recommend")
     fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
 
-    // 테마 속 큐레이터
+    // 테마 속 큐레이터 - 성공
     @GET("/curator/themeInCurator")
     fun requestCuratorInThemeData(
         @Header("token") token: String?

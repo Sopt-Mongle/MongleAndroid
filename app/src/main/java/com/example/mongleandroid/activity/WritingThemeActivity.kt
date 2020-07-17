@@ -16,11 +16,9 @@ import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.data.request.RequestWritingThemeData
 import com.example.mongleandroid.network.data.response.ImgData
 import com.example.mongleandroid.network.data.response.ResponseThemeImgData
-import com.example.mongleandroid.network.data.response.ResponseWritingSentenceData
 import com.example.mongleandroid.network.data.response.ResponseWritingThemeData
 import com.example.mongleandroid.util.DialogMakethemeCheck
 import kotlinx.android.synthetic.main.activity_writing_theme.*
-import kotlinx.android.synthetic.main.fragment_curator.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,18 +33,38 @@ class WritingThemeActivity : AppCompatActivity() {
         var img: String,
         var imgIdx: Int
     )
-    var imgDataList: List<imgData> = List<imgData>(16) {imgData("",0)}
+    var imgDataList: MutableList<imgData> = MutableList(20 ,{imgData("",0)})
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_writing_theme)
-
         requestThemeImgData()
 
         activity_writing_theme_et_theme_title.requestFocus()
         activity_writing_theme_et_theme_title.showKeyboard()
 
+        var imgchked1 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img1)
+        var imgchked2 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img2)
+        var imgchked3 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img3)
+        var imgchked4 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img4)
+        var imgchked5 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img5)
+        var imgchked6 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img6)
+        var imgchked7 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img7)
+        var imgchked8 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img8)
+        var imgchked9 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img9)
+        var imgchked10 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img10)
+
+        chked(imgchked1,1)
+        chked(imgchked2,2)
+        chked(imgchked3,3)
+        chked(imgchked4,4)
+        chked(imgchked5,5)
+        chked(imgchked6,6)
+        chked(imgchked7,7)
+        chked(imgchked8,8)
+        chked(imgchked9,9)
+        chked(imgchked10,10)
 
         activity_writing_theme_et_theme_title.addTextChangedListener(object: TextWatcher{
             override fun afterTextChanged(s: Editable?) {
@@ -81,14 +99,13 @@ class WritingThemeActivity : AppCompatActivity() {
             if(activity_writing_theme_et_theme_title.text.toString().length>0 && themeImgIdx > 0){
                 RequestWritingThemeData.theme = activity_writing_theme_et_theme_title.text.toString()
                 val dlg = DialogMakethemeCheck(this)
+                dlg.start(themeImgIdx, imgDataList, applicationContext)
                 dlg.setOnOKClickedListener{ content ->
                 }
-                dlg.start(themeImgIdx)
                 //키보드 제어
                 requestData()
                 activity_writing_theme_et_theme_title.unshowKeyboard()
             }
-
         }
 
         //뒤로가기 버튼
@@ -96,30 +113,6 @@ class WritingThemeActivity : AppCompatActivity() {
             Toast.makeText(this, "메인화면으로 돌아갑니다.", Toast.LENGTH_SHORT).show()
             finish()
         }
-
-        var imgchked1 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img1)
-        var imgchked2 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img2)
-        var imgchked3 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img3)
-        var imgchked4 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img4)
-        var imgchked5 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img5)
-        var imgchked6 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img6)
-        var imgchked7 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img7)
-        var imgchked8 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img8)
-        var imgchked9 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img9)
-        var imgchked10 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img10)
-
-        chked(imgchked1,1)
-        chked(imgchked2,2)
-        chked(imgchked3,3)
-        chked(imgchked4,4)
-        chked(imgchked5,5)
-        chked(imgchked6,6)
-        chked(imgchked7,7)
-        chked(imgchked8,8)
-        chked(imgchked9,9)
-        chked(imgchked10,10)
-
-
     }
 
 
@@ -227,6 +220,28 @@ class WritingThemeActivity : AppCompatActivity() {
                         Glide.with(applicationContext).load(Imgdatas.get(13).img).into(activity_writing_theme_img14)
                         Glide.with(applicationContext).load(Imgdatas.get(14).img).into(activity_writing_theme_img15)
                         Glide.with(applicationContext).load(Imgdatas.get(15).img).into(activity_writing_theme_img16)
+
+
+
+
+                        imgDataList[1] = imgData(Imgdatas.get(0).img, Imgdatas.get(0).themeImgIdx)
+                        imgDataList[2] = imgData(Imgdatas.get(1).img, Imgdatas.get(1).themeImgIdx)
+                        imgDataList[3] = imgData(Imgdatas.get(2).img, Imgdatas.get(2).themeImgIdx)
+                        imgDataList[4] = imgData(Imgdatas.get(3).img, Imgdatas.get(3).themeImgIdx)
+                        imgDataList[5] = imgData(Imgdatas.get(4).img, Imgdatas.get(4).themeImgIdx)
+                        imgDataList[6] = imgData(Imgdatas.get(5).img, Imgdatas.get(5).themeImgIdx)
+                        imgDataList[7] = imgData(Imgdatas.get(6).img, Imgdatas.get(6).themeImgIdx)
+                        imgDataList[8] = imgData(Imgdatas.get(7).img, Imgdatas.get(7).themeImgIdx)
+                        imgDataList[9] = imgData(Imgdatas.get(8).img, Imgdatas.get(8).themeImgIdx)
+                        imgDataList[10] = imgData(Imgdatas.get(9).img, Imgdatas.get(9).themeImgIdx)
+                        imgDataList[11] = imgData(Imgdatas.get(10).img, Imgdatas.get(10).themeImgIdx)
+                        imgDataList[12] = imgData(Imgdatas.get(11).img, Imgdatas.get(11).themeImgIdx)
+                        imgDataList[13] = imgData(Imgdatas.get(12).img, Imgdatas.get(12).themeImgIdx)
+                        imgDataList[14] = imgData(Imgdatas.get(13).img, Imgdatas.get(13).themeImgIdx)
+                        imgDataList[15] = imgData(Imgdatas.get(14).img, Imgdatas.get(14).themeImgIdx)
+                        imgDataList[16] = imgData(Imgdatas.get(15).img, Imgdatas.get(15).themeImgIdx)
+
+
 
                     }
                 }

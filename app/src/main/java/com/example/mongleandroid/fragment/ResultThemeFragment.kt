@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
@@ -37,7 +38,7 @@ class ResultThemeFragment : Fragment() {
 
     private fun requestThemeData() {
         requestToServer.service.requestResultThemeData(
-            token = SharedPreferenceController.getAccessToken(view!!.context),
+            token = context?.let { SharedPreferenceController.getAccessToken(it) },
             words = search_result
         ).enqueue(object : Callback<ResponseResultThemeData> {
             override fun onFailure(call: Call<ResponseResultThemeData>, t: Throwable) {
@@ -47,12 +48,14 @@ class ResultThemeFragment : Fragment() {
                 if (response.isSuccessful){
                     response.body().let { body ->
                         Log.d("테마 검색", "${response.body()}")
+                        result_theme_count.text = body!!.data.size.toString()
                         resultThemeAdapter = ResultThemeAdapter(view!!.context)
                         rv_result_theme.adapter = resultThemeAdapter
                         resultThemeAdapter.datas = body!!.data
                         resultThemeAdapter.notifyDataSetChanged()
                     }
-
+                } else {
+                    fragment_result_theme_cl_noresult.visibility = VISIBLE
                 }
 
             }
