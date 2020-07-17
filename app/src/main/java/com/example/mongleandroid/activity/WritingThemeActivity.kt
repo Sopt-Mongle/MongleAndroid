@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.bumptech.glide.Glide
 import com.example.mongleandroid.*
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.SharedPreferenceController
@@ -32,7 +33,7 @@ class WritingThemeActivity : AppCompatActivity() {
         var img: String,
         var imgIdx: Int
     )
-    var imgDataList: MutableList<imgData> = MutableList(16,{imgData("",0)})
+    var imgDataList: MutableList<imgData> = MutableList(20 ,{imgData("",0)})
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -98,9 +99,9 @@ class WritingThemeActivity : AppCompatActivity() {
             if(activity_writing_theme_et_theme_title.text.toString().length>0 && themeImgIdx > 0){
                 RequestWritingThemeData.theme = activity_writing_theme_et_theme_title.text.toString()
                 val dlg = DialogMakethemeCheck(this)
+                dlg.start(themeImgIdx, imgDataList, applicationContext)
                 dlg.setOnOKClickedListener{ content ->
                 }
-                dlg.start(themeImgIdx, imgDataList, this)
                 //키보드 제어
                 requestData()
                 activity_writing_theme_et_theme_title.unshowKeyboard()
@@ -203,22 +204,44 @@ class WritingThemeActivity : AppCompatActivity() {
                     response.body().let { body ->
                         Imgdatas = body!!.data
 
-                        imgDataList[1] = imgData(Imgdatas.get(0).img, 1)
-                        imgDataList[2] = imgData(Imgdatas.get(0).img, 2)
-                        imgDataList[3] = imgData(Imgdatas.get(0).img, 3)
-                        imgDataList[4] = imgData(Imgdatas.get(0).img, 4)
-                        imgDataList[5] = imgData(Imgdatas.get(0).img, 5)
-                        imgDataList[6] = imgData(Imgdatas.get(0).img, 6)
-                        imgDataList[7] = imgData(Imgdatas.get(0).img, 7)
-                        imgDataList[8] = imgData(Imgdatas.get(0).img, 8)
-                        imgDataList[9] = imgData(Imgdatas.get(0).img, 9)
-                        imgDataList[10] = imgData(Imgdatas.get(0).img, 10)
-                        imgDataList[11] = imgData(Imgdatas.get(0).img, 11)
-                        imgDataList[12] = imgData(Imgdatas.get(0).img, 12)
-                        imgDataList[13] = imgData(Imgdatas.get(0).img, 13)
-                        imgDataList[14] = imgData(Imgdatas.get(0).img, 14)
-                        imgDataList[15] = imgData(Imgdatas.get(0).img, 15)
-                        imgDataList[16] = imgData(Imgdatas.get(0).img, 16)
+                        Glide.with(applicationContext).load(Imgdatas.get(0).img).into(activity_writing_theme_img1)
+                        Glide.with(applicationContext).load(Imgdatas.get(1).img).into(activity_writing_theme_img2)
+                        Glide.with(applicationContext).load(Imgdatas.get(2).img).into(activity_writing_theme_img3)
+                        Glide.with(applicationContext).load(Imgdatas.get(3).img).into(activity_writing_theme_img4)
+                        Glide.with(applicationContext).load(Imgdatas.get(4).img).into(activity_writing_theme_img5)
+                        Glide.with(applicationContext).load(Imgdatas.get(5).img).into(activity_writing_theme_img6)
+                        Glide.with(applicationContext).load(Imgdatas.get(6).img).into(activity_writing_theme_img7)
+                        Glide.with(applicationContext).load(Imgdatas.get(7).img).into(activity_writing_theme_img8)
+                        Glide.with(applicationContext).load(Imgdatas.get(8).img).into(activity_writing_theme_img9)
+                        Glide.with(applicationContext).load(Imgdatas.get(9).img).into(activity_writing_theme_img10)
+                        Glide.with(applicationContext).load(Imgdatas.get(10).img).into(activity_writing_theme_img11)
+                        Glide.with(applicationContext).load(Imgdatas.get(11).img).into(activity_writing_theme_img12)
+                        Glide.with(applicationContext).load(Imgdatas.get(12).img).into(activity_writing_theme_img13)
+                        Glide.with(applicationContext).load(Imgdatas.get(13).img).into(activity_writing_theme_img14)
+                        Glide.with(applicationContext).load(Imgdatas.get(14).img).into(activity_writing_theme_img15)
+                        Glide.with(applicationContext).load(Imgdatas.get(15).img).into(activity_writing_theme_img16)
+
+
+
+
+                        imgDataList[1] = imgData(Imgdatas.get(0).img, Imgdatas.get(0).themeImgIdx)
+                        imgDataList[2] = imgData(Imgdatas.get(1).img, Imgdatas.get(1).themeImgIdx)
+                        imgDataList[3] = imgData(Imgdatas.get(2).img, Imgdatas.get(2).themeImgIdx)
+                        imgDataList[4] = imgData(Imgdatas.get(3).img, Imgdatas.get(3).themeImgIdx)
+                        imgDataList[5] = imgData(Imgdatas.get(4).img, Imgdatas.get(4).themeImgIdx)
+                        imgDataList[6] = imgData(Imgdatas.get(5).img, Imgdatas.get(5).themeImgIdx)
+                        imgDataList[7] = imgData(Imgdatas.get(6).img, Imgdatas.get(6).themeImgIdx)
+                        imgDataList[8] = imgData(Imgdatas.get(7).img, Imgdatas.get(7).themeImgIdx)
+                        imgDataList[9] = imgData(Imgdatas.get(8).img, Imgdatas.get(8).themeImgIdx)
+                        imgDataList[10] = imgData(Imgdatas.get(9).img, Imgdatas.get(9).themeImgIdx)
+                        imgDataList[11] = imgData(Imgdatas.get(10).img, Imgdatas.get(10).themeImgIdx)
+                        imgDataList[12] = imgData(Imgdatas.get(11).img, Imgdatas.get(11).themeImgIdx)
+                        imgDataList[13] = imgData(Imgdatas.get(12).img, Imgdatas.get(12).themeImgIdx)
+                        imgDataList[14] = imgData(Imgdatas.get(13).img, Imgdatas.get(13).themeImgIdx)
+                        imgDataList[15] = imgData(Imgdatas.get(14).img, Imgdatas.get(14).themeImgIdx)
+                        imgDataList[16] = imgData(Imgdatas.get(15).img, Imgdatas.get(15).themeImgIdx)
+
+
 
                     }
                 }
