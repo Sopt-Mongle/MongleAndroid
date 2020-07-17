@@ -34,11 +34,7 @@
         <activity
             android:name=".activity.LoginActivity"
             android:windowSoftInputMode="adjustResize" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activity.WritingThemeActivity"
@@ -64,7 +60,11 @@
             android:name=".activity.WritingSentenceActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".activity.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

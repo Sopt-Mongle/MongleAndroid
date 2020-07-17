@@ -81,12 +81,20 @@ class CuratorFragment : Fragment() {
                     if (response.isSuccessful) {
                         response.body().let { body ->
 
-                            fragment_curator_tv_themename.text = body!!.data!!.theme
+                            fragment_curator_tv_themename.text = body!!.data!!.theme[0].theme
+                            fragment_curator_tv_curator_count.text = body!!.data!!.theme[0].curatorNum.toString()
+
+                            fragment_curator_tv_themename2.text = body!!.data!!.theme[1].theme
+                            fragment_curator_tv_curator_count2.text = body!!.data!!.theme[1].curatorNum.toString()
 
                             Log.d("테마속 큐레이터", "${response.body()}")
-                            curatorInThemeAdapter = CuratorInThemeAdapter(view!!.context, body!!.data!!.curators)
+                            curatorInThemeAdapter = CuratorInThemeAdapter(view!!.context, body!!.data!!.theme[0].curators)
                             fragment_curator_rv_curator1.adapter = curatorInThemeAdapter
                             curatorInThemeAdapter.notifyDataSetChanged()
+
+                            curatorInThemeAdapter2 = CuratorInThemeAdapter(view!!.context, body!!.data!!.theme[1].curators)
+                            fragment_curator_rv_curator2.adapter = curatorInThemeAdapter2
+                            curatorInThemeAdapter2.notifyDataSetChanged()
                         }
 
                     }
