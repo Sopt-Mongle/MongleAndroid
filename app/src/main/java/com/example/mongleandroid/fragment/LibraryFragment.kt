@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.example.mongleandroid.R
 import com.example.mongleandroid.activity.NoThemeActivity
+import com.example.mongleandroid.activity.SettingActivity
 import com.example.mongleandroid.adapter.LibraryPagerAdapter
 import com.example.mongleandroid.adapter.LibraryTabAdapter
 import com.example.mongleandroid.network.RequestToServer
@@ -99,11 +100,13 @@ class LibraryFragment : Fragment() {
             }
         }
 
-        tx_non_thema.setOnClickListener {
-            val intent = Intent(getActivity(), NoThemeActivity::class.java)
-            startActivity(intent)
-//            finish()
+        img_library_setting.setOnClickListener{
+            activity?.let {
+                val intent = Intent(context, SettingActivity::class.java)
+                startActivity(intent)
+            }
         }
+
 
         val libraryTabLayout = view.findViewById(R.id.titleLayout) as TabLayout
         val libraryViewPager = view.findViewById(R.id.vp_library) as ViewPager
@@ -142,6 +145,15 @@ class LibraryFragment : Fragment() {
 
 
     }
+
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        tx_non_thema.setOnClickListener {
+//            val intent = Intent(getActivity(), NoThemeActivity::class.java)
+//            startActivity(intent)
+////            finish()
+//        }
+//    }
 
 
 }
