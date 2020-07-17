@@ -111,9 +111,61 @@ interface RequestInterface {
     @GET("/main/curators")
     fun GetMainQurators() : Call<ResponseMainNowHotData>
 
-    // 메인 - 오늘 하루 저장이 가장 많이 된 테마목록 조회
+    // 추천 큐레이터
+    @GET("/curator/recommend")
+    fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
+
+    //내서재 메인 프로필 조회
+   @GET("/my/profile")
+   fun lookLibraryProfile(
+        @Header("token") token: String?
+    ) : Call<ResponseMainLibraryData>
+
+    //내서재 테마 조회
+    @GET("/my/theme")
+    fun lookLibraryThema(
+        @Header("token") token: String?
+    ) : Call<ResponseLibraryThemeData>
+
+    //내서재 테마 조회
+    @GET("/my/sentence")
+    fun lookLibrarySentence(
+        @Header("token") token: String?
+    ) : Call<ResponseLibrarySentenceData>
+
+    //내서재 구독 조회
+    @GET("/my/subscribe")
+    fun lookLibraryCurator(
+        @Header("token") token: String?
+    ) : Call<ResponseLibraryCuratorData>
+
+    // 메인 - 오늘 하루 저장이 가장 많이 된 테마목록 조회 - 성공
     @GET("/main/themes")
     fun GetMainThemes(
         @Header("token") token: String?
     ) : Call<ResponseMainHotThemeData>
+
+    // 메인 - 문장을 기다리고 있는 테마 목록 조회
+    @GET("/main/waitThemes")
+    fun GetMainWaitThemes(
+        @Header("token") token: String?
+    ) : Call<ResponseMainHotThemeData>
+
+    // 메인 - 요즘 사람들이 많이 본 테마
+    @GET("/main/nowThemes")
+    fun GetMainNowThemes(
+        @Header("token") token: String?
+    ) : Call<ResponseMainHotThemeData>
+
+    // 메인 - 뷰페이저 이미지 통신
+    @GET("/main/editorsPick")
+    fun GetMainEditorsPick(
+
+    ) : Call<ResponseMainEditorsPick>
+
+    //테마 상세 조회
+//    @GET("/detail/theme/:themeIdx")
+//    fun GetDetailTheme(
+//        @Header("token") token: String?
+//    ) : Call<>
 }
