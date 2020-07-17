@@ -15,10 +15,10 @@ class LibraryThemaClickViewHolder(itemView: View) : RecyclerView.ViewHolder(item
 //    val rdbtn_saved_thema = itemView.findViewById<RadioButton>(R.id.rdbtn_saved_thema)
 //    val rdbtn_making_thema = itemView.findViewById<RadioButton>(R.id.rdbtn_making_thema)
 
-    fun bind(libraryThemeSave: LibraryThemeSave) {
-        tv_library_thema.text = libraryThemeSave.theme
-        tv_thema_num_library.text = libraryThemeSave.saves.toString()
-        tv_sentence_count_library_item.text = libraryThemeSave.sentenceNum.toString()
+    fun bind(libraryThemeWrite: LibraryThemeWrite) {
+        tv_library_thema.text = libraryThemeWrite.theme
+        tv_thema_num_library.text = libraryThemeWrite.saves.toString()
+        tv_sentence_count_library_item.text = libraryThemeWrite.sentenceNum.toString()
 
 //        rdbtn_saved_thema.setOnClickListener {
 //            if (rdbtn_saved_thema.isChecked) {

@@ -221,7 +221,7 @@ class LibraryThemaFragment : Fragment() {
                         if(response.isSuccessful) {
                             Log.d("내서재 테마 조회", "${response.body()}")
 
-                            libraryThemaAdapter = LibraryThemaAdapter(view!!.context, response.body()!!.data!!.write)
+                            libraryThemaAdapter = LibraryThemaAdapter(view!!.context, response.body()!!.data!!.save)
                             rv_library_thema.adapter = libraryThemaAdapter
                             libraryThemaAdapter.notifyDataSetChanged()
                         }
@@ -247,7 +247,7 @@ class LibraryThemaFragment : Fragment() {
                         if(response.isSuccessful) {
                             Log.d("내서재 테마 저장 조회", "${response.body()}")
 
-                            libraryThemaClickAdapter = LibraryThemaClickAdapter(view!!.context, response.body()!!.data!!.save)
+                            libraryThemaClickAdapter = LibraryThemaClickAdapter(view!!.context, response.body()!!.data!!.write)
                             rv_library_thema.adapter = libraryThemaClickAdapter
                             libraryThemaClickAdapter.notifyDataSetChanged()
                         }

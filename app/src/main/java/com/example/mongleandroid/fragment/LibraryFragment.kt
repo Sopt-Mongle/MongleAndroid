@@ -133,15 +133,15 @@ class LibraryFragment : Fragment() {
 
         libraryViewPager.setAdapter(adapter)
         libraryTabLayout.setupWithViewPager(libraryViewPager)
-        /*libraryTabLayout.getTabAt(0)!!.setText("테마")
-        libraryTabLayout.getTabAt(1)!!.setText("문장")
-        libraryTabLayout.getTabAt(2)!!.setText("큐레이터")
-*/
+
         libraryTabLayout.getTabAt(0)!!.customView = viewFirst
         libraryTabLayout.getTabAt(1)!!.customView = viewSecond
         libraryTabLayout.getTabAt(2)!!.customView = viewThird
 
-
+        /*libraryTabLayout.getTabAt(0)!!.setText("테마")
+        libraryTabLayout.getTabAt(1)!!.setText("문장")
+        libraryTabLayout.getTabAt(2)!!.setText("큐레이터")
+*/
 
 
     }
