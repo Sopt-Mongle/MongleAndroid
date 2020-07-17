@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginHorizontal="16dp">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/thema_const1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintBottom_toTopOf="@id/rv_library_thema"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -20,18 +20,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="테마 없는 문장"
-            android:textSize="15sp"
+            android:text="테마 없는 문장 >"
+            android:textSize="14sp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:background="#000000"
-            app:layout_constraintBottom_toBottomOf="@id/tx_non_thema"
-            app:layout_constraintStart_toEndOf="@id/tx_non_thema"
-            app:layout_constraintTop_toTopOf="@id/tx_non_thema" />
 
         <RadioGroup
             android:id="@+id/rg_library_thema"
@@ -52,6 +47,8 @@
                 android:checked="true"
                 android:gravity="center"
                 android:text="저장한 테마"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
                 android:textColor="@color/radio_button_state"
                 app:layout_constraintBottom_toBottomOf="@id/rg_library_thema"
                 app:layout_constraintEnd_toStartOf="@id/rdbtn_making_thema"
@@ -66,6 +63,8 @@
                 android:checked="false"
                 android:gravity="center"
                 android:text="만든 테마"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
                 android:textColor="@color/radio_button_state"
                 app:layout_constraintBottom_toBottomOf="@id/rg_library_thema"
                 app:layout_constraintEnd_toEndOf="@id/rg_library_thema"
