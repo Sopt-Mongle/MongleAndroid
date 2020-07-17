@@ -7,13 +7,70 @@
     tools:context=".fragment.MainViewPager2Fragment">
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
+        android:src="@drawable/main_img_editorpick_2"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/main_img_editorpick_2"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="37dp"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:includeFontPadding="false"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="10sp"
+        android:text="나와 다른 너"
+        android:textColor="#bce3c3"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:includeFontPadding="false"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="10sp"
+        android:text="를"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintStart_toEndOf="@+id/textView44"
+        app:layout_constraintTop_toTopOf="@+id/textView44" />
+
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:includeFontPadding="false"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="10sp"
+        android:text="이해하고 싶을 때"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/textView44"
+        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:includeFontPadding="false"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="10sp"
+        android:text="나를 도와주는 한 문장"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/textView45"
+        app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
