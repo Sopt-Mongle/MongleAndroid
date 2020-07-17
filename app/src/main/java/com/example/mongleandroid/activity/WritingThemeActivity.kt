@@ -99,7 +99,7 @@ class WritingThemeActivity : AppCompatActivity() {
             if(activity_writing_theme_et_theme_title.text.toString().length>0 && themeImgIdx > 0){
                 RequestWritingThemeData.theme = activity_writing_theme_et_theme_title.text.toString()
                 val dlg = DialogMakethemeCheck(this)
-                
+
                // dlg.start(themeImgIdx, imgDataList, it.context)
                 dlg.start(imgDataList.get(themeImgIdx).imgIdx, imgDataList.get(themeImgIdx).img, activity_writing_theme_et_theme_title.text.toString(), it.context)
                 dlg.setOnOKClickedListener{ content ->
