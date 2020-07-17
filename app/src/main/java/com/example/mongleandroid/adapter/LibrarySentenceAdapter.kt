@@ -7,9 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.viewholder.LibrarySentenceViewHolder
 import com.example.mongleandroid.network.data.LibrarySentenceData
+import com.example.mongleandroid.network.data.response.LibrarySentenceSave
 import com.example.mongleandroid.network.data.response.LibrarySentenceWrite
 
-class LibrarySentenceAdapter(private val context: Context, var data_sen:List<LibrarySentenceWrite>) :
+class LibrarySentenceAdapter(private val context: Context, var data_sen:List<LibrarySentenceSave>) :
     RecyclerView.Adapter<LibrarySentenceViewHolder>() {
 //    var data_sen = mutableListOf<LibrarySentenceData>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LibrarySentenceViewHolder {
