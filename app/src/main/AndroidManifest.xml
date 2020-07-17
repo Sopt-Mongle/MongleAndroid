@@ -39,7 +39,8 @@
         <activity
             android:name=".activity.WritingThemeActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".activity.WritingThemeFinishActivity" />
+        <activity
+            android:name=".activity.WritingThemeFinishActivity"/>
         <activity android:name=".activity.MainThemeActivity" />
         <activity android:name=".activity.PostThemeActivity" />
         <activity android:name=".activity.SettingActivity" />

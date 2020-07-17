@@ -75,21 +75,22 @@
         app:layout_constraintTop_toBottomOf="@+id/et_edit"
         app:layout_constraintVertical_bias="0" />
 
-    <TextView
+    <Button
         android:id="@+id/tv_btn_edit"
         style="@android:style/ButtonBar"
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/btn_green"
         android:gravity="center_vertical"
-        android:text="다음"
+        android:text="수정하기"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="19sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="RtlCompat" />
 
