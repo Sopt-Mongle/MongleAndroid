@@ -167,7 +167,7 @@ class MainFragment : Fragment() {
                         if (response.isSuccessful) {
                             todaySentenceAdapter = TodaySentenceAdapter(response.body()!!.data, view!!.context)
                             main_fragment_rv_today_sentence.adapter = todaySentenceAdapter
-                            //todaySentenceAdapter.notifyDataSetChanged()
+                            todaySentenceAdapter.notifyDataSetChanged()
 
                             //오늘의 문장 리사이클러뷰 아이템 클릭리스너 등록
                             todaySentenceAdapter.setItemClickListener(object : TodaySentenceAdapter.ItemClickListener{
