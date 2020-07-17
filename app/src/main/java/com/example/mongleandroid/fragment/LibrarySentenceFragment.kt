@@ -167,7 +167,7 @@ class LibrarySentenceFragment : Fragment() {
                     ) {
                         if (response.isSuccessful) {
                             Log.d("내 서재 문장 조회", "${response.body()}")
-                            librarySentenceAdapter = LibrarySentenceAdapter(view!!.context, response.body()!!.data!!.write)
+                            librarySentenceAdapter = LibrarySentenceAdapter(view!!.context, response.body()!!.data!!.save)
                             rv_library_sentence.adapter = librarySentenceAdapter
                             librarySentenceAdapter.notifyDataSetChanged()
 //                        response.body().let { body->
@@ -196,7 +196,7 @@ class LibrarySentenceFragment : Fragment() {
                     ) {
                         if (response.isSuccessful) {
                             Log.d("내 서재 문장 클릭 조회", "${response.body()}")
-                            librarySentenceClickAdapter = LibrarySentenceClickAdapter(view!!.context, response.body()!!.data!!.save)
+                            librarySentenceClickAdapter = LibrarySentenceClickAdapter(view!!.context, response.body()!!.data!!.write)
                             rv_library_sentence.adapter = librarySentenceClickAdapter
                             librarySentenceClickAdapter.notifyDataSetChanged()
 //                        response.body().let { body->
