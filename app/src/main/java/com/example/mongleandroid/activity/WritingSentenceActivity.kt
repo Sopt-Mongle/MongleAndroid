@@ -1,10 +1,12 @@
 package com.example.mongleandroid.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -13,8 +15,17 @@ import android.widget.Toast
 import androidx.constraintlayout.solver.widgets.ConstraintWidget.GONE
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.mongleandroid.*
+import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.SharedPreferenceController
+import com.example.mongleandroid.network.data.request.RequestWritingSentenceData
+import com.example.mongleandroid.network.data.request.RequestWritingThemeData
+import com.example.mongleandroid.network.data.response.ResponseWritingSentenceData
+import com.example.mongleandroid.network.data.response.ResponseWritingThemeData
 import kotlinx.android.synthetic.main.activity_theme_writing_sentence.*
 import kotlinx.android.synthetic.main.activity_writing_sentence.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class WritingSentenceActivity : AppCompatActivity() {
@@ -23,6 +34,12 @@ class WritingSentenceActivity : AppCompatActivity() {
     lateinit var progressBar_back: Animation
     lateinit var state_gray: Animation
     lateinit var state_green: Animation
+//    lateinit var sentence: String	//작성할 문장
+//    lateinit var title:	String	//작성할 문장이 속한 책 제목
+//    lateinit var author:	String	//작성할 문장이 속한 책의 저자
+//    lateinit var publisher:	String //작성할 문장이 속한 책 출판사
+//    var themeIdx:	Int = -1	//선택한 테마의 idx(0 : 테마 없는 테마, 그외 : 해당 테마)
+    var RequestWritingSentenceData : RequestWritingSentenceData = RequestWritingSentenceData("","","","",-1)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,10 +112,10 @@ class WritingSentenceActivity : AppCompatActivity() {
             if(activity_writing_sentence_et_sentence.text.toString().length <=0){
                 goNextPage(activity_writing_sentence_CL_sentence_normal, activity_writing_sentence_CL_sentence_warning)
             }else{
+                RequestWritingSentenceData.sentence = activity_writing_sentence_et_sentence.text.toString()
                 activity_writing_sentence_CL_next1.visibility = View.GONE
                 goNextView(activity_writing_sentence_btn_out, activity_writing_sentence_btn_back1)
                 goNextPage(activity_writing_sentence_CL_sentence, activity_writing_sentence_CL_book)
-
                 //키보드 제어
                 activity_writing_sentence_et_sentence.unshowKeyboard()
             }
@@ -154,6 +171,9 @@ class WritingSentenceActivity : AppCompatActivity() {
                 activity_writing_sentence_btn_book_search_nomal.background = getResources().getDrawable(R.drawable.et_area_red)
                 activity_writing_sentence_CL_book_warning.visibility = View.VISIBLE
             }else{
+                RequestWritingSentenceData.title = activity_writing_sentence_btn_book_search_nomal.text.toString()
+                RequestWritingSentenceData.author = activity_writing_sentence_tv_author.text.toString()
+                RequestWritingSentenceData.publisher = activity_writing_sentence_tv_publisher.text.toString()
                 goNextView(activity_writing_sentence_btn_back1, activity_writing_sentence_btn_back2)
                 goNextPage(activity_writing_sentence_CL_book, activity_writing_sentence_CL_theme)
             }
@@ -212,6 +232,10 @@ class WritingSentenceActivity : AppCompatActivity() {
                     activity_writing_sentence_btn_back2.visibility = View.GONE
                     activity_writing_sentence_CL_topbar.visibility = View.GONE
                     goNextPage(activity_writing_sentence_CL_theme, activity_writing_sentence_CL_finish)
+                    Log.d("내가 넣은 값", "${RequestWritingSentenceData.sentence}&& ${RequestWritingSentenceData.title} && ${RequestWritingSentenceData.author} &&${RequestWritingSentenceData.publisher}&&${RequestWritingSentenceData.themeIdx}")
+
+                    requestData()
+
                 }
 
             //애니메이션
@@ -265,6 +289,8 @@ class WritingSentenceActivity : AppCompatActivity() {
         if (requestCode == 2) {
             if (data != null) {
                 activity_writing_sentence_tv_theme.setText(data.getStringExtra("theme"))
+                RequestWritingSentenceData.themeIdx = data.getIntExtra("themeIdx", 24)
+
             }
         }
     }
@@ -272,6 +298,32 @@ class WritingSentenceActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         //goPrevPage()
+    }
+
+
+    private fun requestData(){
+        val call: Call<ResponseWritingSentenceData> = RequestToServer.service.RequestWritingSentence(token = SharedPreferenceController.getAccessToken(context = this),body = RequestWritingSentenceData)
+        call.enqueue(object : Callback<ResponseWritingSentenceData> {
+            @SuppressLint("LongLogTag")
+            override fun onFailure(call: Call<ResponseWritingSentenceData>, t: Throwable) {
+                Log.e("ResponseWritingSentenceData 통신실패",t.toString())
+            }
+            @SuppressLint("LongLogTag")
+            override fun onResponse(
+                call: Call<ResponseWritingSentenceData>,
+                response: Response<ResponseWritingSentenceData>
+            ) { if (response.isSuccessful){
+                    response.body().let { body ->
+                        Log.e("ResponseWritingSentenceData 통신응답바디", "status: ${body!!.status} data : ${body!!.message}")
+                    }
+                }else{
+                   // Log.e("ResponseWritingSentenceData 통신응답바디", "status: ${response.body()!!.status} data: ${response.body()!!.message}" )
+                }
+
+            }
+
+        })
+
     }
 
 

@@ -9,23 +9,40 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.bumptech.glide.Glide
 import com.example.mongleandroid.*
 import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.data.request.RequestWritingThemeData
+import com.example.mongleandroid.network.data.response.ImgData
+import com.example.mongleandroid.network.data.response.ResponseThemeImgData
+import com.example.mongleandroid.network.data.response.ResponseWritingSentenceData
 import com.example.mongleandroid.network.data.response.ResponseWritingThemeData
 import com.example.mongleandroid.util.DialogMakethemeCheck
 import kotlinx.android.synthetic.main.activity_writing_theme.*
+import kotlinx.android.synthetic.main.fragment_curator.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class WritingThemeActivity : AppCompatActivity() {
     var datas: MutableList<RequestWritingThemeData> = mutableListOf<RequestWritingThemeData>()
-    var themeImgIdx: Int = 0
+    var Imgdatas: MutableList<ImgData> = mutableListOf<ImgData>()
+    var themeImgIdx:Int = 0
+    lateinit var img:String
+    var RequestWritingThemeData: RequestWritingThemeData = RequestWritingThemeData("dd", 1)
+    data class imgData(
+        var img: String,
+        var imgIdx: Int
+    )
+    var imgDataList: List<imgData> = List<imgData>(16) {imgData("",0)}
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_writing_theme)
+
+        requestThemeImgData()
 
         activity_writing_theme_et_theme_title.requestFocus()
         activity_writing_theme_et_theme_title.showKeyboard()
@@ -62,11 +79,13 @@ class WritingThemeActivity : AppCompatActivity() {
                 activity_writing_theme_CL_warning2.visibility = View.VISIBLE
             }
             if(activity_writing_theme_et_theme_title.text.toString().length>0 && themeImgIdx > 0){
+                RequestWritingThemeData.theme = activity_writing_theme_et_theme_title.text.toString()
                 val dlg = DialogMakethemeCheck(this)
                 dlg.setOnOKClickedListener{ content ->
                 }
-                dlg.start("")
+                dlg.start(themeImgIdx)
                 //키보드 제어
+                requestData()
                 activity_writing_theme_et_theme_title.unshowKeyboard()
             }
 
@@ -106,10 +125,10 @@ class WritingThemeActivity : AppCompatActivity() {
 
     private fun chked(img : ConstraintLayout, chkedNum: Int){
         img.setOnClickListener {
+            RequestWritingThemeData.themeImgIdx = chkedNum
             themeImgIdx = chkedNum
 
             activity_writing_theme_CL_warning2.visibility = View.GONE
-
             activity_writing_theme_img_chk1.visibility = View.GONE
             activity_writing_theme_img_chk2.visibility = View.GONE
             activity_writing_theme_img_chk3.visibility = View.GONE
@@ -120,6 +139,12 @@ class WritingThemeActivity : AppCompatActivity() {
             activity_writing_theme_img_chk8.visibility = View.GONE
             activity_writing_theme_img_chk9.visibility = View.GONE
             activity_writing_theme_img_chk10.visibility = View.GONE
+            activity_writing_theme_img_chk11.visibility = View.GONE
+            activity_writing_theme_img_chk12.visibility = View.GONE
+            activity_writing_theme_img_chk13.visibility = View.GONE
+            activity_writing_theme_img_chk14.visibility = View.GONE
+            activity_writing_theme_img_chk15.visibility = View.GONE
+            activity_writing_theme_img_chk16.visibility = View.GONE
             when(img){
                 activity_writing_theme_CL_img1 -> activity_writing_theme_img_chk1.visibility = View.VISIBLE
                 activity_writing_theme_CL_img2 -> activity_writing_theme_img_chk2.visibility = View.VISIBLE
@@ -131,7 +156,12 @@ class WritingThemeActivity : AppCompatActivity() {
                 activity_writing_theme_CL_img8 -> activity_writing_theme_img_chk8.visibility = View.VISIBLE
                 activity_writing_theme_CL_img9 -> activity_writing_theme_img_chk9.visibility = View.VISIBLE
                 activity_writing_theme_CL_img10 -> activity_writing_theme_img_chk10.visibility = View.VISIBLE
-
+                activity_writing_theme_CL_img11 -> activity_writing_theme_img_chk11.visibility = View.VISIBLE
+                activity_writing_theme_CL_img12 -> activity_writing_theme_img_chk12.visibility = View.VISIBLE
+                activity_writing_theme_CL_img13 -> activity_writing_theme_img_chk13.visibility = View.VISIBLE
+                activity_writing_theme_CL_img14 -> activity_writing_theme_img_chk14.visibility = View.VISIBLE
+                activity_writing_theme_CL_img15 -> activity_writing_theme_img_chk15.visibility = View.VISIBLE
+                activity_writing_theme_CL_img16 -> activity_writing_theme_img_chk16.visibility = View.VISIBLE
             }
         }
 
@@ -139,7 +169,7 @@ class WritingThemeActivity : AppCompatActivity() {
 
 
     private fun requestData(){
-        val call: Call<ResponseWritingThemeData> = RequestToServer.service.RequestWritingTheme(body = RequestWritingThemeData("s",1))
+        val call: Call<ResponseWritingThemeData> = RequestToServer.service.RequestWritingTheme(token = SharedPreferenceController.getAccessToken(context = this), body = RequestWritingThemeData)
         call.enqueue(object : Callback<ResponseWritingThemeData>{
             @SuppressLint("LongLogTag")
             override fun onFailure(call: Call<ResponseWritingThemeData>, t: Throwable) {
@@ -154,13 +184,60 @@ class WritingThemeActivity : AppCompatActivity() {
                     response.body().let { body ->
                         Log.e("ResponseWritingThemeData 통신응답바디", "status: ${body!!.status} data : ${body!!.message}")
                     }
+                }else{
+                    response.body().let { body ->
+                        Log.e("ResponseWritingThemeData 통신응답바디", "status: ${body!!.status} data : ${body!!.message}")
+                    }
                 }
 
             }
 
         })
-
     }
+
+    private fun requestThemeImgData(){
+        val call: Call<ResponseThemeImgData> = RequestToServer.service.GetPostThemeImg()
+        call.enqueue(object : Callback<ResponseThemeImgData>{
+            @SuppressLint("LongLogTag")
+            override fun onFailure(call: Call<ResponseThemeImgData>, t: Throwable) {
+                Log.e("ResponseWritingThemeData 통신실패",t.toString())
+            }
+            @SuppressLint("LongLogTag")
+            override fun onResponse(
+                call: Call<ResponseThemeImgData>,
+                response: Response<ResponseThemeImgData>
+            ) {
+                if (response.isSuccessful){
+                    response.body().let { body ->
+                        Imgdatas = body!!.data
+
+                        Glide.with(applicationContext).load(Imgdatas.get(0).img).into(activity_writing_theme_img1)
+                        Glide.with(applicationContext).load(Imgdatas.get(1).img).into(activity_writing_theme_img2)
+                        Glide.with(applicationContext).load(Imgdatas.get(2).img).into(activity_writing_theme_img3)
+                        Glide.with(applicationContext).load(Imgdatas.get(3).img).into(activity_writing_theme_img4)
+                        Glide.with(applicationContext).load(Imgdatas.get(4).img).into(activity_writing_theme_img5)
+                        Glide.with(applicationContext).load(Imgdatas.get(5).img).into(activity_writing_theme_img6)
+                        Glide.with(applicationContext).load(Imgdatas.get(6).img).into(activity_writing_theme_img7)
+                        Glide.with(applicationContext).load(Imgdatas.get(7).img).into(activity_writing_theme_img8)
+                        Glide.with(applicationContext).load(Imgdatas.get(8).img).into(activity_writing_theme_img9)
+                        Glide.with(applicationContext).load(Imgdatas.get(9).img).into(activity_writing_theme_img10)
+                        Glide.with(applicationContext).load(Imgdatas.get(10).img).into(activity_writing_theme_img11)
+                        Glide.with(applicationContext).load(Imgdatas.get(11).img).into(activity_writing_theme_img12)
+                        Glide.with(applicationContext).load(Imgdatas.get(12).img).into(activity_writing_theme_img13)
+                        Glide.with(applicationContext).load(Imgdatas.get(13).img).into(activity_writing_theme_img14)
+                        Glide.with(applicationContext).load(Imgdatas.get(14).img).into(activity_writing_theme_img15)
+                        Glide.with(applicationContext).load(Imgdatas.get(15).img).into(activity_writing_theme_img16)
+
+                    }
+                }
+
+            }
+
+        })
+    }
+
+
+
 }
 
 

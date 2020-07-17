@@ -20,11 +20,15 @@ interface RequestInterface {
 
     //테마 만들기
     @POST("/post/theme")
-    fun RequestWritingTheme(@Body body: RequestWritingThemeData) : Call<ResponseWritingThemeData>
+    fun RequestWritingTheme(
+        @Header ("token") token:String?,
+        @Body body: RequestWritingThemeData) : Call<ResponseWritingThemeData>
 
     //문장 올리기
     @POST("/post/sentence")
-    fun RequestWritingSentence(@Body body: RequestWritingSentenceData) : Call<ResponseWritingSentenceData>
+    fun RequestWritingSentence(
+        @Header ("token") token: String?,
+        @Body body: RequestWritingSentenceData) : Call<ResponseWritingSentenceData>
 
     //제목으로 책 검색
     @GET("/post/bookSearch")
@@ -35,6 +39,10 @@ interface RequestInterface {
     //선택할 테마 목록 조회
     @GET("/post/theme")
     fun RequestWritingSentenceThemeSearch() :Call<ResponseWritingSentenceThemeSearchData>
+
+    //테마 이미지 조회
+    @GET("/post/themeImg")
+    fun GetPostThemeImg() : Call<ResponseThemeImgData>
 
     //테마 없는 문장 목록 조회
     @GET("/post/getEmptySentence")
@@ -102,6 +110,34 @@ interface RequestInterface {
     // 메인 - 지금 인기있는 큐레이터 목록 조회 - 성공
     @GET("/main/curators")
     fun GetMainQurators() : Call<ResponseMainNowHotData>
+
+//    // 추천 큐레이터
+//    @GET("/curator/recommend")
+//    fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
+
+    //내서재 메인 프로필 조회
+   @GET("/my/profile")
+   fun lookLibraryProfile(
+        @Header("token") token: String?
+    ) : Call<ResponseMainLibraryData>
+
+    //내서재 테마 조회
+    @GET("/my/theme")
+    fun lookLibraryThema(
+        @Header("token") token: String?
+    ) : Call<ResponseLibraryThemeData>
+
+    //내서재 테마 조회
+    @GET("/my/sentence")
+    fun lookLibrarySentence(
+        @Header("token") token: String?
+    ) : Call<ResponseLibrarySentenceData>
+
+    //내서재 구독 조회
+    @GET("/my/subscribe")
+    fun lookLibraryCurator(
+        @Header("token") token: String?
+    ) : Call<ResponseLibraryCuratorData>
 
     // 메인 - 오늘 하루 저장이 가장 많이 된 테마목록 조회 - 성공
     @GET("/main/themes")
