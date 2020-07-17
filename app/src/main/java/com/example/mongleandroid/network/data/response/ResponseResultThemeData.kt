@@ -4,7 +4,7 @@ data class ResponseResultThemeData (
     val status : Int,
     val success : Boolean,
     val message : String,
-    val data : List<ResultTheme>
+    val data : MutableList<ResultTheme>
 )
 
 data class ResultTheme(

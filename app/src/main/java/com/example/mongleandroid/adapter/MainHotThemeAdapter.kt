@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.viewholder.HotThemeViewHolder
-import com.example.mongleandroid.network.data.ResponseMainHotThemeData
+import com.example.mongleandroid.network.data.response.MainThemes
 
-class MainHotThemeAdapter(var datas: List<ResponseMainHotThemeData>, val context: Context) : RecyclerView.Adapter<HotThemeViewHolder>() {
+class MainHotThemeAdapter(var datas: List<MainThemes>, val context: Context) : RecyclerView.Adapter<HotThemeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotThemeViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_main_hot_theme, parent, false)
         return HotThemeViewHolder(view)
@@ -18,7 +18,7 @@ class MainHotThemeAdapter(var datas: List<ResponseMainHotThemeData>, val context
     override fun getItemCount() = datas.size
 
     override fun onBindViewHolder(holder: HotThemeViewHolder, position: Int) {
-        //holder.bind(datas[position])
+        holder.bind(datas[position])
 
         //view에 onClickListener를 달고, 그 안에서 직접 만든 itemClickListener를 연결시킨다
         holder.itemView.setOnClickListener {

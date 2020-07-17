@@ -1,17 +1,21 @@
 package com.example.mongleandroid.network.data.response
 
-data class ResponseResultCuratorData (
+data class ResponseCuratorInThemeData (
     val status : Int,
     val success : Boolean,
     val message : String,
-    val data : MutableList<ResultCurator>
+    val data : MutableList<CuratorInTheme>
 )
 
-data class ResultCurator(
-    val curatorIdx : Int,// 검색된 큐레이터 idx
+data class CuratorInTheme(
+    val theme : MutableList<CuratorList>
+)
+
+data class CuratorList(
+    val curatorIdx : Int, // 검색된 큐레이터 idx
     val name : String, // 검색된 큐레이터 이름
     val img	: String, // 검색된 큐레이터 프로필 이미지
     val keyword	: String, // 검색된 큐레이터 키워드 배열
-    val subscribe : Int, // 검색된 큐레이터 구독자 수
+    val subscribe : String, // 검색된 큐레이터 구독자 수
     val alreadySubscribed : Boolean
 )

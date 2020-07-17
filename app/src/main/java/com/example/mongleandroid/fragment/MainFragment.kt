@@ -13,7 +13,7 @@ import com.example.mongleandroid.activity.MainThemeActivity
 import com.example.mongleandroid.adapter.*
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.SharedPreferenceController
-import com.example.mongleandroid.network.data.ResponseMainHotThemeData
+import com.example.mongleandroid.network.data.response.ResponseMainHotThemeData
 //import com.example.mongleandroid.network.data.response.MainNowHotCuratorData
 import com.example.mongleandroid.network.data.response.ResponseMainNowHotData
 import com.example.mongleandroid.network.data.response.ResponseTodaySentenceData
@@ -26,7 +26,6 @@ class MainFragment : Fragment() {
 
     val requestToServer = RequestToServer//싱글톤 그대로 가져옴
 
-    private var data3 = mutableListOf<ResponseMainHotThemeData>()
 
     private lateinit var todaySentenceAdapter: TodaySentenceAdapter
     private lateinit var mainNowHotCuratorAdapter: MainNowHotCuratorAdapter
@@ -48,7 +47,7 @@ class MainFragment : Fragment() {
         vp_main.offscreenPageLimit = 2
         tl_main.setupWithViewPager(vp_main)
 
-        setHotThemeAdapter(data3) // 인기있는 테마 리사이클러뷰
+        //setHotThemeAdapter(data3) // 인기있는 테마 리사이클러뷰
         //setHotCuratorAdapter(data2) // 지금 인기있는 큐레이터 리사이클러뷰
        // setAdapter(data)//오늘의 문장 리사이클러뷰
 
@@ -63,8 +62,11 @@ class MainFragment : Fragment() {
 //            }
 //        }
 
-//        requestTodaySentenceData() // 오늘의 문장 통신
-//        requestMainCurators()
+        requestTodaySentenceData() // 오늘의 문장 통신
+        requestMainCurators()  // 인기있는 큐레이터 통신
+        requestSavedTheme() //오늘 가장 많이 저장된 테마 통신
+        requestWaitThemes() // 문장을 기다리고 있는 테마
+        requestMainNowThemes() // 요즘 많이 본 테마
 
     }
 
@@ -76,64 +78,27 @@ class MainFragment : Fragment() {
 
     }
 
-    private fun setHotThemeAdapter(mainHotThemeItem: MutableList<ResponseMainHotThemeData>) {
-        mainHotThemeAdapter =
-            MainHotThemeAdapter(
-                mainHotThemeItem,
-                this.context!!
-            )
-
-        rv_main_hot_theme.adapter = mainHotThemeAdapter
-        rv_main_waiting_for_sentence_theme.adapter = mainHotThemeAdapter
-        rv_viewed_a_lot_time_theme.adapter = mainHotThemeAdapter
-
-
-        mainHotThemeAdapter.setItemClickListener(object : MainHotThemeAdapter.ItemClickListener{
-            override fun onClick(view: View, position: Int) {
-                Log.d("SSS","${position}번 리스트 선택")
-                activity?.let{
-                    val intent = Intent(context, MainThemeActivity::class.java)
-                    startActivity(intent)
-                }
-            }
-        })
-    }
-
-  //  private fun themeLoadDatas() {
-//        data3.apply {
-//            add(
-//                ResponseMainHotThemeData(
-//                    tv_main_hot_theme = "브랜딩이 어려울 때",
-//                    tv_main_hot_theme_count = "38"
-//                )
-//            )
-//            add(
-//                ResponseMainHotThemeData(
-//                    tv_main_hot_theme = "배고플 때",
-//                    tv_main_hot_theme_count = "57"
-//                )
-//            )
-//            add(
-//                ResponseMainHotThemeData(
-//                    tv_main_hot_theme = "생각나는 사람이 있을 때",
-//                    tv_main_hot_theme_count = "28"
-//                )
-//            )
-//            add(
-//                ResponseMainHotThemeData(
-//                    tv_main_hot_theme = "졸릴 때",
-//                    tv_main_hot_theme_count = "90"
-//                )
-//            )
-//            add(
-//                ResponseMainHotThemeData(
-//                    tv_main_hot_theme = "아무생각 없을 때",
-//                    tv_main_hot_theme_count = "39"
-//                )
-//            )
-//            mainHotThemeAdapter.datas = data3
-//            mainHotThemeAdapter.notifyDataSetChanged()
-//        }
+//    private fun setHotThemeAdapter(mainHotThemeItem: MutableList<ResponseMainHotThemeData>) {
+////        mainHotThemeAdapter =
+////            MainHotThemeAdapter(
+////                mainHotThemeItem,
+////                this.context!!
+////            )
+//
+//        rv_main_hot_theme.adapter = mainHotThemeAdapter
+//        rv_main_waiting_for_sentence_theme.adapter = mainHotThemeAdapter
+//        rv_viewed_a_lot_time_theme.adapter = mainHotThemeAdapter
+//
+//
+//        mainHotThemeAdapter.setItemClickListener(object : MainHotThemeAdapter.ItemClickListener{
+//            override fun onClick(view: View, position: Int) {
+//                Log.d("SSS","${position}번 리스트 선택")
+//                activity?.let{
+//                    val intent = Intent(context, MainThemeActivity::class.java)
+//                    startActivity(intent)
+//                }
+//            }
+//        })
 //    }
 
 ////지금 인기있는 큐레이터 어댑터 연결
@@ -183,7 +148,6 @@ class MainFragment : Fragment() {
 
         requestToServer.service.RequestMainSentences(
             token = SharedPreferenceController.getAccessToken(view!!.context)
-            //token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjE4LCJuYW1lIjoieiIsImlhdCI6MTU5NDg0Nzg2NiwiZXhwIjoxNTk1MDIwNjY2LCJpc3MiOiJtb25nbGUifQ.IQFvbHzqeE_6vc_Vo7aVJ9fhaOuYmTGpXv1cSE1j9hw"
         ).enqueue(
             object : Callback<ResponseTodaySentenceData> {
                 override fun onFailure(
@@ -207,6 +171,83 @@ class MainFragment : Fragment() {
             }
         )
 
+    }
+
+    //오늘 가장 많이 저장된 테마 통신
+    private fun requestSavedTheme() {
+
+        requestToServer.service.GetMainThemes(
+            token = SharedPreferenceController.getAccessToken(view!!.context)
+        ).enqueue(
+            object : Callback<ResponseMainHotThemeData> {
+                override fun onFailure(call: Call<ResponseMainHotThemeData>, t: Throwable) {
+                    Log.d( "통신실패", t.toString())
+                }
+
+                override fun onResponse(
+                    call: Call<ResponseMainHotThemeData>,
+                    response: Response<ResponseMainHotThemeData>
+                ) {
+                    if (response.isSuccessful) {
+                        mainHotThemeAdapter = MainHotThemeAdapter(response.body()!!.data, view!!.context)
+                        rv_main_hot_theme.adapter = mainHotThemeAdapter
+                        mainHotThemeAdapter.notifyDataSetChanged()
+                    }
+                }
+            }
+
+        )
+
+    }
+
+    // 문장을 기다리고 있는 테마 통신
+    private fun requestWaitThemes() {
+        requestToServer.service.GetMainWaitThemes(
+            token = SharedPreferenceController.getAccessToken(view!!.context)
+        ).enqueue(
+            object : Callback<ResponseMainHotThemeData> {
+                override fun onFailure(call: Call<ResponseMainHotThemeData>, t: Throwable) {
+
+                }
+
+                override fun onResponse(
+                    call: Call<ResponseMainHotThemeData>,
+                    response: Response<ResponseMainHotThemeData>
+                ) {
+                    if (response.isSuccessful) {
+                        mainHotThemeAdapter = MainHotThemeAdapter(response.body()!!.data, view!!.context)
+                        rv_main_waiting_for_sentence_theme.adapter = mainHotThemeAdapter
+                        mainHotThemeAdapter.notifyDataSetChanged()
+                    }
+                }
+
+            }
+        )
+    }
+
+    //요즘 사람들이 많이 본 테마
+    private fun requestMainNowThemes() {
+        requestToServer.service.GetMainNowThemes(
+            token = SharedPreferenceController.getAccessToken(view!!.context)
+        ).enqueue(
+            object : Callback<ResponseMainHotThemeData> {
+                override fun onFailure(call: Call<ResponseMainHotThemeData>, t: Throwable) {
+
+                }
+
+                override fun onResponse(
+                    call: Call<ResponseMainHotThemeData>,
+                    response: Response<ResponseMainHotThemeData>
+                ) {
+                    if (response.isSuccessful) {
+                        mainHotThemeAdapter = MainHotThemeAdapter(response.body()!!.data, view!!.context)
+                        rv_viewed_a_lot_time_theme.adapter = mainHotThemeAdapter
+                        mainHotThemeAdapter.notifyDataSetChanged()
+                    }
+                }
+
+            }
+        )
     }
 
     //인기있는 큐레이터 통신
