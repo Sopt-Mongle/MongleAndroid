@@ -78,6 +78,7 @@ class WritingSentenceBookSearchActivity : AppCompatActivity() {
         }
 
 
+
        //rv 동작
         writingSentenceBookSearchAdapter = WritingSentenceBookSearchAdapter(this)
         activity_writing_sentence_book_search_rv_after.adapter = writingSentenceBookSearchAdapter

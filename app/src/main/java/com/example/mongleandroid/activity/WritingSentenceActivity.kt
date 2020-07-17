@@ -138,9 +138,6 @@ class WritingSentenceActivity : AppCompatActivity() {
 
 
 
-
-
-
         //문장 만들기 2단계
 
 
@@ -197,6 +194,7 @@ class WritingSentenceActivity : AppCompatActivity() {
         activity_writing_sentence_btn_book_search_nomal.setOnClickListener{
             val intent = Intent(this@WritingSentenceActivity,WritingSentenceBookSearchActivity::class.java)
             startActivityForResult(intent,1)
+
         }
         //애니메이션
         //에러 메세지
@@ -293,6 +291,8 @@ class WritingSentenceActivity : AppCompatActivity() {
 
             }
         }
+
+
     }
 
 

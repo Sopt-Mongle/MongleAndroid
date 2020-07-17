@@ -137,7 +137,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/activity_theme_writing_sentence_book_tv_title" />
 
-        <View
+        <TextView
             android:id="@+id/activity_theme_writing_sentence_book_v_author"
             android:layout_width="match_parent"
             android:layout_height="46dp"
@@ -158,7 +158,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/activity_theme_writing_sentence_book_v_author" />
 
-        <View
+        <TextView
             android:id="@+id/activity_theme_writing_sentence_book_v_publisher"
             android:layout_width="match_parent"
             android:layout_height="46dp"
