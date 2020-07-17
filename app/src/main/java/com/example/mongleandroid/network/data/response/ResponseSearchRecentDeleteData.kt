@@ -1,9 +1,8 @@
 package com.example.mongleandroid.network.data.response
 
-data class ResponseSearchRecentData (
+data class ResponseSearchRecentDeleteData (
     val status : Int,
     val success : Boolean,
-    val message : String,
-    val data : List<String>
+    val message : String
 )
 

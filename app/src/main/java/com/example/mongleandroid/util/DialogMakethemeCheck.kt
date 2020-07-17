@@ -5,20 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.view.View
 import android.view.Window
-import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import com.example.mongleandroid.R
-import com.example.mongleandroid.activity.JoinActivity
+import com.example.mongleandroid.activity.WritingThemeActivity
 import com.example.mongleandroid.activity.WritingThemeFinishActivity
-import com.example.mongleandroid.goNextPage
-import com.example.mongleandroid.unshowKeyboard
-import kotlinx.android.synthetic.main.activity_writing_theme.*
 
 class DialogMakethemeCheck(context : Context) {
     private val dlg = Dialog(context)   //부모 액티비티의 context 가 들어감
@@ -26,28 +18,29 @@ class DialogMakethemeCheck(context : Context) {
     private lateinit var maketheme_popup_yes : TextView
     private lateinit var maketheme_popup_no : TextView
     private lateinit var listener : MyDialogOKClickedListener
-    lateinit var themeImg : String
 
 
-    fun start(chkedNum : Int){
+    fun start(chkedNum: Int, imgDataList: MutableList<WritingThemeActivity.imgData>, context: Context){
 
         when(chkedNum){
-            1 -> maketheme_popup_title.setBackgroundResource(R.drawable.maketheme_check_img_theme)
-//            2 -> Glide.with(applicationContext).load(Imgdatas.get(0).img).into(activity_writing_theme_img1)
-//            3 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-//            4 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-//            5 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-//            6 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-//            7 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-//            8 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-//            9 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-//            10 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-//            11 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-//            12 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-//            13 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-//            14 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-//            15 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-//            16 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+
+            1 -> Glide.with(context).load(imgDataList.get(1).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            2 -> Glide.with(context).load(imgDataList.get(2).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            3 -> Glide.with(context).load(imgDataList.get(3).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            4 -> Glide.with(context).load(imgDataList.get(4).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            5 -> Glide.with(context).load(imgDataList.get(5).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            6 -> Glide.with(context).load(imgDataList.get(6).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            7 -> Glide.with(context).load(imgDataList.get(7).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            8 -> Glide.with(context).load(imgDataList.get(8).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            9 -> Glide.with(context).load(imgDataList.get(9).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            10 -> Glide.with(context).load(imgDataList.get(10).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            11 -> Glide.with(context).load(imgDataList.get(11).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            12 -> Glide.with(context).load(imgDataList.get(12).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            13 -> Glide.with(context).load(imgDataList.get(13).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            14 -> Glide.with(context).load(imgDataList.get(14).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            15 -> Glide.with(context).load(imgDataList.get(15).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+            16 -> Glide.with(context).load(imgDataList.get(16).img).into(dlg.findViewById(R.id.maketheme_popup_title))
+
         }
 
 

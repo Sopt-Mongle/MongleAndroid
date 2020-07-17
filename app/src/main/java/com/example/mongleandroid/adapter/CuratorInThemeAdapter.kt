@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.viewholder.CuratorInThemeViewHolder
+import com.example.mongleandroid.network.data.response.CuratorInTheme
 import com.example.mongleandroid.network.data.response.CuratorList
-class CuratorInThemeAdapter(private val context : Context) : RecyclerView.Adapter<CuratorInThemeViewHolder>() {
-    var datas = mutableListOf<CuratorList>()
+class CuratorInThemeAdapter(private val context : Context, var datas:List<CuratorList>) : RecyclerView.Adapter<CuratorInThemeViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CuratorInThemeViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_result_curator, parent, false)
         return CuratorInThemeViewHolder(view)

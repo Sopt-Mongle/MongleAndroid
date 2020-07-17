@@ -12,6 +12,7 @@ import com.example.mongleandroid.adapter.ResultSentenceAdapter
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.data.response.ResponseResultSentenceData
 import kotlinx.android.synthetic.main.fragment_result_sentence.*
+import kotlinx.android.synthetic.main.fragment_result_theme.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,9 +42,12 @@ class ResultSentenceFragment : Fragment() {
             override fun onResponse(call: Call<ResponseResultSentenceData>, response: Response<ResponseResultSentenceData>) {
                 if (response.isSuccessful){
                     Log.d("문장 검색", "${response.body()}")
+                    result_sentence_count.text = response.body()!!.data.size.toString()
                     resultSentenceAdapter = ResultSentenceAdapter(view!!.context, response.body()!!.data)
                     rv_result_sentence.adapter = resultSentenceAdapter
                     resultSentenceAdapter.notifyDataSetChanged()
+                } else {
+                    fragment_result_sentence_cl_noresult.visibility = View.VISIBLE
                 }
             }
         })
