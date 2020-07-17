@@ -1,6 +1,7 @@
 # 몽글
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b941619f-5bf4-4332-ab4f-ffb2fb144c2a/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b941619f-5bf4-4332-ab4f-ffb2fb144c2a/Untitled.png)
+![image](https://user-images.githubusercontent.com/59532818/87798061-7d34b300-c886-11ea-9d96-bc4196850275.png)
+
 
 ## 몽글의  Main Function (엑셀 참고해서 인덱싱 & 화면)
 
@@ -229,13 +230,53 @@ fab_close = AnimationUtils.loadAnimation(this, R.anim.fab_close)
 - customTab.xml을 만든다. 원하는 탭의 모양을 뷰로 만든다. 
 (해당 앱에서는 textView 2개를 위아래로 배치하였다.)
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d290e954-ef65-441a-8846-590d9f219851/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d290e954-ef65-441a-8846-590d9f219851/Untitled.png)
+- LibraryFragment에서 tabLayout에 들어가는 text 채운다.
 
-- 2. LibraryFragment에서 tabLayout에 들어가는 text 채운다.
+```
+val libraryTabLayout = view.findViewById(R.id.titleLayout) as TabLayout
+val libraryViewPager = view.findViewById(R.id.vp_library) as ViewPager
+val adapter = LibraryTabAdapter(childFragmentManager)
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/47cedee9-1c98-4a97-bd20-735e85f752c7/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/47cedee9-1c98-4a97-bd20-735e85f752c7/Untitled.png)
+val viewFirst : View = getLayoutInflater().inflate(R.layout.custom_library_tab_basic, null)
+val viewSecond : View = getLayoutInflater().inflate(R.layout.custom_library_tab_basic, null)
+val viewThird : View = getLayoutInflater().inflate(R.layout.custom_library_tab_basic, null)
+val txtUpper1 : TextView = viewFirst.findViewById(R.id.library_tab_num)
+val txtDown1 : TextView = viewFirst.findViewById(R.id.library_tab)
+val txtUpper2 : TextView = viewSecond.findViewById(R.id.library_tab_num)
+val txtDown2 : TextView = viewSecond.findViewById(R.id.library_tab)
+val txtUpper3 : TextView = viewThird.findViewById(R.id.library_tab_num)
+val txtDown3 : TextView = viewThird.findViewById(R.id.library_tab)
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9a6cafbd-eff4-46ee-9882-80200f1a599d/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9a6cafbd-eff4-46ee-9882-80200f1a599d/Untitled.png)
+txtUpper1.setText("47")
+txtDown1.setText("테마")
+
+txtUpper2.setText("36")
+txtDown2.setText("문장")
+
+txtUpper3.setText("27")
+txtDown3.setText("큐레이터")
+
+libraryViewPager.setAdapter(adapter)
+libraryTabLayout.setupWithViewPager(libraryViewPager)
+
+libraryTabLayout.getTabAt(0)!!.customView = viewFirst
+libraryTabLayout.getTabAt(1)!!.customView = viewSecond
+libraryTabLayout.getTabAt(2)!!.customView = viewThird
+```
+
+- viewPager를 각 탭과 연결해준다.
+
+```jsx
+libraryViewPager.setAdapter(adapter)
+libraryTabLayout.setupWithViewPager(libraryViewPager)
+
+libraryTabLayout.getTabAt(0)!!.customView = viewFirst
+libraryTabLayout.getTabAt(1)!!.customView = viewSecond
+libraryTabLayout.getTabAt(2)!!.customView = viewThird
+```
+
+
+
 
 ## stickyHeader
 
@@ -273,7 +314,6 @@ ConstraintLayout을 사용할 때 뷰의 크기는 match_parent, wrap_content, 0
 
 해결방안) ViewPager를 상속받은 CustomViewPager를 만들어서 배치한다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/78065e3f-f3ce-4553-a0a0-74f3a50cc952/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/78065e3f-f3ce-4553-a0a0-74f3a50cc952/Untitled.png)
 
 - + ) CoordinatorLayout으로 하면 안되는 이유
 
