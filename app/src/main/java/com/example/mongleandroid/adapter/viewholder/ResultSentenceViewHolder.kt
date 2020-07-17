@@ -17,9 +17,11 @@ class ResultSentenceViewHolder(itemView : View) : RecyclerView.ViewHolder(itemVi
 
     val theme = itemView.findViewById<TextView>(R.id.result_sentence_tv_themename)
     val sentence = itemView.findViewById<TextView>(R.id.result_sentence_tv_sentence)
+    val writer = itemView.findViewById<TextView>(R.id.result_sentence_tv_writer)
 
     fun bind(resultSentence: ResultSentence){
         theme.text = resultSentence.theme
+        writer.text = resultSentence.writer
 
         val inputString = MainActivity.search_result
         val sb = StringBuilder(inputString)

@@ -10,6 +10,9 @@ import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.CuratorInThemeAdapter
 import com.example.mongleandroid.adapter.CuratorRecommendAdapter
 import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.SharedPreferenceController
+import com.example.mongleandroid.network.data.response.CuratorInTheme
+import com.example.mongleandroid.network.data.response.ResponseCuratorInThemeData
 import com.example.mongleandroid.network.data.response.ResponseRecommendCuratorData
 import kotlinx.android.synthetic.main.fragment_curator.*
 import retrofit2.Call
@@ -32,7 +35,7 @@ class CuratorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         curatorRecommendData()
-        //curatorInThemeData()
+        curatorInThemeData()
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_curator, container, false)
     }
@@ -60,35 +63,37 @@ class CuratorFragment : Fragment() {
                 }
             )
     }
-//
-//    private fun curatorInThemeData() {
-//        requestToServer.service.requestCuratorInThemeData(
-//            token = ""
-//        ).enqueue(
-//            object : Callback<CuratorInTheme> {
-//                override fun onFailure(call: Call<CuratorInTheme>, t: Throwable) {
-//                    Log.d("통신실패", "${t}")
-//                }
-//
-//                override fun onResponse(
-//                    call: Call<CuratorInTheme>,
-//                    response: Response<CuratorInTheme>
-//                ) {
-//                    if (response.isSuccessful) {
-//                        response.body().let { body ->
-//                            Log.d("추천 큐레이터", "${response.body()}")
-//                            curatorInThemeAdapter = CuratorInThemeAdapter(view!!.context)
-//                            fragment_curator_rv_curator1.adapter = curatorInThemeAdapter
-//                            //curatorInThemeAdapter.datas = body!!.data
-//                            curatorInThemeAdapter.notifyDataSetChanged()
-//                        }
-//
-//                    }
-//
-//                }
-//            }
-//        )
-//
-//    }
+
+    private fun curatorInThemeData() {
+        requestToServer.service.requestCuratorInThemeData(
+            token = context?.let { SharedPreferenceController.getAccessToken(it) }
+        ).enqueue(
+            object : Callback<ResponseCuratorInThemeData> {
+
+                override fun onFailure(call: Call<ResponseCuratorInThemeData>, t: Throwable) {
+                    Log.d("통신실패", "${t}")
+                }
+
+                override fun onResponse(
+                    call: Call<ResponseCuratorInThemeData>,
+                    response: Response<ResponseCuratorInThemeData>
+                ) {
+                    if (response.isSuccessful) {
+                        response.body().let { body ->
+
+                            fragment_curator_tv_themename.text = body!!.data!!.theme
+
+                            Log.d("테마속 큐레이터", "${response.body()}")
+                            curatorInThemeAdapter = CuratorInThemeAdapter(view!!.context, body!!.data!!.curators)
+                            fragment_curator_rv_curator1.adapter = curatorInThemeAdapter
+                            curatorInThemeAdapter.notifyDataSetChanged()
+                        }
+
+                    }
+                }
+            }
+        )
+
+    }
 
 }

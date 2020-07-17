@@ -8,14 +8,12 @@ import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.viewholder.SearchRecentViewHolder
 import com.example.mongleandroid.network.data.response.ResponseSearchRecentData
 
-class SearchRecentAdapter(private val context : Context) : RecyclerView.Adapter<SearchRecentViewHolder>(){
-    var datas = mutableListOf<ResponseSearchRecentData>()
+class SearchRecentAdapter(private val context: Context) : RecyclerView.Adapter<SearchRecentViewHolder>(){
+    var datas = listOf<String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchRecentViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_recent_keyword, parent, false)
-        return SearchRecentViewHolder(
-            view
-        )
+        return SearchRecentViewHolder(view)
     }
 
     override fun getItemCount(): Int {

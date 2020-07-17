@@ -37,7 +37,7 @@ class ResultThemeFragment : Fragment() {
 
     private fun requestThemeData() {
         requestToServer.service.requestResultThemeData(
-            token = SharedPreferenceController.getAccessToken(view!!.context),
+            token = context?.let { SharedPreferenceController.getAccessToken(it) },
             words = search_result
         ).enqueue(object : Callback<ResponseResultThemeData> {
             override fun onFailure(call: Call<ResponseResultThemeData>, t: Throwable) {

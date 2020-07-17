@@ -46,7 +46,9 @@ interface RequestInterface {
 
     // 검색 - 최근 키워드
     @GET("/search/recent")
-    fun RequestSearchRecentData(@Body body: RequestSearchRecentData) : Call<ResponseSearchRecentData>
+    fun requestSearchRecentData(
+        @Header("token") token: String?
+    ) : Call<ResponseSearchRecentData>
 
     // 검색 - 최근 키워드 전체 삭제
     //@DELETE("/search/recent")
