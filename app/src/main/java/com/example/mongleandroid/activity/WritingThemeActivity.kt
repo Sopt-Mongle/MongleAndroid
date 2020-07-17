@@ -99,11 +99,15 @@ class WritingThemeActivity : AppCompatActivity() {
             if(activity_writing_theme_et_theme_title.text.toString().length>0 && themeImgIdx > 0){
                 RequestWritingThemeData.theme = activity_writing_theme_et_theme_title.text.toString()
                 val dlg = DialogMakethemeCheck(this)
-                dlg.start(themeImgIdx, imgDataList, applicationContext)
+                
+               // dlg.start(themeImgIdx, imgDataList, it.context)
+                dlg.start(imgDataList.get(themeImgIdx).imgIdx, imgDataList.get(themeImgIdx).img, activity_writing_theme_et_theme_title.text.toString(), it.context)
                 dlg.setOnOKClickedListener{ content ->
+
+
                 }
                 //키보드 제어
-                requestData()
+//                requestData()
                 activity_writing_theme_et_theme_title.unshowKeyboard()
             }
         }
@@ -160,33 +164,32 @@ class WritingThemeActivity : AppCompatActivity() {
 
     }
 
-
-    private fun requestData(){
-        val call: Call<ResponseWritingThemeData> = RequestToServer.service.RequestWritingTheme(token = SharedPreferenceController.getAccessToken(context = this), body = RequestWritingThemeData)
-        call.enqueue(object : Callback<ResponseWritingThemeData>{
-            @SuppressLint("LongLogTag")
-            override fun onFailure(call: Call<ResponseWritingThemeData>, t: Throwable) {
-                Log.e("ResponseWritingThemeData 통신실패",t.toString())
-            }
-            @SuppressLint("LongLogTag")
-            override fun onResponse(
-                call: Call<ResponseWritingThemeData>,
-                response: Response<ResponseWritingThemeData>
-            ) {
-                if (response.isSuccessful){
-                    response.body().let { body ->
-                        Log.e("ResponseWritingThemeData 통신응답바디", "status: ${body!!.status} data : ${body!!.message}")
-                    }
-                }else{
-                    response.body().let { body ->
-                        Log.e("ResponseWritingThemeData 통신응답바디", "status: ${body!!.status} data : ${body!!.message}")
-                    }
-                }
-
-            }
-
-        })
-    }
+//    private fun requestData(){
+//        val call: Call<ResponseWritingThemeData> = RequestToServer.service.RequestWritingTheme(token = SharedPreferenceController.getAccessToken(context = this), body = RequestWritingThemeData)
+//        call.enqueue(object : Callback<ResponseWritingThemeData>{
+//            @SuppressLint("LongLogTag")
+//            override fun onFailure(call: Call<ResponseWritingThemeData>, t: Throwable) {
+//                Log.e("ResponseWritingThemeData 통신실패",t.toString())
+//            }
+//            @SuppressLint("LongLogTag")
+//            override fun onResponse(
+//                call: Call<ResponseWritingThemeData>,
+//                response: Response<ResponseWritingThemeData>
+//            ) {
+//                if (response.isSuccessful){
+//                    response.body().let { body ->
+//                        Log.e("ResponseWritingThemeData 통신응답성공바디", "status: ${body!!.status} data : ${body!!.message}")
+//                    }
+//                }else{
+//                    response.body().let { body ->
+//                        Log.e("ResponseWritingThemeData 통신응답실패바디", "status: ${body!!.status} data : ${body!!.message}")
+//                    }
+//                }
+//
+//            }
+//
+//        })
+//    }
 
     private fun requestThemeImgData(){
         val call: Call<ResponseThemeImgData> = RequestToServer.service.GetPostThemeImg()

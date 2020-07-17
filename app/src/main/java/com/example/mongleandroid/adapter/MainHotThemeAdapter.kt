@@ -10,6 +10,9 @@ import com.example.mongleandroid.adapter.viewholder.HotThemeViewHolder
 import com.example.mongleandroid.network.data.response.MainThemes
 
 class MainHotThemeAdapter(var datas: List<MainThemes>, val context: Context) : RecyclerView.Adapter<HotThemeViewHolder>() {
+
+    private lateinit var itemClickListener: ItemClickListener
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotThemeViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_main_hot_theme, parent, false)
         return HotThemeViewHolder(view)
@@ -31,7 +34,7 @@ class MainHotThemeAdapter(var datas: List<MainThemes>, val context: Context) : R
         fun onClick(view: View, position: Int)
     }
     //클릭리스너 선언
-    private lateinit var itemClickListener: ItemClickListener
+
 
     //클릭 리스너 등록 메소드
     fun setItemClickListener(itemClickListener: ItemClickListener) {
