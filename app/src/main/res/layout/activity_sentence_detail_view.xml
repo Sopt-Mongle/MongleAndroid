@@ -280,7 +280,7 @@
                 tools:listitem="@layout/item_activity_theme" />
 
             <View
-                android:id="@+id/view5"
+                android:id="@+id/btn_go_to_theme"
                 android:layout_width="350dp"
                 android:layout_height="46dp"
                 android:layout_marginTop="21dp"
@@ -300,10 +300,10 @@
                 android:text="테마 보러 가기"
                 android:textColor="#8b8b8b"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/view5"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_go_to_theme"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintStart_toStartOf="@+id/view5"
-                app:layout_constraintTop_toTopOf="@+id/view5" />
+                app:layout_constraintStart_toStartOf="@+id/btn_go_to_theme"
+                app:layout_constraintTop_toTopOf="@+id/btn_go_to_theme" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

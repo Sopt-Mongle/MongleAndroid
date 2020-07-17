@@ -24,6 +24,7 @@ class ThemeWritingSentenceBookActivity : AppCompatActivity() {
             finish()
         }
 
+
         // 책 제목 text가 없는 경우 경고창
         activity_theme_writing_sentence_book_btn_upload.setOnClickListener {
             if(activity_theme_writing_sentence_book_tv_title.text.toString().length <= 0) {
