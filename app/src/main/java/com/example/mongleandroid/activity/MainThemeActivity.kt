@@ -6,12 +6,23 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.example.mongleandroid.R
+import com.example.mongleandroid.adapter.MainHotThemeAdapter
 import com.example.mongleandroid.adapter.MainThemeAdapter
+import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.data.MainThemeData
+import com.example.mongleandroid.network.data.response.ResponseMainHotThemeData
+import com.example.mongleandroid.network.data.response.ResponseThemeDetailData
 import kotlinx.android.synthetic.main.activity_main_theme.*
+import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.item_activity_theme.*
+import retrofit2.Call
+import retrofit2.Response
+import javax.security.auth.callback.Callback
 
 class MainThemeActivity : AppCompatActivity() {
+
+    val requestToServer = RequestToServer//싱글톤 그대로 가져옴
 
     private var data = mutableListOf<MainThemeData>()
 
@@ -31,13 +42,36 @@ class MainThemeActivity : AppCompatActivity() {
         }
     }
 
+    private fun requestMainThemeData() {
+
+//        requestToServer.service.GetDetailTheme(
+//            token = applicationContext?.let { SharedPreferenceController.getAccessToken(it) },
+//            params = intent.getIntExtra("param", 0)
+//        ).enqueue(
+//            object : Callback<ResponseThemeDetailData> {
+//                override fun onFailure(call: Call<ResponseThemeDetailData>, t: Throwable) {
+//                    Log.d( "통신실패", t.toString())
+//                }
+//
+//                override fun onResponse(
+//                    call: Call<ResponseThemeDetailData>,
+//                    response: Response<ResponseThemeDetailData>
+//                ) {
+//                    if (response.isSuccessful) {
+//
+//                    }
+//                }
+//            }
+//        )
+    }
+
     private fun setMainThemeAdapter(mainThemeItem: MutableList<MainThemeData>) {
-        mainThemeAdapter =
-            MainThemeAdapter(
-                mainThemeItem,
-                this
-            )
-        loadDatas()
+//        mainThemeAdapter =
+//            MainThemeAdapter(
+//                mainThemeItem,
+//                this
+//            )
+//        loadDatas()
         rv_activity_theme.adapter = mainThemeAdapter
 
         //리사이클러뷰 아이템 클릭리스너 등록
