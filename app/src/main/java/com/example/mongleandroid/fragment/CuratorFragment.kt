@@ -9,14 +9,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mongleandroid.R
 import com.example.mongleandroid.activity.CuratorActivity
-import com.example.mongleandroid.activity.MainThemeActivity
 import com.example.mongleandroid.adapter.CuratorInThemeAdapter
 import com.example.mongleandroid.adapter.CuratorRecommendAdapter
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.SharedPreferenceController
-import com.example.mongleandroid.network.data.response.CuratorInTheme
 import com.example.mongleandroid.network.data.response.ResponseCuratorInThemeData
-import com.example.mongleandroid.network.data.response.ResponseCuratorKeywordData
 import com.example.mongleandroid.network.data.response.ResponseRecommendCuratorData
 import kotlinx.android.synthetic.main.fragment_curator.*
 import retrofit2.Call
@@ -46,11 +43,51 @@ class CuratorFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
         fragment_curator_tv_gamsung.setOnClickListener {
             activity?.let{
                 val intent = Intent(context, CuratorActivity::class.java)
                 intent.putExtra("params", 1)
+                startActivity(intent)
+            }
+        }
+
+        fragment_curator_tv_donggi.setOnClickListener {
+            activity?.let{
+                val intent = Intent(context, CuratorActivity::class.java)
+                intent.putExtra("params", 2)
+                startActivity(intent)
+            }
+        }
+
+        fragment_curator_tv_jagi.setOnClickListener {
+            activity?.let{
+                val intent = Intent(context, CuratorActivity::class.java)
+                intent.putExtra("params", 3)
+                startActivity(intent)
+            }
+        }
+
+        fragment_curator_tv_kipeun.setOnClickListener {
+            activity?.let{
+                val intent = Intent(context, CuratorActivity::class.java)
+                intent.putExtra("params", 4)
+                startActivity(intent)
+            }
+        }
+
+        fragment_curator_tv_doksu.setOnClickListener {
+            activity?.let{
+                val intent = Intent(context, CuratorActivity::class.java)
+                intent.putExtra("params", 5)
+                startActivity(intent)
+            }
+        }
+
+        fragment_curator_tv_ilsang.setOnClickListener {
+            activity?.let{
+                val intent = Intent(context, CuratorActivity::class.java)
+                intent.putExtra("params", 6)
                 startActivity(intent)
             }
         }
