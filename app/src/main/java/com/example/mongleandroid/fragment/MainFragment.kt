@@ -26,7 +26,6 @@ class MainFragment : Fragment() {
 
     val requestToServer = RequestToServer//싱글톤 그대로 가져옴
 
-    private var data3 = mutableListOf<ResponseMainHotThemeData>()
 
     private lateinit var todaySentenceAdapter: TodaySentenceAdapter
     private lateinit var mainNowHotCuratorAdapter: MainNowHotCuratorAdapter

@@ -120,4 +120,16 @@ interface RequestInterface {
     fun GetMainNowThemes(
         @Header("token") token: String?
     ) : Call<ResponseMainHotThemeData>
+
+    // 메인 - 뷰페이저 이미지 통신
+    @GET("/main/editorsPick")
+    fun GetMainEditorsPick(
+
+    ) : Call<ResponseMainEditorsPick>
+
+    //테마 상세 조회
+//    @GET("/detail/theme/:themeIdx")
+//    fun GetDetailTheme(
+//        @Header("token") token: String?
+//    ) : Call<>
 }
