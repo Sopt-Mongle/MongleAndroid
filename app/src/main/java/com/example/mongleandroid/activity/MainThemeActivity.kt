@@ -44,7 +44,7 @@ class MainThemeActivity : AppCompatActivity() {
         mainThemeAdapter.setItemClickListener(object : MainThemeAdapter.ItemClickListener{
             override fun onClick(view: View, position: Int) {
                 Log.d("SSS","${position}번 리스트 선택")
-                    val intent = Intent(this@MainThemeActivity, SentenceDetailViewActivity::class.java)
+                    val intent = Intent(this@MainThemeActivity, SentenceDetailViewInThemeActivity::class.java)
                     startActivity(intent)
             }
         })

@@ -83,10 +83,10 @@
         app:layout_constraintTop_toTopOf="@+id/tv_main_hot_theme_count" />
 
     <ImageView
-        android:layout_width="10dp"
-        android:layout_height="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
-        android:src="@color/white"
+        android:src="@drawable/main_ic_bookmark_1"
         app:layout_constraintBottom_toBottomOf="@+id/textView15"
         app:layout_constraintEnd_toStartOf="@+id/textView15"
         app:layout_constraintTop_toTopOf="@+id/textView15" />
