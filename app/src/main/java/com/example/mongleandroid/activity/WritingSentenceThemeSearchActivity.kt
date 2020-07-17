@@ -27,6 +27,7 @@ import kotlinx.android.synthetic.main.item_theme_search.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.NullPointerException
 
 class WritingSentenceThemeSearchActivity : AppCompatActivity() {
 
@@ -152,7 +153,11 @@ class WritingSentenceThemeSearchActivity : AppCompatActivity() {
                             //리사이클러뷰 아이템 클릭리스너 등록
                             writingSentenceThemeSearchAdapter.setItemClickListener(object : WritingSentenceThemeSearchAdapter.ItemClickListener{
                                 override fun onClick(view: View, position: Int) {
+//                                    if(view != View.){
+//
+//                                    }
                                     if(chkedidx != -1){
+                                        Log.d("SSS","${chkedidx}번 리스트 선택")
                                         activity_writing_sentence_theme_search_rv_after.getChildAt(chkedidx).findViewById<ImageView>(R.id.activity_search_theme_img_chk).visibility = View.GONE
                                     }
                                     title = writingSentenceThemeSearchAdapter.datas[position].theme
@@ -160,6 +165,7 @@ class WritingSentenceThemeSearchActivity : AppCompatActivity() {
                                     view.findViewById<ImageView>(R.id.activity_search_theme_img_chk).visibility = View.VISIBLE
                                     Log.d("SSS","${position}번 리스트 선택")
                                     chkedidx = position
+
                                 }
                             })
                         }

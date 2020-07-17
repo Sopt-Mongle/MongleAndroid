@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.bumptech.glide.Glide
 import com.example.mongleandroid.R
 import com.example.mongleandroid.activity.JoinActivity
 import com.example.mongleandroid.activity.WritingThemeFinishActivity
@@ -25,43 +26,28 @@ class DialogMakethemeCheck(context : Context) {
     private lateinit var maketheme_popup_yes : TextView
     private lateinit var maketheme_popup_no : TextView
     private lateinit var listener : MyDialogOKClickedListener
-    lateinit var themeImg : MutableList<Int>
+    lateinit var themeImg : String
 
 
     fun start(chkedNum : Int){
-        themeImg.add(R.drawable.maketheme_img_theme_1)
-        themeImg.add(R.drawable.maketheme_img_theme_1)
-        themeImg.add(R.drawable.maketheme_img_theme_1)
-        themeImg.add(R.drawable.maketheme_img_theme_1)
-        themeImg.add(R.drawable.maketheme_img_theme_1)
-        themeImg.add(R.drawable.maketheme_img_theme_1)
-        themeImg.add(R.drawable.maketheme_img_theme_1)
-        themeImg.add(R.drawable.maketheme_img_theme_1)
-        themeImg.add(R.drawable.maketheme_img_theme_1)
-        themeImg.add(R.drawable.maketheme_img_theme_1)
-        themeImg.add(R.drawable.maketheme_img_theme_1)
-        themeImg.add(R.drawable.maketheme_img_theme_1)
-        themeImg.add(R.drawable.maketheme_img_theme_1)
-        themeImg.add(R.drawable.maketheme_img_theme_1)
-        themeImg.add(R.drawable.maketheme_img_theme_1)
 
         when(chkedNum){
             1 -> maketheme_popup_title.setBackgroundResource(R.drawable.maketheme_check_img_theme)
-            2 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-            3 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-            4 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-            5 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-            6 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-            7 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-            8 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-            9 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-            10 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-            11 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-            12 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-            13 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-            14 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-            15 -> themeImg.add(R.drawable.maketheme_img_theme_1)
-            16 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            2 -> Glide.with(applicationContext).load(Imgdatas.get(0).img).into(activity_writing_theme_img1)
+//            3 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            4 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            5 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            6 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            7 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            8 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            9 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            10 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            11 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            12 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            13 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            14 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            15 -> themeImg.add(R.drawable.maketheme_img_theme_1)
+//            16 -> themeImg.add(R.drawable.maketheme_img_theme_1)
         }
 
 

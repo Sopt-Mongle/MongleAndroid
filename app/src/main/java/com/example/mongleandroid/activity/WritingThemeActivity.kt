@@ -31,10 +31,18 @@ class WritingThemeActivity : AppCompatActivity() {
     var themeImgIdx:Int = 0
     lateinit var img:String
     var RequestWritingThemeData: RequestWritingThemeData = RequestWritingThemeData("dd", 1)
+    data class imgData(
+        var img: String,
+        var imgIdx: Int
+    )
+    var imgDataList: List<imgData> = List<imgData>(16) {imgData("",0)}
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_writing_theme)
+
+        requestThemeImgData()
 
         activity_writing_theme_et_theme_title.requestFocus()
         activity_writing_theme_et_theme_title.showKeyboard()
@@ -131,6 +139,12 @@ class WritingThemeActivity : AppCompatActivity() {
             activity_writing_theme_img_chk8.visibility = View.GONE
             activity_writing_theme_img_chk9.visibility = View.GONE
             activity_writing_theme_img_chk10.visibility = View.GONE
+            activity_writing_theme_img_chk11.visibility = View.GONE
+            activity_writing_theme_img_chk12.visibility = View.GONE
+            activity_writing_theme_img_chk13.visibility = View.GONE
+            activity_writing_theme_img_chk14.visibility = View.GONE
+            activity_writing_theme_img_chk15.visibility = View.GONE
+            activity_writing_theme_img_chk16.visibility = View.GONE
             when(img){
                 activity_writing_theme_CL_img1 -> activity_writing_theme_img_chk1.visibility = View.VISIBLE
                 activity_writing_theme_CL_img2 -> activity_writing_theme_img_chk2.visibility = View.VISIBLE
@@ -142,7 +156,12 @@ class WritingThemeActivity : AppCompatActivity() {
                 activity_writing_theme_CL_img8 -> activity_writing_theme_img_chk8.visibility = View.VISIBLE
                 activity_writing_theme_CL_img9 -> activity_writing_theme_img_chk9.visibility = View.VISIBLE
                 activity_writing_theme_CL_img10 -> activity_writing_theme_img_chk10.visibility = View.VISIBLE
-
+                activity_writing_theme_CL_img11 -> activity_writing_theme_img_chk11.visibility = View.VISIBLE
+                activity_writing_theme_CL_img12 -> activity_writing_theme_img_chk12.visibility = View.VISIBLE
+                activity_writing_theme_CL_img13 -> activity_writing_theme_img_chk13.visibility = View.VISIBLE
+                activity_writing_theme_CL_img14 -> activity_writing_theme_img_chk14.visibility = View.VISIBLE
+                activity_writing_theme_CL_img15 -> activity_writing_theme_img_chk15.visibility = View.VISIBLE
+                activity_writing_theme_CL_img16 -> activity_writing_theme_img_chk16.visibility = View.VISIBLE
             }
         }
 
@@ -162,6 +181,10 @@ class WritingThemeActivity : AppCompatActivity() {
                 response: Response<ResponseWritingThemeData>
             ) {
                 if (response.isSuccessful){
+                    response.body().let { body ->
+                        Log.e("ResponseWritingThemeData 통신응답바디", "status: ${body!!.status} data : ${body!!.message}")
+                    }
+                }else{
                     response.body().let { body ->
                         Log.e("ResponseWritingThemeData 통신응답바디", "status: ${body!!.status} data : ${body!!.message}")
                     }
@@ -188,19 +211,23 @@ class WritingThemeActivity : AppCompatActivity() {
                     response.body().let { body ->
                         Imgdatas = body!!.data
 
+                        Glide.with(applicationContext).load(Imgdatas.get(0).img).into(activity_writing_theme_img1)
+                        Glide.with(applicationContext).load(Imgdatas.get(1).img).into(activity_writing_theme_img2)
+                        Glide.with(applicationContext).load(Imgdatas.get(2).img).into(activity_writing_theme_img3)
+                        Glide.with(applicationContext).load(Imgdatas.get(3).img).into(activity_writing_theme_img4)
+                        Glide.with(applicationContext).load(Imgdatas.get(4).img).into(activity_writing_theme_img5)
+                        Glide.with(applicationContext).load(Imgdatas.get(5).img).into(activity_writing_theme_img6)
+                        Glide.with(applicationContext).load(Imgdatas.get(6).img).into(activity_writing_theme_img7)
+                        Glide.with(applicationContext).load(Imgdatas.get(7).img).into(activity_writing_theme_img8)
+                        Glide.with(applicationContext).load(Imgdatas.get(8).img).into(activity_writing_theme_img9)
+                        Glide.with(applicationContext).load(Imgdatas.get(9).img).into(activity_writing_theme_img10)
+                        Glide.with(applicationContext).load(Imgdatas.get(10).img).into(activity_writing_theme_img11)
+                        Glide.with(applicationContext).load(Imgdatas.get(11).img).into(activity_writing_theme_img12)
+                        Glide.with(applicationContext).load(Imgdatas.get(12).img).into(activity_writing_theme_img13)
+                        Glide.with(applicationContext).load(Imgdatas.get(13).img).into(activity_writing_theme_img14)
+                        Glide.with(applicationContext).load(Imgdatas.get(14).img).into(activity_writing_theme_img15)
+                        Glide.with(applicationContext).load(Imgdatas.get(15).img).into(activity_writing_theme_img16)
 
-
-
-                        for(i in 0..15){
-                           // Glide.with(applicationContext).load(datas.get(0).theme).into(activity_writing_theme_img1)
-
-
-
-                        }
-//                        themeImgIdx = body!!.themeImgIdx
-//                        img = body!!.img
-//                        Glide.with(applicationContext).load(datas.get(0).).into(activity_writing_theme_img1)
-//                        //Log.e("ResponseWritingThemeData 통신응답바디", "status: ${body!!.status} data : ${body!!.message}")
                     }
                 }
 
