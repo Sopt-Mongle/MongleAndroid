@@ -1,27 +1,51 @@
-# :dizzy: 몽글의 갤럭시 :dizzy:
+# 몽글
 
-# ☁️사용 라이브러리
+![image](https://user-images.githubusercontent.com/59532818/87798061-7d34b300-c886-11ea-9d96-bc4196850275.png)
 
-- 리사이클러뷰를 다루기 위한 라이브러리 `implementation 'androidx.recyclerview:recyclerview:1.1.0'`
-- material 디자인 라이브러리 `implementation "com.google.android.material:material:1.2.0-alpha05"`
-- 이미지 url 로딩 라이브러리 `implementation "com.github.bumptech.glide:glide:4.10.0"`
-- 동그란 이미지 커스텀 뷰 라이브러리 `implementation 'de.hdodenhof:circleimageview:3.1.0'`
-- Retrofit 라이브러리 `implementation 'com.squareup.retrofit2:retrofit:2.6.2'`
-- Retrofit 라이브러리 응답으로 가짜 객체를 만들기 위해 `implementation 'com.squareup.retrofit2:retrofit-mock:2.6.2'`
-- 객체 시리얼라이즈를 위한 Gson 라이브러리 `implementation 'com.google.code.gson:gson:2.8.6'`
-- Retrofit 에서 Gson 을 사용하기 위한 라이브러리 `implementation 'com.squareup.retrofit2:converter-gson:2.6.2'`
-- 추천 키워드 flowlayout `implementation 'com.nex3z:flow-layout:1.2.4'`
-<br>
 
-# ☁️프로젝트 구조
-**update soon**
-<br>
+## 몽글의  Main Function (엑셀 참고해서 인덱싱 & 화면)
 
-# ☁️주요 기능 소개
+### 스플래시
 
-## :bulb: BottomNavigationView 커스텀
+### 로그인
 
-```
+### 회원가입
+
+### 바텀바 - 홈
+
+### 홈 - 테마뷰
+
+### 홈 - 문장뷰
+
+### 바텀바 - 검색
+
+### 바텀바 - 큐레이터
+
+### 바텀바 - 내 서재
+
+### 플로팅 버튼 - 테마 만들기
+
+### 플로팅 버튼 - 문장 쓰기
+
+## 몽글의 Android Developer
+
+### 조현진 - 몽글 안드부서 부장님 🔥
+
+### 박세란 - 막내 온 탑
+
+### 이소민 - 원자력 발전소
+
+### 최하영 - 개발하는 요리사
+
+## 기능 명세 목록 및 구현 여부
+
+# 핵심 기능 구현 방법 소개
+
+## BottomNavigationView + FloatingActionButton를 커스텀한 바텀 바
+
+### BottomNavigationView 커스텀
+
+```jsx
 <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/main_activity_bnv"
             android:layout_width="match_parent"
@@ -32,12 +56,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/bottom" /
-
 ```
 
-## :bulb: FloatingActionButton 커스텀
+### FloatingActionButton 커스텀
 
-### 기본 플로팅 버튼 (메인 플로팅 버튼)
+- **기본 플로팅 버튼 (메인 플로팅 버튼)**
 
 ```
 <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -58,7 +81,7 @@
 
 ```
 
-### 커스텀한 플로팅 버튼 (눌렀을 때 등장하는 버튼)
+- **커스텀한 플로팅 버튼 (눌렀을 때 등장하는 버튼)**
 
 ```
 <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -99,8 +122,10 @@
 
 ```
 
-## :bulb: FloatingActionButton에 Animation 적용
-**fab_open.xml**
+### FloatingActionButton에 Animation 적용
+
+- **fab_open.xml**
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android"
@@ -120,8 +145,11 @@
         android:interpolator="@android:anim/accelerate_interpolator"
         android:toAlpha="1.0" />
 </set>
+
 ```
-**fab_close.xml**
+
+- **fab_close.xml**
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android"
@@ -141,135 +169,30 @@
         android:interpolator="@android:anim/accelerate_interpolator"
         android:toAlpha="0.0" />
 </set>
+
 ```
-**Animation 적용**
+
+- **Animation 적용**
+
 ```
 fab_open = AnimationUtils.loadAnimation(this, R.anim.fab_open)
 fab_close = AnimationUtils.loadAnimation(this, R.anim.fab_close)
-```
-## :bulb: BottomNavigationView와 fragment 연동
-
-```
-//fragment 처리 객체
-    lateinit var mainFragment: MainFragment
-    lateinit var searchFragment: SearchFragment
-    lateinit var curatorFragment: CuratorFragment
-    lateinit var mypageFragment: MypageFragment
-
-//fragment 객체 초기화
-        mainFragment = MainFragment()
-        searchFragment = SearchFragment()
-        curatorFragment = CuratorFragment()
-        mypageFragment = MypageFragment()
-
-//메인을 초기 화면으로
-        supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, mainFragment).commit()
-
-//bottomNavigationView의 각 아이템아 fragment의 진입점이 되도록 분기
-        main_activity_bnv.setOnNavigationItemSelectedListener{
-            when(it.itemId){
-                R.id.menu_main -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, mainFragment).commit()
-                R.id.menu_search -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, searchFragment).commit()
-                R.id.menu_curator -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, curatorFragment).commit()
-                R.id.menu_mypage -> supportFragmentManager.beginTransaction().replace(R.id.main_activity_fg, mypageFragment).commit()
-            }
-            true
-        }
 
 ```
 
-## :bulb: FloatingActionButton과 Activity 연동
+## FlowLayout을 사용한 추천 검색어 및 최근 검색 뷰
 
-**update soon**
+### **검색 뷰 추천 검색어 - FlowLayout**
 
-## 더 공부하여 적용할 부분
+공간이 충분하지 않을 때 다음 행으로 자동 줄바꿈 될 수 있도록 하는 FlowLayout 사용
 
-- 워크 플로우에 따라서 fragment와 activity 생명주기 설계하여 적용하기 - mainActivity와 4개의 fragment들, 2개의 activity flow
-- 특정 fragment에 진입 했을 때, 시스템이 관여하는 동작을 어떻게 구현할지 설계하여, searchfragment 진입 시에 키보드가 자동으로 올라오게 하기 - mainActivity, searchfragment, xml, manifest
-
-## :bulb: 검색 뷰(SearchFragment) 레이아웃 - ConstraintLayout 사용
-```
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ConstraintLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.SearchFragment">
-...
-</androidx.constraintlayout.widget.ConstraintLayout>
-```
-
-## :bulb: 검색 뷰 - Edittext에 초점 맞추기, 키보드 자동으로 올라오게 구현
-키보드를 제어할 때는 InputMethodManager를 이용한다.  
-- showSoftInput(View view, int flags): 키보드 보임
-- hideSoftInputFromWindow(IBinder windowToken, int flags): 키보드 숨김
-
-주의할 점은 showSoftInput() 함수의 첫 번째 매개변수로 글이 입력될 뷰를 지칭하는데, 입력 대상이 되는 뷰에 포커스가 없는 상태라면 키보드가 나타나지 않는다.
-따라서 requestFocus() 함수를 이용하여 Edittext에 포커스를 요청한 후 showSoftInput() 함수로 키보드가 나타나게 구현한다.
-
-**fragment_search.xml - Edittext(검색창)에서 <requestFocus /> 코드 추가**
-```
-<EditText
-        android:id="@+id/search_fragment_et_search"
-        ...
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/search_fragment_btn_back"
-        app:layout_constraintTop_toTopOf="parent" >
-        <requestFocus />
-    </EditText>
-```
-
-**SearchFragment.kt**
-```
-search_fragment_et_search.requestFocus() // Edittext에 초점 맞추는 부분
-search_fragment_et_search.showKeyboard() // keyboard 올라오는 부분
-```
-
-**showKeyboard() 확장 함수**  
-ShowKeyboard.kt
-```
-fun EditText.showKeyboard() {
-    if (requestFocus()) {
-        // edittext에 초점이 맞춰지면 키보드 올라옴
-        (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
-            .showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
-        setSelection(text.length)
-    }
-}
-```
-
-## :bulb: 검색 뷰 최근 검색어 - RecyclerView
-- 가로 양 쪽으로 패딩값을 준 뒤 clipToPadding="false" 라는 속성값을 이용하여 패딩공간을 스크롤 영역으로 활용
-- 검색어를 입력하는 경우 가장 최근 검색어를 맨 앞에 배치하기 위해 stackFromEnd="true"와 reverseLayout="true" 옵션을 사용하여 리사이클러뷰를 역순으로 출력
-```
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/rv_recent_keyword"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="15dp"
-    android:clipToPadding="false"
-    android:orientation="horizontal"
-    android:paddingLeft="15dp"
-    android:paddingEnd="7dp"
-    app:stackFromEnd="true"
-    app:reverseLayout="true"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textView6"
-    tools:listitem="@layout/item_recent_keyword" />
-```
-
-## :bulb: 검색 뷰 추천 검색어 - FlowLayout
-공간이 충분하지 않을 때 다음 행으로 자동 줄바꿈 될 수 있도록 하는 FlowLayout 사용  
 - flChildSpacing : 자식 뷰 사이의 가로 간격
 - flChildSpacingForLastRow : 마지막 행의 자식 뷰 사이의 가로 간격
 
-![image](https://user-images.githubusercontent.com/38918396/86778953-f4ec2c00-c095-11ea-97d3-742239182aa9.png) ![image](https://user-images.githubusercontent.com/38918396/86779026-0c2b1980-c096-11ea-922e-8e81b4403814.png)
+![https://user-images.githubusercontent.com/38918396/86778953-f4ec2c00-c095-11ea-97d3-742239182aa9.png](https://user-images.githubusercontent.com/38918396/86778953-f4ec2c00-c095-11ea-97d3-742239182aa9.png)
+
+![https://user-images.githubusercontent.com/38918396/86779026-0c2b1980-c096-11ea-922e-8e81b4403814.png](https://user-images.githubusercontent.com/38918396/86779026-0c2b1980-c096-11ea-922e-8e81b4403814.png)
+
 ```
 <com.nex3z.flowlayout.FlowLayout
         android:layout_width="0dp"
@@ -293,129 +216,315 @@ fun EditText.showKeyboard() {
             android:textSize="16sp" />
 ...
     </com.nex3z.flowlayout.FlowLayout>
-```
-
-## 💡 MainFragment
-
-## ScrollView
 
 ```
-<androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-</androidx.core.widget.NestedScrollView>
-```
+## RecyclerView 아이템 클릭 이벤트 처리
 
-## ViewPager & TabLayout
+## customTabLayout
 
-```
-<androidx.viewpager.widget.ViewPager
-                android:id="@+id/vp_main"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginTop="28dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_main_mongle_logo">
+내 서재 뷰의 탭이 textView가 위 아래로 두 개가 쌓여있는 형태이다. 
 
-            </androidx.viewpager.widget.ViewPager>
-```
+(일반 tabLayout은 textView 하나씩 사용할 수 있다.)
 
-- Activity에서 ViewPager를 사용할 때는 supportFragmentManager를 사용했었다. 하지만 Fragment에서는 supportFragmentManager를 사용할 수 없다.
-- Fragment에서는 supportFragmentManager가 아닌 childFragmentManager를 사용해야 한다.
+- customTab.xml을 만든다. 원하는 탭의 모양을 뷰로 만든다. 
+(해당 앱에서는 textView 2개를 위아래로 배치하였다.)
+
+- LibraryFragment에서 tabLayout에 들어가는 text 채운다.
 
 ```
-vp_main.adapter = MainPagerAdapter(childFragmentManager)
-vp_main.offscreenPageLimit = 2
-tl_main.setupWithViewPager(vp_main)
+val libraryTabLayout = view.findViewById(R.id.titleLayout) as TabLayout
+val libraryViewPager = view.findViewById(R.id.vp_library) as ViewPager
+val adapter = LibraryTabAdapter(childFragmentManager)
+
+val viewFirst : View = getLayoutInflater().inflate(R.layout.custom_library_tab_basic, null)
+val viewSecond : View = getLayoutInflater().inflate(R.layout.custom_library_tab_basic, null)
+val viewThird : View = getLayoutInflater().inflate(R.layout.custom_library_tab_basic, null)
+val txtUpper1 : TextView = viewFirst.findViewById(R.id.library_tab_num)
+val txtDown1 : TextView = viewFirst.findViewById(R.id.library_tab)
+val txtUpper2 : TextView = viewSecond.findViewById(R.id.library_tab_num)
+val txtDown2 : TextView = viewSecond.findViewById(R.id.library_tab)
+val txtUpper3 : TextView = viewThird.findViewById(R.id.library_tab_num)
+val txtDown3 : TextView = viewThird.findViewById(R.id.library_tab)
+
+txtUpper1.setText("47")
+txtDown1.setText("테마")
+
+txtUpper2.setText("36")
+txtDown2.setText("문장")
+
+txtUpper3.setText("27")
+txtDown3.setText("큐레이터")
+
+libraryViewPager.setAdapter(adapter)
+libraryTabLayout.setupWithViewPager(libraryViewPager)
+
+libraryTabLayout.getTabAt(0)!!.customView = viewFirst
+libraryTabLayout.getTabAt(1)!!.customView = viewSecond
+libraryTabLayout.getTabAt(2)!!.customView = viewThird
 ```
 
-```
-<com.google.android.material.tabs.TabLayout
-                android:id="@+id/tl_main"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vp_main"
-                app:tabBackground="@drawable/dot_selector"
-                app:tabIndicatorHeight="0dp">
+- viewPager를 각 탭과 연결해준다.
 
-            </com.google.android.material.tabs.TabLayout>
+```jsx
+libraryViewPager.setAdapter(adapter)
+libraryTabLayout.setupWithViewPager(libraryViewPager)
+
+libraryTabLayout.getTabAt(0)!!.customView = viewFirst
+libraryTabLayout.getTabAt(1)!!.customView = viewSecond
+libraryTabLayout.getTabAt(2)!!.customView = viewThird
 ```
 
-## MainPagerAdapter
+
+
+
+## stickyHeader
+
+내 서재 뷰의 전체를 스크롤 가능하게 하고, 위로 스크롤 시 customTabLayout이 맨 위로 붙이기
+
+- build.gradle(app)에 라이브러리 추가
+
+```kotlin
+//sticky header
+implementation 'com.github.amarjain07:StickyScrollView:1.0.2'
+```
+
+- build.gradle(MongleAndroid)에 아래 코드 추가
+
+```kotlin
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+
+- xml 만들기
+
+<NewScrollView>
+    <TabLayout/>
+    <CustomViewPager/>    
+</NewScrollView>
+
+- issue) scroll이 안됨.
+
+ConstraintLayout을 사용할 때 뷰의 크기는 match_parent, wrap_content, 0dp로 크기를 조정하게 되는 데 ScrollView안에 viewPager가 match_parent, wrap_content로 들어가면 제대로 화면을 보여주지 않음.
+
+해결방안) ViewPager를 상속받은 CustomViewPager를 만들어서 배치한다.
+
+
+- + ) CoordinatorLayout으로 하면 안되는 이유
+
+일반적으로 CoordinatorLayout에서의 고정 방법인 CollapsingToolbar 이용 시 Toolbar의 pin 속성을 이용하여 상단에 고정시키는 방법은 안됨. → 이유는 Toolbar는 자식을 두지 않기 때문이다. 우리는 단순한 Toolbar가 아닌 customTabLayout을 위에 붙여야 함.
+
+## spannable을 사용한 검색 결과 하이라이팅
+
+- Spannable : 텍스트의 '일부'에만 색을 입히거나, 크기를 늘리는 등 효과를 넣을 수 있다.
+- span.setSpan(ForegroundColorSpan(글자색), 시작지점, 끝지점, 옵션)
 
 ```
-class MainPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT  ) {
-    override fun getItem(position: Int): Fragment {
-        return when(position){
-            0 -> MainViewPager1Fragment()
-            1 -> MainViewPager2Fragment()
-            else -> MainViewPager3Fragment()
+val inputString = MainActivity.search_result
+val sb = StringBuilder(inputString)
+val startWord = sb.get(0)
+val endWord = sb.get(sb.lastIndex)
+Log.d("index","startWord : ${startWord}, endWord ${endWord}")
+
+val startIndex = responseResultThemeData.theme.indexOf(startWord)
+val lastIndex = responseResultThemeData.theme.indexOf(endWord)
+Log.d("index","startIndex : ${startIndex}, lastIndex ${lastIndex}")
+val spannable = SpannableStringBuilder(responseResultThemeData.theme)
+
+if(inputString.length == lastIndex - startIndex + 1) {
+    spannable.setSpan(
+        ForegroundColorSpan(Color.rgb(115,192,136)),
+        startIndex,
+        lastIndex + 1, // end
+        Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+    )
+} 
+
+theme.text = spannable
+```
+
+## dialog를 사용한 커스텀 팝업
+
+- Custom Dialog
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c45f0650-0212-42a8-a527-5f8ec22ba682/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c45f0650-0212-42a8-a527-5f8ec22ba682/Untitled.png)
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/191378ad-4046-48bb-83e3-25fa0b341bb5/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/191378ad-4046-48bb-83e3-25fa0b341bb5/Untitled.png)
+
+DialogLogin.kt
+
+```
+class DialogLogin(context : Context) {
+    private val dlg = Dialog(context)   //부모 액티비티의 context 가 들어감
+    private lateinit var login_popup_yes : TextView
+    private lateinit var login_popup_join : TextView
+    private lateinit var listener : MyDialogOKClickedListener
+
+    fun start(content : String) {
+        dlg.requestWindowFeature(Window.FEATURE_NO_TITLE)   
+				//타이틀바 제거
+        dlg.setCancelable(false)
+				//다이얼로그의 바깥 화면을 눌렀을 때 다이얼로그가 닫히지 않도록 함
+        dlg.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+				//다이얼로그 배경색 투명으로 설정
+        dlg.setContentView(R.layout.dialog_login)
+				//다이얼로그에 사용할 xml 파일을 불러옴
+
+        login_popup_yes = dlg.findViewById(R.id.login_popup_yes)
+        login_popup_yes.setOnClickListener {
+            dlg.dismiss()
+        }
+
+        login_popup_join = dlg.findViewById(R.id.login_popup_join)
+        login_popup_join.setOnClickListener {
+            val intent = Intent(it.context, JoinActivity::class.java)
+            it.context.startActivity(intent)
+            dlg.dismiss()
+        }
+        dlg.show()
+    }
+
+    fun setOnOKClickedListener(listener: (String) -> Unit) {
+        this.listener = object:
+            MyDialogOKClickedListener {
+            override fun onOKClicked(content: String) {
+                listener(content)
+            }
         }
     }
 
-    override fun getCount()= 3
+    interface MyDialogOKClickedListener {
+        fun onOKClicked(content : String)
+    }
+
 }
 ```
-## :bulb: **큐레이터 뷰**
 
-해당 뷰는 사용자가 구독 중인 큐레이터의 목록을 나타내는 뷰이다.
+## 확장함수 소개
 
-#CuratorView 만들기
+1. 키보드 제어 함수
 
-ConstraintLayout으로 View를 만들었다.
+    ```
+    fun EditText.showKeyboard() {
+        if (requestFocus()) {
+            // edittext에 초점이 맞춰지면 키보드 올라옴
+            (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+                .showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+            setSelection(text.length)
+        }
+    }
 
-<constraintLayout
+    fun EditText.unshowKeyboard() {
+        if (requestFocus()) {
+            // edittext에 초점이 맞춰지면 키보드 올라옴
+            (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+                .hideSoftInputFromWindow(this.windowToken, 0)
+            setSelection(text.length)
+        }
+    }
+    ```
 
-<TextView
+2. 한 액티비티에서 레이아웃, 뷰 전환 함수
 
-<ImageButton
+    ```
+    fun goNextView(current : View, next : View){
+        current.visibility = View.GONE
+        next.visibility = View.VISIBLE
+    }
+    fun goPrevView(current: View, prev : View) {
+        current.visibility = View.GONE
+        prev.visibility = View.VISIBLE
+    }
+    fun goNextPage(current : ConstraintLayout, next : ConstraintLayout){
+        current.visibility = View.GONE
+        next.visibility = View.VISIBLE
+    }
+    fun goPrevPage(current: ConstraintLayout, prev : ConstraintLayout){
+        current.visibility = View.GONE
+        prev.visibility = View.VISIBLE
+    }
 
-<RecyclerView
+    ```
 
-/>
+3. request를 보내고 response를 받아오는 통신 함수
 
-#recyclerView 만들기
+    ```
+    fun<ResponseType> Call<ResponseType>.customEnqueue(
+        onFail : () -> Unit = { Log.d("network", "통신에 실패했습니다.")},
+        onSuccess : (ResponseType) -> Unit,
+        onError : () -> Unit
+    ){
+        this.enqueue(object : Callback<ResponseType> {
+            override fun onFailure(call: Call<ResponseType>, t: Throwable) {
+                onFail()
+            }
 
--item 만들기
+            override fun onResponse(call: Call<ResponseType>, response: Response<ResponseType>) {
+                //body 가 존재한다면, statusCode가 200-300 사이이다.
+                //let 함수는 해당 reponse 객체를 it으로 사용하게 함
+                response.body()?.let{
+                    onSuccess(it) //통신 결과를 전달해줌
 
-ConstraintLayout을 이용하여 RecyclerView에 들어갈 아이템을 만들었다.
+                } ?: onError() 
 
-- <CircleImageView>를 이용하여 프로필 사진을 동그란 이미지로 넣을 수 있도록 하였다.
-- "예스리", "대학내일", "인생회고"는 TextView로 만들었고, 프로필 옆의 업데이트 표시 이미지와 "|"는 ImageView로 만들었다.
-- 구독 버튼은 selector를 이용하여 둥근 버튼으로 만들고, checked를 이용하여 구독, 구독 중의 버튼을 나타내었다.
-- item의 background도 shape를 이용하여 radius와 색상을 지정해줬다. (임의로 현재 색 구분을 위해 다른 색으로 해놨다.)
+            }
 
--data 
+        })
+    }
+    ```
 
-RecyclerView에 들어가는 Data의 파일을 생성하였다.
+# 프로젝트 구조
 
-```
-data class CuratorData(
-    val img_profile_item: Int,
-    val item_username: String,
-    val item_keyword1: String,
-    val item_keyword2: String,
-    val item_img_online: Int?
-)
-```
+## 사용 라이브러리
 
--adapter
+- 리사이클러뷰를 다루기 위한 라이브러리 `implementation 'androidx.recyclerview:recyclerview:1.1.0'`
+- material 디자인 라이브러리 `implementation "com.google.android.material:material:1.2.0-alpha05"`
+- 이미지 url 로딩 라이브러리 `implementation "com.github.bumptech.glide:glide:4.10.0"`
+- 동그란 이미지 커스텀 뷰 라이브러리 `implementation 'de.hdodenhof:circleimageview:3.1.0'`
+- Retrofit 라이브러리 `implementation 'com.squareup.retrofit2:retrofit:2.6.2'`
+- Retrofit 라이브러리 응답으로 가짜 객체를 만들기 위해 `implementation 'com.squareup.retrofit2:retrofit-mock:2.6.2'`
+- 객체 시리얼라이즈를 위한 Gson 라이브러리 `implementation 'com.google.code.gson:gson:2.8.6'`
+- Retrofit 에서 Gson 을 사용하기 위한 라이브러리 `implementation 'com.squareup.retrofit2:converter-gson:2.6.2'`
+- 추천 키워드 flowlayout `implementation 'com.nex3z:flow-layout:1.2.4'`
 
-임의로 더미데이터를 넣었다.
+## 디렉토리 설명
 
-```
-CuratorData(
-    img_profile_item = R.drawable.curator_img_ys,
-    item_username = "예슬이",
-    item_keyword1 = "몽글피엠",
-    item_keyword2 = "귀염둥이",
-    item_img_online = R.drawable.curator_state_update_circle
-)
-```
+activity
+
+adapter
+
+fragment
+
+network
+
+util
+
+확장함수들
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f8df33c7-d690-452a-8383-add773388e86/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f8df33c7-d690-452a-8383-add773388e86/Untitled.png)
+
+## Git&GitHub Branch 전략
+
+### master
+
+develop 으로부터 PR만 진행하는 안전한 최종 작업물 
+
+### develop
+
+feature과 교류하며, 이어가는 작업물
+
+### feature/#cnt
+
+issue를 기준으로 생성한 브랜치 
+
+### issue
+
+역할 분담에 따라, 작업을 쪼개서 정의한 것
+
+- branch 이름
+- issue 제목 정하기
