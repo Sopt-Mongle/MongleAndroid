@@ -27,7 +27,7 @@
         android:layout_width="14dp"
         android:layout_height="14dp"
         android:layout_marginTop="14dp"
-        android:src="@color/black"
+        android:src="@drawable/theme_ic_book_1"
         app:layout_constraintStart_toStartOf="@+id/tv_theme_sentence"
         app:layout_constraintTop_toBottomOf="@+id/tv_theme_sentence" />
 
