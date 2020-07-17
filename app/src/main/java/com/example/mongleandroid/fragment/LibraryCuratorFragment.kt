@@ -38,92 +38,111 @@ class LibraryCuratorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        libraryCuratorAdapter = LibraryCuratorAdapter(view.context)
-//        rv_library_curator.adapter = libraryCuratorAdapter
-//        loadDatas()
+        libraryCuratorAdapter = LibraryCuratorAdapter(view.context)
+        rv_library_curator.adapter = libraryCuratorAdapter
+        loadDatas()
 
-        requestLibraryCuratorData()
+//        requestLibraryCuratorData()
 
     }
 
 
-//    private fun loadDatas() {
-//        libraryCuratorData.apply {
-//            add(
-//                LibraryCuratorData(
-//                    library_curator_img_profile = null,
-//                    tv_library_curator_name = "예스리",
-//                    tv_library_curator_subcount = "15",
-//                    tv_library_curator_keyword = "피엠예슬"
-//                )
-//            )
-//            add(
-//                LibraryCuratorData(
-//                    library_curator_img_profile = null,
-//                    tv_library_curator_name = "예스리",
-//                    tv_library_curator_subcount = "15",
-//                    tv_library_curator_keyword = "피엠예슬"
-//                )
-//            )
-//            add(
-//                LibraryCuratorData(
-//                    library_curator_img_profile = null,
-//                    tv_library_curator_name = "예스리",
-//                    tv_library_curator_subcount = "15",
-//                    tv_library_curator_keyword = "피엠예슬"
-//                )
-//            )
-//            add(
-//                LibraryCuratorData(
-//                    library_curator_img_profile = null,
-//                    tv_library_curator_name = "예스리",
-//                    tv_library_curator_subcount = "15",
-//                    tv_library_curator_keyword = "피엠예슬"
-//                )
-//            )
-//            add(
-//                LibraryCuratorData(
-//                    library_curator_img_profile = null,
-//                    tv_library_curator_name = "예스리",
-//                    tv_library_curator_subcount = "15",
-//                    tv_library_curator_keyword = "피엠예슬"
-//                )
-//            )
-//
-//
-//        }
-//        libraryCuratorAdapter.data_cu = libraryCuratorData
-//        libraryCuratorAdapter.notifyDataSetChanged()
-//    }
+    private fun loadDatas() {
+        libraryCuratorData.apply {
 
-    private fun requestLibraryCuratorData() {
-        requestToServer.service.lookLibraryCurator(
-            token = SharedPreferenceController.getAccessToken(view!!.context)
-        )
-            .enqueue(
-                object : Callback<ResponseLibraryCuratorData> {
-                    override fun onFailure(call: Call<ResponseLibraryCuratorData>, t: Throwable) {
-                        Log.d("통신실패", "${t}")
-                    }
+            add(
+                LibraryCuratorData(
+                    library_curator_img_profile = "https://cdn11.bigcommerce.com/s-p64yd5j10d/products/2233/images/2262/RAL-6019-Pastel-Green__95839.1505828303.500.750.jpg?c=2",
+                    tv_library_curator_name = "예스리",
+                    tv_library_curator_subcount = "15",
+                    tv_library_curator_keyword = "피엠예슬"
+                )
+            )
+            add(
+                LibraryCuratorData(
+                    library_curator_img_profile = "https://cdn11.bigcommerce.com/s-p64yd5j10d/products/2233/images/2262/RAL-6019-Pastel-Green__95839.1505828303.500.750.jpg?c=2",
+                    tv_library_curator_name = "예스리",
+                    tv_library_curator_subcount = "15",
+                    tv_library_curator_keyword = "피엠예슬"
+                )
+            )
+            add(
+                LibraryCuratorData(
+                    library_curator_img_profile = "https://cdn11.bigcommerce.com/s-p64yd5j10d/products/2233/images/2262/RAL-6019-Pastel-Green__95839.1505828303.500.750.jpg?c=2",
+                    tv_library_curator_name = "예스리",
+                    tv_library_curator_subcount = "15",
+                    tv_library_curator_keyword = "피엠예슬"
+                )
+            )
+            add(
+                LibraryCuratorData(
+                    library_curator_img_profile = "https://cdn11.bigcommerce.com/s-p64yd5j10d/products/2233/images/2262/RAL-6019-Pastel-Green__95839.1505828303.500.750.jpg?c=2",
+                    tv_library_curator_name = "예스리",
+                    tv_library_curator_subcount = "15",
+                    tv_library_curator_keyword = "피엠예슬"
+                )
+            )
+            add(
+                LibraryCuratorData(
+                    library_curator_img_profile = "https://cdn11.bigcommerce.com/s-p64yd5j10d/products/2233/images/2262/RAL-6019-Pastel-Green__95839.1505828303.500.750.jpg?c=2",
+                    tv_library_curator_name = "예스리",
+                    tv_library_curator_subcount = "15",
+                    tv_library_curator_keyword = "피엠예슬"
+                )
+            )
+            add(
+                LibraryCuratorData(
+                    library_curator_img_profile = "https://cdn11.bigcommerce.com/s-p64yd5j10d/products/2233/images/2262/RAL-6019-Pastel-Green__95839.1505828303.500.750.jpg?c=2",
+                    tv_library_curator_name = "예스리",
+                    tv_library_curator_subcount = "15",
+                    tv_library_curator_keyword = "피엠예슬"
+                )
+            )
+            add(
+                LibraryCuratorData(
+                    library_curator_img_profile = "https://cdn11.bigcommerce.com/s-p64yd5j10d/products/2233/images/2262/RAL-6019-Pastel-Green__95839.1505828303.500.750.jpg?c=2",
+                    tv_library_curator_name = "예스리",
+                    tv_library_curator_subcount = "15",
+                    tv_library_curator_keyword = "피엠예슬"
+                )
+            )
 
-                    override fun onResponse(
-                        call: Call<ResponseLibraryCuratorData>,
-                        response: Response<ResponseLibraryCuratorData>
-                    ) {
-                        if (response.isSuccessful) {
-                            Log.d("내 서재 큐레이터 조회", "${response.body()}")
-                            libraryCuratorAdapter = LibraryCuratorAdapter(view!!.context, response.body()!!.data)
-                            rv_library_curator.adapter = libraryCuratorAdapter
-                            libraryCuratorAdapter.notifyDataSetChanged()
-//                        response.body().let { body->
+
+
+
+        }
+        libraryCuratorAdapter.data_cu = libraryCuratorData
+        libraryCuratorAdapter.notifyDataSetChanged()
+    }
+
+//    private fun requestLibraryCuratorData() {
+//        requestToServer.service.lookLibraryCurator(
+//            token = SharedPreferenceController.getAccessToken(view!!.context)
+//        )
+//            .enqueue(
+//                object : Callback<ResponseLibraryCuratorData> {
+//                    override fun onFailure(call: Call<ResponseLibraryCuratorData>, t: Throwable) {
+//                        Log.d("통신실패", "${t}")
+//                    }
+//
+//                    override fun onResponse(
+//                        call: Call<ResponseLibraryCuratorData>,
+//                        response: Response<ResponseLibraryCuratorData>
+//                    ) {
+//                        if (response.isSuccessful) {
+//                            Log.d("내 서재 큐레이터 조회", "${response.body()}")
+//                            libraryCuratorAdapter = LibraryCuratorAdapter(view!!.context, response.body()!!.data)
+//                            rv_library_curator.adapter = libraryCuratorAdapter
+//                            libraryCuratorAdapter.notifyDataSetChanged()
+////                        response.body().let { body->
+////
+////                        }
 //
 //                        }
-
-                        }
-
-                    }
-                }
-            )
-    }
+//
+//                    }
+//                }
+//            )
+//    }
 
 }

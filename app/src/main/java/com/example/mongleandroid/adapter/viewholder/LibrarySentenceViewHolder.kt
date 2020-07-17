@@ -16,10 +16,17 @@ class LibrarySentenceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVi
     val tv_item_library_sentence_username =
         itemView.findViewById<TextView>(R.id.tv_item_library_sentence_username)
 
-    fun bind(librarySentenceSave: LibrarySentenceSave) {
-        tv_library_sentence_themename.text = librarySentenceSave.theme
-        tv_library_sentence_sentence.text = librarySentenceSave.sentence
+    fun bind(librarySentenceData: LibrarySentenceData) {
+        tv_library_sentence_themename.text = librarySentenceData.tv_library_sentence_themename
+        tv_library_sentence_sentence.text = librarySentenceData.tv_library_sentence_sentence
         tv_item_library_sentence_username.text =
-            librarySentenceSave.writer
+            librarySentenceData.tv_item_library_sentence_username
     }
+
+//    fun bind(librarySentenceSave: LibrarySentenceSave) {
+//        tv_library_sentence_themename.text = librarySentenceSave.theme
+//        tv_library_sentence_sentence.text = librarySentenceSave.sentence
+//        tv_item_library_sentence_username.text =
+//            librarySentenceSave.writer
+//    }
 }
