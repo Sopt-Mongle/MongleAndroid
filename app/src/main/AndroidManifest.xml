@@ -64,7 +64,6 @@
             android:name=".activity.WritingSentenceActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".activity.MainActivity" >
-
         </activity>
     </application>
 
