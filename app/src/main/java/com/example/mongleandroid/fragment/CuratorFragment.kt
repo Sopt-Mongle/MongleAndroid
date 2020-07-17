@@ -16,6 +16,7 @@ import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.data.response.CuratorInTheme
 import com.example.mongleandroid.network.data.response.ResponseCuratorInThemeData
+import com.example.mongleandroid.network.data.response.ResponseCuratorKeywordData
 import com.example.mongleandroid.network.data.response.ResponseRecommendCuratorData
 import kotlinx.android.synthetic.main.fragment_curator.*
 import retrofit2.Call
@@ -45,10 +46,11 @@ class CuratorFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        
         fragment_curator_tv_gamsung.setOnClickListener {
             activity?.let{
                 val intent = Intent(context, CuratorActivity::class.java)
+                intent.putExtra("params", 1)
                 startActivity(intent)
             }
         }
@@ -101,7 +103,7 @@ class CuratorFragment : Fragment() {
                             fragment_curator_tv_themename2.text = body!!.data!!.theme[1].theme
                             fragment_curator_tv_curator_count2.text = body!!.data!!.theme[1].curatorNum.toString()
 
-                            Log.d("테마속 큐레이터", "${response.body()}")
+                            Log.d("테마속 큐레이터", "${response.body()!!.data!!.theme[0].curators}")
                             curatorInThemeAdapter = CuratorInThemeAdapter(view!!.context, body!!.data!!.theme[0].curators)
                             fragment_curator_rv_curator1.adapter = curatorInThemeAdapter
                             curatorInThemeAdapter.notifyDataSetChanged()

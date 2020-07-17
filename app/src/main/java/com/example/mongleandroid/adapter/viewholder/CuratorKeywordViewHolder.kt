@@ -7,9 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mongleandroid.R
-import com.example.mongleandroid.network.data.CuratorData
 import com.example.mongleandroid.network.data.response.CuratorKeyword
-import com.example.mongleandroid.network.data.response.ResponseResultCuratorData
 
 class CuratorKeywordViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
     val img = itemView.findViewById<ImageView>(R.id.result_curator_img_profile)

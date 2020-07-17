@@ -6,19 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.viewholder.CuratorKeywordViewHolder
-import com.example.mongleandroid.adapter.viewholder.CuratorViewHolder
-import com.example.mongleandroid.network.data.CuratorData
 import com.example.mongleandroid.network.data.response.CuratorKeyword
-import com.example.mongleandroid.network.data.response.ResponseCuratorKeywordData
 
-class CuratorKeywordAdapter(private val context : Context, val datas: List<CuratorKeyword>) : RecyclerView.Adapter<CuratorKeywordViewHolder>() {
+class CuratorKeywordAdapter(private val context : Context, var datas: List<CuratorKeyword>) : RecyclerView.Adapter<CuratorKeywordViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CuratorKeywordViewHolder {
 
         val view = LayoutInflater.from(context).inflate(R.layout.item_result_curator,parent,false)
-        return CuratorKeywordViewHolder(
-            view
-        )
+        return CuratorKeywordViewHolder(view)
 
     }
 

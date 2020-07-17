@@ -84,6 +84,7 @@ interface RequestInterface {
     // 큐레이터 검색 - 성공
     @GET("/search/curator")
     fun requestResultCuratorData(
+        @Header("token") token: String?,
         @Retrofit2HttpQuery("words") words: String
     ) : Call<ResponseResultCuratorData>
 
@@ -165,7 +166,7 @@ interface RequestInterface {
     ) : Call<ResponseMainEditorsPick>
 
     // 키워드 큐레이터 리스트
-    @GET("/curator/:keywordIdx/keyword")
+    @GET("/curator/{keywordIdx}/keyword")
     fun getCuratorKeyword(
         @Header("token") token: String?,
         @Path("keywordIdx") params: Int

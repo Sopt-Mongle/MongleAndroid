@@ -13,7 +13,6 @@ import com.example.mongleandroid.adapter.ResultThemeAdapter
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.data.response.ResponseResultThemeData
-import com.example.mongleandroid.network.data.response.ResultTheme
 import kotlinx.android.synthetic.main.fragment_result_theme.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -49,9 +48,8 @@ class ResultThemeFragment : Fragment() {
                     response.body().let { body ->
                         Log.d("테마 검색", "${response.body()}")
                         result_theme_count.text = body!!.data.size.toString()
-                        resultThemeAdapter = ResultThemeAdapter(view!!.context)
+                        resultThemeAdapter = ResultThemeAdapter(view!!.context, body!!.data)
                         rv_result_theme.adapter = resultThemeAdapter
-                        resultThemeAdapter.datas = body!!.data
                         resultThemeAdapter.notifyDataSetChanged()
                     }
                 } else {

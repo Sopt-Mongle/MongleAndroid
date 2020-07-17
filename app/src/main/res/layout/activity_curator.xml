@@ -46,7 +46,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tx_curator"
-        tools:listitem="@layout/item_result_curator"
-        android:clipToPadding="false"/>
+        tools:listitem="@layout/item_result_curator" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

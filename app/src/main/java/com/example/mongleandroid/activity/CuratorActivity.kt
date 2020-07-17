@@ -31,29 +31,34 @@ class CuratorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_curator)
 
-//        requestToServer.service.getCuratorKeyword(
-//            token = applicationContext?.let { SharedPreferenceController.getAccessToken(it) },
-//            params = 1
-//        ).enqueue(object : Callback<ResponseCuratorKeywordData> {
-//            override fun onFailure(call: Call<ResponseCuratorKeywordData>, t: Throwable) {
-//                Log.e("통신실패", t.toString())
-//            }
-//
-//            override fun onResponse(
-//                call: Call<ResponseCuratorKeywordData>,
-//                response: Response<ResponseCuratorKeywordData>
-//            ) {
-//                if (response.isSuccessful) {
-//                    Log.d("키워드 큐레이터 출력", "${response.body()}")
-//                    curatorKeywordAdapter =
-//                        CuratorKeywordAdapter(view!!.context, response.body()!!.data)
-//                    rv_curator_keyword.adapter = curatorKeywordAdapter
-//                    curatorKeywordAdapter.notifyDataSetChanged()
-//                }
-//            }
-//        })
+        curatorKeyword()
 
     }
 
+    private fun curatorKeyword() {
+        requestToServer.service.getCuratorKeyword(
+            token = applicationContext?.let { SharedPreferenceController.getAccessToken(it) },
+            params = intent.getIntExtra("params",1)
+        ).enqueue(object : Callback<ResponseCuratorKeywordData> {
+            override fun onFailure(call: Call<ResponseCuratorKeywordData>, t: Throwable) {
+                Log.e("통신실패", t.toString())
+            }
+
+            override fun onResponse(
+                call: Call<ResponseCuratorKeywordData>,
+                response: Response<ResponseCuratorKeywordData>
+            ) {
+                if (response.isSuccessful) {
+                    response.body().let { body ->
+                        Log.d("키워드 큐레이터 출력", "${response.body()!!.data}")
+                        curatorKeywordAdapter = CuratorKeywordAdapter(applicationContext, body!!.data)
+                        rv_curator_keyword.adapter = curatorKeywordAdapter
+                        curatorKeywordAdapter.notifyDataSetChanged()
+                    }
+
+                }
+            }
+        })
+    }
 
 }
