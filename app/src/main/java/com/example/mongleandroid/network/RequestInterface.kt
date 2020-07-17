@@ -173,10 +173,10 @@ interface RequestInterface {
     ) : Call<ResponseCuratorKeywordData>
 
     // 큐레이터 구독 / 취소
-    @PUT("/curator/:followedIdx")
+    @PUT("/curator/{followedIdx}")
     fun getFollowIdx(
         @Header("token") token: String?,
-        @Path("followedIdx") params: String
+        @Path("followedIdx") params: Int
     ) : Call<ResponseCuratorFollowedData>
 
     //테마 상세 조회

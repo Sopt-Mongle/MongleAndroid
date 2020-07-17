@@ -7,7 +7,7 @@
     tools:context=".activity.SubscriptionsActivity">
 
     <TextView
-        android:id="@+id/tx_curator"
+        android:id="@+id/activity_curator_tv_keyword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="구독 중인 큐레이터"
@@ -32,8 +32,8 @@
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/tx_curator"
-        app:layout_constraintBottom_toBottomOf="@id/tx_curator"
+        app:layout_constraintRight_toLeftOf="@id/activity_curator_tv_keyword"
+        app:layout_constraintBottom_toBottomOf="@id/activity_curator_tv_keyword"
         />
 
 
@@ -49,6 +49,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tx_curator"
+        app:layout_constraintTop_toBottomOf="@id/activity_curator_tv_keyword"
         tools:listitem="@layout/item_subscriptions" />
 </androidx.constraintlayout.widget.ConstraintLayout>
