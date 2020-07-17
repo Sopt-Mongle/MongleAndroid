@@ -23,6 +23,7 @@ class ThemeWritingSentenceBookActivity : AppCompatActivity() {
         activity_theme_writing_sentence_book_btn_out.setOnClickListener {
             finish()
         }
+        
 
         // 책 제목 text가 없는 경우 경고창
         activity_theme_writing_sentence_book_btn_upload.setOnClickListener {
