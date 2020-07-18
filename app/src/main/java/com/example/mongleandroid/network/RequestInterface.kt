@@ -84,7 +84,6 @@ interface RequestInterface {
     // 큐레이터 검색 - 성공
     @GET("/search/curator")
     fun requestResultCuratorData(
-        @Header("token") token: String?,
         @Retrofit2HttpQuery("words") words: String
     ) : Call<ResponseResultCuratorData>
 
@@ -116,6 +115,10 @@ interface RequestInterface {
     // 메인 - 지금 인기있는 큐레이터 목록 조회 - 성공
     @GET("/main/curators")
     fun GetMainQurators() : Call<ResponseMainNowHotData>
+
+//    // 추천 큐레이터
+//    @GET("/curator/recommend")
+//    fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
 
     //내서재 메인 프로필 조회
    @GET("/my/profile")
@@ -165,24 +168,9 @@ interface RequestInterface {
 
     ) : Call<ResponseMainEditorsPick>
 
-    // 키워드 큐레이터 리스트
-    @GET("/curator/{keywordIdx}/keyword")
-    fun getCuratorKeyword(
-        @Header("token") token: String?,
-        @Path("keywordIdx") params: Int
-    ) : Call<ResponseCuratorKeywordData>
-
-    // 큐레이터 구독 / 취소
-    @PUT("/curator/{followedIdx}")
-    fun getFollowIdx(
-        @Header("token") token: String?,
-        @Path("followedIdx") params: Int
-    ) : Call<ResponseCuratorFollowedData>
-
     //테마 상세 조회
-    @GET("/detail/theme/{themeIdx}")
-    fun GetDetailTheme(
-        @Header("token") token: String?,
-        @Path ("themeIdx") params: Int
-    ) : Call<ResponseThemeDetailData>
+//    @GET("/detail/theme/:themeIdx")
+//    fun GetDetailTheme(
+//        @Header("token") token: String?
+//    ) : Call<>
 }
