@@ -108,24 +108,4 @@ class MainThemeActivity : AppCompatActivity() {
                 }
             })
     }
-
-//    private fun setMainThemeAdapter(mainThemeItem: MutableList<ResponseThemeDetailData>) {
-////        mainThemeAdapter =
-////            MainThemeAdapter(
-////                mainThemeItem,
-////                this
-////            )
-////        loadDatas()
-//        rv_activity_theme.adapter = mainThemeAdapter
-//
-//        //리사이클러뷰 아이템 클릭리스너 등록
-//        mainThemeAdapter.setItemClickListener(object : MainThemeAdapter.ItemClickListener{
-//            override fun onClick(view: View, position: Int) {
-//                Log.d("SSS","${position}번 리스트 선택")
-//                    val intent = Intent(this@MainThemeActivity, SentenceDetailViewInThemeActivity::class.java)
-//                    startActivity(intent)
-//            }
-//        })
-//    }
-
 }

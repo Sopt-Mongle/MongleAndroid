@@ -11,13 +11,13 @@ import com.example.mongleandroid.network.data.LibrarySentenceData
 import com.example.mongleandroid.network.data.response.LibrarySentenceSave
 import com.example.mongleandroid.network.data.response.LibrarySentenceWrite
 
-//class LibrarySentenceAdapter(private val context: Context, var data_sen:List<LibrarySentenceSave>) :
-class LibrarySentenceAdapter(private val context: Context) :
+class LibrarySentenceAdapter(private val context: Context, var data_sen:List<LibrarySentenceSave>) :
+//class LibrarySentenceAdapter(private val context: Context) :
     RecyclerView.Adapter<LibrarySentenceViewHolder>() {
 
     private lateinit var itemClickListener : LibraryThemaAdapter.ItemClickListener
 
-    var data_sen = mutableListOf<LibrarySentenceData>()
+//    var data_sen = mutableListOf<LibrarySentenceData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LibrarySentenceViewHolder {
         val view =
