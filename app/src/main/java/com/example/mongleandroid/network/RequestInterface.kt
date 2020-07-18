@@ -7,6 +7,7 @@ import retrofit2.http.*
 import retrofit2.http.Query as Retrofit2HttpQuery
 
 
+
 // 행동 (post, get ...) 과 어떤 서버 (uri)에 대한 정의
 interface RequestInterface {
     //post 통신 할 때, 어떤 서버에게 요청할 지 명시
@@ -34,7 +35,7 @@ interface RequestInterface {
     @GET("/post/bookSearch")
     fun RequestWritingSentenceBookSearch(
         @Retrofit2HttpQuery("query") title: String
-        ) :Call<ResponseWritingSentenceBookSearchData>
+    ) :Call<ResponseWritingSentenceBookSearchData>
 
     //선택할 테마 목록 조회
     @GET("/post/theme")
@@ -118,8 +119,8 @@ interface RequestInterface {
     fun GetMainQurators() : Call<ResponseMainNowHotData>
 
     //내서재 메인 프로필 조회
-   @GET("/my/profile")
-   fun lookLibraryProfile(
+    @GET("/my/profile")
+    fun lookLibraryProfile(
         @Header("token") token: String?
     ) : Call<ResponseMainLibraryData>
 
