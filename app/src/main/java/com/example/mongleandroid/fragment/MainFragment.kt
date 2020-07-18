@@ -212,6 +212,7 @@ class MainFragment : Fragment() {
                                 Log.d("SSS","${position}번 리스트 선택")
                                 activity?.let{
                                     val intent = Intent(context, MainThemeActivity::class.java)
+                                    Log.d("ㅇㅇㅇㅇㅇ", "${response.body()!!.data[0].themeIdx}")
                                     intent.putExtra("param", response.body()!!.data[0].themeIdx)
                                     startActivity(intent)
                                 }
