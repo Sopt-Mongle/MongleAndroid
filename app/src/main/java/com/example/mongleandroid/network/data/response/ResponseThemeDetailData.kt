@@ -12,18 +12,14 @@ data class ThemeDetailData(
     val sentence : List<DataSentence>
 )
 data class DataTheme(
-    val sentenceIdx : Int,
-    val sentence : String,
-    val likes : Int,
+    val themeIdx : Int,
+    val theme : String,
+    val themeImg : String,
     val saves : Int,
     val writer : String,
     val writerImg : String,
-    val title : String,
-    val author : String,
-    val publisher : String,
-    val timestamp : String,
-    val alreadyLiked : Boolean,
-    val alreadyBookmarked : Boolean
+    val alreadyBookmarked : Boolean,
+    val sentenceNum : Int
 )
 
 data class DataSentence(

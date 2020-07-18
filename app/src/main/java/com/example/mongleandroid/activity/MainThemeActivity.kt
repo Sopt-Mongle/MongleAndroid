@@ -11,8 +11,10 @@ import com.example.mongleandroid.adapter.CuratorKeywordAdapter
 import com.example.mongleandroid.adapter.MainThemeAdapter
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.SharedPreferenceController
+import com.example.mongleandroid.network.data.response.DataTheme
 import com.example.mongleandroid.network.data.response.ResponseCuratorKeywordData
 import com.example.mongleandroid.network.data.response.ResponseThemeDetailData
+import com.example.mongleandroid.network.data.response.ThemeDetailData
 import kotlinx.android.synthetic.main.activity_curator.*
 import kotlinx.android.synthetic.main.activity_main_theme.*
 import retrofit2.Call
@@ -32,6 +34,7 @@ class MainThemeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main_theme)
         //setMainThemeAdapter(data)
 
+        requestThemeData()
         requestMainThemeData()
         img_main_theme_activity_back_btn.setOnClickListener {
             finish()
@@ -40,6 +43,32 @@ class MainThemeActivity : AppCompatActivity() {
             val intent = Intent(this, ThemeWritingSentenceActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun requestThemeData() {
+        requestToServer.service.GetDetailTheme(
+            token = applicationContext?.let { SharedPreferenceController.getAccessToken(it) },
+            params = intent.getIntExtra("param", 0)
+        ).enqueue(
+            object : retrofit2.Callback<ResponseThemeDetailData> {
+                override fun onFailure(call: Call<ResponseThemeDetailData>, t: Throwable) {
+                    Log.e("통신 실패", t.toString())
+                }
+
+                override fun onResponse(
+                    call: Call<ResponseThemeDetailData>,
+                    response: Response<ResponseThemeDetailData>
+                ) {
+                    if(response.isSuccessful) {
+                        tv_main_theme_title.text = response.body()!!.data!!.theme[0].theme
+                        tv_main_theme_author.text = response.body()!!.data!!.theme[0].writer
+                        textView12.text = response.body()!!.data!!.theme[0].sentenceNum.toString()
+                        textView11.text = response.body()!!.data!!.theme[0].saves.toString()
+                    }
+                }
+
+            }
+        )
     }
 
     private fun requestMainThemeData() {
@@ -52,7 +81,7 @@ class MainThemeActivity : AppCompatActivity() {
 
 
                 override fun onFailure(call: Call<ResponseThemeDetailData>, t: Throwable) {
-
+                    Log.e("통신 실패", t.toString())
                 }
 
                 override fun onResponse(
