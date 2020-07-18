@@ -1,5 +1,6 @@
 package com.example.mongleandroid.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.CuratorAdapter
 import com.example.mongleandroid.adapter.CuratorKeywordAdapter
+import com.example.mongleandroid.adapter.MainThemeAdapter
 import com.example.mongleandroid.adapter.ResultSentenceAdapter
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.SharedPreferenceController
@@ -64,28 +66,34 @@ class CuratorActivity : AppCompatActivity() {
                             6 -> activity_curator_tv_keyword.setText("일상문장")
                         }
 
-                        if(response.body()!!.data[0].curatorIdx >= 0) {
+                        if(response.body()!!.data[0].curatorIdx == 1) {
                             Log.d("구독", "구독시작")
-                            requestToServer.service.getFollowIdx(
-                                token = applicationContext?.let { SharedPreferenceController.getAccessToken(it) },
-                                params = response.body()!!.data[0].curatorIdx
-                            ).enqueue(object : Callback<ResponseCuratorFollowedData> {
-                                override fun onFailure(call: Call<ResponseCuratorFollowedData>, t: Throwable) {
-                                    Log.e("통신실패", t.toString())
-                                }
-
-                                override fun onResponse(
-                                    call: Call<ResponseCuratorFollowedData>,
-                                    response: Response<ResponseCuratorFollowedData>
-                                ) {
-                                    if (response.isSuccessful) {
-                                        if(response.body()!!.data) {
-                                            Log.d("구독", "구독됨")
+                            curatorKeywordAdapter.setItemClickListener(object : CuratorKeywordAdapter.ItemClickListener{
+                                override fun onClick(view: View, position: Int) {
+                                    Log.d("SSS","${position}번 리스트 선택")
+                                    requestToServer.service.getFollowIdx(
+                                        token = applicationContext?.let { SharedPreferenceController.getAccessToken(it) },
+                                        params = response.body()!!.data[0].curatorIdx
+                                    ).enqueue(object : Callback<ResponseCuratorFollowedData> {
+                                        override fun onFailure(call: Call<ResponseCuratorFollowedData>, t: Throwable) {
+                                            Log.e("통신실패", t.toString())
                                         }
-                                    }
 
+                                        override fun onResponse(
+                                            call: Call<ResponseCuratorFollowedData>,
+                                            response: Response<ResponseCuratorFollowedData>
+                                        ) {
+                                            if (response.isSuccessful) {
+                                                if(response.body()!!.data) {
+                                                    Log.d("구독", "구독됨")
+                                                }
+                                            }
+
+                                        }
+                                    })
                                 }
                             })
+
                         }
 
 
