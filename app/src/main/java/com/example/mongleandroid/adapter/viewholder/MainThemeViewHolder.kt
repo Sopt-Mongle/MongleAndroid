@@ -4,8 +4,8 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
-import com.example.mongleandroid.network.data.MainThemeData
 import com.example.mongleandroid.network.data.response.DataSentence
+import com.example.mongleandroid.network.data.response.ResponseThemeDetailData
 
 class MainThemeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
     val tv_theme_sentence = itemView.findViewById<TextView>(R.id.tv_theme_sentence)
