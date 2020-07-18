@@ -58,7 +58,7 @@ interface RequestInterface {
         @Header("token") token: String?
     ) : Call<ResponseSearchRecentData>
 
-    // 검색 - 최근 키워드 전체 삭제
+    // 검색 - 최근 키워드 전체 삭제 - 성공
     @DELETE("/search/recent")
     fun requestSearchRecentDeleteRecent(
         @Header("token") token: String?
@@ -173,10 +173,4 @@ interface RequestInterface {
 //    fun GetDetailTheme(
 //        @Header("token") token: String?
 //    ) : Call<>
-
-    //테마 북마크 추가하기
-    @PUT("/detail/theme/:themeIdx/bookmark")
-    fun GetBookmarkTheme(
-        @Header("token") token: String?
-    ) : Call<ResponseThemeBookmarkData>
 }

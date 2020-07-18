@@ -71,8 +71,6 @@ class DialogMakethemeCheck(context : Context) {
         maketheme_popup_tv_title.text = title
         Glide.with(context).load(img).into(dlg.findViewById(R.id.maketheme_popup_title))
 
-        dlg.show()
-
         maketheme_popup_yes.setOnClickListener{
             //돌아갈 액티비티
             requestData()
@@ -83,6 +81,9 @@ class DialogMakethemeCheck(context : Context) {
         maketheme_popup_no.setOnClickListener {
             dlg.dismiss()
         }
+
+
+        dlg.show()
 
     }
 
@@ -124,7 +125,6 @@ class DialogMakethemeCheck(context : Context) {
                 }
 
             }
-
         })
     }
 }
