@@ -54,6 +54,12 @@ class WritingThemeActivity : AppCompatActivity() {
         var imgchked8 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img8)
         var imgchked9 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img9)
         var imgchked10 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img10)
+        var imgchked11 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img11)
+        var imgchked12 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img12)
+        var imgchked13 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img13)
+        var imgchked14 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img14)
+        var imgchked15 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img15)
+        var imgchked16 : ConstraintLayout = findViewById(R.id.activity_writing_theme_CL_img16)
 
         chked(imgchked1,1)
         chked(imgchked2,2)
@@ -65,6 +71,12 @@ class WritingThemeActivity : AppCompatActivity() {
         chked(imgchked8,8)
         chked(imgchked9,9)
         chked(imgchked10,10)
+        chked(imgchked11,11)
+        chked(imgchked12,12)
+        chked(imgchked13,13)
+        chked(imgchked14,14)
+        chked(imgchked15,15)
+        chked(imgchked16,16)
 
         activity_writing_theme_et_theme_title.addTextChangedListener(object: TextWatcher{
             override fun afterTextChanged(s: Editable?) {
