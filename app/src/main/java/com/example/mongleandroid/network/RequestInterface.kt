@@ -7,6 +7,7 @@ import retrofit2.http.*
 import retrofit2.http.Query as Retrofit2HttpQuery
 
 
+
 // 행동 (post, get ...) 과 어떤 서버 (uri)에 대한 정의
 interface RequestInterface {
     //post 통신 할 때, 어떤 서버에게 요청할 지 명시
@@ -34,7 +35,7 @@ interface RequestInterface {
     @GET("/post/bookSearch")
     fun RequestWritingSentenceBookSearch(
         @Retrofit2HttpQuery("query") title: String
-        ) :Call<ResponseWritingSentenceBookSearchData>
+    ) :Call<ResponseWritingSentenceBookSearchData>
 
     //선택할 테마 목록 조회
     @GET("/post/theme")
@@ -84,6 +85,7 @@ interface RequestInterface {
     // 큐레이터 검색 - 성공
     @GET("/search/curator")
     fun requestResultCuratorData(
+        @Header("token") token: String?,
         @Retrofit2HttpQuery("words") words: String
     ) : Call<ResponseResultCuratorData>
 
@@ -116,13 +118,9 @@ interface RequestInterface {
     @GET("/main/curators")
     fun GetMainQurators() : Call<ResponseMainNowHotData>
 
-//    // 추천 큐레이터
-//    @GET("/curator/recommend")
-//    fun getRecommendCurator() : Call<ResponseRecommendCuratorData>
-
     //내서재 메인 프로필 조회
-   @GET("/my/profile")
-   fun lookLibraryProfile(
+    @GET("/my/profile")
+    fun lookLibraryProfile(
         @Header("token") token: String?
     ) : Call<ResponseMainLibraryData>
 
@@ -168,9 +166,24 @@ interface RequestInterface {
 
     ) : Call<ResponseMainEditorsPick>
 
+    // 키워드 큐레이터 리스트
+    @GET("/curator/{keywordIdx}/keyword")
+    fun getCuratorKeyword(
+        @Header("token") token: String?,
+        @Path("keywordIdx") params: Int
+    ) : Call<ResponseCuratorKeywordData>
+
+    // 큐레이터 구독 / 취소
+    @PUT("/curator/{followedIdx}")
+    fun getFollowIdx(
+        @Header("token") token: String?,
+        @Path("followedIdx") params: Int
+    ) : Call<ResponseCuratorFollowedData>
+
     //테마 상세 조회
-//    @GET("/detail/theme/:themeIdx")
-//    fun GetDetailTheme(
-//        @Header("token") token: String?
-//    ) : Call<>
+    @GET("/detail/theme/{themeIdx}")
+    fun GetDetailTheme(
+        @Header("token") token: String?,
+        @Path ("themeIdx") params: Int
+    ) : Call<ResponseThemeDetailData>
 }
