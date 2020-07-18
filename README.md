@@ -74,7 +74,6 @@
 	- 프로필 사진과 소개글, 나를 표현하는 키워드를 바꿀 수 있습니다.
 
 - **유저**
-![KakaoTalk_Image_2020-07-18-02-32-56_002](https://user-images.githubusercontent.com/59532818/87843436-c2d99600-c8ef-11ea-9eb7-ab7e06e376d6.jpeg)
 	- 회원가입으로 몽글에 유저가 될 수 있습니다.
 	- 로그인으로 몽글에 접속할 수 있습니다.
 	- 몽글을 그만두신다면, 회원탈퇴로 내 정보를 지울 수 있습니다.
@@ -573,7 +572,7 @@ util
 
 확장함수들
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f8df33c7-d690-452a-8383-add773388e86/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f8df33c7-d690-452a-8383-add773388e86/Untitled.png)
+![image](https://user-images.githubusercontent.com/59532818/87843608-eb15c480-c8f0-11ea-9d1e-af7d2ac587a6.png)
 
 ## Git&GitHub Branch 전략
 
