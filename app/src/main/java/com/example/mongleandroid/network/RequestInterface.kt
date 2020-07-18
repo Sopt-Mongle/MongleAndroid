@@ -180,8 +180,9 @@ interface RequestInterface {
     ) : Call<ResponseCuratorFollowedData>
 
     //테마 상세 조회
-//    @GET("/detail/theme/:themeIdx")
-//    fun GetDetailTheme(
-//        @Header("token") token: String?
-//    ) : Call<>
+    @GET("/detail/theme/{themeIdx}")
+    fun GetDetailTheme(
+        @Header("token") token: String?,
+        @Path ("themeIdx") params: Int
+    ) : Call<ResponseThemeDetailData>
 }
