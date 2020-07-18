@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.mongleandroid.*
 import com.example.mongleandroid.adapter.ItemDecoration
 import com.example.mongleandroid.adapter.MainNowHotCuratorAdapter

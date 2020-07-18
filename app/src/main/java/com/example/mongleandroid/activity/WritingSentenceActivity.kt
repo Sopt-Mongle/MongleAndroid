@@ -14,6 +14,7 @@ import android.view.animation.TranslateAnimation
 import android.widget.Toast
 import androidx.constraintlayout.solver.widgets.ConstraintWidget.GONE
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.bumptech.glide.Glide
 import com.example.mongleandroid.*
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.SharedPreferenceController
@@ -23,6 +24,8 @@ import com.example.mongleandroid.network.data.response.ResponseWritingSentenceDa
 import com.example.mongleandroid.network.data.response.ResponseWritingThemeData
 import kotlinx.android.synthetic.main.activity_theme_writing_sentence.*
 import kotlinx.android.synthetic.main.activity_writing_sentence.*
+import kotlinx.android.synthetic.main.activity_writing_sentence.activity_writing_sentence_btn_main
+import kotlinx.android.synthetic.main.activity_writing_theme.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -182,7 +185,6 @@ class WritingSentenceActivity : AppCompatActivity() {
 
         //뒤로가기 버톤
         activity_writing_sentence_btn_back1.setOnClickListener {
-
             //애니메이션
 
             //키보드 제어
@@ -201,8 +203,6 @@ class WritingSentenceActivity : AppCompatActivity() {
 
 
         //문장 만들기 3단계
-
-
         activity_writing_sentence_tv_theme.addTextChangedListener(object  :TextWatcher{
             override fun afterTextChanged(s: Editable?) {
 
