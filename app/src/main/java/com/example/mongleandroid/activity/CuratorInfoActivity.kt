@@ -1,19 +1,13 @@
 package com.example.mongleandroid.activity
 
 import android.graphics.Color
-import android.graphics.Insets.add
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.viewpager.widget.ViewPager
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.CuratorInfoPagerAdapter
-import com.example.mongleandroid.adapter.LibraryTabAdapter
 import com.example.mongleandroid.network.data.CuratorInfoThemaData
-import com.example.mongleandroid.network.data.MainThemeData
-import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_curator_info.*
-import kotlinx.android.synthetic.main.fragment_library.*
 
 class CuratorInfoActivity : AppCompatActivity() {
 
