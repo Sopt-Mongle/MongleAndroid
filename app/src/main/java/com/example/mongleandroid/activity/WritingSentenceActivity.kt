@@ -311,7 +311,7 @@ class WritingSentenceActivity : AppCompatActivity() {
             @SuppressLint("LongLogTag")
             override fun onResponse(
                 call: Call<ResponseWritingSentenceData>,
-                response: Response<ResponseWritingSentenceData>
+                 response: Response<ResponseWritingSentenceData>
             ) { if (response.isSuccessful){
                     response.body().let { body ->
                         Log.e("ResponseWritingSentenceData 통신응답바디", "status: ${body!!.status} data : ${body!!.message}")

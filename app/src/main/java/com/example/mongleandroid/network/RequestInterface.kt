@@ -173,4 +173,10 @@ interface RequestInterface {
 //    fun GetDetailTheme(
 //        @Header("token") token: String?
 //    ) : Call<>
+
+    //테마 북마크 추가하기
+    @PUT("/detail/theme/:themeIdx/bookmark")
+    fun GetBookmarkTheme(
+        @Header("token") token: String?
+    ) : Call<ResponseThemeBookmarkData>
 }

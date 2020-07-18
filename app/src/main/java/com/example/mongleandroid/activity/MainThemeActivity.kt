@@ -1,15 +1,24 @@
 package com.example.mongleandroid.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.MainThemeAdapter
+import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.data.MainThemeData
+import com.example.mongleandroid.network.data.response.ResponseThemeBookmarkData
+import com.example.mongleandroid.network.data.response.ResponseWritingSentenceData
 import kotlinx.android.synthetic.main.activity_main_theme.*
 import kotlinx.android.synthetic.main.item_activity_theme.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainThemeActivity : AppCompatActivity() {
 
@@ -28,6 +37,12 @@ class MainThemeActivity : AppCompatActivity() {
         img_writing_sentence_in_theme_btn.setOnClickListener {
             val intent = Intent(this, ThemeWritingSentenceActivity::class.java)
             startActivity(intent)
+        }
+
+        //북마크 버튼 클릭 시 내 서재 뷰의 저장된 테마로 이동
+        imageView8.setOnClickListener{
+            Toast.makeText(this, "울맂이다.", Toast.LENGTH_SHORT).show()
+            requestData()
         }
     }
 
@@ -92,5 +107,28 @@ class MainThemeActivity : AppCompatActivity() {
                 )
             )
         }
+    }
+
+    private fun requestData(){
+        val call : Call<ResponseThemeBookmarkData> = RequestToServer.service.GetBookmarkTheme(token = SharedPreferenceController.getAccessToken(context = this))
+        call.enqueue(object : Callback<ResponseThemeBookmarkData> {
+            @SuppressLint("LongLogTag")
+            override fun onFailure(call: Call<ResponseThemeBookmarkData>, t: Throwable) {
+                Log.e("ResponseWritingSentenceData 통신실패", t.toString())
+            }
+            @SuppressLint("LongLogTag")
+            override fun onResponse(
+                call: Call<ResponseThemeBookmarkData>,
+                response: Response<ResponseThemeBookmarkData>
+            ) { if (response.isSuccessful){
+                response.body().let { body ->
+                    Log.e("ResponseWritingSentenceData 통신응답바디", "status: ${body!!.status} data : ${body!!.message}")
+                }
+            }else{
+                 Log.e("ResponseWritingSentenceData 통신응답바디", "status: ${response.body()!!.status} data: ${response.body()!!.message}" )
+            }
+
+            }
+        })
     }
 }

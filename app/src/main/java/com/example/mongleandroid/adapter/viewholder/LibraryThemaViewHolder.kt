@@ -16,15 +16,15 @@ class LibraryThemaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 //    val rdbtn_saved_thema = itemView.findViewById<RadioButton>(R.id.rdbtn_saved_thema)
 //    val rdbtn_making_thema = itemView.findViewById<RadioButton>(R.id.rdbtn_making_thema)
 
-//    fun bind(libraryThemeSave: LibraryThemeSave) {
-//            tv_library_thema.text = libraryThemeSave.theme
-//            tv_thema_num_library.text = libraryThemeSave.saves.toString()
-//            tv_sentence_count_library_item.text = libraryThemeSave.sentenceNum.toString()
+    fun bind(libraryThemeSave: LibraryThemeSave) {
+            tv_library_thema.text = libraryThemeSave.theme
+            tv_thema_num_library.text = libraryThemeSave.saves.toString()
+            tv_sentence_count_library_item.text = libraryThemeSave.sentenceNum.toString()
 
-    fun bind(libraryThemaData: LibraryThemaData) {
-        tv_library_thema.text = libraryThemaData.tv_library_thema
-        tv_thema_num_library.text = libraryThemaData.tv_thema_num_library
-        tv_sentence_count_library_item.text = libraryThemaData.tv_sentence_count_library_item
+//    fun bind(libraryThemaData: LibraryThemaData) {
+//        tv_library_thema.text = libraryThemaData.tv_library_thema
+//        tv_thema_num_library.text = libraryThemaData.tv_thema_num_library
+//        tv_sentence_count_library_item.text = libraryThemaData.tv_sentence_count_library_item
 
 //        rdbtn_saved_thema.setOnClickListener {
 //            if (rdbtn_saved_thema.isChecked) {
