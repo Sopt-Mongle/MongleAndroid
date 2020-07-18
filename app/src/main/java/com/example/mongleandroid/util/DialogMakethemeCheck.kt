@@ -35,7 +35,7 @@ class DialogMakethemeCheck(context : Context) {
 
     fun start(imgInt: Int, img: String, title: String, context: Context){
         Context = context
-        RequestWritingThemeData = RequestWritingThemeData(img,imgInt)
+        RequestWritingThemeData = RequestWritingThemeData(title,imgInt)
 
 //        when(chkedNum){
 //
@@ -116,13 +116,17 @@ class DialogMakethemeCheck(context : Context) {
             ) {
                 if (response.isSuccessful){
                     response.body().let { body ->
-                        Log.e("ResponseWritingThemeData 통신응답성공바디", "status: ${body!!.status} data : ${body!!.message}")
+                        Log.d("ResponseWritingThemeData 통신응답성공바디", "status: ${body!!.status} data : ${body.message}")
                     }
                 }else{
                     response.body().let { body ->
-                        Log.e("ResponseWritingThemeData 통신응답실패바디", "status: ${body!!.status} data : ${body!!.message}")
+                        Log.d("ResponseWritingThemeData 통신응답실바디", "${RequestWritingThemeData.theme} ${RequestWritingThemeData.themeImgIdx} ")
+                        
                     }
                 }
+
+
+
 
             }
         })
