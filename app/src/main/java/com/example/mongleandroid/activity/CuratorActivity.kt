@@ -18,6 +18,7 @@ import com.example.mongleandroid.network.data.response.ResponseCuratorKeywordDat
 import com.example.mongleandroid.network.data.response.ResponseResultSentenceData
 import kotlinx.android.synthetic.main.activity_curator.*
 import kotlinx.android.synthetic.main.fragment_result_sentence.*
+import kotlinx.android.synthetic.main.item_result_curator.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -63,28 +64,29 @@ class CuratorActivity : AppCompatActivity() {
                             6 -> activity_curator_tv_keyword.setText("일상문장")
                         }
 
-
-                        requestToServer.service.getFollowIdx(
-                            token = applicationContext?.let { SharedPreferenceController.getAccessToken(it) },
-                            params = response.body()!!.data[intent_params].curatorIdx
-                        ).enqueue(object : Callback<ResponseCuratorFollowedData> {
-                            override fun onFailure(call: Call<ResponseCuratorFollowedData>, t: Throwable) {
-                                Log.e("통신실패", t.toString())
-                            }
-
-                            override fun onResponse(
-                                call: Call<ResponseCuratorFollowedData>,
-                                response: Response<ResponseCuratorFollowedData>
-                            ) {
-                                if (response.isSuccessful) {
-                                    if(response.body()!!.data) {
-                                        Log.d("구독", "구독됨")
-                                    }
+                        if(response.body()!!.data[0].curatorIdx >= 0) {
+                            Log.d("구독", "구독시작")
+                            requestToServer.service.getFollowIdx(
+                                token = applicationContext?.let { SharedPreferenceController.getAccessToken(it) },
+                                params = response.body()!!.data[0].curatorIdx
+                            ).enqueue(object : Callback<ResponseCuratorFollowedData> {
+                                override fun onFailure(call: Call<ResponseCuratorFollowedData>, t: Throwable) {
+                                    Log.e("통신실패", t.toString())
                                 }
 
-                            }
-                        })
+                                override fun onResponse(
+                                    call: Call<ResponseCuratorFollowedData>,
+                                    response: Response<ResponseCuratorFollowedData>
+                                ) {
+                                    if (response.isSuccessful) {
+                                        if(response.body()!!.data) {
+                                            Log.d("구독", "구독됨")
+                                        }
+                                    }
 
+                                }
+                            })
+                        }
 
 
                         curatorKeywordAdapter = CuratorKeywordAdapter(applicationContext, body!!.data)

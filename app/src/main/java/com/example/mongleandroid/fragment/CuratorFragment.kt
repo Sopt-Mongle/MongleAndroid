@@ -13,9 +13,11 @@ import com.example.mongleandroid.adapter.CuratorInThemeAdapter
 import com.example.mongleandroid.adapter.CuratorRecommendAdapter
 import com.example.mongleandroid.network.RequestToServer
 import com.example.mongleandroid.network.SharedPreferenceController
+import com.example.mongleandroid.network.data.response.ResponseCuratorFollowedData
 import com.example.mongleandroid.network.data.response.ResponseCuratorInThemeData
 import com.example.mongleandroid.network.data.response.ResponseRecommendCuratorData
 import kotlinx.android.synthetic.main.fragment_curator.*
+import kotlinx.android.synthetic.main.item_result_curator.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -149,6 +151,7 @@ class CuratorFragment : Fragment() {
                             fragment_curator_rv_curator2.adapter = curatorInThemeAdapter2
                             curatorInThemeAdapter2.notifyDataSetChanged()
                         }
+
 
                     }
                 }
