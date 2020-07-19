@@ -8,17 +8,13 @@ data class ResponseWritingSentenceThemeSearchData (
 )
 
 
-//data class ThemeData(
-//    val themeIdx : Int,
-//    val theme : String,
-//    val themeImg : String,
-//    val saves : Int,
-//    val writer: String,
-//    val writerImg : String,
-//    val alreadyBookmarked : Boolean
-//)
-
 data class ThemeData(
+    val themeIdx : Int,
     val theme : String,
-    val themeImg : Int
+    val themeImg : String,
+    val themeImgIdx : Int,
+    val saves : Int,
+    val writer: String,
+    val writerImg : String,
+    val alreadyBookmarked : Boolean
 )

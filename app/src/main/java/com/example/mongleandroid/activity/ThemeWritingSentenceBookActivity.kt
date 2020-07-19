@@ -16,13 +16,14 @@ class ThemeWritingSentenceBookActivity : AppCompatActivity() {
         // 책 추가
         activity_theme_writing_sentence_book_tv_title.setOnClickListener {
             val intent = Intent(this, WritingSentenceBookSearchActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, 100)
             // 이거 아마 startActivityForResult로 바꿔야 함!!
         }
 
         activity_theme_writing_sentence_book_btn_out.setOnClickListener {
             finish()
         }
+
 
         // 책 제목 text가 없는 경우 경고창
         activity_theme_writing_sentence_book_btn_upload.setOnClickListener {
@@ -36,10 +37,27 @@ class ThemeWritingSentenceBookActivity : AppCompatActivity() {
                 activity_theme_writing_sentence_book_tv_title.background = getResources().getDrawable(R.drawable.et_area)
                 activity_theme_writing_sentence_book_img_warning.visibility = View.GONE
                 activity_theme_writing_sentence_book_tv_warning.visibility = View.GONE
+                val intent = Intent(this, WritingSentenceInThemeFinishActivity::class.java )
+                startActivity(intent)
             }
         }
 
+    }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 100) {
+            if( resultCode == 1) {
+                val title = data!!.getStringExtra("title")
+                val author = data!!.getStringExtra("author")
+                val publisher = data!!.getStringExtra("publisher")
 
+                activity_theme_writing_sentence_book_tv_title.setText(title)
+                activity_theme_writing_sentence_book_v_author.setText(author)
+                activity_theme_writing_sentence_book_v_publisher.setText(publisher)
+
+                activity_theme_writing_sentence_book_tv_hint.visibility = View.GONE
+            }
+        }
     }
 }

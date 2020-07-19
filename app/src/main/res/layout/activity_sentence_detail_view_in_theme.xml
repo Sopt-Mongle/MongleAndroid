@@ -54,6 +54,8 @@
                 android:layout_marginBottom="19dp"
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="9sp"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
                 android:text="브랜딩이 어려울 때, 영감을 주는 문장"
                 android:textColor="@color/white"
                 android:textSize="19sp"
@@ -78,6 +80,8 @@
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="8sp"
                 android:maxLength="280"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
                 android:text="처음 마주할 때의 인상, 사소한 것으로 인해 생기
 는 호감, 알아가면서 느끼는 다양한 감정과 머금
 고있는 풍경과 분위기까지. 처음 마주할 때의 인
@@ -122,11 +126,23 @@
                 android:layout_marginTop="12dp"
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="-1sp"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
                 android:text="몽글이"
                 android:textColor="#a7a7a7"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView18"
                 app:layout_constraintTop_toBottomOf="@+id/middle_line" />
+
+            <ImageView
+                android:id="@+id/img_sentence_detail_view_in_theme_edit_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="45dp"
+                android:src="@drawable/detailview_btn_edit"
+                app:layout_constraintEnd_toEndOf="@+id/middle_line"
+                app:layout_constraintTop_toTopOf="@+id/middle_line" />
 
             <ImageView
                 android:id="@+id/imageView19"
@@ -146,6 +162,8 @@
                 android:layout_marginTop="26dp"
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="8sp"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
                 android:text="책 정보"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -158,7 +176,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="15dp"
-                android:src="@drawable/detailview_img_profile"
+                android:src="@drawable/sentence_theme_o_ic_bookname"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
@@ -167,7 +185,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="11dp"
-                android:src="@drawable/detailview_img_profile"
+                android:src="@drawable/sentence_theme_o_ic_writer"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/imageView20" />
 
@@ -176,7 +194,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/detailview_img_profile"
+                android:src="@drawable/sentence_theme_o_ic_publisher"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/imageView21" />
 
@@ -188,6 +206,8 @@
                 android:layout_marginTop="12dp"
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="6sp"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
                 android:text="알리오 올리오 맛있드나 맛있드나나"
                 android:textColor="@color/black"
                 android:textSize="14sp"
@@ -202,6 +222,8 @@
                 android:layout_marginTop="7dp"
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="6sp"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
                 android:text="이예슬 이예슬 이예슬 이예슬이예슬"
                 android:textColor="@color/black"
                 android:textSize="14sp"
@@ -214,6 +236,8 @@
                 android:layout_marginTop="6dp"
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="6sp"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
                 android:text="몽글하우스 이예슬 이예슬이예슬이"
                 android:textColor="@color/black"
                 android:textSize="14sp"
@@ -258,6 +282,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="17dp"
         android:lineSpacingExtra="8sp"
+        android:fontFamily="@font/notosanscjkkr_demilight"
+        android:includeFontPadding="false"
         android:text="502"
         android:textColor="@color/very_light_pink_two"
         android:textSize="16sp"
@@ -290,6 +316,8 @@
         android:layout_marginStart="9dp"
         android:layout_marginTop="17dp"
         android:lineSpacingExtra="8sp"
+        android:fontFamily="@font/notosanscjkkr_demilight"
+        android:includeFontPadding="false"
         android:text="247"
         android:textColor="@color/very_light_pink_two"
         android:textSize="16sp"

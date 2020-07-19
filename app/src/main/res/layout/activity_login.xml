@@ -7,6 +7,70 @@
     tools:context=".activity.LoginActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView17"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="7sp"
+            android:text="에서"
+            android:textColor="#717171"
+            android:textSize="23sp"
+            app:layout_constraintStart_toEndOf="@+id/textView24"
+            app:layout_constraintTop_toBottomOf="@+id/imageView18" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:letterSpacing="-0.02"
+            android:text="책 속의 문장을\n수집해보세요"
+            android:textColor="#717171"
+            android:textSize="23sp"
+            app:layout_constraintStart_toStartOf="@+id/textView24"
+            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="7sp"
+            android:text="몽글"
+            android:textColor="#3e3e3e"
+            android:textSize="23sp"
+            app:layout_constraintStart_toStartOf="@+id/imageView18"
+            app:layout_constraintTop_toBottomOf="@+id/imageView18" />
+
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="58dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/login_img_marks" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -25,11 +89,12 @@
             android:layout_marginEnd="28dp"
             android:background="@drawable/et_area"
             android:ems="10"
-            android:hint="아이디를 입력해주세요."
             android:fontFamily="@font/notosanscjkkr_demilight"
+            android:hint="이메일을 입력해주세요."
             android:includeFontPadding="false"
             android:letterSpacing="-0.02"
             android:lineSpacingExtra="9sp"
+            android:maxLines="1"
             android:paddingLeft="16dp"
             android:paddingTop="12dp"
             android:paddingRight="16dp"
@@ -50,11 +115,12 @@
             android:background="@drawable/et_area"
             android:ems="10"
             android:fontFamily="@font/notosanscjkkr_demilight"
-            android:includeFontPadding="false"
             android:hint="비밀번호를 입력해주세요."
+            android:includeFontPadding="false"
             android:inputType="textPassword"
             android:letterSpacing="-0.02"
             android:lineSpacingExtra="9sp"
+            android:maxLines="1"
             android:paddingLeft="16dp"
             android:paddingTop="12dp"
             android:paddingRight="16dp"
@@ -114,16 +180,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/notosanscjkkr_demilight"
             android:gravity="center_horizontal"
+            android:includeFontPadding="false"
             android:letterSpacing="-0.02"
             android:lineSpacingExtra="14sp"
             android:paddingLeft="11dp"
             android:paddingTop="3dp"
             android:paddingRight="13dp"
             android:paddingBottom="5dp"
-            android:fontFamily="@font/notosanscjkkr_demilight"
-            android:includeFontPadding="false"
-            android:text="아이디 찾기"
+            android:text="이메일 찾기"
             android:textColor="@color/veryLightPink2"
             android:textSize="14sp"
             app:layout_constraintEnd_toStartOf="@+id/imageView16"
@@ -186,58 +252,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/login_img_mongle" />
-
-    <ImageView
-        android:id="@+id/imageView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="58dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/login_img_marks" />
-
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:letterSpacing="-0.02"
-        android:lineSpacingExtra="7sp"
-        android:textColor="#3e3e3e"
-        android:textSize="23sp"
-        android:fontFamily="@font/notosanscjkkr_regular"
-        android:includeFontPadding="false"
-        app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/imageView18"
-        android:text="몽글" />
-
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:letterSpacing="-0.02"
-        android:lineSpacingExtra="7sp"
-        android:textColor="#717171"
-        android:textSize="23sp"
-        android:fontFamily="@font/notosanscjkkr_regular"
-        android:includeFontPadding="false"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/imageView18"
-        android:text="에서" />
-
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:letterSpacing="-0.02"
-        android:textColor="#717171"
-        android:textSize="23sp"
-        android:fontFamily="@font/notosanscjkkr_regular"
-        android:includeFontPadding="false"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView24"
-        android:text="책 속의 문장을\n수집해보세요" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

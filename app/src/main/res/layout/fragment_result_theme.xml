@@ -61,7 +61,7 @@
                 android:lineSpacingExtra="1sp"
                 android:fontFamily="@font/notosanscjkkr_demilight"
                 android:includeFontPadding="false"
-                android:text="23"
+                android:text="0"
                 android:textColor="#565656"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView8"

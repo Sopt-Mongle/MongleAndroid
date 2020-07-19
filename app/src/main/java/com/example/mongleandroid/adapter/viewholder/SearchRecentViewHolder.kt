@@ -7,9 +7,9 @@ import com.example.mongleandroid.R
 import com.example.mongleandroid.network.data.response.ResponseSearchRecentData
 
 class SearchRecentViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
-    val tv_recent_keyword = itemView.findViewById<TextView>(R.id.tv_recent_keyword)
+    val datas = itemView.findViewById<TextView>(R.id.tv_recent_keyword)
 
-    fun bind(responseSearchRecentData: ResponseSearchRecentData){
-        tv_recent_keyword.text = responseSearchRecentData.tv_recent_keyword
+    fun bind(data: String){
+        datas.text = data
     }
 }

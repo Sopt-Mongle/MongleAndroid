@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="16dp"
+    android:paddingBottom="56dp"
+    tools:context=".fragment.LibraryFragment">
+
+    <com.example.mongleandroid.NewScrollView
+        android:id="@+id/main_scroll_view_cura_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:stickyHeader="@+id/cl_titleLayout">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_library_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="@id/main_scroll_view"
+            app:layout_constraintLeft_toLeftOf="@id/main_scroll_view"
+            app:layout_constraintRight_toRightOf="@id/main_scroll_view"
+            app:layout_constraintTop_toTopOf="@id/main_scroll_view"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/const1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0">
+
+
+                <ImageView
+                    android:id="@+id/img_library_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/my_theme_bookmark_setting"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_library_profile"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="17dp"
+                    android:src="@drawable/img_9633"
+                    app:layout_constraintBottom_toTopOf="@id/tx_library_username"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_library_setting" />
+
+                <TextView
+                    android:id="@+id/tx_library_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="-2sp"
+                    android:text="몽그리"
+                    android:textColor="#565656"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_library_profile" />
+
+
+                <TextView
+                    android:id="@+id/tx_library_contents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="1sp"
+                    android:text="감성자극"
+                    android:textColor="#a7a7a7"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tx_library_username" />
+
+
+                <TextView
+                    android:id="@+id/tx_library_keyword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="5sp"
+                    android:text="저는 몽글의 몽글몽글한 마스코트인  몽글이에요:):)"
+                    android:textColor="#bcbcbc"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tx_library_contents" />
+
+                <CheckBox
+                    android:id="@+id/cb_curator_subs_info"
+                    android:layout_width="66dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/btn_subscribe"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="@string/subscribe"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/tx_library_keyword"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_titleLayout"
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:background="#ffffff"
+                app:layout_constraintBottom_toTopOf="@id/vp_curator_info"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/const1">
+
+                <TextView
+                    android:id="@+id/tv_thema_num_cu_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="14sp"
+                    android:text="47"
+                    android:textColor="@color/softGreen"
+                    android:textSize="29sp"
+                    app:layout_constraintBottom_toTopOf="@id/tv_thema_cu_info"
+                    app:layout_constraintLeft_toLeftOf="@id/cl_titleLayout"
+                    app:layout_constraintRight_toLeftOf="@id/tv_sentence_num_cu_info"
+                    app:layout_constraintTop_toTopOf="@id/cl_titleLayout"
+                    app:layout_constraintVertical_bias="1"/>
+
+                <TextView
+                    android:id="@+id/tv_thema_cu_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="6sp"
+                    android:text="테마"
+                    android:textColor="@color/softGreen"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/tv_thema_num_cu_info"
+                    app:layout_constraintRight_toRightOf="@id/tv_thema_num_cu_info"
+                    app:layout_constraintTop_toBottomOf="@id/tv_thema_num_cu_info" />
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="35dp"
+                    android:background="#e7e7e7"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_sentence_num_cu_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="14sp"
+                    android:text="29"
+                    android:textColor="@color/very_light_pink_two"
+                    android:textSize="29sp"
+                    app:layout_constraintBottom_toTopOf="@id/tv_sentence_cu_info"
+                    app:layout_constraintLeft_toRightOf="@id/tv_thema_num_cu_info"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cl_titleLayout"
+                    app:layout_constraintVertical_bias="1"/>
+
+                <TextView
+                    android:id="@+id/tv_sentence_cu_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="6sp"
+                    android:text="문장"
+                    android:textColor="@color/very_light_pink_two"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/tv_sentence_num_cu_info"
+                    app:layout_constraintRight_toRightOf="@id/tv_sentence_num_cu_info"
+                    app:layout_constraintTop_toBottomOf="@id/tv_sentence_num_cu_info" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.example.mongleandroid.NonSwipeableViewPager
+                android:id="@+id/vp_curator_info"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cl_titleLayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.example.mongleandroid.NewScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

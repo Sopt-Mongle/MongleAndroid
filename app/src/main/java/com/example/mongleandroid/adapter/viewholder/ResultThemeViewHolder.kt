@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.activity.MainActivity
-import com.example.mongleandroid.network.data.response.ResponseResultThemeData
+import com.example.mongleandroid.network.data.response.ResultTheme
 
 
 class ResultThemeViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
@@ -19,9 +19,9 @@ class ResultThemeViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
     val saves = itemView.findViewById<TextView>(R.id.result_theme_tv_bookmark)
     val sentenceNum = itemView.findViewById<TextView>(R.id.result_theme_tv_sentence_count)
 
-    fun bind(responseResultThemeData: ResponseResultThemeData){
-        saves.text = responseResultThemeData.saves
-        sentenceNum.text = responseResultThemeData.sentenceNum
+    fun bind(resultTheme : ResultTheme){
+        saves.text = resultTheme.saves.toString()
+        sentenceNum.text = resultTheme.sentenceNum.toString()
 
         val inputString = MainActivity.search_result
         val sb = StringBuilder(inputString)
@@ -29,10 +29,10 @@ class ResultThemeViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
         val endWord = sb.get(sb.lastIndex)
         Log.d("index","startWord : ${startWord}, endWord ${endWord}")
 
-        val startIndex = responseResultThemeData.theme.indexOf(startWord)
-        val lastIndex = responseResultThemeData.theme.indexOf(endWord)
+        val startIndex = resultTheme.theme.indexOf(startWord)
+        val lastIndex = resultTheme.theme.indexOf(endWord)
         Log.d("index","startIndex : ${startIndex}, lastIndex ${lastIndex}")
-        val spannable = SpannableStringBuilder(responseResultThemeData.theme)
+        val spannable = SpannableStringBuilder(resultTheme.theme)
 
         if(inputString.length == lastIndex - startIndex + 1) {
             spannable.setSpan(

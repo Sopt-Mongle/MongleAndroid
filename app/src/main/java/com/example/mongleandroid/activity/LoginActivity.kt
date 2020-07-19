@@ -1,17 +1,21 @@
 package com.example.mongleandroid.activity
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.view.inputmethod.InputMethodManager.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mongleandroid.R
 import com.example.mongleandroid.network.RequestToServer
+import com.example.mongleandroid.network.SharedPreferenceController
 import com.example.mongleandroid.network.customEnqueue
 import com.example.mongleandroid.network.data.request.RequestLoginData
 import com.example.mongleandroid.util.DialogLogin
-import kotlinx.android.synthetic.main.activity_join.*
 import kotlinx.android.synthetic.main.activity_login.*
+import android.view.inputmethod.InputMethodManager.RESULT_SHOWN as RESULT_SHOWN1
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -20,6 +24,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
 
         activity_login_tv_join.setOnClickListener {
             val intent = Intent(this, JoinActivity::class.java)
@@ -48,7 +53,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         dlg.start("")
                     },
                     onSuccess = {
+
                         if(it.status == 200) {
+
+                            Log.e("토큰", " ${it}")
+                            SharedPreferenceController.setAccessToken(applicationContext, it.data.accessToken)
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                             finish()

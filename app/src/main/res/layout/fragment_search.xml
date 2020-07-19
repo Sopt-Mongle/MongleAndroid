@@ -63,13 +63,14 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_recent_keyword"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginTop="15dp"
             android:clipToPadding="false"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingEnd="7dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/textView7"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6"
@@ -108,7 +109,7 @@
 
         <com.nex3z.flowlayout.FlowLayout
             android:layout_width="0dp"
-            android:layout_height="90dp"
+            android:layout_height="94dp"
             android:layout_marginTop="12dp"
             app:flChildSpacing="8dp"
             app:flChildSpacingForLastRow="align"
@@ -123,11 +124,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/search_recommend_keyword"
-                android:letterSpacing="-0.02"
-                android:lineSpacingExtra="8sp"
                 android:fontFamily="@font/notosanscjkkr_demilight"
                 android:includeFontPadding="false"
-                android:text="TextView"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
                 android:textColor="#69af7c"
                 android:textSize="16sp" />
 
@@ -136,11 +137,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/search_recommend_keyword"
-                android:letterSpacing="-0.02"
-                android:lineSpacingExtra="8sp"
                 android:fontFamily="@font/notosanscjkkr_demilight"
                 android:includeFontPadding="false"
-                android:text="TextView"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
                 android:textColor="#69af7c"
                 android:textSize="16sp" />
 
@@ -149,11 +150,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/search_recommend_keyword"
-                android:letterSpacing="-0.02"
-                android:lineSpacingExtra="8sp"
                 android:fontFamily="@font/notosanscjkkr_demilight"
                 android:includeFontPadding="false"
-                android:text="TextView"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
                 android:textColor="#69af7c"
                 android:textSize="16sp" />
 
@@ -162,11 +163,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/search_recommend_keyword"
-                android:letterSpacing="-0.02"
-                android:lineSpacingExtra="8sp"
                 android:fontFamily="@font/notosanscjkkr_demilight"
                 android:includeFontPadding="false"
-                android:text="TextView"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
                 android:textColor="#69af7c"
                 android:textSize="16sp" />
 
@@ -175,11 +176,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/search_recommend_keyword"
-                android:letterSpacing="-0.02"
-                android:lineSpacingExtra="8sp"
                 android:fontFamily="@font/notosanscjkkr_demilight"
                 android:includeFontPadding="false"
-                android:text="TextView"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
                 android:textColor="#69af7c"
                 android:textSize="16sp" />
 
@@ -188,11 +189,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/search_recommend_keyword"
-                android:letterSpacing="-0.02"
-                android:lineSpacingExtra="8sp"
                 android:fontFamily="@font/notosanscjkkr_demilight"
                 android:includeFontPadding="false"
-                android:text="TextView"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
                 android:textColor="#69af7c"
                 android:textSize="16sp" />
 
@@ -201,11 +202,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/search_recommend_keyword"
-                android:letterSpacing="-0.02"
-                android:lineSpacingExtra="8sp"
                 android:fontFamily="@font/notosanscjkkr_demilight"
                 android:includeFontPadding="false"
-                android:text="TextView"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
                 android:textColor="#69af7c"
                 android:textSize="16sp" />
 
@@ -214,11 +215,102 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/search_recommend_keyword"
-                android:letterSpacing="-0.02"
-                android:lineSpacingExtra="8sp"
                 android:fontFamily="@font/notosanscjkkr_demilight"
                 android:includeFontPadding="false"
-                android:text="TextView"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
+                android:textColor="#69af7c"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recommend_keyword15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_recommend_keyword"
+                android:fontFamily="@font/notosanscjkkr_demilight"
+                android:includeFontPadding="false"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="8sp"
+                android:text=""
                 android:textColor="#69af7c"
                 android:textSize="16sp" />
 

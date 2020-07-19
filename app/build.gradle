@@ -40,7 +40,7 @@ dependencies {
     // material 디자인 라이브러리
     implementation "com.google.android.material:material:1.2.0-alpha05"
     // 이미지 url 로딩 라이브러리
-    implementation "com.github.bumptech.glide:glide:4.10.0"
+    implementation "com.github.bumptech.glide:glide:4.11.0"
     // 동그란 이미지 커스텀 뷰 라이브러리
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     // Retrofit 라이브러리
@@ -53,4 +53,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
     // 추천 키워드 flowlayout
     implementation 'com.nex3z:flow-layout:1.2.4'
+    //sticky header
+    implementation 'com.github.amarjain07:StickyScrollView:1.0.2'
+    // Coordinator 사용 라이브러리
+    implementation 'com.android.support:support-annotations:27.1.1'
+
 }

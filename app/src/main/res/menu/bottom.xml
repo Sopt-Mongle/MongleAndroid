@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_main"
-        android:title="메인"
-        android:icon="@drawable/ic_launcher_background"
+        android:title=""
+        android:icon="@drawable/navigation_bar_1_ic_main"
         />
     <item
         android:id="@+id/menu_search"
-        android:title="검색"
-        android:icon="@drawable/ic_launcher_background"
+        android:title=""
+        android:icon="@drawable/navigation_bar_1_ic_search"
         />
     <item
         android:id="@+id/action_empty"
@@ -18,12 +18,12 @@
         />
     <item
         android:id="@+id/menu_curator"
-        android:title="큐레이터"
-        android:icon="@drawable/ic_launcher_background"
+        android:title=""
+        android:icon="@drawable/navigation_bar_1_ic_curator"
         />
     <item
         android:id="@+id/menu_mypage"
-        android:title="내 서재"
-        android:icon="@drawable/ic_launcher_background"
+        android:title=""
+        android:icon="@drawable/navigation_bar_1_ic_my"
         />
     </menu>

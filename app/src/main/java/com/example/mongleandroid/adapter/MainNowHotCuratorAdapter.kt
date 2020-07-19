@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.adapter.viewholder.NowHotCuratorViewHolder
-import com.example.mongleandroid.network.data.MainNowHotCuratorData
+import com.example.mongleandroid.network.data.response.MainCurator
 
-class MainNowHotCuratorAdapter (var datas: List<MainNowHotCuratorData>, val context: Context) : RecyclerView.Adapter<NowHotCuratorViewHolder>(){
+
+class MainNowHotCuratorAdapter (var datas: List<MainCurator>, val context: Context) : RecyclerView.Adapter<NowHotCuratorViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NowHotCuratorViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_main_now_hot_curator,parent,false)
         return NowHotCuratorViewHolder(view)

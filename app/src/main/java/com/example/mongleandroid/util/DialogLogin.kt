@@ -9,7 +9,6 @@ import android.view.Window
 import android.widget.TextView
 import com.example.mongleandroid.R
 import com.example.mongleandroid.activity.JoinActivity
-import com.example.mongleandroid.activity.LoginActivity
 
 class DialogLogin(context : Context) {
     private val dlg = Dialog(context)   //부모 액티비티의 context 가 들어감

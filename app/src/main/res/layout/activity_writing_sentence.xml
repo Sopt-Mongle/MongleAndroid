@@ -67,6 +67,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
@@ -363,12 +364,6 @@
                     app:layout_constraintBottom_toBottomOf="@+id/activity_writing_sentence_img_book_warning"
                     app:layout_constraintStart_toEndOf="@+id/activity_writing_sentence_img_book_warning"
                     app:layout_constraintTop_toTopOf="@+id/activity_writing_sentence_img_book_warning" />
-
-
-
-
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -376,8 +371,6 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
         <TextView
             android:id="@+id/activity_writing_sentence_tv_7"
             android:layout_width="wrap_content"
@@ -396,6 +389,9 @@
             android:layout_height="46dp"
             android:background="@drawable/et_area_invalid"
             android:layout_marginTop="9dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:gravity="center_vertical"
             app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_tv_7"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -418,6 +414,9 @@
             android:layout_height="46dp"
             android:background="@drawable/et_area_invalid"
             android:layout_marginTop="9dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:gravity="center_vertical"
             app:layout_constraintTop_toBottomOf="@+id/activity_writing_sentence_tv_8"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -451,7 +450,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"
+        android:visibility="visible"
         >
 
         <TextView
@@ -619,7 +618,7 @@
             android:id="@+id/activity_writing_sentence_img_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/mgm_2"
+            android:src="@drawable/theme_writing_sentence_finish_img_sentence"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.WritingSentenceInThemeFinishActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:src="@drawable/theme_writing_sentence_finish_img_sentence"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:gravity="center_horizontal"
+        android:includeFontPadding="false"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="6sp"
+        android:text="문장이 등록되었습니다!"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView23" />
+
+    <TextView
+        android:id="@+id/textView51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/notosanscjkkr_demilight"
+        android:gravity="center_horizontal"
+        android:includeFontPadding="false"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="6sp"
+        android:text="몽글이님의 문장으로"
+        android:textColor="@color/very_light_pink_two"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView50" />
+
+    <TextView
+        android:id="@+id/textView52"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/notosanscjkkr_demilight"
+        android:gravity="center_horizontal"
+        android:includeFontPadding="false"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="6sp"
+        android:text="몽글이 더욱 풍부해졌어요!"
+        android:textColor="@color/very_light_pink_two"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView51" />
+
+    <TextView
+        android:id="@+id/textView53"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/btn_green"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="문장 확인하러 가기"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView23"
+        app:layout_constraintStart_toStartOf="@+id/imageView23"
+        app:layout_constraintTop_toBottomOf="@+id/textView52" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/btn_green"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="메인으로 돌아가기"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView53"
+        app:layout_constraintStart_toStartOf="@+id/textView53"
+        app:layout_constraintTop_toBottomOf="@+id/textView53" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
